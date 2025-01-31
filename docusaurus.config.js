@@ -89,12 +89,6 @@ const config = {
             position: 'left',
             label: 'Tutorial1',
           },
-          {
-            type: 'docSidebar',
-            sidebarId: 'myothersidebar',
-            position: 'left',
-            label: 'other Stuff',
-          },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/vascoalexander',
