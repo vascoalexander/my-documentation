@@ -91,9 +91,9 @@ const config = {
           },
           {
             type: 'docSidebar',
-            sidebarId: 'tutorial2Sidebar',
+            sidebarId: 'myothersidebar',
             position: 'left',
-            label: 'Tutorial2',
+            label: 'other Stuff',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
