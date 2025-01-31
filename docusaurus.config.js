@@ -85,13 +85,19 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'tutorial1Sidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Tutorial1',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'tutorial2Sidebar',
+            position: 'left',
+            label: 'Tutorial2',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/vascoalexander',
             label: 'GitHub',
             position: 'right',
           },
