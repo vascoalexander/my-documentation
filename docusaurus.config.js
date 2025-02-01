@@ -11,7 +11,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'MyDevNotes',
-  tagline: 'Coding is Cool',
+  tagline: '"The best way to predict the future is to invent it." - Alan Kay',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
