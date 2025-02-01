@@ -7,6 +7,8 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
+import Admonition from '@theme/Admonition';
+
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (

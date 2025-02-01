@@ -62,6 +62,11 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
+      },
       navbar: {
         title: 'DevNotes',
         logo: {
@@ -71,15 +76,39 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar1',
+            sidebarId: 'grundlagenSidebar',
             position: 'left',
-            label: 'Kategorie 1',
+            label: 'Grundlagen',
           },
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar2',
+            sidebarId: 'sprachenSidebar',
             position: 'left',
-            label: 'Kategorie 2',
+            label: 'Sprachen',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'infrastrukturSidebar',
+            position: 'left',
+            label: 'Infrastruktur',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'devopsSidebar',
+            position: 'left',
+            label: 'DevOps',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'frameworksSidebar',
+            position: 'left',
+            label: 'Frameworks & Libraries',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'resourcenSidebar',
+            position: 'left',
+            label: 'Resourcen & Tools',
           },
           {
             href: 'https://github.com/vascoalexander',
@@ -95,33 +124,33 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Fundamentals',
-                href: 'https://www.vascobasque.com/',
+                label: 'Grundlagen',
+                to: '/docs/category/konzepte--paradigmen',
               },
               {
                 label: 'Sprachen',
-                href: 'https://www.vascobasque.com/',
+                href: '/docs/category/python',
               },
               {
-                label: 'Frameworks & Libraries',
-                href: 'https://www.vascobasque.com/',
+                label: 'Infrastruktur',
+                href: '/docs/category/datenbanken',
               },
             ],
           },
           {
-            title: 'More...',
+            title: 'more...',
             items: [
               {
-                label: 'Tools',
-                href: 'https://www.vascobasque.com/',
+                label: 'DevOps',
+                href: '/docs/category/git',
               },
               {
-                label: 'Daten & Netzwerke',
-                href: 'https://www.vascobasque.com/',
+                label: 'Frameworks & Libraries',
+                href: '/docs/category/net',
               },
               {
-                label: 'Resources',
-                href: 'https://www.vascobasque.com/',
+                label: 'Resourcen & Tools',
+                href: '/docs/category/cheatsheets',
               },
             ],
           },
