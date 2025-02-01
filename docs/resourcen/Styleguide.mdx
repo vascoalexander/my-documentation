@@ -1,0 +1,236 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import TOCInline from '@theme/TOCInline';
+
+### Headings
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+#### Heading IDs
+```
+// ## Hello World -> generated ID = hello-world
+[link](#heading-id)
+```
+
+### Emphasis
+
+**Bold Text**  
+*Italic Text*  
+~~Strikethrough~~   
+`This is a codeline`
+
+### Paragraph
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+### Lists
+
+1. number one
+2. number two
+3. number three
+	1. indented 1
+	2. indented 2
+		- bullet 1
+		- bullet 2
+		- bullet 3
+		- bullet 4
+
+- bulletlist
+	- subbullet 1
+	- subbullet 2
+
+- [ ] Checklist 1
+- [ ] Checklist 2
+- [ ] Checklist 3
+
+### Codeblocks
+
+```python title="Codeblock with line numbers and Title" showLineNumbers
+# This is a codeblock
+def add(*stuff):
+    sum = 0
+    stuff = list(stuff)
+    stuff[0] = 0
+    for i in stuff:
+        sum += i
+    return sum
+
+print(add(1,2,3,4,5,6))
+```
+
+### Quote
+
+> people, meetings, projects, sources  
+> code snippets, cheat sheets, project doku  
+> ideen, 
+
+### Tables
+
+| Shortcut Key (General) | Functions                    | Shortcut Key (Editing)                    | Functions                             |
+| ---------------------- | ---------------------------- | ----------------------------------------- | ------------------------------------- |
+| Ctrl + S               | Editor: Saves the file       | Ctrl + B                                  | Bold Selected Text                    |
+| Ctrl + N               | Creates a new note           | Ctrl + I                                  | Italicize Selected Text               |
+| Ctrl + P               | Open command pallete         | Ctrl + K                                  | Insert External Link to Selected Text |
+| Ctrl + O               | Opens Quick Switcher         | Ctrl + ]                                  | Indent                                |
+| Ctrl + Shift + F       | Search in all files          | Ctrl + [                                  | Unindent                              |
+| Ctrl + G               | Opens graph view             | Ctrl + D                                  | Delete current line                   |
+| Ctrl + Alt + ←         | Navigate Back                | Ctrl + V                                  | Duplicate current line                |
+| Ctrl + Alt + →         | Navigate forth               | Ctrl + Click                              | Open Note in Current Panel via Link   |
+| Ctrl + F               | Searches current file        | Ctrl + Shift + Click                      | Open Note in New Panel via Link       |
+| Ctrl + E               | Toggle edit/preview modes    | Ctrl + N (Cmd + N on Mac)                 | New Note                              |
+| Ctrl + ,               | Open Settings                | Ctrl + Shift + D (Cmd + Shift + D on Mac) | Create a Daily Note                   |
+| Ctrl + Tab             | Next tab                     | Ctrl + / (Cmd + / on Mac)                 | Toggle Command Palette                |
+| Ctrl + Shift + Tab     | Previous tab                 | Ctrl + E (Cmd + E on Mac)                 | Open Graph View                       |
+| Alt + Tab              | Next App                     | Ctrl + Click (Cmd + Click on Mac)         | Open Link in New Pane                 |
+| Alt + Shift + Tab      | Previous App                 |                                           |                                       |
+| Win + Tab              | Task View                    |                                           |                                       |
+| Win + Shift + Tab      | Next Window                  |                                           |                                       |
+  
+### Callouts
+
+:::note[Optional Title **with** some _Markdown_ `syntax`!]
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#paragraph).
+
+:::
+
+:::tip
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+
+:::info
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+
+:::warning
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+
+:::danger
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+
+### Nested Callouts
+
+:::::info[Parent]  
+  
+Parent content  
+  
+::::danger[Child]  
+  
+Child content  
+  
+:::tip[Deep Child]  
+  
+Deep child content  
+  
+:::  
+  
+::::  
+  
+:::::
+
+### Collabsible
+
+<details>  
+<summary>Toggle me!</summary>  
+  
+This is the detailed content  
+  
+```js  
+console.log("Markdown features including the code block are available");  
+```  
+  
+You can use Markdown here including **bold** and _italic_ text, and [inline link](https://docusaurus.io)  
+<details>  
+<summary>Nested toggle! Some surprise inside...</summary>  
+  
+😲😲😲😲😲  
+</details>  
+</details>
+
+### Tabs (mdx)
+[Tabs Documentation](https://docusaurus.io/docs/markdown-features/tabs)
+
+<Tabs>
+  <TabItem value="apple" label="Apple" default>
+    This is an apple 🍎
+  </TabItem>
+  <TabItem value="orange" label="Orange">
+    This is an orange 🍊
+  </TabItem>
+  <TabItem value="banana" label="Banana">
+    This is a banana 🍌
+  </TabItem>
+</Tabs>
+
+#### Tabs in Callouts
+
+:::tip[Tabs]
+
+<Tabs>
+  <TabItem value="apple" label="Apple" default>
+    This is an apple 🍎
+  </TabItem>
+  <TabItem value="orange" label="Orange">
+    This is an orange 🍊
+  </TabItem>
+  <TabItem value="banana" label="Banana">
+    This is a banana 🍌
+  </TabItem>
+</Tabs>
+
+:::
+
+#### Tabs with Codeblocks
+
+<Tabs>
+  <TabItem value="python" label="Python" default>
+	```python
+	# This is a codeblock
+	def add(*stuff):
+		sum = 0
+		stuff = list(stuff)
+		stuff[0] = 0
+		for i in stuff:
+			sum += i
+		return sum
+
+	print(add(1,2,3,4,5,6))
+	```
+  </TabItem>
+  <TabItem value="csharp" label="C#">
+	```clike
+	// A clike Codeblock
+	for (int i = 1; i < 21; i++)
+	{
+		Console.Write($"{i} ");
+	}
+	```
+  </TabItem>
+</Tabs>
+
+### Inline TOC (mdx)
+
+<TOCInline toc={toc} />
+
+### Mermaid Diagrams
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
