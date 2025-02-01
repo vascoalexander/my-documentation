@@ -10,7 +10,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Documentation',
+  title: 'MyDevNotes',
   tagline: 'Coding is Cool',
   favicon: 'img/favicon.ico',
 
@@ -49,21 +49,7 @@ const config = {
           editUrl:
             'https://github.com/vascoalexander/my-documentation/tree/main/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/vascoalexander/my-documentation/tree/main/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -77,10 +63,10 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'DevNotes',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo.png',
         },
         items: [
           {
@@ -95,7 +81,6 @@ const config = {
             position: 'left',
             label: 'Kategorie 2',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/vascoalexander',
             label: 'GitHub',
@@ -110,43 +95,55 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/category_2/more_stuff',
+                label: 'Fundamentals',
+                href: 'https://www.vascobasque.com/',
+              },
+              {
+                label: 'Sprachen',
+                href: 'https://www.vascobasque.com/',
+              },
+              {
+                label: 'Frameworks & Libraries',
+                href: 'https://www.vascobasque.com/',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'More...',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Tools',
+                href: 'https://www.vascobasque.com/',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Daten & Netzwerke',
+                href: 'https://www.vascobasque.com/',
               },
               {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
+                label: 'Resources',
+                href: 'https://www.vascobasque.com/',
               },
             ],
           },
           {
-            title: 'More',
+            title: 'My Sites',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/vascoalexander',
+              },
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/vasco-alexander-basque-a9179383/',
+              },
+              {
+                label: 'Portfolio',
+                href: 'https://www.vascobasque.com/',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Vasco Alexander Basque - Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
