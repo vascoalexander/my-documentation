@@ -4,32 +4,34 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Think',
+    Svg: require('@site/static/img/think.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Erfolgreiche Projekte beginnen mit einer klaren Idee und einer fundierten Strategie. 
+        Bereits in der Konzeptionsphase werden Ziele definiert und erste Ansätze skizziert, 
+        die den Grundstein für eine nachhaltige Umsetzung legen.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Research',
+    Svg: require('@site/static/img/research.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Die fundierte Analyse von Technologien, Best Practices und existierenden Lösungen ist essenziell. 
+        Durch kontinuierliche Recherche werden Herausforderungen frühzeitig erkannt und effektive Lösungswege identifiziert.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Build',
+    Svg: require('@site/static/img/build.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Die Umsetzung erfolgt in iterativen Schritten, in denen Konzept und Code stetig verfeinert werden. 
+        Ein strukturierter Entwicklungsprozess sorgt dafür, dass das Endprodukt nicht nur funktional, 
+        sondern auch zukunftssicher und wartbar ist.
       </>
     ),
   },

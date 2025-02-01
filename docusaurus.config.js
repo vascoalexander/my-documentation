@@ -36,7 +36,7 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  
+
   markdown: {
     mermaid: true,
   },
@@ -67,11 +67,6 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/logo.png',
-      docs: {
-        sidebar: {
-          hideable: true,
-        },
-      },
       navbar: {
         title: 'DevNotes',
         logo: {
@@ -123,7 +118,7 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
           {
             title: 'Docs',
