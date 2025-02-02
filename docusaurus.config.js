@@ -40,6 +40,8 @@ const config = {
   markdown: {
     mermaid: true,
   },
+    // ...
+  plugins: [require.resolve('docusaurus-lunr-search')],
   themes: ['@docusaurus/theme-mermaid'],
 
   presets: [
@@ -125,7 +127,7 @@ const config = {
             items: [
               {
                 label: 'Grundlagen',
-                to: '/docs/category/konzepte--paradigmen',
+                to: '/docs/category/konzepte',
               },
               {
                 label: 'Sprachen',
