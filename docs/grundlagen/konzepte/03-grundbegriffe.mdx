@@ -207,12 +207,165 @@ class Person:
 ```
 
 ### Objekt
-Ein Objekt ist eine Instanz einer Klasse. Es repräsentiert ein spezifisches Exemplar der Klasse und hat Attribute (Daten) und Methoden (Funktionen).
+Ein Objekt ist eine **Instanz einer Klasse**. Es repräsentiert ein spezifisches Exemplar der Klasse und hat Attribute (Daten) und Methoden (Funktionen).
 
 ```python title="Ein Objekt der Klasse Person (s.o.)"
 person1 = Person("Alice", 30)
 person1.greet()
 ```
+
+### Konstruktor
+Ein Konstruktor ist eine spezielle Methode innerhalb einer Klasse, die beim **Erstellen eines Objekts** automatisch aufgerufen wird.
+
+- Initialisiert ein Objekt in einem definierten Anfangszustand (z. B. setzt Standardwerte).
+- Reserviert benötigte Resourcen, sofern diese zum Zeitpunkt der Objekterstellung bereits bekannt sind.
+
+<details>
+<summary>**Konstruktoren in C#**</summary>
+
+<Tabs>
+  <TabItem value="csharp-einfach" label="Einfach" default>
+    ```c
+    using System;
+
+    class Person {
+        public string Name;
+        public int Age;
+
+        // Konstruktor
+        public Person(string name, int age) {
+            Name = name;
+            Age = age;
+        }
+
+        public void Greet() {
+            Console.WriteLine($"Hallo, mein Name ist {Name} und ich bin {Age} Jahre alt.");
+        }
+    }
+
+    class Program {
+        static void Main() {
+            Person p = new Person("Max", 30);  // Konstruktor wird aufgerufen
+            p.Greet();
+        }
+    }
+    ```
+  </TabItem>
+  <TabItem value="csharp-ueberladung" label="Mehrere (Überladung)">
+    ```c
+    // man kann mehrere Konstruktoren mit verschiedenen Parametern
+    // definieren (Konstruktor Überladung)
+    class Person {
+        public string Name;
+        public int Age;
+
+        // Konstruktor 1
+        public Person(string name, int age) {
+            Name = name;
+            Age = age;
+        }
+
+        // Konstruktor 2 (Standardwerte)
+        public Person() {
+            Name = "Unbekannt";
+            Age = 0;
+        }
+    }
+
+    class Program {
+        static void Main() {
+            Person p1 = new Person("Anna", 25);
+            Person p2 = new Person();  // Standardwerte werden gesetzt
+
+            Console.WriteLine($"{p1.Name}, {p1.Age} Jahre");
+            Console.WriteLine($"{p2.Name}, {p2.Age} Jahre");
+        }
+    }
+    ```
+  </TabItem>
+    <TabItem value="csharp-this" label="Aufruf mit this">
+    ```c
+    class Beispiel
+    {
+        // Konstruktor ohne Parameter, der den anderen Konstruktor mit this(..., ...) aufruft
+        public Beispiel() : this("Heute ist der ", DateTime.Today)
+        {
+        }
+        
+        // Konstruktor mit zwei Parametern
+        public Beispiel(string text, DateTime datum)
+        {
+            Console.WriteLine(text + datum.ToShortDateString());
+        }
+        
+        // Hauptmethode
+        public static void Main(string[] args)
+        {
+            Beispiel beispiel1 = new Beispiel("Morgen ist der ", DateTime.Today.AddDays(1));
+            // Aufruf des ersten Konstruktors
+            // Ausgabe: Morgen ist der {dd.MM.yyyy}
+            
+            Beispiel beispiel2 = new Beispiel();
+            // Aufruf des zweiten Konstruktors
+            // Ausgabe: Heute ist der {dd.MM.yyyy}
+        }
+    }
+    ```
+  </TabItem>
+</Tabs>
+</details>
+
+<details>
+<summary>**Konstruktoren in Python**</summary>
+
+
+<Tabs>
+  <TabItem value="python-einfach" label="Einfach" default>
+    ```python
+    class Person:
+        def __init__(self, name, age):  # Konstruktor
+            self.name = name
+            self.age = age
+
+        def greet(self):
+            print(f"Hallo, mein Name ist {self.name} und ich bin {self.age} Jahre alt.")
+
+    # Objekterstellung
+    p = Person("Max", 30)  # Konstruktor wird automatisch aufgerufen
+    p.greet()
+    ```
+  </TabItem>
+  <TabItem value="python-default" label="Default Parameter">
+    ```python
+    class Person:
+        def __init__(self, name="Unbekannt", age=0):
+            self.name = name
+            self.age = age
+
+    p1 = Person("Anna", 25)
+    p2 = Person()  # Standardwerte werden genutzt
+
+    print(f"{p1.name}, {p1.age} Jahre")
+    print(f"{p2.name}, {p2.age} Jahre")
+    ```
+  </TabItem>
+    <TabItem value="python-super" label="Vererbung mit super()">
+    ```python
+    class Animal:
+        def __init__(self, species):
+            self.species = species
+
+    class Dog(Animal):
+        def __init__(self, name):
+            super().__init__("Hund")  # Ruft den Konstruktor der Elternklasse auf
+            self.name = name
+
+    d = Dog("Bello")
+    print(f"{d.name} ist ein {d.species}.")
+    ```
+  </TabItem>
+</Tabs>
+</details>
 
 ### Iterator
 Ein Iterator ist ein Objekt, das eine Sequenz von Elementen einen nach dem anderen zurückgibt, ohne alle Elemente gleichzeitig im Speicher zu halten.
@@ -310,7 +463,26 @@ Ein Generator ist eine spezielle Funktion, die Iteratoren erstellt.
 ### Dekorator
 Ein Dekorator ist ein Entwurfsmuster (Strukturmuster), mit dem eine Funktion, Methode oder Klasse zur Laufzeit verändert oder erweitert werden kann, ohne ihren eigentlichen Code zu ändern. Das Muster stellt eine flexible Alternative zur Unterklassenbildung dar, um eine Klasse um zusätzliche Funktionalitäten zu erweitern.
 
-### Konstruktor
+- In Python gibt es native Dekoratoren (@decorator), um Funktionen zu modifizieren.
+- In C# nutzt man **Attribute** ([Attribute]) **oder Wrapper-Klassen** für ähnliche Funktionalität.
+
+```python title="Ein Dekorator in Python"
+# my_decorator nimmt eine Funktion (func) als Argument
+# der wrapper führt zusätzlichen Code vor und nach der Funktion aus
+# @my_decorator wendet die Modifikation auf say_hello() an
+def my_decorator(func):
+    def wrapper():
+        print("Vor der Funktion")
+        func()
+        print("Nach der Funktion")
+    return wrapper
+
+@my_decorator  # Das ist der Dekorator
+def say_hello():
+    print("Hallo!")
+
+say_hello()
+```
 
 ### Keywords (C#)
 Grundlegende Keywords für das Arbeiten mit Klassen in C#.
