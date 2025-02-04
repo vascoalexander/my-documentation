@@ -1,8 +1,8 @@
-## Python Cheat Sheets
+## **Python Cheat Sheets**
 
 [Comprehensive Python Cheatsheet](https://gto76.github.io/python-cheatsheet/)
 
-## Methods
+## **Methods**
 
 ### String Methods
 **Note:** All string methods returns new values. They do not change the original string.
@@ -138,7 +138,7 @@
 | [write()](https://www.w3schools.com/python/ref_file_write.asp)           | Writes the specified string to the file                                              |
 | [writelines()](https://www.w3schools.com/python/ref_file_writelines.asp) | Writes a list of strings to the file                                                 |
 
-## Common Operations
+## **Common Operations**
 
 ### F-Strings
 ---
@@ -300,7 +300,7 @@ All numeric types (except complex) support the following operations (for priorit
 | `s.remove(x)`             | remove the first item from _s_ where `s[i]` is equal to x                                   |
 | `s.reverse()`             | reverses the items of _s_ in place                                                          |
 
-## Built-In Functions
+## **Built-In Functions**
 
 | Function                                                                 | Description                                                                                   |
 | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
@@ -372,7 +372,7 @@ All numeric types (except complex) support the following operations (for priorit
 | [vars()](https://www.w3schools.com/python/ref_func_vars.asp)             | Returns the __dict__ property of an object                                                    |
 | [zip()](https://www.w3schools.com/python/ref_func_zip.asp)               | Returns an iterator, from two or more iterators                                               |
 
-## Keywords
+## **Keywords**
 Python has a set of keywords that are reserved words that cannot be used as variable names, function names, or any other identifiers:
 | Keyword                                                               | Description                                                                                           |
 | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -410,7 +410,7 @@ Python has a set of keywords that are reserved words that cannot be used as vari
 | with                                                                  | Used to simplify exception handling                                                                   |
 | [yield](https://www.w3schools.com/python/ref_keyword_yield.asp)       | To return a list of values from a generator                                                           |
 
-## Exceptions
+## **Exceptions**
 
 | Exception             | Description                                                                       |
 | --------------------- | --------------------------------------------------------------------------------- |
@@ -448,8 +448,7 @@ Python has a set of keywords that are reserved words that cannot be used as vari
 | ValueError            | Raised when there is a wrong value in a specified data type                       |
 | ZeroDivisionError     | Raised when the second operator in a division is zero                             |
 
-## Glossary
-*(https://www.w3schools.com/)*
+## **Glossary**
 
 | Feature                                                                                                                     | Description                                                                                                   |
 | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
