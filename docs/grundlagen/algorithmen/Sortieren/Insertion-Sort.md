@@ -22,3 +22,6 @@ for i in range(1,len(A)):
     A[j+1] = temp
 ```
 
+### Links
+**BroCode [YT]**: [Insertion-Sort](https://www.youtube.com/watch?v=8mJ-OhcfpYg&list=PLZPZq0r_RZON1eaqfafTnEexRzuHbfZX8&index=14&pp=iAQB)
+

@@ -16,3 +16,6 @@ for i in range(1,len(A)):
             A[j] = A[j+1]
             A[j+1] = temp
 ```
+
+### Links
+**BroCode [YT]**: [Bubblesort](https://www.youtube.com/watch?v=Dv4qLJcxus8&list=PLZPZq0r_RZON1eaqfafTnEexRzuHbfZX8&index=12&t=7s&pp=iAQB)
