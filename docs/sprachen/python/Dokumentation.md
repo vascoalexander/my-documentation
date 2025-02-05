@@ -1,12 +1,14 @@
 ---
 toc_max_heading_level: 4
 title: "Dokumentation"
+description: ""
 ---
 # Python 3 Dokumentation
 *(stable release)*  
 https://docs.python.org/3/index.html  
 
 #### [**Python Setup and Usage**](https://docs.python.org/dev/using/index.html)  
+#### [**PEP 8 - Style Guide for Python Code**](https://peps.python.org/pep-0008/)
 
 ## **Python Modules / Packaging**  
 
