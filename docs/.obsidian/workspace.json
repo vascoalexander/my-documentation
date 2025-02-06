@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "devops/docker/dummy.md",
+                "file": "resourcen/shortcuts.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "dummy"
+              "title": "shortcuts"
             }
           }
         ]
@@ -170,12 +170,15 @@
   },
   "active": "e06a3b13e4427f7c",
   "lastOpenFiles": [
+    "resourcen/tools.md",
+    "resourcen/Styleguide.mdx",
+    "resourcen/mermaid.md",
+    "grundlagen/konzepte/03-grundbegriffe.mdx",
+    "devops/docker/dummy.md",
     "grundlagen/algorithmen/02-Struktogramme.md",
     "grundlagen/algorithmen/02-Struktogramme",
     "grundlagen/algorithmen/01-Einfuehrung.md",
     "grundlagen/konzepte/03-grundbegriffe.md",
-    "grundlagen/konzepte/03-grundbegriffe.mdx",
-    "devops/docker/dummy.md",
     "grundlagen/konzepte/01-aussagenlogik.md",
     "grundlagen/konzepte/02-schaltalgebra.md",
     "grundlagen/konzepte/04-paradigmen.md",
@@ -187,7 +190,6 @@
     "grundlagen/konzepte/terminologie.md",
     "grundlagen/konzepte/02-Aussagenlogik.md",
     "grundlagen/konzepte/03-Schaltalgebra.md",
-    "resourcen/Styleguide.mdx",
     "resourcen/Styleguide.md",
     "grundlagen/konzepte/grundbegriffe.mdx"
   ]
