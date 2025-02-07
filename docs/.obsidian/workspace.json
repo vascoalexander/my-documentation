@@ -11,14 +11,10 @@
             "id": "e06a3b13e4427f7c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "resourcen/shortcuts.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "shortcuts"
+              "title": "New tab"
             }
           }
         ]
@@ -170,6 +166,14 @@
   },
   "active": "e06a3b13e4427f7c",
   "lastOpenFiles": [
+    "04-Frameworks/03-Libraries",
+    "04-Frameworks/02-Backend",
+    "04-Frameworks/01-Frontend",
+    "02-Entwicklung/01-Grundlagen/Prinzipien.md",
+    "02-Entwicklung/01-Grundlagen/Prinzipien.mdx",
+    "02-Entwicklung/01-Grundlagen/Namenskonventionen.md",
+    "02-Entwicklung/01-Grundlagen/Coding-Conventions.md",
+    "02-Entwicklung/01-Grundlagen/Kompilierung-Laufzeitumgebung.md",
     "resourcen/tools.md",
     "resourcen/Styleguide.mdx",
     "resourcen/mermaid.md",

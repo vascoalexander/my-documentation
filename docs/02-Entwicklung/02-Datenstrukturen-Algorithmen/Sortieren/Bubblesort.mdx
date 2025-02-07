@@ -1,0 +1,61 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+- **in-Place Verfahren**: für die Sortierung wird kein weiterer Speicher benötigt
+- das Maximum steigt wie eine Luftblase nach oben
+- stabiler Sortieralgorithmus
+- **Laufzeitkomplexität:**
+    - Best: O(n)
+    - Average: O(n²)
+    - Worst: O(n²)
+
+```pseudo title="Pseudocode"
+Funktion BubbleSort(array)
+FOR i := 1 bis Länge[array]
+    FOR j := 0 bis Länge[array] - 1
+        IF array[j] > array[j + 1]
+            vertausche array[j] <-> array[j + 1]
+RETURN array
+```
+
+<Tabs>
+    <TabItem value="python-bubble-sort" label="Python" default>
+    ```python
+    def bubblesort(array):
+        for i in range(1,len(array)):
+            for j in range(0,len(array)-1):
+                if array[j] > array[j+1]:
+                    temp = array[j]
+                    array[j] = array[j+1]
+                    array[j+1] = temp
+        return array
+    ```
+    </TabItem>
+    <TabItem value="csharp-bubble-sort" label="C#" default>
+    ```c
+        static void BubbleSort(int[] array)
+        {
+            for (int i = 1; i < array.Length; i++)
+            {
+                for (int j = 0; j < array.Length - i; j++)
+                {
+                    if (array[j] > array[j + 1])
+                    {
+                        int temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp; 
+                    }
+                }
+            }
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Links
+**GfG**: [Bubble Sort Algorithm](https://www.geeksforgeeks.org/bubble-sort-algorithm/)  
+**BroCode [YT]**: [Bubblesort](https://www.youtube.com/watch?v=Dv4qLJcxus8&list=PLZPZq0r_RZON1eaqfafTnEexRzuHbfZX8&index=12&t=7s&pp=iAQB)

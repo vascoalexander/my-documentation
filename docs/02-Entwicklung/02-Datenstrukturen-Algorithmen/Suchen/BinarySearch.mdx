@@ -1,0 +1,69 @@
+---
+title: "Binäre Suche"
+sidebar_position: 1
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+- Funktioniert nur mit einem vorsortierten Array
+- **Laufzeitkomplexität:** O(log n)
+
+```pseudo title="Pseudocode"
+Funktion BinarySearch(Array, ziel)
+    links := 0
+    rechts := Länge(array) - 1
+
+    WHILE links <= rechts
+        mitte := (links + rechts) / 2
+        IF array[mitte] = ziel
+            return mitte
+        ELSE IF array[mitte] < ziel
+            links := mitte + 1
+        ELSE
+            rechts := mitte - 1
+```
+
+<Tabs>
+    <TabItem value="python-binary-search" label="Python" default>
+    ```python
+    def binary_search(array, ziel):
+        links = 0
+        rechts = len(array) - 1
+
+        while links <= rechts:
+            mitte = (links + rechts) // 2
+            if array[mitte] == ziel:
+                return mitte
+            elif array[mitte] < ziel:
+                links = mitte + 1
+            else:
+                rechts = mitte - 1
+        return -1 # ziel kein element von array
+    ```
+    </TabItem>
+    <TabItem value="csharp-binary-search" label="C#" default>
+    ```c
+    static int BinarySearch(int[] array, int ziel)
+    {
+        int links = 0;
+        int rechts = array.Length - 1;
+
+        while (links <= rechts)
+        {
+            int mitte = (links + rechts) / 2;
+            if (ziel == array[mitte])
+                return mitte;
+            if (ziel < array[mitte])
+                links = mitte + 1;
+            else
+                rechts = mitte - 1;
+        }
+        return -1; // ziel kein element von array
+    }
+        ```
+    </TabItem>
+</Tabs>
+
+### Links  
+**GfG:** [Binary Search Algorithm](https://www.geeksforgeeks.org/binary-search/?ref=outind)  
+**BroCode [YT]:** [Binary Search](https://www.youtube.com/watch?v=xrMppTpoqdw&list=PLZPZq0r_RZON1eaqfafTnEexRzuHbfZX8&index=10&pp=iAQB)

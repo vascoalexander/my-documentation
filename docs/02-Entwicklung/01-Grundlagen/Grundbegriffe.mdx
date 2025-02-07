@@ -1,0 +1,487 @@
+---
+description: ""
+sidebar_position: 1
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Grundbegriffe
+
+### Ausdruck 
+*(eng Expression)*  
+
+Ein Konstrukt das gemäß einer gegebenen Semantik in Bezug auf einen Kontext **ausgewertet werden kann, also einen Wert liefert**.
+
+- Literale (Konstanten): 𝛑 = 3.14, "Hallo Welt"
+- Variablen: x, betragInEuro, wochtagsNummer
+- Funktionen: random(), date()
+- Operationen: 2+5, 2^8, 2(x - 10)
+- Eine Kombination aus Variablen, Funktionen und Operationen die zu einem einzigen Wert ausgewertet wird.
+
+### Deklaration
+Die Einführung eines Bezeichners (zb einer Variablen, Funktion oder Klasse) im Code, ohne zwingend Speicher zu reservieren oder eine Initialisierung vorzunehmen.
+
+- Definition von Name und Typ einer Entität (Variable, Funktion, Klasse)
+- Keine Speicherreservierung
+- Ermöglicht spätere Verwendung (Initialisierung)
+- **Explizite Deklaration**: Typ oder andere Metadaten werden direkt angegeben (int zahl)
+- **Implizite Deklaration**: Automatische Ermittlung des Typs durch den Compiler/Interpreter (var zahl)
+
+### Initialisierung
+Zuweisung eines Wertes zu einer Variablen. Explizit wenn der Variable direkt ein Wert zugewiesen wird (string name = "Bob"). Manche Sprachen (wie C#) weisen Variablen automatisch Standardwerte zu, wenn sie als Felder einer Klasse definiert sind (Implizite Initialisierung).
+
+- lokale Variablen müssen explizit initialisiert werden
+- lazy Initialization (verzögerte Initialisierung): Variable wird initialisiert, wenn sie das erste mal benutzt wird. Verbessert die Performance in manchen Szenarien.
+- **Best Practice:** Variablen sollten immer mit sinnvollen Standardwerten initialisiert werden, um unerwartetes Verhalten zu vermeiden.
+
+### Bezeichner 
+*(eng Identifier)*  
+
+Eindeutige Benennung von Variablen, Datentypen, Funktionen oder Klassen. Bezeichner müssen **innerhalb eines Namensraumes eindeutig** sein, es sei denn die Programmiersprache erlaubt das Überladen (siehe auch Polymorphie).
+
+**Allgemeine Regeln für Bezeichner:**
+- Können Buchstaben (a-z, A-Z), Ziffern (0-9) und Unterstriche (_) enthalten.
+- Dürfen nicht mit einer Ziffer beginnen.
+- Dürfen keine reservierten Schlüsselwörter (wie `if`, `for`, `while`) sein.
+
+### Literal 
+*(lat. littera 'Buchstabe')*  
+Ein Literal ist ein fester Wert, der direkt im Code geschrieben steht. Literals stellen Werte dar, die nicht verändert werden können.
+
+- logische (wahr oder falsch), numerische oder Zeichenliterale
+- in der funktionalen Programmierung können auch Funktionen als Literale geschrieben werden: werden als anonyme Funktionen oder Lambda Funktionen bezeichnet
+- **Best Practice**: Literale sind okay für einfache, selbsterklärende Werte
+
+<details>  
+<summary>**Exkurs:** Magic Numbers</summary>  
+
+**Definition:**
+Ein Magic Number ist eine ungekennzeichnete numerische Konstante, die direkt im Code verwendet wird, ohne Erklärung oder Kontext. Sie macht den Code schwer verständlich und schwer wartbar.
+  
+**Fehlende Bedeutung:** ```double preis = menge * 19.99;```  
+Was bedeutet 19.99? Ist es ein Rabatt? Eine Steuer? Ein Fixpreis?  
+**Schwer zu ändern:** ```if (punkte >= 100) { ... }```  
+Wenn sich die Punktegrenze ändert, muss sie ggfs. an mehreren Stellen ersetzt werden.  
+  
+**Ersetze Magic Numbers durch Konstanten mit erklärendem Namen:**
+```c
+const double Umsatzsteuer = 19.99;  
+double preis = menge * Umsatzsteuer;
+```
+**Bessere Lesbarkeit und Wartbarkeit:**
+```c
+const int MindestpunkteFürBonus = 100;  
+if (punkte >= MindestpunkteFürBonus) { ... }
+```
+  
+**Best Practice:**  
+- const für fixe Werte
+- gib Konstanten sprechende Namen
+- Vermeide Hardcoded-Zahlen in Vergleichen oder Berechnungen
+</details>  
+
+### Konstanten
+Eine Konstante (lat constans 'feststehend') ist ein Behälter für eine Wert, der nach der Zuweisung nicht verändert werden kann. Das Gegenstück dazu ist eine Variable.
+
+<details>  
+<summary>**Exkurs**: const vs readonly</summary>  
+  
+**Was ist readonly?**  
+Das Schlüsselwort readonly in C# kennzeichnet Felder, deren Wert nach der Initialisierung nicht mehr geändert werden kann.
+Im Gegensatz zu const kann ein readonly-Feld zur Laufzeit initialisiert werden, z. B. im Konstruktor.
+
+**Unterschiede zwischen `readonly` und `const`**
+
+|Merkmal|`const`|`readonly`|
+|---|---|---|
+|**Wertänderung**|Muss **zur Kompilierzeit** feststehen|Kann zur **Laufzeit** gesetzt werden|
+|**Gültigkeitsbereich**|**Nur für primitive Typen & Strings**|Für **alle Datentypen** nutzbar|
+|**Wo erlaubt?**|Nur in **statischen** Kontexten|In **Instanz- und statischen Feldern**|
+|**Verwendung in Konstruktoren**|❌ Nein|✅ Ja|
+|**Beispiel**|`const double Pi = 3.14;`|`readonly int maxUsers;`|  
+
+:::tip
+
+✅ **Nutze `readonly`, wenn:**
+
+- Der Wert **erst zur Laufzeit** bekannt ist.
+- Der Wert von einem Konstruktor abhängt.
+- Du komplexe Objekte (z. B. Listen, Klassen) speichern möchtest.
+
+✅ **Nutze `const`, wenn:**
+
+- Der Wert **zur Kompilierzeit** bekannt ist.
+- Es sich um einfache **Zahlen, Strings oder boolesche Werte** handelt.  
+
+:::
+```c title="Beispiel in statischen Feldern"
+class Config
+{
+    public static readonly int MaxConnections = 100;
+
+    static Config()
+    {
+        MaxConnections = 200;  // Initialisierung ist in statischem Konstruktor erlaubt
+    }
+}
+```
+
+---
+
+**`readonly` in anderen Sprachen**
+
+|**Sprache**|**Entsprechung von `readonly`**|
+|---|---|
+|**C++**|`const` für Felder|
+|**Java**|`final` für Felder|
+|**TypeScript**|`readonly` für Klassenvariablen|
+|**Python**|`@property` mit nur einem Getter|
+</details>  
+
+### Anweisung 
+*(eng Statement)*  
+
+Statements sind komplette Einheiten von Code, die eine bestimmte Operation ausführen, wie z.B. eine Variable zuzuweisen oder eine Schleife auszuführen.  
+
+Zentrales Element [**Imperativer Programmiersprachen**](paradigmen#imperative-programmierung): Programmierparadigma nach dem ein Programm aus einer Folge von Anweisungen besteht, die vorgeben in welcher Reihenfolge was vom Computer getan werden soll.
+
+**Beispiele:**
+
+- Zuweisung: `x = 5`
+- Funktionsaufruf: `print("Hallo")`
+- Schleifen: `for i in range(10): [...]`
+- Bedingungen: `if x > 3: [...]`
+
+### Prozedur
+Variante zum Begriff "**Unterprogramm**". Anweisungen einer Prozedur können über aufgerufen und dadurch mehrfach verwendet werden. Im Gegensatz zu Funktionen liefern Prozeduren normalerweise **keinen Rückgabewert**. Je nach Programmiersprache und Programmierparadigma gibt es jedoch Unterschiede in der Definition des Begriffs Prozedur und der Abgrenzung zur Funktion.
+
+### Funktion
+Ein Programmkonstrukt ("Unterprogramm"), mit dem Quellcode strukturiert werden kann, sodass Teile der Funktionalität wiederverwendbar sind. Im Gegensatz zu Prozeduren **geben Funktionen einen Wert zurück**, der direkt verwendet werden kann. Prozeduren, die keinen Rückgabewert haben, können nur indirekt Ergebnisse liefern, indem entweder Referenzparameter oder globale Variablen verändert werden.
+
+### Methode
+Eine Methode ist eine **Funktion, die in einer Klasse oder einem Objekt definiert ist**. Sie gehört zu einem bestimmten Objekt oder einer Klasse und kann daher auf dessen Eigenschaften (Attribute) und andere Methoden zugreifen.
+
+### Parameter
+Platzhalter für Werte in der Funktionsdefinition. Sie sind **Teil der Funktionsdeklaration**.  
+`funktion(parameter, parameter){[...]}`
+
+### Argument
+Ein Argument ist der **tatsächliche Wert oder die Referenz, die an eine Funktion übergeben wird**, wenn diese aufgerufen wird. Argumente werden im Funktionsaufruf übergeben und entsprechen den Parametern, die in der Funktionsdefinition deklariert sind.  
+`funktion(3435, 23){[...]}`
+
+### Klasse
+Eine Klasse ist ein Bauplan für Objekte. Sie definiert eine Datenstruktur und die Methoden (Funktionen), die darauf arbeiten.
+[Wichtige Keywords für das Arbeiten mit Klassen](#keywords-c)
+
+#### Feld
+Ein Feld ist eine **direkte Variable in einer Klasse** oder Struktur, die den Zustand eines Objekts speichert.
+
+- Wird meistens als privates Datenmitglied (private) definiert, um direkten Zugriff zu vermeiden.
+- Kann direkt gelesen oder geändert werden (sofern public, was oft vermieden wird -> Kapselung / Geheimnisprinziep).
+- Beinhaltet keine Logik (wie Überprüfung oder Validierung).
+
+#### Attribut
+- Der Begriff Attribut ist allgemeiner als "Feld".
+- In der OOP bezeichnet ein Attribut einfach **eine Eigenschaft eines Objekts**, unabhängig von der konkreten Implementierung.
+- In Sprachen wie Python oder JavaScript werden Attribute oft als alles betrachtet, was ein Objekt besitzt (Felder, Methoden, Properties).
+- In C# oder Java wird der Begriff "Attribut" weniger für Felder/Properties verwendet, sondern für Metadaten (Annotationen oder Decorators), die zusätzliche Informationen für den Compiler oder Laufzeitumgebungen enthalten.
+
+#### Property (Eigenschaft, Zugriffsmethode)
+Eine Property ist eine Methode, die wie ein Feld aussieht.
+
+- Ermöglicht kontrollierten Zugriff auf Felder mit Getter- und Setter-Methoden.
+- Unterstützt Validierung, Berechnungen oder Schutzmechanismen.
+- Verhindert direkten Zugriff auf interne Felder.
+
+**Best Practice in C#**: Private Felder + Public Properties!
+
+```python title="Beispiel in Python"
+class Person:
+    # Konstruktor (wird aufgerufen wenn ein neues Objekt erstellt wird)
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    # Methode
+    def greet(self):
+        print(f"Hallo, mein Name ist {self.name} und ich bin {self.age} Jahre alt.")
+```
+
+### Objekt
+Ein Objekt ist eine **Instanz einer Klasse**. Es repräsentiert ein spezifisches Exemplar der Klasse und hat Attribute (Daten) und Methoden (Funktionen).
+
+```python title="Ein Objekt der Klasse Person (s.o.)"
+person1 = Person("Alice", 30)
+person1.greet()
+```
+
+### Konstruktor
+Ein Konstruktor ist eine spezielle Methode innerhalb einer Klasse, die beim **Erstellen eines Objekts** automatisch aufgerufen wird.
+
+- Initialisiert ein Objekt in einem definierten Anfangszustand (z. B. setzt Standardwerte).
+- Reserviert benötigte Resourcen, sofern diese zum Zeitpunkt der Objekterstellung bereits bekannt sind.
+
+<details>
+<summary>**Konstruktoren in C#**</summary>
+
+<Tabs>
+  <TabItem value="csharp-einfach" label="Einfach" default>
+    ```c
+    using System;
+
+    class Person {
+        public string Name;
+        public int Age;
+
+        // Konstruktor
+        public Person(string name, int age) {
+            Name = name;
+            Age = age;
+        }
+
+        public void Greet() {
+            Console.WriteLine($"Hallo, mein Name ist {Name} und ich bin {Age} Jahre alt.");
+        }
+    }
+
+    class Program {
+        static void Main() {
+            Person p = new Person("Max", 30);  // Konstruktor wird aufgerufen
+            p.Greet();
+        }
+    }
+    ```
+  </TabItem>
+  <TabItem value="csharp-ueberladung" label="Mehrere (Überladung)">
+    ```c
+    // man kann mehrere Konstruktoren mit verschiedenen Parametern
+    // definieren (Konstruktor Überladung)
+    class Person {
+        public string Name;
+        public int Age;
+
+        // Konstruktor 1
+        public Person(string name, int age) {
+            Name = name;
+            Age = age;
+        }
+
+        // Konstruktor 2 (Standardwerte)
+        public Person() {
+            Name = "Unbekannt";
+            Age = 0;
+        }
+    }
+
+    class Program {
+        static void Main() {
+            Person p1 = new Person("Anna", 25);
+            Person p2 = new Person();  // Standardwerte werden gesetzt
+
+            Console.WriteLine($"{p1.Name}, {p1.Age} Jahre");
+            Console.WriteLine($"{p2.Name}, {p2.Age} Jahre");
+        }
+    }
+    ```
+  </TabItem>
+    <TabItem value="csharp-this" label="Aufruf mit this">
+    ```c
+    class Beispiel
+    {
+        // Konstruktor ohne Parameter, der den anderen Konstruktor mit this(..., ...) aufruft
+        public Beispiel() : this("Heute ist der ", DateTime.Today)
+        {
+        }
+        
+        // Konstruktor mit zwei Parametern
+        public Beispiel(string text, DateTime datum)
+        {
+            Console.WriteLine(text + datum.ToShortDateString());
+        }
+        
+        // Hauptmethode
+        public static void Main(string[] args)
+        {
+            Beispiel beispiel1 = new Beispiel("Morgen ist der ", DateTime.Today.AddDays(1));
+            // Aufruf des ersten Konstruktors
+            // Ausgabe: Morgen ist der {dd.MM.yyyy}
+            
+            Beispiel beispiel2 = new Beispiel();
+            // Aufruf des zweiten Konstruktors
+            // Ausgabe: Heute ist der {dd.MM.yyyy}
+        }
+    }
+    ```
+  </TabItem>
+</Tabs>
+</details>
+
+<details>
+<summary>**Konstruktoren in Python**</summary>
+
+
+<Tabs>
+  <TabItem value="python-einfach" label="Einfach" default>
+    ```python
+    class Person:
+        def __init__(self, name, age):  # Konstruktor
+            self.name = name
+            self.age = age
+
+        def greet(self):
+            print(f"Hallo, mein Name ist {self.name} und ich bin {self.age} Jahre alt.")
+
+    # Objekterstellung
+    p = Person("Max", 30)  # Konstruktor wird automatisch aufgerufen
+    p.greet()
+    ```
+  </TabItem>
+  <TabItem value="python-default" label="Default Parameter">
+    ```python
+    class Person:
+        def __init__(self, name="Unbekannt", age=0):
+            self.name = name
+            self.age = age
+
+    p1 = Person("Anna", 25)
+    p2 = Person()  # Standardwerte werden genutzt
+
+    print(f"{p1.name}, {p1.age} Jahre")
+    print(f"{p2.name}, {p2.age} Jahre")
+    ```
+  </TabItem>
+    <TabItem value="python-super" label="Vererbung mit super()">
+    ```python
+    class Animal:
+        def __init__(self, species):
+            self.species = species
+
+    class Dog(Animal):
+        def __init__(self, name):
+            super().__init__("Hund")  # Ruft den Konstruktor der Elternklasse auf
+            self.name = name
+
+    d = Dog("Bello")
+    print(f"{d.name} ist ein {d.species}.")
+    ```
+  </TabItem>
+</Tabs>
+</details>
+
+### Iterator
+Ein Iterator ist ein Objekt, das eine Sequenz von Elementen einen nach dem anderen zurückgibt, ohne alle Elemente gleichzeitig im Speicher zu halten.
+Iteratoren ermöglichen es, große oder unendliche Datenstrukturen effizient zu durchlaufen.
+
+```python title="Erstellung und Nutzung eines Iterators in Python"
+my_list = [1, 2, 3]  # Eine Liste (iterierbares Objekt)
+my_iter = iter(my_list)  # Erzeugt einen Iterator für die Liste
+print(next(my_iter))  # Gibt 1 aus
+print(next(my_iter))  # Gibt 2 aus
+```
+<details>
+<summary>**Iteratoren mit C#**</summary>
+
+C# nutzt das **yield** Schlüsselwort, um Iteratoren einfach zu erstellen, ohne dass man eine eigene Klasse schreiben muss.
+```c title="Implementierung von yield return um ein großes Array zu verarbeiten"
+using System;
+using System.Collections.Generic;
+
+class Program {
+    static void Main() {
+        foreach (var name in GetNames()) {
+            if (name.StartsWith("A")) {  // Stoppt frühzeitig, wenn genug gefunden wurden
+                Console.WriteLine(name);
+                break;
+            }
+        }
+    }
+
+    static IEnumerable<string> GetNames() {
+        string[] names = new string[10000];
+        for (int i = 0; i < names.Length; i++) {
+            names[i] = "Name" + i;  // Dummy-Daten
+        }
+
+        foreach (var name in names) {
+            yield return name;  // Gibt Namen einzeln zurück
+        }
+    }
+}
+```
+</details>
+
+### Generator
+Ein Generator ist eine spezielle Funktion, die Iteratoren erstellt.
+
+- Er gibt Werte Schritt für Schritt zurück, ohne alle Werte auf einmal zu speichern.
+- Wird oft für große Datenmengen oder unendliche Sequenzen verwendet.
+- In C# nutzt man yield return, in Python yield.
+
+**Wann Generatoren nutzen?**  
+✅ Große Datenmengen streamen – Falls du nicht alles auf einmal laden willst.  
+✅ Unendliche Sequenzen – Perfekt für Fibonacci, Zufallszahlen, etc.  
+✅ Effiziente Speicherverwendung – Erzeugt Werte nur bei Bedarf.  
+
+:::info[Einfacher Generator Beispielcode]
+
+<Tabs>
+  <TabItem value="python-generator" label="Python" default>
+    ```python
+        # Gibt Werte Schritt für Schritt zurück
+        # Die Methode merkt sich den Zustand
+        def count_up_to(max):
+            for i in range(1, max + 1):
+            yield i  # Gibt einen Wert zurück und pausiert
+
+        for num in count_up_to(5):
+        print(num)
+    ```
+  </TabItem>
+  <TabItem value="csharp-generator" label="C#">
+    ```c
+    using System;
+    using System.Collections.Generic;
+
+    class Program {
+        static void Main() {
+            foreach (var num in CountUpTo(5)) {
+                Console.WriteLine(num);
+            }
+        }
+
+        static IEnumerable<int> CountUpTo(int max) {
+            for (int i = 1; i <= max; i++) {
+                yield return i;  // Gibt einen Wert zurück und merkt sich den Zustand
+            }
+        }
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+:::
+
+### Dekorator
+Ein Dekorator ist ein Entwurfsmuster (Strukturmuster), mit dem eine Funktion, Methode oder Klasse zur Laufzeit verändert oder erweitert werden kann, ohne ihren eigentlichen Code zu ändern. Das Muster stellt eine flexible Alternative zur Unterklassenbildung dar, um eine Klasse um zusätzliche Funktionalitäten zu erweitern.
+
+- In Python gibt es native Dekoratoren (@decorator), um Funktionen zu modifizieren.
+- In C# nutzt man **Attribute** ([Attribute]) **oder Wrapper-Klassen** für ähnliche Funktionalität.
+
+```python title="Ein Dekorator in Python"
+# my_decorator nimmt eine Funktion (func) als Argument
+# der wrapper führt zusätzlichen Code vor und nach der Funktion aus
+# @my_decorator wendet die Modifikation auf say_hello() an
+def my_decorator(func):
+    def wrapper():
+        print("Vor der Funktion")
+        func()
+        print("Nach der Funktion")
+    return wrapper
+
+@my_decorator  # Das ist der Dekorator
+def say_hello():
+    print("Hallo!")
+
+say_hello()
+```
+

@@ -55,6 +55,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/vascoalexander/my-documentation/tree/main/',
+          sidebarCollapsed: true,
         },
         blog: false,
         theme: {
@@ -80,25 +81,37 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'grundlagenSidebar',
             position: 'left',
-            label: 'IT-Grundlagen',
+            label: 'Grundlagen',
           },
           {
             type: 'docSidebar',
-            sidebarId: 'programmierungSidebar',
+            sidebarId: 'entwicklungSidebar',
             position: 'left',
-            label: 'Programmierung',
+            label: 'Entwicklung',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'sprachenSidebar',
+            position: 'left',
+            label: 'Sprachen',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'frameworksSidebar',
+            position: 'left',
+            label: 'Frameworks',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'webSidebar',
+            position: 'left',
+            label: 'WebDev',
           },
           {
             type: 'docSidebar',
             sidebarId: 'infrastrukturSidebar',
             position: 'left',
             label: 'Infrastruktur',
-          },
-          {
-            type: 'docSidebar',
-            sidebarId: 'frameworksSidebar',
-            position: 'left',
-            label: 'Frameworks & Libraries',
           },
           {
             type: 'docSidebar',
@@ -120,16 +133,20 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Grundlagen',
-                to: '/docs/category/it-mathe',
+                label: 'IT-Grundlagen',
+                to: '/docs/category/mathematik--logik',
               },
               {
-                label: 'Programmierung',
+                label: 'Software-Entwicklung',
                 href: '/docs/category/grundlagen',
               },
               {
-                label: 'Infrastruktur',
-                href: '/docs/category/datenbanken',
+                label: 'Programmiersprachen',
+                href: '/docs/category/html',
+              },
+              {
+                label: 'Frameworks & Libraries',
+                href: '/docs/category/frontend',
               },
             ],
           },
@@ -137,8 +154,12 @@ const config = {
             title: 'more...',
             items: [
               {
-                label: 'Frameworks & Libraries',
-                href: '/docs/category/net',
+                label: 'Web-Development',
+                href: '/docs/category/grundlagen-des-web',
+              },
+              {
+                label: 'Infrastruktur',
+                href: '/docs/category/datenbanken',
               },
               {
                 label: 'Resourcen & Tools',
