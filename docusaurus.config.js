@@ -55,7 +55,6 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/vascoalexander/my-documentation/tree/main/',
-          sidebarCollapsed: true,
         },
         blog: false,
         theme: {
