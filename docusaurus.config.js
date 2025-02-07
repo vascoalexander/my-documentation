@@ -121,11 +121,11 @@ const config = {
             items: [
               {
                 label: 'Grundlagen',
-                to: '/docs/category/konzepte',
+                to: '/docs/category/it-mathe',
               },
               {
-                label: 'Sprachen',
-                href: '/docs/category/python',
+                label: 'Programmierung',
+                href: '/docs/category/grundlagen',
               },
               {
                 label: 'Infrastruktur',
@@ -136,10 +136,6 @@ const config = {
           {
             title: 'more...',
             items: [
-              {
-                label: 'DevOps',
-                href: '/docs/category/git',
-              },
               {
                 label: 'Frameworks & Libraries',
                 href: '/docs/category/net',
