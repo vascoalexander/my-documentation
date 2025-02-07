@@ -1,0 +1,35 @@
+---
+unlisted: true
+---
+- IT-Grundlagen
+    - IT-Mathe
+    - Logik
+    - Projektplanung
+    - BWL
+    - Hardware
+    - IT-Security
+    - Datenschutz
+- Programmierung
+    - Grundlagen
+    - Algorithmen
+    - Datenstrukturen
+    - Web-Development
+    - Python
+    - C#
+- Infrastruktur
+    - Datenbanken
+    - Netzwerke
+    - DevOps
+    - Cloud
+    - Virtualisierung
+    - Linux
+- Frameworks & Libraries
+    - Frameworks
+    - Libraries
+- Tools & Resources
+    - Tools
+    - IDE
+    - CheatSheets
+    - Quick-Ref
+    - Dokumentationen
+    - Linksammlung

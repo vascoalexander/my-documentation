@@ -80,25 +80,19 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'grundlagenSidebar',
             position: 'left',
-            label: 'Grundlagen',
+            label: 'IT-Grundlagen',
           },
           {
             type: 'docSidebar',
-            sidebarId: 'sprachenSidebar',
+            sidebarId: 'programmierungSidebar',
             position: 'left',
-            label: 'Sprachen',
+            label: 'Programmierung',
           },
           {
             type: 'docSidebar',
             sidebarId: 'infrastrukturSidebar',
             position: 'left',
             label: 'Infrastruktur',
-          },
-          {
-            type: 'docSidebar',
-            sidebarId: 'devopsSidebar',
-            position: 'left',
-            label: 'DevOps',
           },
           {
             type: 'docSidebar',
