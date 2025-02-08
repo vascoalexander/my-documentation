@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "07-Resourcen/Quick-References/CSharp-quickref.md",
+                "file": "07-Resourcen/Quick-References/GIT-quickref.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CSharp-quickref"
+              "title": "GIT-quickref"
             }
           }
         ]
@@ -150,13 +150,23 @@
               "icon": "lucide-list",
               "title": "Outline of dummy"
             }
+          },
+          {
+            "id": "972852ab60ae1e67",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -165,14 +175,29 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
   "active": "e06a3b13e4427f7c",
   "lastOpenFiles": [
-    "07-Resourcen/Dokumentationen/CSharp-docu.md",
-    "07-Resourcen/Quick-References/CSharp-quickref.md",
+    "06-Infrastruktur/04-devops/01-git/Grundlagen.mdx",
+    "06-Infrastruktur/04-devops/01-git/img/staging.svg",
+    "06-Infrastruktur/04-devops/01-git/img/soft-reset.svg",
+    "06-Infrastruktur/04-devops/01-git/img/git-rebase.svg",
+    "06-Infrastruktur/04-devops/01-git/img",
     "07-Resourcen/Quick-References/Naming-Conventions.md",
+    "07-Resourcen/Quick-References/GIT-quickref.md",
+    "07-Resourcen/Quick-References/CSharp-quickref.md",
+    "01-Grundlagen/01-Mathematik-Logik/Mengenlehre.mdx",
+    "01-Grundlagen/01-Mathematik-Logik/img/Venn_A_intersect_B.svg",
+    "01-Grundlagen/01-Mathematik-Logik/img/Venn0111.svg",
+    "01-Grundlagen/01-Mathematik-Logik/img/Venn0100.svg",
+    "01-Grundlagen/01-Mathematik-Logik/img/Venn0001.svg",
+    "01-Grundlagen/01-Mathematik-Logik/img/Example_of_C_is_no_proper_subset_of_B.svg.png",
+    "01-Grundlagen/01-Mathematik-Logik/img/Example_of_A_is_a_proper_subset_of_B.svg.png",
+    "01-Grundlagen/01-Mathematik-Logik/img",
+    "07-Resourcen/Dokumentationen/CSharp-docu.md",
     "07-Resourcen/Site/Docusaurus.md",
     "07-Resourcen/Dokumentationen/Python-docu.md",
     "07-Resourcen/Link-Collections/Tools.md",
@@ -200,9 +225,6 @@
     "grundlagen/konzepte/04-paradigmen.md",
     "grundlagen/konzepte/04-Paradigmen.md",
     "grundlagen/konzepte/02-Schaltalgebra.md",
-    "grundlagen/konzepte/01-Aussagenlogik.md",
-    "grundlagen/konzepte/grundbegriffe.md",
-    "grundlagen/konzepte/01-grundbegriffe.md",
-    "grundlagen/konzepte/grundbegriffe.mdx"
+    "grundlagen/konzepte/01-Aussagenlogik.md"
   ]
 }

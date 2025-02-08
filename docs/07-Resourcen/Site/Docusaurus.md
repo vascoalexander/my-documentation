@@ -7,7 +7,6 @@ sidebar_position: 3
 [**Theme-Configuration**](https://docusaurus.io/docs/api/themes/configuration)  
 [**Markdown-Features**](https://docusaurus.io/docs/3.3.2/markdown-features)
 
-
 ### Docs Frontmatter
 [Frontmatter](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter)
 
@@ -37,4 +36,89 @@ sidebar_position: 3
 |`draft`|`boolean`|`false`|Draft documents will only be available during development.|
 |`unlisted`|`boolean`|`false`|Unlisted documents will be available in both development and production. They will be "hidden" in production, not indexed, excluded from sitemaps, and can only be accessed by users having a direct link.|
 |`last_update`|`FrontMatterLastUpdate`|`undefined`|Allows overriding the last update author/date. Date can be any [parsable date string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse).|
+
+### MDX
+
+```js title="Import image"
+import image_identifier from './img/image.jpeg';
+
+<img src={image_identifier} class="my-class" alt="alt text" />
+```
+
+```js title="Tabs"
+<Tabs>
+  <TabItem value="first" label="First" default>
+    first
+  </TabItem>
+  <TabItem value="second" label="Second">
+    second
+  </TabItem>
+  <TabItem value="third" label="Third">
+    third
+  </TabItem>
+</Tabs>
+```
+
+```html title="Collabsible"
+<details>  
+<summary>Name</summary>  
+  
+Content
+</details>
+```
+
+### Infima
+[**infima Docs**](https://infima.dev/docs/)
+
+```html title="center an image"
+<div class="text--center">
+    <img src={img_echteteilmenge} class="img-400 text--center" alt="echte teilmenge" />
+</div>
+```
+```html title="colored text"
+<p class="text--primary">Primary Text</p>
+<p class="text--secondary">Secondary Text</p>
+<p class="text--success">Success Text</p>
+<p class="text--info">Info Text</p>
+<p class="text--warning">Warning Text</p>
+<p class="text--danger">Danger Text</p>
+```
+```html title="badges"
+<span class="badge badge--primary">Primary</span>
+<span class="badge badge--secondary">Secondary</span>
+<span class="badge badge--success">Success</span>
+<span class="badge badge--info">Info</span>
+<span class="badge badge--warning">Warning</span>
+<span class="badge badge--danger">Danger</span>
+```
+```html title="button-like links"
+<div>
+  <a class="button button--primary" href="#url">Primary</a>
+  <a class="button button--secondary" href="#url">Secondary</a>
+  <a class="button button--success" href="#url">Success</a>
+  <a class="button button--info" href="#url">Info</a>
+  <a class="button button--warning" href="#url">Warning</a>
+  <a class="button button--danger" href="#url">Danger</a>
+  <a class="button button--link" href="#url">Link</a>
+</div>
+```
+```html title="card"
+<div class="card-demo">
+  <div class="card">
+    <div class="card__header">
+      <h3>Lorem Ipsum</h3>
+    </div>
+    <div class="card__body">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+        suspendisse ultrices gravida.
+      </p>
+    </div>
+    <div class="card__footer">
+      <button class="button button--secondary button--block">See All</button>
+    </div>
+  </div>
+</div>
+```
 

@@ -30,3 +30,29 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-footer-background-color: #2b2b2b;
 }
+
+.img-600 img,
+.img-600 {
+  width:100%;
+  max-width:600px;
+}
+.img-400 img,
+.img-400 {
+  width:100%;
+  max-width:400px;
+}
+.img-300 img,
+.img-300 {
+  width:100%;
+  max-width:300px;
+}
+.img-200 img,
+.img-200 {
+  width: 100%;
+  max-width:200px;
+}
+.img-center img,
+.img-center {
+  display: block;
+  margin: 0 auto;
+}

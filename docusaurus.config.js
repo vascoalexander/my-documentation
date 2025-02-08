@@ -41,7 +41,8 @@ const config = {
     mermaid: true,
   },
     // ...
-  plugins: [require.resolve('docusaurus-lunr-search')],
+  plugins:[require.resolve('docusaurus-lunr-search')],
+  
   themes: ['@docusaurus/theme-mermaid'],
 
   presets: [
