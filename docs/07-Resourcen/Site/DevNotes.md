@@ -1,5 +1,7 @@
 ---
-unlisted: true
+unlisted: false
+description: ""
+sidebar_position: 2
 ---
 - IT-Grundlagen
     - IT-Mathe

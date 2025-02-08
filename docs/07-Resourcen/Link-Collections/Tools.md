@@ -1,6 +1,7 @@
 ---
 sidebar_label: "Tools"
 title: "Tools"
+sidebar_position: 1
 ---
 
 ## Mermaid.js

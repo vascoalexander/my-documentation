@@ -1,7 +1,8 @@
 ---
 toc_max_heading_level: 4
-title: "Dokumentation"
+title: "Python"
 description: ""
+sidebar_position: 1
 ---
 # Python 3 Dokumentation
 *(stable release)*  

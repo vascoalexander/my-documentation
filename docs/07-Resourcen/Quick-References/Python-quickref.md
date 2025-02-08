@@ -1,5 +1,7 @@
 ---
 description: ""
+sidebar_position: 3
+title: "Python"
 ---
 
 ## **Python Cheat Sheets**

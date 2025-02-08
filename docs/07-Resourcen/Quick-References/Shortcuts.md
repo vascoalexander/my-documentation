@@ -1,6 +1,8 @@
 ---
 sidebar_label: "Shortcuts"
 title: "Shortcuts"
+sidebar_position: 1
+description: ""
 ---
 Default Shorcuts  
 **Custom Shortcuts**

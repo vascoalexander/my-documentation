@@ -116,7 +116,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'resourcenSidebar',
             position: 'left',
-            label: 'Resourcen & Tools',
+            label: 'Resourcen',
           },
           {
             href: 'https://github.com/vascoalexander',
@@ -162,7 +162,7 @@ const config = {
               },
               {
                 label: 'Resourcen & Tools',
-                href: '/docs/category/cheatsheets',
+                href: '/docs/category/quick-references',
               },
             ],
           },
