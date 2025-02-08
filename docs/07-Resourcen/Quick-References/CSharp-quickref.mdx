@@ -1,0 +1,842 @@
+---
+description: ""
+sidebar_position: 5
+toc_max_heading_level: 4
+title: "C#"
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+[**C# Quick-Reference [Github]**](https://github.com/andredarcie/csharp-quick-reference-guide?tab=readme-ov-file)  
+[**C# Cheat Sheet [Github**]](https://github.com/LabinatorSolutions/csharp-cheat-sheet)
+
+## **Types**
+
+### **Value Types**
+[**Docs Microsoft - Value Types**](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types)  
+
+- Direkt auf dem **Stack** gespeichert (schnell)
+- Wert wird direkt kopiert, wenn zugewiesen (x = y → Kopie von y)
+- Enthalten den tatsächlichen Wert, nicht eine Referenz.
+- Kein null möglich, außer mit `Nullable<T>` (int?, double?, etc.)
+
+#### Primitive Datentypen
+
+- Alle primitiven Datentypen (int, double, etc.) sind Value Types, weil sie direkt auf dem Stack gespeichert werden.
+- Nicht alle Value Types sind primitive Datentypen, weil struct, enum, DateTime oder `Tuple<T1, T2>` auch Value Types sind, aber keine primitiven Datentypen.
+
+| **Kategorie**            | **Beispiele**                                                                                                    | **Beschreibung**                                                                                    |
+| :----------------------- | :--------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------- |
+| **Primitive Datentypen** | `int`, `double`, `bool`, `char`, `byte`, `float`, `decimal`, `short`, `long`, `sbyte`, `ushort`, `uint`, `ulong` | Basieren direkt auf `struct`, haben vordefinierte Größen und keine eigene Logik.                    |
+| **Value Types**          | **Alle primitiven Datentypen +** `enum`, `struct`, `Tuple<T1, T2>`, `bool`, `DateTime`, `decimal`, `TimeSpan`    | Werttypen, die entweder **primitive Typen** oder **benutzerdefinierte Strukturen (`struct`)** sind. |
+
+#### Ganzzahlige Datentypen
+[**Microsoft Docs - Integral numeric Types**](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types)  
+
+```c title="Bytes"
+byte myUnsignedByte = 8; // Size: 8 bits  | Range: 0 to 255
+sbyte mySignedByte = -8; // Size: 8 bits  | Range: -128 to +127
+```
+```c title="Unsigned Integers"
+ushort myUnsignedShort = 16; // Size: 16 bits  | Range: 0 to 65535
+uint myUnsignedInt = 32;     // Size: 32 bits  | Range: 0 to 2^32-1
+ulong myUnsignedLong = 64;   // Size: 64 bits  | Range: 0 to 2^64-1
+```
+```c title="Signed Integers"
+short mySignedShort = 16; // Size: 16 bits  | Range: -32768 to +32767
+int mySignedInt = 32;     // Size: 32 bits  | Range: -2^31  to +2^31-1
+long mySignedLong = -64;  // Size: 64 bits  | Range: -2^63  to +2^63-1
+```
+
+#### Gleitkommazahlen
+[**Microsoft Docs - Floating Point numeric Types**](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types)  
+
+```c title="Floating-Point Types"
+float myFloat = 3.14F;     // Size: 32 bits  | Range: 7 digits of precision
+double myDouble = 3.14D;   // Size: 64 bits  | Range: 15-16 digits of precision
+decimal myDecimal = 3.14M; // Size: 128 bits | Range: 28-29 digits of precision
+```
+:::tip
+- **float** ist schnell, aber weniger genau.  
+- **double** ist der Standard für wissenschaftliche Berechnungen.  
+- **decimal** ist ideal für Geldbeträge, weil es präziser ist.  
+:::
+#### Char / Boolean
+
+```c title="Unicode Characters"
+char myChar = 'a'; // Size: 16 bits  | Range: Unicode character
+```
+```c title="Booleans"
+bool myBool = true; // Size: 4 bits   | Range: true or false
+```
+
+#### Tuples
+[**Microsoft Docs - Tuple types**](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples)  
+Available in C# 7.0 and later, the tuples feature provides concise syntax to group multiple data elements in a lightweight data structure.
+
+```c title="Tuple Type"
+(double, int) t1 = (4.5, 3);
+Console.WriteLine($"Tuple with elements {t1.Item1} and {t1.Item2}."); // Output => Tuple with elements 4.5 and 3.
+
+(double Sum, int Count) t2 = (4.5, 3);
+Console.WriteLine($"Sum of {t2.Count} elements is {t2.Sum}."); // Output => Sum of 2 elements is 7.5.
+```
+```c title="List of tuples"
+List<(int zahl, string name)> list = new List<(int zahl, string name)>();
+list.Add((1, "str1"));
+list.Add((3, "str2"));
+
+foreach ((int zahl, string name) in list)
+{
+    Console.WriteLine(name + ": " + zahl);    
+}
+```
+
+#### Enum
+[**Microsoft Docs - Enumeration Types**](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum)  
+Enums in C# sind eine Gruppe zusammengehöriger Konstanten.
+
+```c
+using System;
+
+enum Wochentag
+{
+    Montag,
+    Dienstag,
+    Mittwoch,
+    Donnerstag,
+    Freitag,
+    Samstag,
+    Sonntag
+}
+
+class Program
+{
+    static void Main()
+    {
+        Wochentag heute = Wochentag.Mittwoch;
+        Console.WriteLine($"Heute ist {heute}.");
+        
+        if (heute == Wochentag.Samstag || heute == Wochentag.Sonntag)
+        {
+            Console.WriteLine("Es ist Wochenende!");
+        }
+        else
+        {
+            Console.WriteLine("Es ist ein Arbeitstag.");
+        }
+    }
+}
+```
+
+#### Struct
+[**Microsoft Docs - Structure Types**](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct)  
+Ein struct ist ein Werttyp in C#, der ähnlich wie eine Klasse (class) funktioniert, aber in vielen Fällen effizienter ist.
+
+<Tabs>
+  <TabItem value="first" label="2D-Koordinaten" default>
+    ```c
+    // Punkt speichert zwei Werte direkt im Stack → schneller als eine Klasse.
+    // Strukturen sind perfekt für einfache Datencontainer.
+
+    struct Punkt
+    {
+        public int X;
+        public int Y;
+
+        public Punkt(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
+
+        public void Anzeigen()
+        {
+            Console.WriteLine($"Punkt: ({X}, {Y})");
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            Punkt p1 = new Punkt(10, 20);
+            p1.Anzeigen(); // Ausgabe: Punkt: (10, 20)
+        }
+    }
+    ```
+  </TabItem>
+  <TabItem value="second" label="Farbe (mit Auto-Properities)">
+    ```c
+    // Farbe ist ein idealer Kandidat für struct, da es nur Daten speichert.
+    // Auto-Properties ({ get; }) machen es unveränderlich (immutable), was in vielen Szenarien nützlich ist.
+
+    struct Farbe
+    {
+        public byte Rot { get; }
+        public byte Grün { get; }
+        public byte Blau { get; }
+
+        public Farbe(byte rot, byte grün, byte blau)
+        {
+            Rot = rot;
+            Grün = grün;
+            Blau = blau;
+        }
+
+        public override string ToString()
+        {
+            return $"RGB({Rot}, {Grün}, {Blau})";
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            Farbe rot = new Farbe(255, 0, 0);
+            Console.WriteLine(rot); // Ausgabe: RGB(255, 0, 0)
+        }
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+**Wann struct statt class?**
+- Klein & einfach → struct
+- Mutable & komplex → class
+- Vererbung notwendig? → class
+- Häufige Änderungen der Daten? → class
+- Performance-kritisch? → struct
+
+### **Reference Types**
+- Werden auf dem **Heap** gespeichert, aber die Referenz darauf liegt im Stack.
+- Speichern eine **Referenz (Zeiger) auf die Daten**, nicht den Wert selbst.
+- Eine Zuweisung kopiert die Referenz, nicht die Daten (Änderungen wirken sich auf alle Referenzen aus).
+
+| Typ         | Beschreibung                                                |
+| :---------- | :---------------------------------------------------------- |
+| `class`     | Definiert komplexe Objekte mit Methoden und Eigenschaften.  |
+| `interface` | Definiert ein Verhalten, das Klassen implementieren müssen. |
+| `delegate`  | Referenz auf eine Methode (wie ein Funktionszeiger).        |
+| `array`     | Sammlung von Elementen gleichen Typs mit fester Größe.      |
+| `string`    | Eine Zeichenkette (immutable, ändert sich nicht direkt).    |
+
+#### String
+[**Microsoft Docs - Strings**](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/)
+
+```c
+string fooString = "\"escape\" quotes and add \n (new lines) and \t (tabs)";
+Console.WriteLine(fooString);
+
+// You can access each character of the string with an indexer:
+char charFromString = fooString[1]; // => 'e'
+
+// Strings are immutable: you can't do fooString[1] = 'X';
+
+// Compare strings with current culture, ignoring case
+string.Compare(fooString, "x", StringComparison.CurrentCultureIgnoreCase);
+
+// Formatting, based on sprintf
+string fooFs = string.Format("Check Check, {0} {1}, {0} {1:0.0}", 1, 2);
+
+// Dates & Formatting
+DateTime fooDate = DateTime.Now;
+Console.WriteLine(fooDate.ToString("hh:mm, dd MMM yyyy"));
+
+// String Interpolation
+string myName = "Jane Doe";
+Console.WriteLine($"My name is: {myName}. It is great to be here!");
+
+// String Builder
+StringBuilder sb = new StringBuilder();
+sb.Append("Hello ");
+sb.AppendLine("World!");
+Console.WriteLine(sb);
+
+// Verbatim String
+// You can use the @ symbol before a string literal to escape all characters in the string
+string path = "C:\\Users\\User\\Desktop";
+string verbatimPath = @"C:\Users\User\Desktop";
+Console.WriteLine(path == verbatimPath);  // => true
+
+// You can split a string over two lines with the @ symbol. To escape " use ""
+string bazString = @"Here's some stuff
+on a new line! ""Wow!"", the masses cried";
+
+// Popular String Methods & Properties
+string myText = "some text";
+
+Console.WriteLine(myText.IndexOf('t')); // Outputs => 5
+
+myText = myText.Insert(0, "This is ");
+Console.WriteLine(myText); // Outputs => "This is some text"
+
+myText = myText.Replace("This is", "Here is");
+Console.WriteLine(myText); // Outputs => "Here is some text"
+
+if(myText.Contains("some"))
+Console.WriteLine("found"); // Outputs "found"
+
+myText = myText.Remove(4);
+Console.WriteLine(myText); // Outputs "Here"
+
+myText = myText.Substring(2, 3);
+Console.WriteLine(myText); // Outputs "re"
+```
+
+#### Array
+[**Microsoft Docs - Array Class**](https://learn.microsoft.com/en-us/dotnet/api/system.array?view=net-9.0)  
+An array is a data structure that contains a number of variables that are accessed through computed indices. 
+The variables contained in an array, also called the elements of the array, are all of the same type, and this type is called the element type of the array.
+
+Array types are reference types, and the declaration of an array variable simply sets aside space for a reference to an array instance. 
+Actual array instances are created dynamically at run-time using the new operator. The new operation specifies the length of the new array instance, 
+which is then fixed for the lifetime of the instance. The indices of the elements of an array range from 0 to Length - 1. 
+The new operator automatically initializes the elements of an array to their default value, which, 
+for example, is zero for all numeric types and null for all reference types.
+
+```c title="Array of simple Types"
+int[] a1   = new int[10];        // One-Dimensional Array
+int[,] a2  = new int[10, 5];     // Two-Dimensional Array
+int[,,] a3 = new int[10, 5, 2];  // Three-Dimensional Array
+```
+**Jagged Array**  
+An array with elements of an array type.
+```c title="Jagged Array - Syntax"
+data_type[][] name_of_array = new data_type[rows][]
+```
+```c title="Beispiel 1"
+int[][] jaggedArray = new int[3][]; // Jagged Array
+jaggedArray[0] = new int[10];
+jaggedArray[1] = new int[5];
+jaggedArray[2] = new int[20];
+```
+```c title="Beispiel 2"
+int[][] anotherJaggedArray = new int[][] // Another way to declare Jagged Arrays
+{
+    new int[] {1,8,2,7,9},
+    new int[] {2,4,6},
+    new int[] {33,42}
+};
+
+int x = anotherJaggedArray[2][1];
+Console.WriteLine(x); // Outputs => 42
+```
+**Array Properties & Methods**  
+The Array class in C# provides various properties and methods to work with arrays.
+The Array class implements the IEnumerable interface, so you can LINQ extension methods such as Max(), Min(), Sum(), Average() and many others.
+```C
+using System;
+using System.Linq;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        int[] integersArray = new int[5]{80, 20, 35, 18, 9};
+
+        Console.WriteLine(integersArray.Max());
+        Console.WriteLine(integersArray.Min());
+        Console.WriteLine(integersArray.Sum());
+        Console.WriteLine(integersArray.Average());
+    }
+}
+```
+**System.Array class**  
+Includes methods for creating, manipulating, searching, and sorting arrays.
+```c 
+using System;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        int[] integersArray = {20, 9, 16, 50, 3};
+
+        Console.WriteLine("Original Array:");
+        foreach(int element in integersArray)
+        {
+            Console.WriteLine(element);
+        }
+
+        Console.WriteLine("Sorted Array:");
+        Array.Sort(integersArray);
+        foreach(int element in integersArray)
+        {
+            Console.WriteLine(element);
+        }
+
+        Console.WriteLine("Reversed Array:");
+        Array.Reverse(integersArray);
+        Array.ForEach<int>(integersArray, n => Console.WriteLine(n));
+
+        Console.WriteLine(Array.BinarySearch(integersArray, 9));
+    }
+}
+```
+#### Class
+
+#### Interface
+
+#### Delegate
+
+### **Generic Collections**
+
+#### List
+
+#### Linked List
+
+#### Dictionary
+
+### Dynamic Types
+
+|Typ|Beschreibung|
+|---|---|
+|`object`|Der Basistyp für **alle** Datentypen in C#. Kann alles speichern.|
+|`dynamic`|Typ wird erst zur Laufzeit bestimmt. Flexibler, aber unsicherer.|
+|`var`|Compiler erkennt den Typ automatisch aus der Initialisierung.|
+
+```c title="object"
+object obj = 42;
+obj = "Hallo"; // Erlaubt (aber keine Typensicherheit)
+```
+```c title="dynamic"
+dynamic d = 10;
+d = "Text"; // Erlaubt, aber erst zur Laufzeit überprüft!
+```
+```c title="var"
+var x = 10; // Compiler erkennt `int`
+var y = "Hallo"; // Compiler erkennt `string`
+```
+
+### Type Conversion
+[**Microsoft Docs - Casting and Type Conversions**](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions)  
+
+```c
+Convert.ToBoolean(x);    // Converts a type to a Boolean value
+Convert.ToByte(x);       // Converts a type to a byte
+Convert.ToChar(x);       // Converts a type to a single Unicode character
+Convert.ToDateTime(x);   // Converts a type (integer or string type) to date-time structures
+Convert.ToDecimal(x);    // Converts a floating point or integer type to a decimal type
+Convert.ToDouble(x);     // Converts a type to a double type
+Convert.ToInt16(x);      // Converts a type to a 16-bit integer
+Convert.ToInt32(x);      // Converts a type to a 32-bit integer
+Convert.ToInt64(x);      // Converts a type to a 64-bit integer
+Convert.ToSbyte(x);      // Converts a type to a signed byte type
+Convert.ToSingle(x);     // Converts a type to a small floating point number
+Convert.ToString(x);     // Converts a type to a string
+Convert.ToType(x);       // Converts a type to a specified type
+Convert.ToUInt16(x);     // Converts a type to an unsigned int type
+Convert.ToUInt32(x);     // Converts a type to an unsigned long type
+Convert.ToUInt64(x);     // Converts a type to an unsigned big integer
+```
+
+### Typecasting
+**Implizite Konvertierung (automatisch)**  
+Eine Umwandlung, die automatisch erfolgt, weil sie sicher ist (d. h. es geht keine Information verloren).
+
+> **converting a smaller type to a larger type size**  
+> char -> int -> long -> float -> double
+
+```c
+int zahl = 42;
+double d = zahl;  // int -> double: implizite Umwandlung (widening conversion)
+```
+**Explizite Konvertierung (manuell)**  
+Eine Umwandlung, bei der der Programmierer ausdrücklich angibt, dass ein Typ in einen anderen umgewandelt werden soll.
+Dies ist oft erforderlich, wenn Daten verloren gehen können oder die Konvertierung nicht automatisch durchgeführt wird (narrowing conversion).
+
+> **converting a larger type to a smaller size type:**  
+> double -> float -> long -> int -> char
+
+```c
+double pi = 3.14159;
+int ganzZahl = (int)pi;  // double -> int: explizite Umwandlung, Nachkommabereich geht verloren
+```
+[Microsoft C# Spezifikationen - Explizite Konvertierung](https://learn.microsoft.com/de-de/dotnet/csharp/language-reference/language-specification/conversions#103-explicit-conversions)
+
+### Type-Testoperatoren
+
+#### `is` Operator
+Prüft, ob ein Objekt zu einem bestimmten Typ kompatibel ist.
+```c
+if (obj is string)
+{
+    Console.WriteLine("obj ist ein String.");
+}
+```
+#### `as` Operator
+Versucht, ein Objekt in einen bestimmten Typ zu konvertieren, und gibt dabei null zurück, falls die Konvertierung nicht möglich ist.
+```c
+SomeType x = y as SomeType;
+if (x != null)
+{
+  // Do something
+}
+```
+
+## **Operatoren**
+
+[**Microsoft Language Specification - Operators and Expressions**](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)  
+
+### Arithmetic Operators
+```c
+float myFloat = 0;
+
+myFloat = 3 + 2; // Addition       => 5
+myFloat = 3 - 2; // Subtraction    => 1
+myFloat = 3 * 2; // Multiplication => 6
+myFloat = 3 / 2; // Division       => 1
+myFloat = 3 % 2; // Modulus        => 1
+
+/*
+    Notice that the division sign gives an incorrect result.
+    This is because it operates on two integer values and will therefore round the result and return an integer.
+    To get the correct value, one of the numbers needs to be converted into a floating-point number.
+*/
+myFloat = 3 / (float) 2; // 1.5
+```
+### Combined Assignment Operators
+```c
+float myFloat = 0;
+
+myFloat += 2; // myNumber = myNumber + 2
+myFloat -= 2; // myNumber = myNumber - 2
+myFloat *= 2; // myNumber = myNumber * 2
+myFloat /= 2; // myNumber = myNumber / 2
+myFloat %= 2; // myNumber = myNumber % 2
+```
+### Comparison Operators
+```c
+Console.WriteLine($"3 == 2? {3 == 2}"); // => false
+Console.WriteLine($"3 != 2? {3 != 2}"); // => true
+Console.WriteLine($"3 > 2? {3 > 2}");   // => true
+Console.WriteLine($"3 < 2? {3 < 2}");   // => false
+Console.WriteLine($"2 <= 2? {2 <= 2}"); // => true
+Console.WriteLine($"2 >= 2? {2 >= 2}"); // => true
+```
+### Logical Operators
+```c
+bool myBool;
+
+myBool = (true && false); // Logical AND => (false)
+myBool = (true || false); // Logical OR  => (true)
+myBool = !(true);         // Logical NOT => (false)
+
+Console.WriteLine(myBool);
+```
+### Bitwise Operators
+```c
+int myInteger;
+
+// The bitwise operators can manipulate individual bits inside an integer.
+
+myInteger = 5 & 4;  // and (0b101 & 0b100 = 0b100 = 4)
+myInteger = 5 | 4;  // or (0b101 | 0b100 = 0b101 = 5)
+myInteger = 5 ^ 4;  // xor (0b101 ^ 0b100 = 0b001 = 1)
+myInteger = 4 << 1; // left shift (0b100 << 1 = 0b1000 = 8)
+myInteger = 4 >> 1; // right shift (0b100 >> 1 = 0b10 = 2)
+myInteger = ~ 4;    // invert (~0b00000100 = 0b11111011 = -5)
+
+// These bitwise operators have shorthand assignment operators, just like the arithmetic operators.
+
+myInteger = 5;
+myInteger &= 4; // and (0b101 & 0b100 = 0b100 = 4)
+
+myInteger = 5;
+myInteger |= 4; // or (0b101 | 0b100 = 0b101 = 5)
+
+myInteger = 5;
+myInteger ^= 4; // xor (0b101 ^ 0b100 = 0b001 = 1)
+
+myInteger = 5;
+myInteger <<= 1; // left shift (0b101 << 1 = 0b1010 = 10)
+
+myInteger = 5;
+myInteger >>= 1; // right shift (0b101 >> 1 = 0b10 = 2)
+```
+### Operator Precedents
+```c
+/*
+
+- parentheses ()
+
+- Postfix Increment and Decrement         ++, --
+- Prefix Increment, Decrement and Unary   ++, --, +, -, !, ~
+
+- Multiplicative                          *, /, %
+- Additive                                +, -
+
+- Shift                                   <<, >>
+- Relational                              <, <=, >, >=
+- Equality                                ==, !=
+
+- Bitwise AND                             &
+- Bitwise XOR                             ^
+- Bitwise OR                              |
+
+- Logical AND                             &&
+- Logical OR                              ||
+
+- Ternary                                 ? :
+- Assignment                              =, +=, -=, *=, /=, %=, &=, |=, ^=, <<=, >>=
+
+*/
+```
+
+## **Statements**
+
+### if-Statements
+```c
+if(boolean_expression)
+{
+   /* boolean expression is true */
+}
+```
+```c title="if else statements"
+if(boolean_expression)
+{
+   /* boolean expression is true */
+}
+else
+{
+   /* expression is false */
+}
+```
+```c title="if, else if, else"
+if(boolean_expression1)
+{
+   /* boolean expression 1 is true */
+}
+else if (boolean_expression2)
+{
+   /* boolean expression 2 is true */
+}
+else
+{
+   /* expression 1 and 2 are false */
+}
+```
+```c title="nested if"
+if( boolean_expression1)
+{
+   /* boolean expression 1 is true */
+   if(boolean_expression2)
+   {
+      /* expression 2 is true */
+   }
+}
+```
+### switch case
+```c
+switch(place)
+{
+   case 1  :
+      Console.WriteLine("First!");
+      break; 
+   case 2  :
+      Console.WriteLine("Second!");
+      break; 
+   default : /* Optional */
+      Console.WriteLine("Invalid place!");
+      break; 
+}
+```
+```c
+switch(place)
+{
+   case 1  :
+      Console.WriteLine("First!");
+      break; 
+   case 2 :
+   case 3 :
+      Console.WriteLine("Second or Third");
+      break; 
+}
+```
+
+### loops
+
+```c title="While loop"
+while(condition)
+{
+   Console.WriteLine("Hello!");
+}
+```
+```c title="For loop"
+for (int i = 0; i < 10; i++)
+{
+   Console.WriteLine($"value of i: {i}");
+}
+```
+```c title="Do...While loop"
+int x = 0;
+
+do
+{
+   Console.WriteLine($"value of i: {i}");
+   i++;
+} 
+while (i < 10);
+```
+```c title="Nested loops"
+for (int i = 0; i < 10; i++)
+{
+   for (int j = 0; j < 10; j++) 
+   {
+      Console.WriteLine($"i: {i}, j: {j}");
+   }
+}
+```
+```c title="Foreach, in"
+ArrayList numbers = new ArrayList();
+numbers.Add(1);
+numbers.Add(2);
+numbers.Add(3);
+
+Console.WriteLine($"Count: {numbers.Count}");
+
+foreach (int number in numbers)
+{
+   Console.Write(number + " ");
+}
+```
+
+## **Classes & Methods**
+
+
+## **String Interpolation**
+
+```c
+// {index der variablen die eingesetzt wird:FORMAT}
+// C - Currency; U - Universal full date/time
+// Ausgabe: 150,00 € Samstag, 8. Februar 2025 18:25:11
+static DateTime thisDate = DateTime.Now;
+Console.WriteLine("{0:C} {1:U}", 150, thisDate);
+```
+
+```c
+using System;
+class Sample 
+{
+    enum Color {Yellow = 1, Blue, Green};
+    static DateTime thisDate = DateTime.Now;
+
+    public static void Main() 
+    {
+        Console.Clear();
+
+        // Format a negative integer or floating-point number in various ways.
+        Console.WriteLine("Standard Numeric Format Specifiers");
+        Console.WriteLine(
+            "(C) Currency: . . . . . . . . {0:C}\n" +
+            "(D) Decimal:. . . . . . . . . {0:D}\n" +
+            "(E) Scientific: . . . . . . . {1:E}\n" +
+            "(F) Fixed point:. . . . . . . {1:F}\n" +
+            "(G) General:. . . . . . . . . {0:G}\n" +
+            "    (default):. . . . . . . . {0} (default = 'G')\n" +
+            "(N) Number: . . . . . . . . . {0:N}\n" +
+            "(P) Percent:. . . . . . . . . {1:P}\n" +
+            "(R) Round-trip: . . . . . . . {1:R}\n" +
+            "(X) Hexadecimal:. . . . . . . {0:X}\n",
+            -123, -123.45f); 
+
+        // Format the current date in various ways.
+        Console.WriteLine("Standard DateTime Format Specifiers");
+        Console.WriteLine(
+            "(d) Short date: . . . . . . . {0:d}\n" +
+            "(D) Long date:. . . . . . . . {0:D}\n" +
+            "(t) Short time: . . . . . . . {0:t}\n" +
+            "(T) Long time:. . . . . . . . {0:T}\n" +
+            "(f) Full date/short time: . . {0:f}\n" +
+            "(F) Full date/long time:. . . {0:F}\n" +
+            "(g) General date/short time:. {0:g}\n" +
+            "(G) General date/long time: . {0:G}\n" +
+            "    (default):. . . . . . . . {0} (default = 'G')\n" +
+            "(M) Month:. . . . . . . . . . {0:M}\n" +
+            "(R) RFC1123:. . . . . . . . . {0:R}\n" +
+            "(s) Sortable: . . . . . . . . {0:s}\n" +
+            "(u) Universal sortable: . . . {0:u} (invariant)\n" +
+            "(U) Universal full date/time: {0:U}\n" +
+            "(Y) Year: . . . . . . . . . . {0:Y}\n", 
+            thisDate);
+
+        // Format a Color enumeration value in various ways.
+        Console.WriteLine("Standard Enumeration Format Specifiers");
+        Console.WriteLine(
+            "(G) General:. . . . . . . . . {0:G}\n" +
+            "    (default):. . . . . . . . {0} (default = 'G')\n" +
+            "(F) Flags:. . . . . . . . . . {0:F} (flags or integer)\n" +
+            "(D) Decimal number: . . . . . {0:D}\n" +
+            "(X) Hexadecimal:. . . . . . . {0:X}\n", 
+            Color.Green);       
+    }
+}
+```
+
+```c title="This code example produces the following results:"
+/*
+Standard Numeric Format Specifiers
+(C) Currency: . . . . . . . . ($123.00)
+(D) Decimal:. . . . . . . . . -123
+(E) Scientific: . . . . . . . -1.234500E+002
+(F) Fixed point:. . . . . . . -123.45
+(G) General:. . . . . . . . . -123
+    (default):. . . . . . . . -123 (default = 'G')
+(N) Number: . . . . . . . . . -123.00
+(P) Percent:. . . . . . . . . -12,345.00 %
+(R) Round-trip: . . . . . . . -123.45
+(X) Hexadecimal:. . . . . . . FFFFFF85
+
+Standard DateTime Format Specifiers
+(d) Short date: . . . . . . . 6/26/2004
+(D) Long date:. . . . . . . . Saturday, June 26, 2004
+(t) Short time: . . . . . . . 8:11 PM
+(T) Long time:. . . . . . . . 8:11:04 PM
+(f) Full date/short time: . . Saturday, June 26, 2004 8:11 PM
+(F) Full date/long time:. . . Saturday, June 26, 2004 8:11:04 PM
+(g) General date/short time:. 6/26/2004 8:11 PM
+(G) General date/long time: . 6/26/2004 8:11:04 PM
+    (default):. . . . . . . . 6/26/2004 8:11:04 PM (default = 'G')
+(M) Month:. . . . . . . . . . June 26
+(R) RFC1123:. . . . . . . . . Sat, 26 Jun 2004 20:11:04 GMT
+(s) Sortable: . . . . . . . . 2004-06-26T20:11:04
+(u) Universal sortable: . . . 2004-06-26 20:11:04Z (invariant)
+(U) Universal full date/time: Sunday, June 27, 2004 3:11:04 AM
+(Y) Year: . . . . . . . . . . June, 2004
+
+Standard Enumeration Format Specifiers
+(G) General:. . . . . . . . . Green
+    (default):. . . . . . . . Green (default = 'G')
+(F) Flags:. . . . . . . . . . Green (flags or integer)
+(D) Decimal number: . . . . . 3
+(X) Hexadecimal:. . . . . . . 00000003
+*/
+```
+```c title="The snippet below examplifies how to format strings in a table format."
+using System;
+
+class Program {
+    static void Main(string[] args) {
+        string headers = $"{"First Name", -20} {"Last Name", -20} {"Value", -20} {"Time", -20}";
+        string line	= $"{"Luiz", -20} {"Parente", -20} {20, -20:C} {DateTime.Now, -20:d}";
+
+        Console.WriteLine(headers);
+        Console.WriteLine(line);
+    }
+}
+
+/*
+This code example produces the following results:
+
+First Name           Last Name            Value                Time                
+Luiz                 Parente              $20.00               2/9/2020            
+*/
+```
+[Source](https://gist.github.com/luizcentennial/c6353c2ae21815420e616a6db3897b4c)
+
+
+
+
+
