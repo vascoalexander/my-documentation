@@ -159,7 +159,7 @@ const config = {
               },
               {
                 label: 'Infrastruktur',
-                href: '/docs/category/datenbanken',
+                href: '/docs/category/grundlagen-1',
               },
               {
                 label: 'Resourcen & Tools',
