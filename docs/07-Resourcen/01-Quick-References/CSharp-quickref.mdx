@@ -375,19 +375,187 @@ public class Program
     }
 }
 ```
+
 #### Class
+Eine Klasse dient als Bauplan für Objekte. Sie fasst **Daten (Felder, Eigenschaften)** und **Verhalten (Methoden, Ereignisse)** zusammen.
+```c title="Einfache Klasse mit Konstruktor"
+public class Person {
+    // Felder bzw Attribute
+    public string Name {get, private set};
+    public int Age {get, private set};
+
+    // Konstruktor
+    public Person(string name, int age) {
+        Name = name;
+        Age = age;
+    }
+    // Greet()-Methode
+    public void Greet() {
+        Console.WriteLine($"Hallo, mein Name ist {Name} und ich bin {Age} Jahre alt.");
+    }
+}
+
+class Program {
+    static void Main() {
+        Person p = new Person("Max", 30);  // Konstruktor wird aufgerufen
+        p.Greet();
+    }
+}
+```
 
 #### Interface
+Ein Interface definiert einen Vertrag (Methoden, Eigenschaften etc.), den implementierende Klassen erfüllen müssen. Es ermöglicht lose Kopplung.
+```c
+public interface IBeweglich
+{
+    void Bewege();
+}
+
+public class Auto : IBeweglich
+{
+    public void Bewege()
+    {
+        Console.WriteLine("Das Auto fährt.");
+    }
+}
+
+public class Fahrrad : IBeweglich
+{
+    public void Bewege()
+    {
+        Console.WriteLine("Das Fahrrad rollt.");
+    }
+}
+
+// Anwendung:
+IBeweglich fahrzeug = new Auto();
+fahrzeug.Bewege();  // Ausgabe: Das Auto fährt.
+
+fahrzeug = new Fahrrad();
+fahrzeug.Bewege();  // Ausgabe: Das Fahrrad rollt.
+```
 
 #### Delegate
+Ein Delegate ist ein typisierter Verweis auf eine oder mehrere Methoden. Er ermöglicht es, Methoden als Objekte zu behandeln.
+```c
+// Delegate-Definition:
+public delegate int Operation(int a, int b);
 
+public class Rechner
+{
+    public int Addieren(int a, int b) => a + b;
+    public int Multiplizieren(int a, int b) => a * b;
+}
+
+// Anwendung:
+var rechner = new Rechner();
+
+// Zuweisung der Methode an den Delegate:
+Operation op = rechner.Addieren;
+Console.WriteLine(op(3, 4));  // Ausgabe: 7
+
+// Delegate neu zuweisen:
+op = rechner.Multiplizieren;
+Console.WriteLine(op(3, 4));  // Ausgabe: 12
+```
 ### **Generic Collections**
+[Microsoft Docs - Generic collections](https://learn.microsoft.com/en-us/dotnet/standard/generics/collections)
+
+A collection is used to group related objects. Unlike an array, it is dynamic and can also group objects. 
+A collection can grow and shrink to accommodate any number of objects. Collection classes are organized into 
+namespaces and contain built in methods for processing elements within the collection.
+
+The for statement and the foreach statement are used to iterate through collections. Since a collection is a class 
+you must first declare an instance of the class before you can add elements to that collection.
 
 #### List
+A list is similar to an array, but the elements in a list can be inserted and removed dynamically. The C# generic 
+collection `List<T>` class requires all elements be of the same type T.
 
+```c
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public static void Main()
+    {
+        // Erstellen einer Liste vom Typ string
+        List<string> namen = new List<string>();
+
+        // Hinzufügen von Elementen
+        namen.Add("Anna");
+        namen.Add("Bernd");
+        namen.Add("Clara");
+
+        // Einfügen eines Elements an einem bestimmten Index (Index 1)
+        namen.Insert(1, "Dieter");
+
+        // Überprüfen, ob ein bestimmter Wert existiert
+        bool enthältClara = namen.Contains("Clara");
+        Console.WriteLine($"Enthält Clara? {enthältClara}");
+
+        // Entfernen eines Elements per Wert
+        namen.Remove("Bernd");
+
+        // Entfernen eines Elements per Index (erstes Element)
+        namen.RemoveAt(0);
+
+        // Iteration über die Liste
+        Console.WriteLine("Aktuelle Liste:");
+        foreach (string name in namen)
+        {
+            Console.WriteLine(name);
+        }
+
+        // Sortieren der Liste
+        namen.Sort();
+        Console.WriteLine("Sortierte Liste:");
+        namen.ForEach(Console.WriteLine);
+
+        // Liste umkehren
+        namen.Reverse();
+        Console.WriteLine("Umgekehrte Liste:");
+        namen.ForEach(Console.WriteLine);
+
+        // Zugriff auf ein Element per Index (Beispiel: erstes Element, falls vorhanden)
+        if (namen.Count > 0)
+        {
+            Console.WriteLine($"Erstes Element: {namen[0]}");
+        }
+
+        // Suchen eines Elements (erstes Element, das mit 'C' beginnt)
+        string nameMitC = namen.Find(name => name.StartsWith("C"));
+        Console.WriteLine($"Erster Name, der mit 'C' beginnt: {nameMitC}");
+
+        // Finden aller Elemente, die einer Bedingung entsprechen (z.B. Länge > 4)
+        List<string> langeNamen = namen.FindAll(name => name.Length > 4);
+        Console.WriteLine("Namen mit mehr als 4 Zeichen:");
+        langeNamen.ForEach(Console.WriteLine);
+
+        // Umwandeln der Liste in ein Array
+        string[] namenArray = namen.ToArray();
+        Console.WriteLine("Array-Ausgabe:");
+        foreach (var n in namenArray)
+        {
+            Console.WriteLine(n);
+        }
+
+        // Leeren der Liste
+        namen.Clear();
+        Console.WriteLine($"Anzahl der Elemente nach Clear: {namen.Count}");
+    }
+}
+```
 #### Linked List
 
 #### Dictionary
+
+#### Stack
+
+#### Queue
+
+#### HashSet
 
 ### Dynamic Types
 
@@ -586,99 +754,103 @@ myInteger >>= 1; // right shift (0b101 >> 1 = 0b10 = 2)
 ```
 
 ## **Statements**
+[**Microsoft Docs - Statements**](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/statements)  
 
 ### if-Statements
-```c
-if(boolean_expression)
+```c title="if...else if...else"
+int time = 22;
+
+if (time < 10)
 {
-   /* boolean expression is true */
+  Console.WriteLine("Good morning.");
 }
-```
-```c title="if else statements"
-if(boolean_expression)
+else if (time < 20)
 {
-   /* boolean expression is true */
-}
-else
-{
-   /* expression is false */
-}
-```
-```c title="if, else if, else"
-if(boolean_expression1)
-{
-   /* boolean expression 1 is true */
-}
-else if (boolean_expression2)
-{
-   /* boolean expression 2 is true */
+  Console.WriteLine("Good day.");
 }
 else
 {
-   /* expression 1 and 2 are false */
+  Console.WriteLine("Good evening.");
 }
 ```
-```c title="nested if"
-if( boolean_expression1)
-{
-   /* boolean expression 1 is true */
-   if(boolean_expression2)
-   {
-      /* expression 2 is true */
-   }
-}
+```c title="Ternary Operators"
+// A simple if/else can be written as follows
+// <condition> ? <true> : <false>
+int toCompare = 17;
+string isTrue = toCompare == 17 ? "True" : "False";
 ```
 ### switch case
 ```c
-switch(place)
+// A switch works with the byte, short, char, and int data types.
+// It also works with enumerated types (discussed in Enum Types),
+// the String class, and a few special classes that wrap
+// primitive types: Character, Byte, Short, and Integer.
+int month = 3;
+string monthString;
+switch (month)
 {
-   case 1  :
-      Console.WriteLine("First!");
-      break; 
-   case 2  :
-      Console.WriteLine("Second!");
-      break; 
-   default : /* Optional */
-      Console.WriteLine("Invalid place!");
-      break; 
-}
-```
-```c
-switch(place)
-{
-   case 1  :
-      Console.WriteLine("First!");
-      break; 
-   case 2 :
-   case 3 :
-      Console.WriteLine("Second or Third");
-      break; 
+    case 1:
+        monthString = "January";
+        break;
+    case 2:
+        monthString = "February";
+        break;
+    case 3:
+        monthString = "March";
+        break;
+    // You can assign more than one case to an action
+    // But you can't add an action without a break before another case
+    // (if you want to do this, you would have to explicitly add a goto case x
+    case 6:
+    case 7:
+    case 8:
+        monthString = "Summer time!!";
+        break;
+    default:
+        monthString = "Some other month";
+        break;
 }
 ```
 
-### loops
+### while, do...while
 
 ```c title="While loop"
-while(condition)
+
+int fooWhile = 0;
+
+while (fooWhile < 100)
 {
-   Console.WriteLine("Hello!");
+    // Iterated 100 times, fooWhile 0->99
+    fooWhile++;
 }
 ```
+```c title="Do...While loop"
+// Do While Loop
+int fooDoWhile = 0;
+
+do
+{
+    // Start iteration 100 times, fooDoWhile 0->99
+    if (false)
+    {
+        continue; // skip the current iteration
+    }
+
+    fooDoWhile++;
+
+    if (fooDoWhile == 50)
+    {
+        break; // breaks from the loop completely
+    }
+
+} while (fooDoWhile < 100);
+```
+### for-loop
 ```c title="For loop"
 for (int i = 0; i < 10; i++)
 {
    Console.WriteLine($"value of i: {i}");
 }
-```
-```c title="Do...While loop"
-int x = 0;
-
-do
-{
-   Console.WriteLine($"value of i: {i}");
-   i++;
-} 
-while (i < 10);
 ```
 ```c title="Nested loops"
 for (int i = 0; i < 10; i++)
@@ -689,6 +861,7 @@ for (int i = 0; i < 10; i++)
    }
 }
 ```
+### foreach-loop
 ```c title="Foreach, in"
 ArrayList numbers = new ArrayList();
 numbers.Add(1);
@@ -702,9 +875,162 @@ foreach (int number in numbers)
    Console.Write(number + " ");
 }
 ```
+### return Statement
+```c
+static int Add(int a, int b)
+{
+    return a + b;
+}
+
+static void Main(string[] args)
+{
+    Console.WriteLine(Add(1, 2));
+    return;
+}
+```
+### yield Statement
+Das yield-Schlüsselwort in C# wird in Iteratoren verwendet und ermöglicht die schrittweise Bereitstellung von Werten, ohne dass eine gesamte Sammlung im Speicher gehalten werden muss. Es vereinfacht die Implementierung von Enumeratoren und verbessert die Speicher- sowie Performance-Effizienz.
+
+**Es gibt zwei Varianten:**
+1. **yield return** – Gibt einen einzelnen Wert zurück und pausiert die Methode, bis der nächste Wert angefordert wird.
+2. **yield break**  – Beendet die Iteration vorzeitig.
+```c 
+static IEnumerable<int> Range(int from, int to)
+{
+    for (int i = from; i < to; i++)
+    {
+        yield return i;
+    }
+    yield break;
+}
+
+static void Main(string[] args)
+{
+    foreach (int x in Range(-10,10))
+    {
+        Console.WriteLine(x);
+    }
+}
+```
+yield ist besonders nützlich für große Datenmengen, Streaming-Verarbeitung und Lazy Computation.
+
+### checked / unchecked
+
+```c
+static void Main(string[] args)
+{
+    int i = int.MaxValue;
+    checked
+    {
+        Console.WriteLine(i + 1);
+    }
+    // System.OverflowException 
+    unchecked
+    {
+        Console.WriteLine(i + 1);
+    }
+    // Overflow - dies ist das default Verhalten: 
+    // auch ohne das unchecked Statement würde es zum Overflow kommen
+}
+```
+### lock Statement
+Das lock-Statement in C# wird verwendet, um **Datenraces** und **Konkurrenzprobleme** bei der parallelen Ausführung von Threads zu vermeiden. 
+Es sorgt dafür, dass nur ein Thread gleichzeitig auf einen kritischen Abschnitt des Codes zugreifen kann, und verhindert so Konflikte.
+
+**Das lock-Objekt**  
+Das lock-Statement verwendet ein **Schlüsselobjekt**, das von jedem Thread verwendet wird, um zu synchronisieren, 
+wann ein Thread den Zugriff auf einen kritischen Abschnitt des Codes erlangen kann.
+Solange das lock-Objekt von einem Thread verwendet wird, kann kein andere Thread der dasselbe lock-Objekt nutzt fortfahren, sondern
+muss warten bis das Objekt wieder freigegben wurde.
+
+```c title="Beispiel"
+class Counter
+{
+    private int _count = 0;
+    private readonly object _lockObj = new object();  // Lock-Objekt
+
+    public void Increment()
+    {
+        lock (_lockObj)
+        {
+            _count++;  // Nur ein Thread kann diesen Abschnitt gleichzeitig betreten
+        }
+    }
+
+    public int GetCount()
+    {
+        return _count;
+    }
+}
+```
+### using Statement
+Das using-Statement in C# wird verwendet, um Ressourcen wie **Datenbankverbindungen**, **Dateihandles** oder **Netzwerkverbindungen** zu verwalten 
+und sie nach Gebrauch **automatisch freizugeben**, sobald sie nicht mehr benötigt werden.
+
+`using` stellt sicher, dass Ressourcen nach ihrer Verwendung automatisch freigegeben werden, ohne dass man explizit eine Dispose()-Methode aufrufen musst.
+
+```c
+using (StreamReader reader = new StreamReader("datei.txt"))
+{
+    string line = reader.ReadLine();
+    Console.WriteLine(line);
+}
+// Sobald der Block verlassen wird, wird 'reader.Dispose()' aufgerufen und die Datei wird automatisch geschlossen.
+```
+**using-Direktive (Namespace)**
+Neben dem using-Statement gibt es auch die using-Direktive, mit der du Namespaces importierst, 
+um den Code leserlicher zu machen und die Notwendigkeit zu vermeiden, lange Namespace-Pfade zu schreiben.
+
+### Exception Handling
+
+```c
+static double Divide(double x, double y)
+{
+    if (y == 0)
+    {
+      throw new DivideByZeroException();
+    }
+    return x / y;
+}
+
+static void Main(string[] args)
+{
+    try
+    {
+        if (args.Length != 2)
+        {
+            throw new Exception("Two numbers are required");
+        }
+        double x = double.Parse(args[0]);
+        double y = double.Parse(args[1]);
+        Console.WriteLine(Divide(x, y));
+    }
+
+    catch (Exception e)
+    {
+        Console.WriteLine(e.Message);
+    }
+
+    finally
+    {
+        Console.WriteLine("Terminating!");
+    }
+}
+```
 
 ## **Classes & Methods**
 
+## **Object-Oriented programming**
+
+## **Delegates**
+
+## **Events**
+
+## **Constants**
+
+## **LINQ**
+
+## **Working with Files**
 
 ## **String Interpolation**
 
@@ -836,7 +1162,7 @@ Luiz                 Parente              $20.00               2/9/2020
 ```
 [Source](https://gist.github.com/luizcentennial/c6353c2ae21815420e616a6db3897b4c)
 
-
+## **Keywords**
 
 
 

@@ -12,6 +12,58 @@ title: "Python"
 
 ### String Methods
 **Note:** All string methods returns new values. They do not change the original string.
+
+```python
+<str>  = <str>.strip()                       # Strips all whitespace characters from both ends.
+<str>  = <str>.strip('<chars>')              # Strips passed characters. Also lstrip/rstrip().
+<list> = <str>.split()                       # Splits on one or more whitespace characters.
+<list> = <str>.split(sep=None, maxsplit=-1)  # Splits on 'sep' str at most 'maxsplit' times.
+<list> = <str>.splitlines(keepends=False)    # On [\n\r\f\v\x1c-\x1e\x85\u2028\u2029] and \r\n.
+<str>  = <str>.join(<coll_of_strings>)       # Joins elements using string as a separator.
+<bool> = <sub_str> in <str>                  # Checks if string contains the substring.
+<bool> = <str>.startswith(<sub_str>)         # Pass tuple of strings for multiple options.
+<int>  = <str>.find(<sub_str>)               # Returns start index of the first match or -1.
+<int>  = <str>.index(<sub_str>)              # Same, but raises ValueError if there's no match.
+<str>  = <str>.lower()                       # Changes the case. Also upper/capitalize/title().
+<str>  = <str>.replace(old, new [, count])   # Replaces 'old' with 'new' at most 'count' times.
+<str>  = <str>.translate(<table>)            # Use `str.maketrans(<dict>)` to generate table.
+<str>  = chr(<int>)                          # Converts int to Unicode character.
+<int>  = ord(<str>)                          # Converts Unicode character to int.
+```
+#### Property Methods
+```python
+<bool> = <str>.isdecimal()                   # Checks for [0-9]. Also [०-९] and [٠-٩].
+<bool> = <str>.isdigit()                     # Checks for [²³¹…] and isdecimal().
+<bool> = <str>.isnumeric()                   # Checks for [¼½¾…], [零〇一…] and isdigit().
+<bool> = <str>.isalnum()                     # Checks for [a-zA-Z…] and isnumeric().
+<bool> = <str>.isprintable()                 # Checks for [ !#$%…] and isalnum().
+<bool> = <str>.isspace()                     # Checks for [ \t\n\r\f\v\x1c-\x1f\x85\xa0…].
+```
+#### Regex
+```python
+import re
+<str>   = re.sub(r'<regex>', new, text, count=0)  # Substitutes all occurrences with 'new'.
+<list>  = re.findall(r'<regex>', text)            # Returns all occurrences as strings.
+<list>  = re.split(r'<regex>', text, maxsplit=0)  # Add brackets around regex to keep matches.
+<Match> = re.search(r'<regex>', text)             # First occurrence of the pattern or None.
+<Match> = re.match(r'<regex>', text)              # Searches only at the beginning of the text.
+<iter>  = re.finditer(r'<regex>', text)           # Returns all occurrences as Match objects.
+```
+**Match Object**
+```python
+<str>   = <Match>.group()                         # Returns the whole match. Also group(0).
+<str>   = <Match>.group(1)                        # Returns part inside the first brackets.
+<tuple> = <Match>.groups()                        # Returns all bracketed parts.
+<int>   = <Match>.start()                         # Returns start index of the match.
+<int>   = <Match>.end()                           # Returns exclusive end index of the match.
+```
+**Special Sequences**
+```python
+'\d' == '[0-9]'                                   # Also [०-९…]. Matches a decimal character.
+'\w' == '[a-zA-Z0-9_]'                            # Also [ª²³…]. Matches an alphanumeric or _.
+'\s' == '[ \t\n\r\f\v]'                           # Also [\x1c-\x1f…]. Matches a whitespace.
+```
+
 | Method                                                                         | Description                                                                                   |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
 | [capitalize()](https://www.w3schools.com/python/ref_string_capitalize.asp)     | Converts the first character to upper case                                                    |
@@ -150,6 +202,10 @@ title: "Python"
 ---
 #### Syntax
 Ein F-String wird mit einem vorangestellten `f` oder `F` gekennzeichnet und enthält Ausdrücke in geschweiften Klammern `{}`, die zur Laufzeit ausgewertet werden.
+```python
+<str> = f'{<el_1>}, {<el_2>}'            # Curly brackets can also contain expressions.
+<str> = '{}, {}'.format(<el_1>, <el_2>)  # Or: '{0}, {a}'.format(<el_1>, a=<el_2>)
+```
 
 | format_spec     | fill \| align \| sign \| width \| grouping_option \| "."precision \| type                             |
 | --------------- | ----------------------------------------------------------------------------------------------------- |
@@ -199,6 +255,41 @@ Ein F-String wird mit einem vorangestellten `f` oder `F` gekennzeichnet und enth
 #### F-String Examples
 
 ```python
+>>> Person = collections.namedtuple('Person', 'name height')
+>>> person = Person('Jean-Luc', 187)
+>>> f'{person.name} is {person.height / 100} meters tall.'
+'Jean-Luc is 1.87 meters tall.'
+
+# General Options
+{<el>:<10}                               # '<el>      '
+{<el>:^10}                               # '   <el>   '
+{<el>:>10}                               # '      <el>'
+{<el>:.<10}                              # '<el>......'
+{<el>:0}                                 # '<el>'
+
+# Strings
+{'abcde':10}                             # 'abcde     '
+{'abcde':10.3}                           # 'abc       '
+{'abcde':.3}                             # 'abc'
+{'abcde'!r:10}                           # "'abcde'   "
+
+# Numbers
+{123456:10}                              # '    123456'
+{123456:10,}                             # '   123,456'
+{123456:10_}                             # '   123_456'
+{123456:+10}                             # '   +123456'
+{123456:=+10}                            # '+   123456'
+{123456: }                               # ' 123456'
+{-123456: }                              # '-123456'
+
+# Floats
+{1.23456:10.3}                           # '      1.23'
+{1.23456:10.3f}                          # '     1.235'
+{1.23456:10.3e}                          # ' 1.235e+00'
+{1.23456:10.3%}                          # '  123.456%'
+```
+
+```python title="More Examples"
 >>> name = "Fred"
 >>> f"He said his name is {name!r}."
 "He said his name is 'Fred'."
@@ -258,6 +349,33 @@ All numeric types (except complex) support the following operations (for priorit
 | [`round(x[, n])`](https://docs.python.org/3/library/functions.html#round "round")      | _x_ rounded to _n_ digits, rounding half to even. If _n_ is omitted, it defaults to 0.                               |
 | [`math.floor(x)`](https://docs.python.org/3/library/math.html#math.floor "math.floor") | the greatest [`Integral`](https://docs.python.org/3/library/numbers.html#numbers.Integral "numbers.Integral") `<= _x_` |
 | [`math.ceil(x)`](https://docs.python.org/3/library/math.html#math.ceil "math.ceil")    | the least [`Integral`](https://docs.python.org/3/library/numbers.html#numbers.Integral "numbers.Integral") `>= _x_`    |
+
+```python
+# Basic Functions
+<num> = pow(<num>, <num>)                         # Or: <number> ** <number>
+<num> = abs(<num>)                                # <float> = abs(<complex>)
+<num> = round(<num> [, ±ndigits])                 # `round(126, -1) == 130`
+
+# Math
+from math import e, pi, inf, nan, isinf, isnan    # `<el> == nan` is always False.
+from math import sin, cos, tan, asin, acos, atan  # Also: degrees, radians.
+from math import log, log10, log2                 # Log can accept base as second arg.
+
+# Statistics
+from statistics import mean, median, variance     # Also: stdev, quantiles, groupby.
+
+# Random
+from random import random, randint, choice        # Also: shuffle, gauss, triangular, seed.
+<float> = random()                                # A float inside [0, 1).
+<int>   = randint(from_inc, to_inc)               # An int inside [from_inc, to_inc].
+<el>    = choice(<sequence>)                      # Keeps the sequence intact.
+
+# Bin, Hex
+<int> = ±0b<bin>                                  # Or: ±0x<hex>
+<int> = int('±<bin>', 2)                          # Or: int('±<hex>', 16)
+<int> = int('±0b<bin>', 0)                        # Or: int('±0x<hex>', 0)
+<str> = bin(<int>)                                # Returns '[-]0b<bin>'. Also hex().
+```
 
 ### Bitwise Operations
 ---
