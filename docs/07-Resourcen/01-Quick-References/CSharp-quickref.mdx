@@ -459,7 +459,7 @@ op = rechner.Multiplizieren;
 Console.WriteLine(op(3, 4));  // Ausgabe: 12
 ```
 ### **Generic Collections**
-[Microsoft Docs - Generic collections](https://learn.microsoft.com/en-us/dotnet/standard/generics/collections)
+[**Microsoft Docs - Generic collections**](https://learn.microsoft.com/en-us/dotnet/standard/generics/collections)
 
 A collection is used to group related objects. Unlike an array, it is dynamic and can also group objects. 
 A collection can grow and shrink to accommodate any number of objects. Collection classes are organized into 
@@ -548,10 +548,278 @@ public class Program
 }
 ```
 #### Linked List
+Eine Linked List ist eine lineare Datensammlung, bei der die Elemente (Knoten) nicht zusammenhängend im Speicher abgelegt sind. 
+Jeder Knoten enthält einen Wert und einen Verweis auf den nächsten Knoten in der Liste. Dies unterscheidet sie von Arrays, 
+bei denen die Elemente direkt aufeinander folgen.  
+
+**Vorteile**
+- **Flexibilität bei der Größe:** Linked Lists können dynamisch wachsen oder schrumpfen, da Knoten bei Bedarf hinzugefügt oder 
+entfernt werden können.
+- **Effizientes Einfügen und Entfernen:** Das Einfügen oder Entfernen von Elementen an beliebiger Stelle ist in der Regel schneller als bei Arrays, da keine Elemente verschoben werden müssen.  
+
+**Nachteile**  
+- **Zugriffszeit:** Der Zugriff auf ein Element an einer bestimmten Position kann länger dauern als bei Arrays, da die Liste vom Anfang bis zum gewünschten Element durchlaufen werden muss.
+- **Zusätzlicher Speicherbedarf:** Jeder Knoten benötigt zusätzlichen Speicher für den Verweis auf den nächsten Knoten.
+
+```c
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public static void Main()
+    {
+        // Erstellen einer LinkedList vom Typ string
+        LinkedList<string> linkedList = new LinkedList<string>();
+
+        // Hinzufügen von Elementen
+        linkedList.AddLast("Anna");       // Element am Ende hinzufügen
+        linkedList.AddLast("Bernd");
+        linkedList.AddFirst("Clara");     // Element am Anfang hinzufügen
+
+        // Ausgabe der initialen LinkedList
+        Console.WriteLine("Initiale LinkedList:");
+        foreach (string item in linkedList)
+        {
+            Console.WriteLine(item);
+        }
+
+        // Suchen eines Knotens mit einem bestimmten Wert
+        LinkedListNode<string> nodeBernd = linkedList.Find("Bernd");
+        if (nodeBernd != null)
+        {
+            // Hinzufügen eines Elements nach einem bekannten Knoten
+            linkedList.AddAfter(nodeBernd, "Dieter");
+
+            // Hinzufügen eines Elements vor einem bekannten Knoten
+            linkedList.AddBefore(nodeBernd, "Eva");
+        }
+
+        // Entfernen eines Elements per Wert
+        linkedList.Remove("Clara");
+
+        // Entfernen des ersten und letzten Knotens
+        linkedList.RemoveFirst();
+        linkedList.RemoveLast();
+
+        // Ausgabe der LinkedList nach Änderungen
+        Console.WriteLine("\nLinkedList nach Änderungen:");
+        foreach (string item in linkedList)
+        {
+            Console.WriteLine(item);
+        }
+
+        // Ausgabe der Anzahl der Elemente
+        Console.WriteLine($"\nAnzahl der Elemente: {linkedList.Count}");
+
+        // Iteration über die LinkedList mittels Knotenreferenzen
+        Console.WriteLine("\nIteration mit LinkedListNode<T>:");
+        for (LinkedListNode<string> node = linkedList.First; node != null; node = node.Next)
+        {
+            Console.WriteLine(node.Value);
+        }
+    }
+}
+```
+#### SortedList
+A sorted list is a collection of key/value pairs that are automatically sorted by key. A key can be used to access its corresponding value in the sorted list.
+The C# generic collection `SortedList<K, V>` class requires all element key/value pairs to be of the same type K, V. 
+Duplicate keys are not permitted, which ensures that every key/value pair is unique.
+
+```c
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public static void Main()
+    {
+        // Erstellen einer SortedList (sortiert nach Schlüsseln)
+        SortedList<string, int> sortedList = new SortedList<string, int>();
+
+        // Hinzufügen von Schlüssel-Wert-Paaren
+        sortedList.Add("Clara", 30);
+        sortedList.Add("Anna", 25);
+        sortedList.Add("Bernd", 35);
+
+        // Zugriff auf ein Element per Schlüssel
+        Console.WriteLine($"Anna ist {sortedList["Anna"]} Jahre alt.");
+
+        // Iteration über die SortedList (automatisch sortiert nach Schlüssel)
+        Console.WriteLine("\nSortedList Einträge:");
+        foreach (KeyValuePair<string, int> pair in sortedList)
+        {
+            Console.WriteLine($"{pair.Key}: {pair.Value}");
+        }
+
+        // Entfernen eines Elements per Schlüssel
+        sortedList.Remove("Bernd");
+
+        // Überprüfen, ob ein Schlüssel existiert
+        if (sortedList.ContainsKey("Clara"))
+        {
+            Console.WriteLine("\nClara ist in der SortedList vorhanden.");
+        }
+
+        // Aktualisieren eines Wertes
+        sortedList["Anna"] = 26;
+
+        // Zugriff auf Schlüssel und Werte als separate Sammlungen
+        IList<string> keys = sortedList.Keys;
+        IList<int> values = sortedList.Values;
+
+        Console.WriteLine("\nSchlüssel:");
+        foreach (var key in keys)
+        {
+            Console.WriteLine(key);
+        }
+
+        Console.WriteLine("\nWerte:");
+        foreach (var value in values)
+        {
+            Console.WriteLine(value);
+        }
+
+        // Anzahl der Elemente in der SortedList
+        Console.WriteLine($"\nAnzahl der Elemente: {sortedList.Count}");
+
+        // Löschen aller Einträge
+        sortedList.Clear();
+        Console.WriteLine($"\nAnzahl der Elemente nach Clear: {sortedList.Count}");
+    }
+}
+```
 
 #### Dictionary
+A dictionary is a collection of unique key/value pairs where a key is used to access the corresponding value. Dictionaries are used in database indexing, cache implementations, and so on.
+The C# generic collection `Dictionary<K, V>` class requires all key/value pairs be of the same type K, V. Duplicate keys are not permitted to ensure that every key/value pair is unique.
+
+```c
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public static void Main()
+    {
+        // Erstellen eines Dictionaries (Schlüssel: string, Wert: int)
+        Dictionary<string, int> dictionary = new Dictionary<string, int>();
+
+        // Hinzufügen von Schlüssel-Wert-Paaren
+        dictionary.Add("Anna", 25);
+        dictionary.Add("Bernd", 35);
+        dictionary.Add("Clara", 30);
+
+        // Zugriff auf ein Element per Schlüssel
+        Console.WriteLine($"Anna ist {dictionary["Anna"]} Jahre alt.");
+
+        // Iteration über alle Elemente im Dictionary
+        Console.WriteLine("\nDictionary Einträge:");
+        foreach (KeyValuePair<string, int> pair in dictionary)
+        {
+            Console.WriteLine($"{pair.Key}: {pair.Value}");
+        }
+
+        // Überprüfen, ob ein bestimmter Schlüssel existiert
+        if (dictionary.ContainsKey("Bernd"))
+        {
+            Console.WriteLine("\nBernd ist im Dictionary vorhanden.");
+        }
+
+        // Aktualisieren eines Wertes über den Schlüssel
+        dictionary["Clara"] = 31;
+
+        // Iteration über alle Schlüssel
+        Console.WriteLine("\nSchlüssel im Dictionary:");
+        foreach (string key in dictionary.Keys)
+        {
+            Console.WriteLine(key);
+        }
+
+        // Iteration über alle Werte
+        Console.WriteLine("\nWerte im Dictionary:");
+        foreach (int value in dictionary.Values)
+        {
+            Console.WriteLine(value);
+        }
+
+        // Entfernen eines Elements per Schlüssel
+        dictionary.Remove("Bernd");
+
+        // Ausgabe der Anzahl der Elemente im Dictionary
+        Console.WriteLine($"\nAnzahl der Elemente: {dictionary.Count}");
+
+        // Löschen aller Einträge im Dictionary
+        dictionary.Clear();
+        Console.WriteLine($"Anzahl der Elemente nach Clear: {dictionary.Count}");
+    }
+}
+```
+**SortedList vs Dictonary**
+- Verwenden Sie eine **SortedList**, wenn:
+    - Sie häufig auf Elemente über den Index zugreifen müssen.
+- Verwenden Sie ein **Dictionary**, wenn:
+    - Sie hauptsächlich über den Schlüssel auf Elemente zugreifen.
+    - Performance beim Einfügen und Entfernen wichtig ist.
 
 #### Stack
+A stack is a Last In, First Out (LIFO) collection of elements where the last element that goes into the stack will be the first element that comes out.  
+
+Inserting an element onto a stack is called pushing. Deleting an element from a stack is called popping. 
+Pushing and popping can be performed only at the top of the stack.  
+
+Stacks can be used to create undo-redo functionalities, parsing expressions (infix to postfix/prefix conversion), and much more.
+The C# generic collection `Stack<T>` class requires all elements to be of the same type T.
+
+```c
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public static void Main()
+    {
+        // Erstellen eines Stacks vom Typ int
+        Stack<int> stack = new Stack<int>();
+
+        // Hinzufügen von Elementen (Push)
+        stack.Push(10);
+        stack.Push(20);
+        stack.Push(30);
+
+        // Ausgabe der Anzahl der Elemente
+        Console.WriteLine($"Anzahl der Elemente: {stack.Count}");
+
+        // Zugriff auf das oberste Element ohne es zu entfernen (Peek)
+        Console.WriteLine($"Oberstes Element (Peek): {stack.Peek()}");
+
+        // Entfernen des obersten Elements (Pop)
+        Console.WriteLine($"Entferntes Element (Pop): {stack.Pop()}");
+
+        // Ausgabe des aktuellen Stacks
+        Console.WriteLine("\nStack-Inhalt nach Pop:");
+        foreach (int item in stack)
+        {
+            Console.WriteLine(item);
+        }
+
+        // Verwenden von TryPeek und TryPop
+        if (stack.TryPeek(out int topElement))
+        {
+            Console.WriteLine($"\nOberstes Element (TryPeek): {topElement}");
+        }
+
+        if (stack.TryPop(out int poppedElement))
+        {
+            Console.WriteLine($"Entferntes Element (TryPop): {poppedElement}");
+        }
+
+        // Stack leeren
+        stack.Clear();
+        Console.WriteLine($"\nAnzahl der Elemente nach Clear: {stack.Count}");
+    }
+}
+```
 
 #### Queue
 
