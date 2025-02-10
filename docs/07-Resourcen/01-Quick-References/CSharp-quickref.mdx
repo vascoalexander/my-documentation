@@ -698,62 +698,93 @@ The C# generic collection `Dictionary<K, V>` class requires all key/value pairs 
 using System;
 using System.Collections.Generic;
 
-public class Program
+namespace DictionaryBeispiel
 {
-    public static void Main()
+    class Program
     {
-        // Erstellen eines Dictionaries (Schlüssel: string, Wert: int)
-        Dictionary<string, int> dictionary = new Dictionary<string, int>();
-
-        // Hinzufügen von Schlüssel-Wert-Paaren
-        dictionary.Add("Anna", 25);
-        dictionary.Add("Bernd", 35);
-        dictionary.Add("Clara", 30);
-
-        // Zugriff auf ein Element per Schlüssel
-        Console.WriteLine($"Anna ist {dictionary["Anna"]} Jahre alt.");
-
-        // Iteration über alle Elemente im Dictionary
-        Console.WriteLine("\nDictionary Einträge:");
-        foreach (KeyValuePair<string, int> pair in dictionary)
+        static void Main(string[] args)
         {
-            Console.WriteLine($"{pair.Key}: {pair.Value}");
+            // Erstellen eines Dictionaries
+            // Schlüssel: int, Wert: string
+            Dictionary<int, string> dict = new Dictionary<int, string>();
+
+            // Elemente hinzufügen:
+            dict.Add(1, "Eins");
+            dict.Add(2, "Zwei");
+            // Alternativ kann man den Indexer verwenden (fügt hinzu oder aktualisiert vorhandene Keys):
+            dict[3] = "Drei";
+
+            // Zugriff und Überprüfung
+            // Direkter Zugriff (Achtung: KeyNotFoundException wenn Key nicht existiert)
+            Console.WriteLine("Element mit Key 1: " + dict[1]);
+
+            // Überprüfen, ob ein Key existiert:
+            if (dict.ContainsKey(2))
+            {
+                Console.WriteLine("Key 2 existiert im Dictionary.");
+            }
+
+            // Sicherer Zugriff mit TryGetValue:
+            if (dict.TryGetValue(3, out string wert))
+            {
+                Console.WriteLine("Element mit Key 3: " + wert);
+            }
+
+            // Aktualisieren eines Elements
+            dict[1] = "Eins Aktualisiert";
+            Console.WriteLine("Aktualisiertes Element mit Key 1: " + dict[1]);
+
+            // Entfernen eines Elements
+            dict.Remove(2);
+            Console.WriteLine("Nach dem Entfernen von Key 2, enthält dict Key 2: " + dict.ContainsKey(2));
+
+            // Iterieren über das Dictionary
+            // Über Key-Value-Paare:
+            Console.WriteLine("\nAlle Elemente im Dictionary:");
+            foreach (var kvp in dict)
+            {
+                Console.WriteLine($"Key: {kvp.Key}, Value: {kvp.Value}");
+            }
+
+            // Nur über die Schlüssel:
+            Console.WriteLine("\nAlle Schlüssel:");
+            foreach (var key in dict.Keys)
+            {
+                Console.WriteLine(key);
+            }
+
+            // Nur über die Werte:
+            Console.WriteLine("\nAlle Werte:");
+            foreach (var value in dict.Values)
+            {
+                Console.WriteLine(value);
+            }
+
+            // Anzahl der Elemente:
+            Console.WriteLine($"\nAnzahl der Elemente im Dictionary: {dict.Count}");
+
+            // Alle Elemente löschen
+            dict.Clear();
+            Console.WriteLine("Nach Clear, Anzahl der Elemente: " + dict.Count);
+
+            // Erstellen eines Dictionaries mit Initialisierer
+            var fruits = new Dictionary<string, int>
+            {
+                { "Apfel", 3 },
+                { "Banane", 5 },
+                { "Kirsche", 10 }
+            };
+
+            // Iterieren über das initialisierte Dictionary:
+            Console.WriteLine("\nFrüchte im Initialisierer-Dictionary:");
+            foreach (var item in fruits)
+            {
+                Console.WriteLine($"Frucht: {item.Key}, Anzahl: {item.Value}");
+            }
         }
-
-        // Überprüfen, ob ein bestimmter Schlüssel existiert
-        if (dictionary.ContainsKey("Bernd"))
-        {
-            Console.WriteLine("\nBernd ist im Dictionary vorhanden.");
-        }
-
-        // Aktualisieren eines Wertes über den Schlüssel
-        dictionary["Clara"] = 31;
-
-        // Iteration über alle Schlüssel
-        Console.WriteLine("\nSchlüssel im Dictionary:");
-        foreach (string key in dictionary.Keys)
-        {
-            Console.WriteLine(key);
-        }
-
-        // Iteration über alle Werte
-        Console.WriteLine("\nWerte im Dictionary:");
-        foreach (int value in dictionary.Values)
-        {
-            Console.WriteLine(value);
-        }
-
-        // Entfernen eines Elements per Schlüssel
-        dictionary.Remove("Bernd");
-
-        // Ausgabe der Anzahl der Elemente im Dictionary
-        Console.WriteLine($"\nAnzahl der Elemente: {dictionary.Count}");
-
-        // Löschen aller Einträge im Dictionary
-        dictionary.Clear();
-        Console.WriteLine($"Anzahl der Elemente nach Clear: {dictionary.Count}");
     }
 }
+
 ```
 **SortedList vs Dictonary**
 - Verwenden Sie eine **SortedList**, wenn:
@@ -822,8 +853,74 @@ public class Program
 ```
 
 #### Queue
+A queue is a First In, First Out (FIFO) collection of elements where the first element that goes into a queue is also the first element that comes out.  
+
+Inserting an element into a queue is referred to as Enqueue. Deleting an element from a queue is referred to as Dequeue. 
+Queues are used whenever we need to manage objects in order starting with the first one in.  
+
+The C# generic collection `Queue<T>` class requires that all elements be of the same type T.
+
+```c
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public static void Main()
+    {
+        // Erstellen einer Queue vom Typ int
+        Queue<int> queue = new Queue<int>();
+
+        // Hinzufügen von Elementen (Enqueue)
+        queue.Enqueue(10);
+        queue.Enqueue(20);
+        queue.Enqueue(30);
+
+        // Ausgabe der Anzahl der Elemente
+        Console.WriteLine($"Anzahl der Elemente: {queue.Count}");
+
+        // Zugriff auf das vorderste Element ohne es zu entfernen (Peek)
+        Console.WriteLine($"Vorderstes Element (Peek): {queue.Peek()}");
+
+        // Entfernen des vordersten Elements (Dequeue)
+        Console.WriteLine($"Entferntes Element (Dequeue): {queue.Dequeue()}");
+
+        // Ausgabe des aktuellen Queue-Inhalts
+        Console.WriteLine("\nQueue-Inhalt nach Dequeue:");
+        foreach (int item in queue)
+        {
+            Console.WriteLine(item);
+        }
+
+        // Verwenden von TryPeek und TryDequeue
+        if (queue.TryPeek(out int frontElement))
+        {
+            Console.WriteLine($"\nVorderstes Element (TryPeek): {frontElement}");
+        }
+
+        if (queue.TryDequeue(out int dequeuedElement))
+        {
+            Console.WriteLine($"Entferntes Element (TryDequeue): {dequeuedElement}");
+        }
+
+        // Queue leeren
+        queue.Clear();
+        Console.WriteLine($"\nAnzahl der Elemente nach Clear: {queue.Count}");
+    }
+}
+```
 
 #### HashSet
+
+A hash set is a set of unique values where duplicates are not allowed.
+C# includes the `HashSet<T>` class in the generic collections namespace. All `HashSet<T>` elements are required to be of the same type T.  
+
+Hash sets are different from other collections because they are simply a set of values. They do not have index positions and elements cannot be ordered.  
+
+The `HashSet<T>` class provides high-performance set operations. HashSets allow fast lookup, addition, and removal of items, 
+and can be used to implement either dynamic sets of items or lookup tables that allow finding an item by its key.
+
+
 
 ### Dynamic Types
 
