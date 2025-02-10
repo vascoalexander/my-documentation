@@ -30,7 +30,10 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-footer-background-color: #2b2b2b;
 }
-
+table {
+  width: 100%;
+  display: table;
+}
 .img-800 img,
 .img-800 {
   width:100%;
