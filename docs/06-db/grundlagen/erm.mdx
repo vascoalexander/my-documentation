@@ -1,0 +1,59 @@
+---
+title: "Entity Relationship Model"
+sidebar_position: 3
+description: ""
+draft: false
+---
+import crows_foot_notation from './img/crows_foot_notation.png';
+import ERM_1 from './img/ERM_1.png';
+
+- Publiziert in 1976 von Dr. Peter Chen
+- Hilfsmittel zum Entwurf komplexer Datenbanken
+
+### Entität
+- Eine **Entität** repräsentiert ein reales Objekt oder Konzept, das in der Datenbank modelliert werden soll.
+- Beispiel: Ein Kunde, ein Produkt, ein Kurs.
+- **Entitätstyp:** Eine Klasse oder Kategorie von Entitäten (z. B. „Kunde“ oder „Produkt“).
+- Zwischen zwei Entitätstypen kann es auch mehr als eine Beziehung geben
+- Rekursive Beziehungen sind ebenso möglich (Entitätstyp hat Beziehung mit sich selbst)
+- **Entitätsinstanz:** Ein konkretes Objekt innerhalb eines Entitätstyps (z. B. „Kunde 123“).
+
+### Attribut
+- Ein **Attribut** beschreibt eine Eigenschaft oder ein Merkmal einer Entität.
+- Beispiel: Ein „Kunde“ hat die Attribute „Name“, „Adresse“, „Telefonnummer“.
+- **Schlüsselattribut**: Eindeutiges Attribut, das jede Entität unterscheidet (zb Kundennummer)
+- Attribute können auch an den Beziehungstypen hängen (häufig bei N:M Beziehungen)
+
+### Relation
+- Eine **Beziehung** verbindet zwei oder mehr Entitäten miteinander
+- "Hat" funktioniert für die meisten Beziehungen als Beziehungstyp
+
+### Kardinalität
+Kardinalitäten beschreiben, wie viele Entitäten eines Entitätstypen mit wie vielen Entitäten eines anderen Entitätstypen 
+in einer Beziehung miteinander verbunden sein können.
+- **1:1 (Eins zu Eins)**
+- **1:N (Eins zu Viele)**
+- **M:N (Viele zu Viele)**
+
+**Modifizierte Chen Notation:**
+- 1: genau 1
+- c: 0 oder 1
+- m: mindestens 1
+- mc: beliebig viele
+
+### Martin-/Crow's-Foot-Notation
+
+<img src={crows_foot_notation} class="img-800" alt="teilmenge" />
+
+### ER-Diagramme
+
+- Rechtecke: **Entitäten**
+- Ellipsen: **Attribute**
+- Rauten: **Beziehungen**
+- Linien: Verknüpfen Entitäten und Beziehungen
+
+<img src={ERM_1} class="img-800" alt="teilmenge" />
+
+### Links
+
+[**Wikipedia - Entity-relationsship model**](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)

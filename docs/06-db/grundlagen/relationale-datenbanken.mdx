@@ -1,0 +1,32 @@
+---
+title: "Relationale Datenbanken"
+sidebar_position: 2
+description: ""
+draft: false
+---
+import relationale_datenbanken from './img/relationale_datenbanken.png';
+
+- Entwicklung von Dr. Edgar Frank Codd (1970)
+- Daten werden in Tabellen (Relationen) gespeichert
+- Feste Anzahl an Spalten (Attributen), aber variable Anzahl an Zeilen (Tupeln)
+- Beziehungen zwischen Tabellen werden über (Fremd-)Schlüssel hergestellt
+
+<img src={relationale_datenbanken} class="img-800" alt="teilmenge" />
+
+**Relation**  
+Eine Relation besteht aus einem Kopf und einem Rumpf. Der Kopf ist eine Menge von Attributen, der Rumpf eine Menge von Tupeln.
+
+### Drei-Schema-Architektur
+
+- **Logisches Schema**
+	- beschreibt Daten in der Sprache eines konkreten DBMS
+	- leitet sich von einem konzeptionellem Schema ab
+	- m:n Beziehungen müssen aufgelöst werden
+- **Internes / Physikalisches Schema**
+	- beschreibt Daten aus technischer Sicht des Systems
+	- abgeleitet aus logischem Schema
+	- Speichermethoden, Hilfskonstrukte zur Effizienzsteigerung
+- **Externes Schema**
+	- beschreibt Daten aus der Sicht des Anwenders
+	- Einschränkung der Sichtbarkeit, Zugriffsrechte
+	- mehrere externe Schemata für eine Datenbank möglich

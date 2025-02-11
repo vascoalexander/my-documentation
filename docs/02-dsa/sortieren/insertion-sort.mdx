@@ -1,0 +1,67 @@
+---
+description: ""
+sidebar_position: 2
+title: "Insertion-Sort"
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+- einfach, stabil
+- effizient bei kleinen oder vorsortierten Datenmengen
+- vgl. Spielkarten sortieren
+- **Laufzeitkomplexität:**
+    - Best: O(n)
+    - Average: O(n²)
+    - Worst: O(n²)
+
+```pseudo title="Pseudocode"
+Funktion InsertionSort(array)
+FOR i := 1 bis Länge(array)
+    temp := array[i]
+    j := i - 1
+    WHILE j >= 0 und array[j] > temp
+        array[j + 1] := array[j]
+        j := j - 1
+    array[j+1] = temp
+RETURN array
+```
+<Tabs>
+<TabItem value="python-insertion-sort" label="Python" default>
+```python
+def insertion_sort(array)
+    for i in range(1,len(array)):
+        temp = array[i]
+        j = i - 1
+        while (j >= 0 and array[j] > temp):
+            array[j + 1] = array[j]
+            j -= 1
+        array[j+1] = temp
+    return array
+```
+</TabItem>
+<TabItem value="csharp-insertion-sort" label="C#" default>
+```C
+static void InsertionSort(int[] array)
+{
+    int temp;
+    for (int i = 1; i < array.Length; i++)
+    {
+        temp = array[i];
+        int j = i - 1;
+        while (j >= 0 && array[j] > temp)
+        {
+            array[j + 1] = array[j];
+            j--;
+        }
+        array[j + 1] = temp;
+    }
+}
+```
+</TabItem>
+</Tabs>
+
+:::info[Links]
+[**GfG**: Insertion Sort Algorithm](https://www.geeksforgeeks.org/insertion-sort-algorithm/)  
+[**BroCode [YT]**: Insertion-Sort](https://www.youtube.com/watch?v=8mJ-OhcfpYg&list=PLZPZq0r_RZON1eaqfafTnEexRzuHbfZX8&index=14&pp=iAQB)  
+[**visualgo - sorting**](https://visualgo.net/en/sorting)
+:::
