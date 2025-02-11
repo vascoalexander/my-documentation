@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_documentation=self.webpackChunkmy_documentation||[]).push([[1493],{4296:e=>{e.exports=JSON.parse('{"categoryGeneratedIndex":{"title":"HTML","slug":"/category/html","permalink":"/my-documentation/docs/category/html","sidebar":"sprachenSidebar","navigation":{"next":{"title":"dummy","permalink":"/my-documentation/docs/Sprachen/HTML/dummy"}}}}')}}]);
