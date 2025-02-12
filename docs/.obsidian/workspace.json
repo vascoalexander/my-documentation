@@ -181,6 +181,9 @@
   },
   "active": "2b92d2f7eb249ea7",
   "lastOpenFiles": [
+    "07-linux/security.md",
+    "09-misc/link-collections/learning.md",
+    "09-misc/link-collections/references.md",
     "02-dsa/rekursiv/fibonacci-zahlen.md",
     "02-dsa/rekursiv/faktorialberechnung.md",
     "02-dsa/rekursiv/prinzipien.md",
@@ -223,9 +226,6 @@
     "02-Entwicklung/01-Grundlagen/Coding-Conventions.md",
     "02-Entwicklung/01-Grundlagen/Kompilierung-Laufzeitumgebung.md",
     "resourcen/tools.md",
-    "resourcen/mermaid.md",
-    "devops/docker/dummy.md",
-    "grundlagen/algorithmen/02-Struktogramme.md",
-    "grundlagen/algorithmen/01-Einfuehrung.md"
+    "resourcen/mermaid.md"
   ]
 }
