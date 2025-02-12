@@ -175,7 +175,7 @@ const config = {
               },
               {
                 label: 'Linux',
-                href: '/docs/linux/dummy',
+                href: '/docs/linux/package-management',
               },
               {
                 label: 'Tools',

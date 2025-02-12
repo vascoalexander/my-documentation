@@ -11,14 +11,10 @@
             "id": "e06a3b13e4427f7c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "07-Resourcen/01-Quick-References/Python-quickref.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Python-quickref"
+              "title": "New tab"
             }
           }
         ]
@@ -142,13 +138,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "07-Resourcen/01-Quick-References/Python-quickref.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Python-quickref"
+              "title": "Outline"
             }
           },
           {
@@ -181,6 +176,9 @@
   },
   "active": "e06a3b13e4427f7c",
   "lastOpenFiles": [
+    "07-linux/package-management.md",
+    "07-linux/img/package_managing.png",
+    "07-linux/img",
     "07-Resourcen/Quick-References/GIT-quickref.md",
     "07-Resourcen/Quick-References/CSharp-quickref.md",
     "07-Resourcen/Quick-References/CSharp-quickref.mdx",
@@ -213,7 +211,6 @@
     "02-Entwicklung/01-Grundlagen/Coding-Conventions.md",
     "02-Entwicklung/01-Grundlagen/Kompilierung-Laufzeitumgebung.md",
     "resourcen/tools.md",
-    "resourcen/Styleguide.mdx",
     "resourcen/mermaid.md",
     "devops/docker/dummy.md",
     "grundlagen/algorithmen/02-Struktogramme.md",
