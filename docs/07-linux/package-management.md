@@ -30,8 +30,15 @@ dnf update                                      # Systemaktualisierung
 dnf install [paket]                             # Paket installieren
 dnf remove [paket]                              # Paket deinstallieren
 dnf search [paket]                              # Nach einem Paket suchen
-dnf list installed                              # Installierte Pakete anzeigen
+dnf list --installed                            # Installierte Pakete anzeigen
+dnf list --available                            # List availabe Packages
 dnf clean all                                   # Paket-Cache bereinigen
+
+# Package Groups
+dnf grouplist                                   # List available groups
+dnf groupinfo [group]                           # Infos about a group
+dnf groupinstall [group]                        # Install specified group
+dnf groupremove [group]                         # Remove group
 ```
 ### RPM
 ```bash
@@ -41,7 +48,8 @@ rpm -e [package]                                # Entfernt ein installiertes Pak
 rpm -q [package]                                # Zeigt Informationen zu einem Paket an
 rpm -qa                                         # Listet alle installierten Pakete auf
 rpm -V [package]                                # Verifiziert ein installiertes Paket
-rpm -qf                                         # Find installed package containing file
+rpm -qf /path/to/file                           # Find installed package containing file
+rpm -qf $(which [exe])                          # Get package that installed the executable
 rpm -ql [package]                               # List files in package
 ```
 ### APT 

@@ -11,10 +11,14 @@
             "id": "e06a3b13e4427f7c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "07-linux/zeitgesteuerte-jobs.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "zeitgesteuerte-jobs"
             }
           }
         ]
@@ -138,12 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "07-linux/zeitgesteuerte-jobs.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of zeitgesteuerte-jobs"
             }
           },
           {
@@ -174,9 +179,19 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "e06a3b13e4427f7c",
+  "active": "2b92d2f7eb249ea7",
   "lastOpenFiles": [
+    "02-dsa/rekursiv/fibonacci-zahlen.md",
+    "02-dsa/rekursiv/faktorialberechnung.md",
+    "02-dsa/rekursiv/prinzipien.md",
+    "02-dsa/rekursiv/_category_.json",
+    "02-dsa/rekursiv",
+    "07-linux/img/cron_zeit.webp",
+    "07-linux/vim.md",
+    "07-linux/zeitgesteuerte-jobs.md",
     "07-linux/package-management.md",
+    "07-linux/ssh.md",
+    "07-linux/regex.md",
     "07-linux/img/package_managing.png",
     "07-linux/img",
     "07-Resourcen/Quick-References/GIT-quickref.md",
@@ -194,7 +209,6 @@
     "01-Grundlagen/01-Mathematik-Logik/img/Venn0100.svg",
     "01-Grundlagen/01-Mathematik-Logik/img/Venn0001.svg",
     "01-Grundlagen/01-Mathematik-Logik/img/Example_of_C_is_no_proper_subset_of_B.svg.png",
-    "01-Grundlagen/01-Mathematik-Logik/img/Example_of_A_is_a_proper_subset_of_B.svg.png",
     "01-Grundlagen/01-Mathematik-Logik/img",
     "07-Resourcen/Dokumentationen/CSharp-docu.md",
     "07-Resourcen/Site/Docusaurus.md",
@@ -204,9 +218,7 @@
     "07-Resourcen/Quick-References/Python-quickref.md",
     "04-Frameworks/03-Libraries",
     "04-Frameworks/02-Backend",
-    "04-Frameworks/01-Frontend",
     "02-Entwicklung/01-Grundlagen/Prinzipien.md",
-    "02-Entwicklung/01-Grundlagen/Prinzipien.mdx",
     "02-Entwicklung/01-Grundlagen/Namenskonventionen.md",
     "02-Entwicklung/01-Grundlagen/Coding-Conventions.md",
     "02-Entwicklung/01-Grundlagen/Kompilierung-Laufzeitumgebung.md",
@@ -214,13 +226,6 @@
     "resourcen/mermaid.md",
     "devops/docker/dummy.md",
     "grundlagen/algorithmen/02-Struktogramme.md",
-    "grundlagen/algorithmen/01-Einfuehrung.md",
-    "grundlagen/konzepte/03-grundbegriffe.md",
-    "grundlagen/konzepte/01-aussagenlogik.md",
-    "grundlagen/konzepte/02-schaltalgebra.md",
-    "grundlagen/konzepte/04-paradigmen.md",
-    "grundlagen/konzepte/04-Paradigmen.md",
-    "grundlagen/konzepte/02-Schaltalgebra.md",
-    "grundlagen/konzepte/01-Aussagenlogik.md"
+    "grundlagen/algorithmen/01-Einfuehrung.md"
   ]
 }
