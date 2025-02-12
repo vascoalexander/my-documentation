@@ -41,7 +41,10 @@ const config = {
     mermaid: true,
   },
     // ...
-  plugins:[require.resolve('docusaurus-lunr-search')],
+  plugins:[
+    require.resolve('docusaurus-lunr-search'),
+    require.resolve('docusaurus-plugin-image-zoom')
+  ],
   
   themes: ['@docusaurus/theme-mermaid'],
 
@@ -70,6 +73,16 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/logo.png',
+      zoom: {
+        selector: '.markdown :not(em) > img',
+        background: {
+            light: 'rgb(255, 255, 255)',
+            dark: 'rgb(50, 50, 50)'
+        },
+        config: {
+          // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+        }
+      },
       navbar: {
         title: 'DevNotes',
         logo: {
