@@ -175,7 +175,7 @@ const config = {
               },
               {
                 label: 'WebDev',
-                href: '/docs/web/dummy',
+                href: '/docs/web/rest-architektur',
               },
             ],
           },
