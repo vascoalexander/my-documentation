@@ -159,7 +159,7 @@ const config = {
             items: [
               {
                 label: 'Grundlagen',
-                to: '/docs/grundlagen/grundbegriffe',
+                to: '/docs/category/it-mathe',
               },
               {
                 label: 'DSA',

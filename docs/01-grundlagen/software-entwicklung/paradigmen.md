@@ -6,7 +6,21 @@ title: "Paradigmen der Programmierung"
 ---
 # Paradigmen der Programmierung
 
-### Imperative Programmierung
+## Einteilung
+
+| Imperativ    | Deklarativ           |
+| :----------- | :------------------- |
+| Strukturiert | Funktional           |
+| Prozedural   | Logisch              |
+| OOP          | Datenflussorientiert |
+
+### Kombinationen von Paradigmen
+Viele moderne Programmiersprachen unterstützen mehrere Paradigmen, sodass Entwickler die Stärken verschiedener Ansätze kombinieren können. Beispielsweise kann Python sowohl prozedural als auch objektorientiert und funktional verwendet werden.
+
+Die Wahl des Paradigmas hängt oft von der Natur des Projekts, den Präferenzen der Entwickler und den spezifischen Anforderungen der Anwendung ab.
+
+
+## Imperative Programmierung
 **"Wie" wird etwas gemacht?**
 - **Prinzip**: Beschreibt Schritt für Schritt, wie eine Berechnung durchgeführt wird.
 - **Merkmal**: Zustandsänderungen (Seiteneffekte) sind üblich.
@@ -38,6 +52,35 @@ int Sum(int[] zahlen)
   - Typische **Anwendungsgebiete**: GUI-Programmierung, Spieleentwicklung.
   - Typische **Programmiersprachen**: JavaScript, C#, Java (für GUI-Anwendungen).
 
+### Prozedurales Programmieren
+
+**Beschreibung:** Prozedurales Programmieren ist ein Paradigma, bei dem der Code in Prozeduren oder Funktionen organisiert ist. Diese Funktionen enthalten Anweisungen, die sequentiell ausgeführt werden.
+
+**Merkmale:**
+  - Verwendung von Funktionen oder Prozeduren.
+  - Fokus auf die Ausführung von Befehlen und Kontrollstrukturen wie Schleifen und Verzweigungen.
+  - Typische **Programmiersprachen**: C, Pascal, BASIC
+
+### Objektorientiertes Programmieren (OOP)
+ **Beschreibung:** Objektorientiertes Programmieren organisiert den Code um Objekte, die Instanzen von Klassen sind. Klassen definieren das Verhalten und die Eigenschaften von Objekten. Primär imperativ - kann aber deklarative Anteile haben.
+
+ **Merkmale:**
+  - **Kapselung:** Daten und Methoden sind in Klassen gebündelt.
+  - **Vererbung:** Klassen können Eigenschaften und Methoden von anderen Klassen erben.
+  - **Polymorphismus:** Objekte können auf verschiedene Weise auf die gleiche Schnittstelle reagieren.
+  - **Abstraktion:** Komplexität wird durch Abstraktion reduziert.
+  
+ Typische **Programmiersprachen:** Java, C++, Python, C#.
+
+## Deklarative Programmierung
+
+**Beschreibung:** Deklaratives Programmieren ist ein Paradigma, bei dem die Logik der Berechnung ohne explizite Kontrollflussanweisungen beschrieben wird. Es sagt, **was** das Programm tun soll, statt **wie** es dies tun soll.
+
+**Merkmale:**
+  - Fokus auf das **Was** statt auf das **Wie**.
+  - Beschreibungen von gewünschten Ergebnissen und nicht der Prozeduren.
+  - Typische **Programmiersprachen**: SQL, HTML
+
 ### Funktionale Programmierung
 **"Was" soll berechnet werden?**  
 - **Prinzip**: Beschreibt was berechnet werden soll, ohne explizite Zustandsänderungen.
@@ -65,3 +108,12 @@ Denn `Sum(zahlen)` gibt letztlich den gleichen Wert zurück wie `zahlen.Sum()`.
 - **Einfacher zu ändern**: Falls du später die Summenberechnung anpassen möchtest, kannst du das an einem Ort tun, ohne den gesamten Code ändern zu müssen.  
 
 Typische **Programmiersprachen**: Haskell, Lisp, Erlang, Scala.
+
+### Logisches Programmieren
+
+**Beschreibung:** Logisches Programmieren ist ein Paradigma, bei dem Programme als eine Menge von logischen Aussagen und Regeln beschrieben werden. Die Programmausführung erfolgt durch logisches Schließen.
+
+**Merkmale:**
+  - Verwendung von logischen Klauseln und Prädikaten.
+  - Fokus auf Deklarationen und Regeln statt auf Anweisungen.
+  - Typische **Programmiersprachen**: Prolog
