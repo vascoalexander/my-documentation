@@ -21,6 +21,10 @@ The GROUP BY clause splits the result-set into groups of values and the aggregat
 
 Aggregate functions ignore null values (except for COUNT()).
 
+:::warning[Regel]
+Spalten, die in der SELECT-Klausel verwendet werden, **müssen** entweder als Gruppierungsmerkmal in die GROUP BY-Klausel aufgenommen werden, oder es muss eine Aggregatfunktion darauf angewendet werden.
+:::
+
 ```sql
 -- Annahme: Tabelle 'Verkäufe' mit Spalte 'Betrag'
 SELECT 
@@ -63,11 +67,19 @@ SELECT
 
 ```sql
 DECLARE @heute DATETIME = GETDATE();
+DECLARE @heute2 DATETIME2 = SYSDATETIME();
+
 SELECT 
-    @heute AS AktuellesDatum,
-    DATEADD(day, 7, @heute) AS DatumPlus7Tage,         -- Fügt 7 Tage hinzu
-    DATEDIFF(day, '2025-01-01', @heute) AS TageSeit,   -- Differenz in Tagen seit 01.01.2025
-    FORMAT(@heute, 'dd.MM.yyyy') AS FormatiertesDatum; -- Formatiert das Datum
+    @heute AS AktuellesDatum,                            -- Aktuelles Datum (DATETIME) via GETDATE()
+    @heute2 AS AktuellesDatum2,                          -- Aktuelles Datum (DATETIME2) via SYSDATETIME()
+    DATEADD(day, 7, @heute) AS DatumPlus7Tage,           -- Fügt 7 Tage zum aktuellen Datum hinzu
+    DATEDIFF(day, '2025-01-01', @heute) AS TageSeit,     -- Differenz in Tagen seit dem 01.01.2025
+    FORMAT(@heute, 'dd.MM.yyyy') AS FormatiertesDatum,   -- Formatiert das Datum im Format TT.MM.JJJJ
+    DAY(@heute) AS Tag,                                  -- Extrahiert den Tag aus dem Datum
+    MONTH(@heute) AS Monat,                              -- Extrahiert den Monat aus dem Datum
+    YEAR(@heute) AS Jahr,                                -- Extrahiert das Jahr aus dem Datum
+    DATEPART(hour, @heute) AS Stunde,                    -- Extrahiert die Stunde aus dem Datum
+    DATENAME(weekday, @heute) AS Wochentag;              -- Gibt den Namen des Wochentags zurück
 ```
 
 ### Konvertierungs- und Nullbehandlungsfunktionen

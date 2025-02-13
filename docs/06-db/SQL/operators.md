@@ -60,6 +60,18 @@ FROM Customers
 WHERE Name LIKE 'A%';
 ```
 
+**Pattern Matching mit LIKE**
+
+| Jokerzeichen | Bedeutung                                              | Beispiel                              | Erklärung                                                                                        |
+| :----------- | :----------------------------------------------------- | :------------------------------------ | :----------------------------------------------------------------------------------------------- |
+| `%`          | Beliebige Anzahl von Zeichen (auch kein Zeichen)       | 'M%'`                                 | Findet alle Namen, die mit "M" beginnen (z. B. "Max", "Maria", "Michael")                        |
+| `_`          | Genau ein beliebiges Zeichen                           | 'J_n'`                                | Findet Namen mit genau drei Zeichen, die mit "J" beginnen und auf "n" enden (z. B. "Jan", "Jon") |
+| `[ ]`        | Bestimmte Zeichen an einer Position                    | 'T[ae]m'`                             | Findet "Tam" oder "Tem", aber nicht "Tim"                                                        |
+| `[^ ]`       | Ausschluss bestimmter Zeichen                          | 'T[^a]m'`                             | Findet "Tim" oder "Tom", aber nicht "Tam"                                                        |
+| `[ - ]`      | Zeichenbereich                                         | 'C[a-c]t'`                            | Findet "Cat", "Cbt" oder "Cct"                                                                   |
+| `ESCAPE`     | Ermöglicht die Suche nach Sonderzeichen (`%` oder `_`) | `WHERE Name LIKE '50\\%' ESCAPE '\\'` | Findet "50%" statt "50irgendwas"                                                                 |
+
+
 ### IS: NULL-Prüfung
 ```sql
 SELECT * 

@@ -211,6 +211,16 @@ _Ergebnis:_ Jeder Kunde wird mit jedem Produkt kombiniert – nützlich für bes
 ## Subselects
 Subqueries sind verschachtelte Abfragen, die innerhalb einer äußeren (Haupt‑)Abfrage verwendet werden. Sie können in der `SELECT`-, `FROM`- oder `WHERE`-Klausel vorkommen.
 
+**Selbständige Unterabfragen:**  
+Die Unterabfrage ist von der äußeren, sie umgebenden Anweisung unabhängig. Sie kann auch separat ausgeführt werden.  
+**Korrelierte Unterabfragen:**  
+Die Unterabfrage bezieht sich auf einen oder mehrere Werte der äußeren, sie umgebenden Anweisung. Sie kann nicht separat ausgeführt werden.  
+
+**Unterscheidung nach Ergebnis:**  
+- **skalar** => liefert genau einen einzelnen Wert zurück
+- **mehrwertig** => liefert eine Liste von einzelnen Werten zurück
+- **tabellenwertig** => liefert eine Tabelle zurück
+
 ### Subquery in der WHERE-Klausel
 Finde alle Kunden, deren Stadt in der Liste der Städte aus der Tabelle `Filialen` (z. B. in Deutschland) vorkommt.
 
@@ -249,6 +259,14 @@ FROM (
     GROUP BY KundenID
 ) t
 WHERE t.Bestellanzahl > 5;
+```
+
+### Subquery in einem INSERT INTO
+```sql
+INSERT INTO Bestellungen (KundeID, ProduktID, Bestelldatum)
+SELECT KundeID, 101, GETDATE()
+FROM Kunden
+WHERE Land = 'Deutschland';
 ```
 
 ## UNION

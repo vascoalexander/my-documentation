@@ -73,3 +73,11 @@ DELETE FROM customers WHERE email = 'max@example.com';
 TRUNCATE TABLE customers;
 ```
 
+
+| DELETE                                                                                                                          | TRUNCATE                                                                                                                           |
+| :------------------------------------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------- |
+| Eine Filterung der zu löschenden Datensätze kann mit der WHERE-Klausel erfolgen.                                                | mit der WHERE-Klausel erfolgen. Eine Filterung der Datensätze ist nicht möglich, es werden immer alle Datensätze gelöscht.         |
+| Bei großen Datenmengen sehr langsam, da sehr viele Daten ins Transaktionsprotokoll geschrieben werden.                          | Auch bei großen Datenmengen schnell, da nur einige wenige Metadaten ins Transaktions- protokoll geschrieben werden.                |
+| Eine evtl. vorhandene IDENTITY-Spalte wird nicht zurückgesetzt. Bei einem erneuten INSERT wird also einfach weiter gezählt.     | Eine evtl. vorhandene IDENTITY-Spalte wird zurückgesetzt. Bei einem erneuten INSERT beginnen die Werte wieder am Anfang.           |
+| Ist auch möglich, wenn auf die Tabelle ein Fremdschlüssel verweist, sofern keine Fremdschlüsselwerte von DELETE betroffen sind. | Ist in Tabellen, auf die ein Fremdschlüssel verweist, grundsätzlich nicht möglich, selbst wenn der Fremdschlüssel deaktiviert ist. |
+
