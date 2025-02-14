@@ -171,7 +171,7 @@ const config = {
               },
               {
                 label: 'C#',
-                href: '/docs/csharp/csharp-quickref',
+                href: '/docs/csharp/dotnet-cli',
               },
               {
                 label: 'WebDev',
