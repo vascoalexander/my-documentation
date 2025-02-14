@@ -57,6 +57,6 @@ n = Anzahl der Festplatten im Verbund:
 
 **Zum Beispiel:**
 
-- **RAID 5 mit 4 Festplatten** → Netto-Kapazität = 4−1 / 4=75% 
-- **RAID 6 mit 6 Festplatten** → Netto-Kapazität = 6−2 / 6=66,7%
+- **RAID 5 mit 4 Festplatten** → Netto-Kapazität = 4−1 / 4 = 75% 
+- **RAID 6 mit 6 Festplatten** → Netto-Kapazität = 6−2 / 6 = 66,7%
 - **RAID 10 mit 4 Festplatten** → Netto-Kapazität = **50%**, weil immer zwei Festplatten gespiegelt werden

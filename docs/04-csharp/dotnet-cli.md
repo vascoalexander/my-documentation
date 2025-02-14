@@ -3,7 +3,6 @@ description: ""
 sidebar_position: 2
 title: ".NET CLI"
 ---
-
 ## Arbeiten mit Projekten
 ```
 # .NET SDK Version prüfen
