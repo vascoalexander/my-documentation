@@ -590,6 +590,16 @@ Python has a set of keywords that are reserved words that cannot be used as vari
 
 *zur Vermeidung von Namenskonflikten in Unterklassen
 
+**Code writing conventions**
+
+- Indentions: 4 spaces
+- Line length: 80 characters
+- Comments: 72 characters max
+- Avoid inline comments.
+- If inline comments are used keep them at the same vertical line.
+- Documentation strings aka 'docstrings' should be written for every function, class, method or public module.
+- Operators like < or += should have one empty space in front and behind (eg. 1 >= 2 and not 1>=2).
+
 ## **Glossary**
 
 | Feature                                                                                                                     | Description                                                                                                   |

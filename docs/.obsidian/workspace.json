@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-grundlagen/software-entwicklung/paradigmen.md",
+                "file": "01-grundlagen/software-entwicklung/datentypen-variablen.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "paradigmen"
+              "title": "datentypen-variablen"
             }
           }
         ]
@@ -182,6 +182,20 @@
   },
   "active": "e06a3b13e4427f7c",
   "lastOpenFiles": [
+    "01-grundlagen/it-mathe/img/bitwise_xor.png",
+    "01-grundlagen/it-mathe/img/bitwise_or.png",
+    "01-grundlagen/it-mathe/img/bitwise_and.png",
+    "01-grundlagen/it-mathe/img/bitweise_verschiebung.png",
+    "01-grundlagen/it-mathe/img/bitweise_verschiebung_rechts.png",
+    "01-grundlagen/software-entwicklung/paradigmen.md",
+    "01-grundlagen/software-entwicklung/img/referencing_mutable_types.png",
+    "01-grundlagen/software-entwicklung/img/referencing_immutable_types.png",
+    "01-grundlagen/software-entwicklung/img/bitwise_xor.png",
+    "01-grundlagen/software-entwicklung/img/bitwise_or.png",
+    "01-grundlagen/software-entwicklung/img/bitwise_and.png",
+    "01-grundlagen/software-entwicklung/img/bitweise_verschiebung_rechts.png",
+    "01-grundlagen/software-entwicklung/img",
+    "01-grundlagen/software-entwicklung/datentypen-variablen.md",
     "04-csharp/dotnet-cli.md",
     "01-grundlagen/it-mathe/zahlensysteme.md",
     "01-grundlagen/it-mathe/aussagenlogik.md",
@@ -191,32 +205,20 @@
     "01-grundlagen/projektplanung/gant-diagramm.md",
     "01-grundlagen/projektplanung/_category_.json",
     "01-grundlagen/projektplanung",
-    "02-dsa/img/big-o-notation.svg",
-    "02-dsa/img/struktogramme.png",
-    "02-dsa/img/strukogramme.png",
     "02-dsa/img",
     "02-dsa/pseudocode.md",
     "02-dsa/struktogramme.md",
     "02-dsa/big-o-notation.md",
     "01-grundlagen/software-entwicklung/prinzipien.md",
-    "01-grundlagen/software-entwicklung/paradigmen.md",
     "01-grundlagen/software-entwicklung/grundbegriffe.mdx",
     "01-grundlagen/software-entwicklung/_category_.json",
     "01-grundlagen/software-entwicklung",
     "01-grundlagen/it-mathe/software-entwicklung",
-    "01-grundlagen/it-mathe/img/Venn_A_intersect_B.svg",
-    "01-grundlagen/it-mathe/img/Venn0111.svg",
-    "01-grundlagen/it-mathe/img/Venn0100.svg",
-    "01-grundlagen/it-mathe/img/Venn0001.svg",
-    "01-grundlagen/it-mathe/img/Example_of_C_is_no_proper_subset_of_B.svg.png",
-    "01-grundlagen/it-mathe/img/Example_of_A_is_a_proper_subset_of_B.svg.png",
-    "01-grundlagen/it-mathe/img/zahlensysteme-2.png",
     "06-db/SQL/operators.md",
     "01-grundlagen/it-mathe/img",
     "01-grundlagen/it-mathe/datengroessen.md",
     "01-grundlagen/it-mathe/_category_.json",
     "01-grundlagen/it-mathe/mengenlehre.md",
-    "01-grundlagen/it-mathe",
     "06-db/ProjectDB/projektdbp2-programmierung2.md",
     "06-db/ProjectDB/projektdbp2-programmierung1.md",
     "06-db/ProjectDB/projektdbp1-programmierung3.md",
@@ -225,8 +227,6 @@
     "06-db/ProjectDB/projektdb23-wiederholungen4.md",
     "06-db/ProjectDB/projektdb22-wiederholungen3.md",
     "06-db/ProjectDB/projektdb21-wiederholungen2.md",
-    "06-db/ProjectDB/projektdb20-wiederholungen1.md",
-    "06-db/ProjectDB/projektdb10-mengenoperatoren.md",
-    "06-db/ProjectDB/projektdb09-funktionen.md"
+    "06-db/ProjectDB/projektdb20-wiederholungen1.md"
   ]
 }

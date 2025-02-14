@@ -79,4 +79,60 @@ Das Ergebnis wird von unten nach oben gelesen!
 | 2 x 16<sup>3</sup> | 10 x 16<sup>2</sup> | 5 x 16<sup>1</sup> | 14 x 16<sup>0</sup> | **Summe**   |
 |        8192        |        2560         |         80         |         14          | = 10846     |
 
+### Binäre Arithmetik
 
+
+1. **Binäres Addieren**  
+    (z. B.: 1010 + 0101)
+
+   - Stelle 1: 0 + 1 = 1 von rechts
+   - Stelle 2: 1 + 0 = 1
+   - Stelle 3: 0 + 1 = 1
+   - Stelle 4: 1 + 0 = 1  
+
+   =========================  
+   **Ergebnis:** 1111  
+
+   (Hinweis: Bei 1+1 schreibt man 0 und überträgt 1.)
+
+2. **Binäres Subtrahieren**  
+     (z. B.: 1010 - 0101)
+
+   - Stelle 1: 0 - 1 → nicht möglich, also leihen => 10<sub>2</sub> - 1 = 1; nächst höhere Stelle wird um 1 reduziert.
+   - Stelle 2: (1-1) = 0 (wegen Leihen)
+   - Stelle 3: 0 - 1 → wieder leihen => 10<sub>2</sub> - 1 = 1; nächst höhere Stelle um 1 reduziert.
+   - Stelle 4: (1-1) = 0  
+   
+   =========================  
+   **Ergebnis:** 0101  
+
+   (Hinweis: Leihen im Binärsystem entspricht dem Hinzufügen von 2.)
+
+3. **Bitweise Operationen**  
+(Bit-für-Bit, bei gleicher Stellenzahl):  
+
+```
+   a) AND:
+
+      - Regel: Nur 1, wenn beide Bits 1 sind; sonst 0.
+
+        1010  
+      & 0101 
+      = 0000  
+
+   b) OR:
+
+      Regel: 1, wenn mindestens ein Bit 1 ist.
+
+        1010 
+      | 0101 
+      = 1111
+
+   c) XOR:
+
+      Regel: 1, wenn die Bits unterschiedlich sind; sonst 0.
+
+      1010 
+    ^ 0101 
+    = 1111
+```

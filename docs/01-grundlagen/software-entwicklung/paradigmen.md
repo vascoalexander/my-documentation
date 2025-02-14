@@ -1,7 +1,7 @@
 ---
 description: ""
 sidebar_label: 'Paradigmen'
-sidebar_position: 2
+sidebar_position: 3
 title: "Paradigmen der Programmierung"
 ---
 # Paradigmen der Programmierung
