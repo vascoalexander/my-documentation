@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-grundlagen/software-entwicklung/datentypen-variablen.md",
+                "file": "01-grundlagen/hardware/raid.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "datentypen-variablen"
+              "title": "raid"
             }
           }
         ]
@@ -182,26 +182,30 @@
   },
   "active": "e06a3b13e4427f7c",
   "lastOpenFiles": [
+    "01-grundlagen/hardware/img/raid-10.png",
+    "01-grundlagen/hardware/img/raid-1.png",
+    "01-grundlagen/hardware/img/raid-0.png",
+    "01-grundlagen/hardware/img/paritaet.png",
+    "01-grundlagen/hardware/img",
+    "01-grundlagen/projektplanung/netzplantechnik.md",
+    "01-grundlagen/hardware/raid.md",
+    "01-grundlagen/hardware/_category_.json",
+    "01-grundlagen/hardware",
+    "01-grundlagen/projektplanung/img/netzplan-4.png",
+    "01-grundlagen/projektplanung/img/netzplan-3.png",
+    "01-grundlagen/projektplanung/img/netzplan-2.png",
+    "01-grundlagen/projektplanung/img/netzplan-1.png",
+    "01-grundlagen/software-entwicklung/datentypen-variablen.md",
     "01-grundlagen/it-mathe/img/bitwise_xor.png",
     "01-grundlagen/it-mathe/img/bitwise_or.png",
     "01-grundlagen/it-mathe/img/bitwise_and.png",
-    "01-grundlagen/it-mathe/img/bitweise_verschiebung.png",
-    "01-grundlagen/it-mathe/img/bitweise_verschiebung_rechts.png",
     "01-grundlagen/software-entwicklung/paradigmen.md",
-    "01-grundlagen/software-entwicklung/img/referencing_mutable_types.png",
-    "01-grundlagen/software-entwicklung/img/referencing_immutable_types.png",
-    "01-grundlagen/software-entwicklung/img/bitwise_xor.png",
-    "01-grundlagen/software-entwicklung/img/bitwise_or.png",
-    "01-grundlagen/software-entwicklung/img/bitwise_and.png",
-    "01-grundlagen/software-entwicklung/img/bitweise_verschiebung_rechts.png",
     "01-grundlagen/software-entwicklung/img",
-    "01-grundlagen/software-entwicklung/datentypen-variablen.md",
     "04-csharp/dotnet-cli.md",
     "01-grundlagen/it-mathe/zahlensysteme.md",
     "01-grundlagen/it-mathe/aussagenlogik.md",
     "01-grundlagen/it-mathe/schaltalgebra.md",
     "01-grundlagen/projektplanung/epk.md",
-    "01-grundlagen/projektplanung/netzplantechnik.md",
     "01-grundlagen/projektplanung/gant-diagramm.md",
     "01-grundlagen/projektplanung/_category_.json",
     "01-grundlagen/projektplanung",
@@ -213,11 +217,8 @@
     "01-grundlagen/software-entwicklung/grundbegriffe.mdx",
     "01-grundlagen/software-entwicklung/_category_.json",
     "01-grundlagen/software-entwicklung",
-    "01-grundlagen/it-mathe/software-entwicklung",
     "06-db/SQL/operators.md",
-    "01-grundlagen/it-mathe/img",
     "01-grundlagen/it-mathe/datengroessen.md",
-    "01-grundlagen/it-mathe/_category_.json",
     "01-grundlagen/it-mathe/mengenlehre.md",
     "06-db/ProjectDB/projektdbp2-programmierung2.md",
     "06-db/ProjectDB/projektdbp2-programmierung1.md",
@@ -226,7 +227,6 @@
     "06-db/ProjectDB/projektdbp1-programmierung1.md",
     "06-db/ProjectDB/projektdb23-wiederholungen4.md",
     "06-db/ProjectDB/projektdb22-wiederholungen3.md",
-    "06-db/ProjectDB/projektdb21-wiederholungen2.md",
-    "06-db/ProjectDB/projektdb20-wiederholungen1.md"
+    "06-db/ProjectDB/projektdb21-wiederholungen2.md"
   ]
 }

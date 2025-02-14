@@ -1,6 +1,6 @@
 ---
 description: ""
 sidebar_position: 1
-title: "Gant Diagramm"
+title: "Gantt Diagramm"
 draft: true
 ---
