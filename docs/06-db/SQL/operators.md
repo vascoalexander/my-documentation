@@ -103,7 +103,8 @@ SELECT Name,
 FROM Employees;
 ```
 
-### COALESCE & ISNULL (NULL-Behandlung) 
+### COALESCE & ISNULL 
+*(NULL-Behandlung)* 
 ```sql
 SELECT Name, COALESCE(Phone, 'No Phone') AS PhoneNumber FROM Employees;
 SELECT Name, ISNULL(Phone, 'No Phone')    AS PhoneNumber FROM Employees;

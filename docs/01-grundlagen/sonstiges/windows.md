@@ -1,7 +1,7 @@
 ---
 description: ""
 title: "Windows"
-sidebar_position: 4
+sidebar_position: 1
 ---
 ## Executing Scripts
 

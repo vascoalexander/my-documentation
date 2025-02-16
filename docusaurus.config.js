@@ -139,12 +139,6 @@ const config = {
             label: 'Tools',
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'miscSidebar',
-            position: 'left',
-            label: 'Misc',
-          },
-          {
             href: 'https://github.com/vascoalexander',
             label: 'GitHub',
             position: 'right',
@@ -173,15 +167,15 @@ const config = {
                 label: 'C#',
                 href: '/docs/csharp/dotnet-cli',
               },
-              {
-                label: 'WebDev',
-                href: '/docs/web/rest-architektur',
-              },
             ],
           },
           {
             title: 'more...',
             items: [
+              {
+                label: 'WebDev',
+                href: '/docs/web/rest-architektur',
+              },
               {
                 label: 'Datenbanken',
                 href: '/docs/category/grundlagen',
@@ -193,10 +187,6 @@ const config = {
               {
                 label: 'Tools',
                 href: '/docs/tools/git',
-              },
-              {
-                label: 'Misc',
-                href: '/docs/category/link-collections',
               },
             ],
           },
