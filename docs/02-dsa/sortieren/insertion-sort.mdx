@@ -16,14 +16,14 @@ import TabItem from '@theme/TabItem';
 
 ```pseudo title="Pseudocode"
 Funktion InsertionSort(array)
-FOR i := 1 bis Länge(array)
+FOR i := 1 bis Länge(array) DO
     temp := array[i]
     j := i - 1
-    WHILE j >= 0 und array[j] > temp
+    WHILE j >= 0 und array[j] > temp DO
         array[j + 1] := array[j]
         j := j - 1
     array[j+1] = temp
-RETURN array
+Ergebnis := array
 ```
 <Tabs>
 <TabItem value="python-insertion-sort" label="Python" default>

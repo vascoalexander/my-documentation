@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-grundlagen/hardware/raid.md",
+                "file": "07-linux/file-system.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "raid"
+              "title": "file-system"
             }
           }
         ]
@@ -182,6 +182,8 @@
   },
   "active": "e06a3b13e4427f7c",
   "lastOpenFiles": [
+    "02-dsa/suchen/binary-search.mdx",
+    "01-grundlagen/hardware/raid.md",
     "04-csharp/csharp-quickref.mdx",
     "04-csharp/glossar.md",
     "04-csharp/Glossar.md",
@@ -205,7 +207,6 @@
     "04-csharp/dotnet-framework.md",
     "04-csharp/operators.md",
     "04-csharp/types.mdx",
-    "01-grundlagen/hardware/raid.md",
     "01-grundlagen/hardware/img/raid-10.png",
     "01-grundlagen/hardware/img/raid-1.png",
     "01-grundlagen/hardware/img/raid-0.png",
@@ -226,7 +227,6 @@
     "04-csharp/dotnet-cli.md",
     "01-grundlagen/projektplanung/_category_.json",
     "01-grundlagen/projektplanung",
-    "02-dsa/img",
-    "01-grundlagen/software-entwicklung/grundbegriffe.mdx"
+    "02-dsa/img"
   ]
 }

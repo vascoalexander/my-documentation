@@ -13,11 +13,11 @@ Funktion BinarySearch(Array, ziel)
     links := 0
     rechts := Länge(array) - 1
 
-    WHILE links <= rechts
+    WHILE links <= rechts DO
         mitte := (links + rechts) / 2
-        IF array[mitte] = ziel
-            return mitte
-        ELSE IF array[mitte] < ziel
+        IF array[mitte] = ziel THEN
+            Ergebnis := mitte
+        ELSE IF array[mitte] < ziel THEN
             links := mitte + 1
         ELSE
             rechts := mitte - 1
