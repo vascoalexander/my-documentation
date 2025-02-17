@@ -86,6 +86,46 @@ pacman -Sc                                      # Paket-Cache bereinigen
 pacman -Rns [paket]                             # Paket und Abhängigkeiten entfernen
 ```
 
+### FLATPAK
+```bash
+flatpak install [paket]                         # Paket installieren
+flatpak update                                  # alle installierten Anwendungen und Laufzeitumgebungen updaten
+flatpak run [paket]                             # anwendung starten
+flatpak list                                    # auflistung aller installierten pakete und laufzeitumgebungen
+flatpak uninstall [paket]                       # Paket deinstallieren
+flatpak repair                                  # fix inconsistencies with your local installation
+flatpak search [string]                         # suche nach paketen
+```
+
+### SNAP
+
+```bash
+snap list                                       # Zeigt alle installierten Snap-Pakete an
+snap find [name]                                # Sucht nach einem Snap-Paket im Snap Store
+snap install [name]                             # Installiert ein Snap-Paket
+snap remove [name]                              # Deinstalliert ein Snap-Paket
+snap refresh                                    # Aktualisiert alle installierten Snap-Pakete
+snap refresh [name]                             # Aktualisiert ein bestimmtes Snap-Paket
+snap revert [name]                              # Setzt ein Snap-Paket auf die vorherige Version zurück
+snap info [name]                                # Zeigt Informationen zu einem Snap-Paket an
+snap enable [name]                              # Aktiviert ein deaktiviertes Snap-Paket
+snap disable [name]                             # Deaktiviert ein Snap-Paket (ohne Deinstallation)
+snap services                                   # Listet die Dienste von Snap-Paketen auf
+snap start [name]                               # Startet einen Snap-Dienst
+snap stop [name]                                # Stoppt einen Snap-Dienst
+snap restart [name]                             # Startet einen Snap-Dienst neu
+snap changes                                    # Zeigt eine Liste der letzten Änderungen durch Snap an
+snap revert [name]                              # Setzt ein Snap-Paket auf eine vorherige Version zurück
+snap connections                                # Zeigt die aktuellen Verbindungen der Snap-Pakete
+snap interface [name]                           # Zeigt Informationen über eine bestimmte Schnittstelle
+```
+
+*From Linux Mint 20 onwards, a file called nosnap.pref needs to be either moved or removed from /etc/apt/preferences.d/ before Snap can be installed.*
+
+```bash
+sudo mv /etc/apt/preferences.d/nosnap.pref ~/Documents/nosnap.backup
+```
+
 <div class="img-center">
     ![Package-Management](./img/package_managing.png)
 </div>
