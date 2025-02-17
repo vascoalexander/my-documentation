@@ -8,14 +8,14 @@ draft: false
 Symlinks sind wie Verknüpfungen: Sie verweisen auf eine Datei oder ein Verzeichnis, aber enthalten nicht die eigentlichen Daten.
 
 ```bash
-ln -s <ziel> <linkname>
+ln -s <source> <destination/mein_link>
 ```
 
 ### Hardlinks
 Hardlinks sind **alternative Namen für dieselbe Datei** im gleichen Dateisystem. Sie zeigen direkt auf die **gleichen Datenblöcke** wie die Originaldatei.
 
 ```bash
-ln <ziel> <linkname>
+ln <source> <destination/mein_link>
 ```
 
 **Anzahl der Hardlinks prüfen**
