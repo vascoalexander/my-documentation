@@ -198,3 +198,16 @@ git remote set-url origin <new-url>  # set new url of origin
 git remote -v                        # verify new remote repository url
 git fetch origin                     # sync local repository to new remote
 ```
+
+### .gitignore FILE
+**Gecached Dateien aus gitignore entfernen:**
+```bash
+git rm -r --cached .
+git add .
+git commit -m "Remove all files in .gitignore"
+```
+**Check gitignore Syntax**
+```bash
+git check-ignore -v <file>
+```
+
