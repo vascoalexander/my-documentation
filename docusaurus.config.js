@@ -157,15 +157,15 @@ const config = {
               },
               {
                 label: 'DSA',
-                to: '/docs/category/sortieren',
+                to: '/docs/DSA/Big-O-Notation',
               },
               {
                 label: 'Python',
-                href: '/docs/python/python-quickref',
+                href: '/docs/Python/Python-Quickref',
               },
               {
                 label: 'C#',
-                href: '/docs/csharp/dotnet-cli',
+                href: '/docs/Csharp/DotNet-CLI',
               },
             ],
           },
@@ -174,7 +174,7 @@ const config = {
             items: [
               {
                 label: 'WebDev',
-                href: '/docs/web/rest-architektur',
+                href: '/docs/Web/Rest-Architektur',
               },
               {
                 label: 'Datenbanken',
@@ -182,11 +182,11 @@ const config = {
               },
               {
                 label: 'Linux',
-                href: '/docs/linux/package-management',
+                href: '/docs/Linux/Package-Management',
               },
               {
                 label: 'Tools',
-                href: '/docs/tools/git',
+                href: '/docs/Tools/GIT',
               },
             ],
           },

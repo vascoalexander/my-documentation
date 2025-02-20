@@ -1,6 +1,6 @@
 ---
 description: ""
-sidebar_position: 13
+sidebar_position: 15
 title: "Glossar"
 draft: true
 ---
