@@ -165,7 +165,7 @@ const config = {
               },
               {
                 label: 'C#',
-                href: '/docs/Csharp/DotNet-CLI',
+                href: '/docs/Csharp/DotNet-Framework',
               },
             ],
           },
