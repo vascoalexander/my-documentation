@@ -1,7 +1,7 @@
 ---
-title: "Links"
-sidebar_position: 1
+title: Links
 description: ""
+sidebar_position: 3
 draft: false
 ---
 ### Symlinks

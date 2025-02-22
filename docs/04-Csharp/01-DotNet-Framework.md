@@ -57,7 +57,7 @@ Das **.NET Framework** ist eine von Microsoft entwickelte Plattform zur Entwickl
 
 [Install JetBrains Rider \| JetBrains Rider Documentation](https://www.jetbrains.com/help/rider/Installation_guide.html)
 
-Pfad zum .NET CLI in Rider:
+Pfad zum .NET CLI in Rider:  
 ➡ **File** → **Settings** → **Build, Execution, Deployment** → **Toolset and Build**
 
 ```bash
@@ -76,6 +76,6 @@ echo 'export PATH=$DOTNET_ROOT:$PATH' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### References
+### Related Links
 [en.wikipedia.org/wiki/.NET_Framework](https://en.wikipedia.org/wiki/.NET_Framework)  
 [.NET \| Build. Test. Deploy.](https://dotnet.microsoft.com/en-us/)
