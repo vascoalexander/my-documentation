@@ -34,6 +34,7 @@ stat /home/user/datei.txt                       # Zeigt die Anzahl der Hardlinks
 | Unterstützt Verzeichnisse?             | ✅ Ja                        | ❌ Nein                 |
 
 ### Symlink Script
+Erstellt Symlinks im Target von jedem Ordner unter Source
 
 ```bash
 #!/bin/bash

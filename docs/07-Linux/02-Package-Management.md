@@ -120,6 +120,14 @@ snap connections                                # Zeigt die aktuellen Verbindung
 snap interface [name]                           # Zeigt Informationen über eine bestimmte Schnittstelle
 ```
 
+#### Snap installieren
+```bash
+# Ubuntu / Debian
+sudo apt update
+sudo apt install snapd
+sudo systemctl enable --now snapd
+```
+
 *From Linux Mint 20 onwards, a file called nosnap.pref needs to be either moved or removed from /etc/apt/preferences.d/ before Snap can be installed.*
 
 ```bash
