@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_documentation=self.webpackChunkmy_documentation||[]).push([[5324],{72624:e=>{e.exports=JSON.parse('{"categoryGeneratedIndex":{"title":"C#","slug":"/category/c","permalink":"/my-documentation/docs/category/c","sidebar":"codeSidebar","navigation":{"next":{"title":"Basics","permalink":"/my-documentation/docs/category/basics"}}}}')}}]);
