@@ -137,33 +137,33 @@ static MenuOptionen GetMenuChoice()
 
 ```c
 public enum VerbindungsStatus
-    {
-        Getrennt,
-        Verbindet,
-        Verbunden,
-        Fehler
-    }
+{
+    Getrennt,
+    Verbindet,
+    Verbunden,
+    Fehler
+}
 
-    public void VerbindungsStatusVerarbeiten(VerbindungsStatus status)
+public void VerbindungsStatusVerarbeiten(VerbindungsStatus status)
+{
+    switch (status)
     {
-        switch (status)
-        {
-            case VerbindungsStatus.Getrennt:
-                // Logik zum Herstellen einer Verbindung
-                break;
-            case VerbindungsStatus.Verbindet:
-                // Logik, während der Verbindungsvorgang läuft
-                break;
-            case VerbindungsStatus.Verbunden:
-                // Logik für eine aktive Verbindung
-                break;
-            case VerbindungsStatus.Fehler:
-                // Fehlerbehandlungslogik
-                break;
-            default:
-                break;
-        }
+        case VerbindungsStatus.Getrennt:
+            // Logik zum Herstellen einer Verbindung
+            break;
+        case VerbindungsStatus.Verbindet:
+            // Logik, während der Verbindungsvorgang läuft
+            break;
+        case VerbindungsStatus.Verbunden:
+            // Logik für eine aktive Verbindung
+            break;
+        case VerbindungsStatus.Fehler:
+            // Fehlerbehandlungslogik
+            break;
+        default:
+            break;
     }
+}
 ```
 
 ```c
