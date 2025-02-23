@@ -21,7 +21,7 @@ string action = currentColor switch
 };
 Console.WriteLine(action);
 ```
-
+---
 ### Property Pattern
 Eigenschaften von Objekten direkt im `case`-Ausdruck überprüfen
 
@@ -42,7 +42,7 @@ string beschreibung = p switch
 };
 Console.WriteLine(beschreibung); // Ausgabe: Punkt (1, 2)
 ```
-
+---
 ### Tuple Pattern
 mehrere Werte gleichzeitig in einem Tupel überprüfen
 
@@ -57,7 +57,7 @@ string position = (x, y) switch
 };
 Console.WriteLine(position); // Ausgabe: Andere
 ```
-
+---
 ### When-Klausel
 zusätzliche Bedingungen mit `when` hinzufügen
 

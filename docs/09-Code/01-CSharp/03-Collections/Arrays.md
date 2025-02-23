@@ -2,7 +2,84 @@
 created: 2025-02-23, 11:45
 language: C#
 description: ""
-tags: []
+tags:
+  - sort
+  - search
+  - reverse
+  - ForEach
+  - LINQ
+  - jaggedArray
+---
+
+### Jagged Array Deklaration
+
+```c
+int[][] anotherJaggedArray = new int[][]
+{  
+	new int[] {1,8,2,7,9},  
+	new int[] {2,4,6},  
+	new int[] {33,42}  
+};  
+  
+int x = anotherJaggedArray[2][1];  
+Console.WriteLine(x); // Outputs => 42
+```
+---
+### LINQ Array Methods
+The Array class implements the IEnumerable interface, so you can LINQ extension methods such as Max(), Min(), Sum(), Average() and many others.
+
+```c
+public static void Main(string[] args)
+{
+	int[] integersArray = new int[5]{80, 20, 35, 18, 9};
+
+	Console.WriteLine(integersArray.Max());
+	Console.WriteLine(integersArray.Min());
+	Console.WriteLine(integersArray.Sum());
+	Console.WriteLine(integersArray.Average());
+}
+```
+---
+### Sort, Reverse or Search (with ForEach())
+
+```c
+int[] integersArray = {20, 9, 16, 50, 3};
+
+// SORT
+Array.Sort(integersArray);  
+Array.ForEach<int>(integersArray, n => Console.WriteLine(n));
+
+// REVERSE
+Array.Reverse(integersArray);  
+Array.ForEach<int>(integersArray, n => Console.WriteLine(n));
+
+// SEARCH
+Console.WriteLine(Array.BinarySearch(integersArray, 9));
+```
+---
+### Duplikate entfernen
+
+```c
+Console.Write("Wörter eingeben: ");  
+string[] text = Console.ReadLine().Split(" ");
+
+string[] textOhneDuplikate = text.Distinct().ToArray();
+```
+---
+### Vorkommen zählen
+
+```c
+static int CountOccurrences(int[,] array, int target)  
+{  
+    int count = 0;  
+    foreach (int value in array)  
+    {        
+	    if (value == target)  
+            count++;  
+    }    
+    return count;  
+}
+```
 ---
 ### Print 2D Array to console
 
@@ -17,7 +94,7 @@ static void PrintArray(int[,] array)
     }
 }
 ```
-
+---
 ### Fill 2D Array with Random Numbers
 
 ```c
@@ -29,7 +106,7 @@ static void FillArray(int[,] array, int rows, int cols)
             array[i, j] = rnd.Next(1, 10); 
 }
 ```
-
+---
 ### Merge Arrays
 
 ```c

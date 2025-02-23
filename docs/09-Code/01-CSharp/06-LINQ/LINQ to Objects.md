@@ -12,7 +12,7 @@ foreach (var number in Enumerable.Range(1, 10))
 	 Console.WriteLine(number);
 }
 ```
-
+---
 ### Filter Array
 
 ```c

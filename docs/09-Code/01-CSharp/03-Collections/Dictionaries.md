@@ -15,7 +15,7 @@ var capitals = new Dictionary<string, string>
     ["France"] = "Paris"
 };
 ```
-
+---
 ### Dictionary aus Tuplen
 bei einem named tuple wird Item1 oder Item2 entsprechend durch die Name ersetzt
 

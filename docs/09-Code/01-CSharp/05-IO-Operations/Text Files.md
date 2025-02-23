@@ -8,6 +8,16 @@ tags:
   - streamreader
   - readalltext
 ---
+
+### Create Temp File
+```c
+static string CreateTempFile()  
+{  
+    string newtempfile = System.IO.Path.GetTempFileName();
+    return newtempfile;  
+}
+```
+---
 ### ReadAllText()
 
 ```c
@@ -23,7 +33,7 @@ catch (Exception ex)
 	Console.WriteLine("Fehler beim Lesen der Datei: " + ex.Message);
 }
 ```
-
+---
 ### Using + Streamreader
 
 ```c
@@ -34,7 +44,7 @@ using (var streamReader = new StreamReader(@"C:\file.txt"))
     Console.WriteLine(content);
 }
 ```
-
+---
 ### Write to new File
 
 ```c

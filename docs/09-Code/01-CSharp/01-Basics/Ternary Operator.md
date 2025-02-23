@@ -15,7 +15,7 @@ Console.WriteLine(
     (currentColor == "Grün") ? "Fahren" :
     throw new InvalidOperationException("Ungültige Farbe")));
 ```
-
+---
 ### with ReadLine
 
 ```c

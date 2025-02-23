@@ -19,7 +19,7 @@ public enum Color {
 string name = Enum.GetName(typeof(Color), 2);
 Console.WriteLine(name); // Ausgabe: GREEN
 ```
-
+---
 ### Cast zu numerischen Typen
 In C# sind Enums im Grunde genommen benannte numerische Konstanten.
 ```c
@@ -28,19 +28,19 @@ enum Wochentage { Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonn
 Wochentage heute = Wochentage.Dienstag;
 int tagesnummer = (int)heute; // tagesnummer ist 1
 ```
-
+---
 ### Numerische Typen zu Enums
 ```c
 Wochentage tag = (Wochentage)2; // tag ist Wochentage.Mittwoch
 ```
-
+---
 ### Enum.Parse
 C# bietet die `Enum.Parse()`- und `Enum.TryParse()`-Methoden, um Strings in Enum-Werte zu konvertieren.
 
 ```c
 Wochentage tag = (Wochentage)Enum.Parse(typeof(Wochentage), "Freitag");
 ```
-
+---
 ### Iterieren über ein enum
 Die `Enum.GetValues()`-Methode gibt ein Array mit den Werten der konstanten Elemente eines angegebenen Enumerationstyps zurück.
 ```c
@@ -52,7 +52,7 @@ foreach (Wochentage tag in wochentage)
     Console.WriteLine(tag);
 }
 ```
-
+---
 ### Enum mit Extensionklasse
 ```c
 public enum Color
@@ -85,7 +85,7 @@ Color myColor = Color.Green;
 string description = myColor.Description();
 Console.WriteLine(description); // Ausgabe: This is green
 ```
-
+---
 ### Enum mit switch case
 
 ```c
