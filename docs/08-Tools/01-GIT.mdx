@@ -117,6 +117,15 @@ It moves the HEAD pointer to the specified commit, updates the staging area to m
 and also adjusts the working directory to exactly match the commit. 
 Any changes from commits made after the specified commit will be completely discarded.
 
+Alle lokalen Änderungen verwerfen und die Branch auf den Zustand des Remote-Repositories 
+(z. B. origin/master oder origin/main) zurücksetzen:
+
+```bash
+git fetch origin
+git reset --hard origin/master
+git clean -fd # remove untracked files
+```
+
 ### GIT REBASE
 
 Rebasing effectively saves the changes in your current branch, temporarily “removes” the commits you’ve made on your branch, 
