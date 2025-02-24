@@ -1,9 +1,40 @@
 ---
-description: ""
+title: Datentypen und Variablen
+description: '""'
 sidebar_position: 2
-title: "Datentypen und Variablen"
+draft: false
 ---
-## Veränderbare Typen (Mutable Types)
+## **Value Types**
+
+- Direkt auf dem **Stack** gespeichert (schnell)
+- Wert wird direkt kopiert, wenn zugewiesen (x = y → Kopie von y)
+- Enthalten den tatsächlichen Wert, nicht eine Referenz.
+- Kein null möglich, außer mit `Nullable<T>` (int?, double?, etc.)
+
+### Primitive Datentypen
+
+- Alle primitiven Datentypen (int, double, etc.) sind Value Types, weil sie direkt auf dem Stack gespeichert werden.
+- Nicht alle Value Types sind primitive Datentypen, weil struct, enum, DateTime oder `Tuple<T1, T2>` auch Value Types sind, aber keine primitiven Datentypen.
+
+| **Kategorie** | **Beispiele** | **Beschreibung** |
+| :----------------------- | :--------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------- |
+| **Primitive Datentypen** | `int`, `double`, `bool`, `char`, `byte`, `float`, `decimal`, `short`, `long`, `sbyte`, `ushort`, `uint`, `ulong` | Basieren direkt auf `struct`, haben vordefinierte Größen und keine eigene Logik. |
+| **Value Types** | **Alle primitiven Datentypen +** `enum`, `struct`, `Tuple<T1, T2>`, `bool`, `DateTime`, `decimal`, `TimeSpan` | Werttypen, die entweder **primitive Typen** oder **benutzerdefinierte Strukturen (`struct`)** sind. |
+## **Reference Types**
+
+- Werden auf dem **Heap** gespeichert, aber die Referenz darauf liegt im Stack.
+- Speichern eine **Referenz (Zeiger) auf die Daten**, nicht den Wert selbst.
+- Eine Zuweisung kopiert die Referenz, nicht die Daten (Änderungen wirken sich auf alle Referenzen aus).
+
+| Typ | Beschreibung |
+| :---------- | :---------------------------------------------------------- |
+| `class` | Definiert komplexe Objekte mit Methoden und Eigenschaften. |
+| `interface` | Definiert ein Verhalten, das Klassen implementieren müssen. |
+| `delegate` | Referenz auf eine Methode (wie ein Funktionszeiger). |
+| `array` | Sammlung von Elementen gleichen Typs mit fester Größe. |
+| `string` | Eine Zeichenkette (immutable, ändert sich nicht direkt). |
+
+## Mutable Types
 
 Veränderbare Typen sind Objekte, deren Inhalt nach ihrer Erstellung geändert werden kann. Änderungen können durch Hinzufügen, Entfernen oder Ändern von Elementen innerhalb des Objekts erfolgen.
 
@@ -16,17 +47,9 @@ Ein Set in Python ist eine Sammlung eindeutiger, ungeordneter Elemente. Sets sin
 
 **Referenzierung im Speicher bei Mutable Types** 
 
-<div class="img-600">
 ![Mutable Types](./img/referencing_mutable_types.png)
-</div>
 
-### C# - Referenz Typen (Reference Types)
--> Mutable Verhalten
-
-Referenztypen werden auf dem Heap gespeichert, während die Variable selbst auf dem Stack eine Referenz auf den Heap-Speicher enthält.
-Dazu gehören Klassen (class), Arrays und string.
-
-## Unveränderbare Typen (Immutable Types)
+## Immutable Types
 
 Unveränderbare Typen sind Objekte, deren Inhalt nach ihrer Erstellung nicht geändert werden kann. Wenn du versuchst, den Inhalt eines unveränderbaren Typs zu ändern, musst du ein neues Objekt erstellen.
 
@@ -39,17 +62,7 @@ Ein Tupel in Python ist eine geordnete Sammlung von Elementen. Tupel sind unver�
 
 **Refrenzierung im Speicher bei Immutable Types**
 
-<div class="img-600">
 ![Immutable Types](./img/referencing_immutable_types.png)
-</div>
-
-
-
-### C# - Werttypen (Value Types)
--> Immutable Verhalten
-
-Werttypen werden auf dem Stack gespeichert und kopiert, wenn sie einer neuen Variable zugewiesen werden.
-Dazu gehören primitive Datentypen wie int, double, bool, aber auch Strukturen (struct).
 
 **Wann sollte man immutable Typen verwenden?**
 
@@ -60,6 +73,7 @@ Dazu gehören primitive Datentypen wie int, double, bool, aber auch Strukturen (
 (DDD = Domain Driven Design)
 
 ## Stack und Heap
+
 Die Begriffe Stack und Heap stammen aus der Informatikgeschichte und haben ihre Wurzeln in der frühen Speicherverwaltung von Computern. Ihre Konzepte wurden über Jahrzehnte hinweg entwickelt und sind heute fundamentale Bestandteile moderner Programmiersprachen.
 
 - Mutable oder immutable hat nichts mit Stack oder Heap zu tun!

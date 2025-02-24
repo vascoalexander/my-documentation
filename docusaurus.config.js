@@ -139,13 +139,7 @@ const config = {
             label: 'Tools',
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'codeSidebar',
-            position: 'left',
-            label: 'Code',
-          },
-          {
-            href: 'https://github.com/vascoalexander',
+            href: 'https://github.com/vascoalexander/my-documentation',
             label: 'GitHub',
             position: 'right',
           },
@@ -171,17 +165,17 @@ const config = {
               },
               {
                 label: 'C#',
-                href: '/docs/Csharp/DotNet-Framework',
-              },
-              {
-                label: 'WebDev',
-                href: '/docs/Web/Rest-Architektur',
+                href: '/docs/category/basics',
               },
             ],
           },
           {
             title: 'more...',
             items: [
+              {
+                label: 'WebDev',
+                href: '/docs/Web/Rest-Architektur',
+              },
               {
                 label: 'Datenbanken',
                 href: '/docs/category/grundlagen',
@@ -193,10 +187,6 @@ const config = {
               {
                 label: 'Tools',
                 href: '/docs/Tools/GIT',
-              },
-              {
-                label: 'Code',
-                href: '/docs/category/c',
               },
             ],
           },
@@ -222,7 +212,7 @@ const config = {
       },
       prism: {
         theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        darkTheme: prismThemes.palenight,
       },
     }),
 };
