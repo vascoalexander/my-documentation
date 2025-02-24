@@ -28,3 +28,10 @@ static void PwAbfrage()
   : "Zugriff verweigert");
 }
 ```
+---
+### with formatted String
+
+```c
+int num = 5;  
+Console.WriteLine("Die Zahl ist {0} als 10", (num < 10) ? "kleiner" : "größer");
+```
