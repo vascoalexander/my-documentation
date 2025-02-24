@@ -8,11 +8,13 @@ tags: []
 
 ```c
 // DateTime(year, month, day) 
-DateTime date1 = new DateTime(2025, 12, 25); Console.WriteLine(date1.ToString()); 
+DateTime date1 = new DateTime(2025, 12, 25); 
+Console.WriteLine(date1.ToString()); 
 // Ausgabe: 12/25/2015 12:00:00 AM 
 
 // DateTime(year, month, day, hour, minute, second)
-DateTime date2 = new DateTime(2022, 12, 25, 10, 30, 50); Console.WriteLine(date1.ToString());
+DateTime date2 = new DateTime(2022, 12, 25, 10, 30, 50); 
+Console.WriteLine(date1.ToString());
 // Ausgabe: 12/25/2015 10:30:00 AM }
 ```
 ---
