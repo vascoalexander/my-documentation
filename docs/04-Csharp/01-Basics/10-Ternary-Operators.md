@@ -24,21 +24,13 @@ throw new InvalidOperationException("Ungültige Farbe")));
 
 ```c
 static void PwAbfrage()
-
 {
-
-Console.Write("Eingabe PW: ");
-
-Console.WriteLine(
-
-Console.ReadLine() == "1234"
-
-? "Zugriff erlaubt"
-
-: "Zugriff verweigert");
-
+  Console.Write("Eingabe PW: ");
+  Console.WriteLine(
+  Console.ReadLine() == "1234"
+      ? "Zugriff erlaubt"
+      : "Zugriff verweigert");
 }
-
 ```
 
 ---
@@ -46,9 +38,6 @@ Console.ReadLine() == "1234"
 ### with formatted String
 
 ```c
-
 int num = 5;
-
 Console.WriteLine("Die Zahl ist {0} als 10", (num < 10) ? "kleiner" : "größer");
-
 ```

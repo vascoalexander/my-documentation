@@ -13,11 +13,14 @@ draft: false
 ```c
 // {index der variablen die eingesetzt wird:FORMAT}
 // C - Currency; U - Universal full date/time
-// Ausgabe: 150,00 € Samstag, 8. Februar 2025 18:25:11
 String.Format("{index[,alignment][:formatString]}", object);
 
-string formatted = string.Format("{0:C} {1:U}", 150, thisDate); 
-Console.WriteLine(formatted);
+string formatted = string.Format("{0:C} {1:U}", 150, thisDate); Console.WriteLine(formatted);
+// Ausgabe: 150,00 € Samstag, 8. Februar 2025 18:25:11
+
+string fooFs = string.Format("Check Check, {0} {1}, {0} {1:0.0}", "AB", 23);
+Console.WriteLine(fooFs)
+// Ausgabe: Check Check, AB 23, AB 23,0
 ```
 
 ---

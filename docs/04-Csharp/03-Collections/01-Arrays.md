@@ -49,6 +49,7 @@ public static void Main(string[] args)
 	Console.WriteLine(integersArray.Average());
 }
 ```
+
 ---
 ## Sort, Reverse or Search (with ForEach())
 
@@ -66,6 +67,29 @@ Array.ForEach<int>(integersArray, n => Console.WriteLine(n));
 // SEARCH
 Console.WriteLine(Array.BinarySearch(integersArray, 9));
 ```
+
+---
+## Slicing eines Arrays
+
+- **Index**: Mit `^` kannst Du vom Ende her indexieren (z. B. `^1` für das letzte Element).
+- **Range**: Mit `..` definierst Du einen Bereich. Dabei ist das Ende exklusiv.
+
+```c
+int[] zahlen = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+// Teilausschnitt von Index 2 bis 4 (5 ist exklusive)
+int[] slice1 = zahlen[2..5]; // Enthält {2, 3, 4}
+
+// Teilausschnitt vom Index 5 bis zum Ende
+int[] slice2 = zahlen[5..];  // Enthält {5, 6, 7, 8, 9}
+
+// Letztes Element des Arrays
+int letztesElement = zahlen[^1];  // ^1 bedeutet "1. von hinten", also 9
+
+// Teilausschnitt der letzten 3 Elemente
+int[] slice3 = zahlen[^3..]; // Enthält {7, 8, 9}
+```
+
 ---
 ## Duplikate entfernen
 
@@ -75,6 +99,7 @@ string[] text = Console.ReadLine().Split(" ");
 
 string[] textOhneDuplikate = text.Distinct().ToArray();
 ```
+
 ---
 ## Vorkommen zählen
 
@@ -90,6 +115,7 @@ static int CountOccurrences(int[,] array, int target)
     return count;  
 }
 ```
+
 ---
 ## Print 2D Array to console
 
@@ -104,6 +130,7 @@ static void PrintArray(int[,] array)
     }
 }
 ```
+
 ---
 ## Fill 2D Array with Random Numbers
 
@@ -116,6 +143,7 @@ static void FillArray(int[,] array, int rows, int cols)
             array[i, j] = rnd.Next(1, 10); 
 }
 ```
+
 ---
 ## Merge Arrays
 

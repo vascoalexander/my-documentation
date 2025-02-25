@@ -7,96 +7,82 @@ language: C#
 tags: []
 draft: false
 ---
-## DateTime Formats
+## Standard Numeric Formats
+
+| **Char** | **Name**    | **Beschreibung**                                    | **Usage**       | **Ausgabe** |
+| -------- | ----------- | --------------------------------------------------- | --------------- | ----------- |
+| C        | Currency    | Währungsformat (z. B. Euro)                         | `{1234.56:C}`   | 1.234,56 €  |
+| D        | Decimal     | Ganzzahldarstellung mit führenden Nullen (optional) | `{123:D5}`      | 00123       |
+| E        | Exponential | Wissenschaftliche Notation                          | `{1234.56:E2}`  | 1,23E+003   |
+| F        | Fixed-Point | Feste Anzahl an Dezimalstellen                      | `{1234.56:F2}`  | 1234,56     |
+| G        | General     | Kürzeste Darstellung (Festkomma oder Exponential)   | `{1234.56:G}`   | 1234,56     |
+| N        | Number      | Nummernformat mit Tausendergruppierung              | `{1234.56:N2}`  | 1.234,56    |
+| P        | Percent     | Prozentformat (Wert wird mit 100 multipliziert)     | `{0.1234:P1}`   | 12,3 %      |
+| R        | Round-Trip  | Präzise Formatierung für verlustfreie Umwandlung    | `{3.1415926:R}` | 3,14159265  |
+| X        | Hexadecimal | Ganze Zahl in hexadezimaler Darstellung             | `{123:X}`       | 7B          |
+
+---
+
+## Custom Numeric Formats
+
+| **Char**           | **Name**               | **Kurze Beschreibung**                                                                 | **Usage**         | **Ausgabe**                     |
+| ------------------ | ---------------------- | -------------------------------------------------------------------------------------- | ----------------- | ------------------------------- |
+| 0                  | Null-Platzhalter       | Erzwingt Ziffer; fehlt eine Ziffer, wird „0“ eingesetzt                                | `{23:0000}`       | 0023                            |
+| #                  | Ziffern-Platzhalter    | Zeigt vorhandene Ziffern an; nicht vorhandene Stellen bleiben leer                     | `{5:##}`          | 5                               |
+| ?                  | Platzhalter            | Zeigt Ziffer an oder ein Leerzeichen, wenn keine Ziffer vorhanden (zur Ausrichtung)    | `{5:??}`          | _5 (mit führendem Leerzeichen)_ |
+| .                  | Dezimalpunkt           | Legt die Position des Dezimaltrennzeichens fest                                        | `{12.3:0.00}`     | 12,30                           |
+| ,                  | Tausender-trennzeichen | Gruppiert Ziffern oder skaliert den Wert (bei mehrfacher Verwendung)                   | `{1234:#,##0}`    | 1.234                           |
+| %                  | Prozent                | Multipliziert den Wert mit 100 und hängt ein Prozentzeichen an                         | `{0.123:0%}`      | 12 %                            |
+| ‰                  | Promille               | Multipliziert den Wert mit 1000 und zeigt das Promillezeichen an                       | `{0.123:0‰}`      | 123‰                            |
+| 'Text' oder "Text" | Literaltext            | Fügt wörtlichen Text in die Ausgabe ein (Text in Anführungszeichen bleibt unverändert) | `{1234:# 'Euro'}` | 1234 Euro                       |
+
+_Hinweis:_ Die Ausgabe kann je nach Kultur- bzw. Ländereinstellungen variieren (hier orientiert an deutscher Formatierung).
+
+---
 
 ```c
-DateTime tempDate = new DateTime(2025, 18, 02);
-Console.WriteLine(tempDate.ToString("MMMM dd, yyyy"));
+DateTime date = new DateTime(2025, 2, 24, 15, 09, 26);
+Console.WriteLine($"{date:d}");
+// 24.02.2025
+Console.WriteLine(date.ToString("MMMM dd, yyyy")); 
+// Februar 24, 2025
+Console.WriteLine($"{date:dddd}, {date:dd}. {date:MMM} {date:yyyy}"); 
+// Montag, 24. Feb 2025
 ```
 
-```c
-// Format a negative integer or floating-point number in various ways.
-Console.WriteLine("Standard Numeric Format Specifiers");
-Console.WriteLine(
-    "(C) Currency: . . . . . . . . {0:C}\n" +
-    "(D) Decimal:. . . . . . . . . {0:D}\n" +
-    "(E) Scientific: . . . . . . . {1:E}\n" +
-    "(F) Fixed point:. . . . . . . {1:F}\n" +
-    "(G) General:. . . . . . . . . {0:G}\n" +
-    "    (default):. . . . . . . . {0} (default = 'G')\n" +
-    "(N) Number: . . . . . . . . . {0:N}\n" +
-    "(P) Percent:. . . . . . . . . {1:P}\n" +
-    "(R) Round-trip: . . . . . . . {1:R}\n" +
-    "(X) Hexadecimal:. . . . . . . {0:X}\n",
-    -123, -123.45f); 
+## Standard DateTime Formats
 
-// Format the current date in various ways.
-Console.WriteLine("Standard DateTime Format Specifiers");
-Console.WriteLine(
-    "(d) Short date: . . . . . . . {0:d}\n" +
-    "(D) Long date:. . . . . . . . {0:D}\n" +
-    "(t) Short time: . . . . . . . {0:t}\n" +
-    "(T) Long time:. . . . . . . . {0:T}\n" +
-    "(f) Full date/short time: . . {0:f}\n" +
-    "(F) Full date/long time:. . . {0:F}\n" +
-    "(g) General date/short time:. {0:g}\n" +
-    "(G) General date/long time: . {0:G}\n" +
-    "    (default):. . . . . . . . {0} (default = 'G')\n" +
-    "(M) Month:. . . . . . . . . . {0:M}\n" +
-    "(R) RFC1123:. . . . . . . . . {0:R}\n" +
-    "(s) Sortable: . . . . . . . . {0:s}\n" +
-    "(u) Universal sortable: . . . {0:u} (invariant)\n" +
-    "(U) Universal full date/time: {0:U}\n" +
-    "(Y) Year: . . . . . . . . . . {0:Y}\n", 
-    thisDate);
+|**Char**|**Name**|**Kurze Beschreibung**|**Usage**|**Ausgabe**|
+|---|---|---|---|---|
+|d|Short Date|Kurzformat, nur Datum|`{date:d}`|25.02.2025|
+|D|Long Date|Langes Datumsformat|`{date:D}`|Dienstag, 25. Februar 2025|
+|t|Short Time|Kurze Zeitangabe|`{date:t}`|15:09|
+|T|Long Time|Lange Zeitangabe|`{date:T}`|15:09:26|
+|f|Full (Short Time)|Langes Datum, kurze Zeit|`{date:f}`|Dienstag, 25. Februar 2025 15:09|
+|F|Full (Long Time)|Langes Datum, lange Zeit|`{date:F}`|Dienstag, 25. Februar 2025 15:09:26|
+|g|General (Short)|Kompakte Darstellung (Datum + kurze Zeit)|`{date:g}`|25.02.2025 15:09|
+|G|General (Long)|Kompakte Darstellung (Datum + lange Zeit)|`{date:G}`|25.02.2025 15:09:26|
+|M / m|Month Day|Zeigt Monat und Tag an|`{date:M}`|25. Februar|
+|O / o|Round-trip|ISO 8601 Format, exakte Rundtrip-Darstellung|`{date:O}`|2025-02-25T15:09:26.0000000|
 
-// Format a Color enumeration value in various ways.
-Console.WriteLine("Standard Enumeration Format Specifiers");
-Console.WriteLine(
-    "(G) General:. . . . . . . . . {0:G}\n" +
-    "    (default):. . . . . . . . {0} (default = 'G')\n" +
-    "(F) Flags:. . . . . . . . . . {0:F} (flags or integer)\n" +
-    "(D) Decimal number: . . . . . {0:D}\n" +
-    "(X) Hexadecimal:. . . . . . . {0:X}\n", 
-    Color.Green);       
-```
+---
 
-```c
-/*
-Standard Numeric Format Specifiers
-(C) Currency: . . . . . . . . ($123.00)
-(D) Decimal:. . . . . . . . . -123
-(E) Scientific: . . . . . . . -1.234500E+002
-(F) Fixed point:. . . . . . . -123.45
-(G) General:. . . . . . . . . -123
-    (default):. . . . . . . . -123 (default = 'G')
-(N) Number: . . . . . . . . . -123.00
-(P) Percent:. . . . . . . . . -12,345.00 %
-(R) Round-trip: . . . . . . . -123.45
-(X) Hexadecimal:. . . . . . . FFFFFF85
+## Custom DateTime Formats
 
-Standard DateTime Format Specifiers
-(d) Short date: . . . . . . . 6/26/2004
-(D) Long date:. . . . . . . . Saturday, June 26, 2004
-(t) Short time: . . . . . . . 8:11 PM
-(T) Long time:. . . . . . . . 8:11:04 PM
-(f) Full date/short time: . . Saturday, June 26, 2004 8:11 PM
-(F) Full date/long time:. . . Saturday, June 26, 2004 8:11:04 PM
-(g) General date/short time:. 6/26/2004 8:11 PM
-(G) General date/long time: . 6/26/2004 8:11:04 PM
-    (default):. . . . . . . . 6/26/2004 8:11:04 PM (default = 'G')
-(M) Month:. . . . . . . . . . June 26
-(R) RFC1123:. . . . . . . . . Sat, 26 Jun 2004 20:11:04 GMT
-(s) Sortable: . . . . . . . . 2004-06-26T20:11:04
-(u) Universal sortable: . . . 2004-06-26 20:11:04Z (invariant)
-(U) Universal full date/time: Sunday, June 27, 2004 3:11:04 AM
-(Y) Year: . . . . . . . . . . June, 2004
+|**Char**|**Name**|**Kurze Beschreibung**|**Usage**|**Ausgabe**|
+|---|---|---|---|---|
+|yyyy|Jahr (4-stellig)|Vierstellige Jahreszahl|`{date:yyyy}`|2025|
+|yy|Jahr (2-stellig)|Zweistellige Jahreszahl|`{date:yy}`|25|
+|MM|Monat (2-stellig)|Monat als Zahl, zweistellig|`{date:MM}`|02|
+|MMM|Monat (abgekürzt)|Abgekürzter Monatsname|`{date:MMM}`|Feb|
+|MMMM|Monat (voll)|Voll ausgeschriebener Monatsname|`{date:MMMM}`|Februar|
+|dd|Tag (2-stellig)|Tag des Monats, zweistellig|`{date:dd}`|25|
+|ddd|Wochentag (abgekürzt)|Abgekürzter Wochentag|`{date:ddd}`|Di|
+|dddd|Wochentag (voll)|Voll ausgeschriebener Wochentag|`{date:dddd}`|Dienstag|
+|HH|Stunde (24h)|Stunden im 24-Stunden-Format|`{date:HH}`|15|
+|hh|Stunde (12h)|Stunden im 12-Stunden-Format|`{date:hh}`|03|
+|mm|Minuten|Minuten, zweistellig|`{date:mm}`|09|
+|ss|Sekunden|Sekunden, zweistellig|`{date:ss}`|26|
+|tt|AM/PM Designator|AM/PM Kennzeichnung (je nach Kultur z. B. "nachm.")|`{date:tt}`|nachm.|
 
-Standard Enumeration Format Specifiers
-(G) General:. . . . . . . . . Green
-    (default):. . . . . . . . Green (default = 'G')
-(F) Flags:. . . . . . . . . . Green (flags or integer)
-(D) Decimal number: . . . . . 3
-(X) Hexadecimal:. . . . . . . 00000003
-*/
-```
+_Hinweis: Die tatsächliche Ausgabe kann je nach Kultur- bzw. Ländereinstellungen variieren._

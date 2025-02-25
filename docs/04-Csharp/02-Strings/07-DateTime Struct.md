@@ -6,38 +6,56 @@ sidebar_position: 7
 language: C#
 tags:
   - timezone
+  - TimeSpan
+  - DayOfWeek
+  - formatting
+  - CultureInfo
 ---
-## DateTime Constructor
+## DateTime(year, month, day)
 
 ```c
-// DateTime(year, month, day) 
 DateTime date1 = new DateTime(2025, 12, 25); Console.WriteLine(date1.ToString()); 
-// Ausgabe: 12/25/2015 12:00:00 AM 
-
-// DateTime(year, month, day, hour, minute, second)
-DateTime date2 = new DateTime(2022, 12, 25, 10, 30, 50); Console.WriteLine(date1.ToString());
-// Ausgabe: 12/25/2015 10:30:00 AM }
+// Ausgabe: 12/25/2025 12:00:00 AM 
 ```
 
 ---
-## DateTime Methods
+## DateTime(year, month, day, hour, minute, second)
 
 ```c
-// Creating TimeSpan object of one month(as 30 days)  
-TimeSpan duration = new System.TimeSpan(30, 0, 0, 0);  
+DateTime date2 = new DateTime(2022, 12, 25, 10, 30, 50); Console.WriteLine(date1.ToString());
+// Ausgabe: 12/25/2022 10:30:00 AM }
+```
+
+---
+## Creating TimeSpan object
+
+```c
+var duration = new TimeSpan(30, 0, 0, 0); // one month(as 30 days)  
 DateTime newDate1 = DateTime.Now.Add(duration);  
 Console.WriteLine(newDate1);
+```
 
-// AddYears, AddMonths, AddDays, AddHours, AddMinutes, AddSeconds  
+---
+## AddYears (Months, Days, Hours, Minutes, Seconds)
+
+```c
 DateTime today = DateTime.Now;
 DateTime newDate2 = today.AddDays(3);
 Console.WriteLine(newDate2);
+```
 
-// DateTime Parse
+---
+## DateTime Parse
+
+```c
 string dateString = "Wed Dec 30, 2015";  
 DateTime dateTime12 = DateTime.Parse(dateString); // 12/30/2015 12:00:00 AM  
-  
-// Date Difference  
+```
+
+---
+## Date Difference
+
+```c 
 var date1 = new DateTime(2025, 3, 10, 2, 15, 10);  
 var date2 = new DateTime(2025, 7, 15, 6, 30, 20);  
 var date3 = new DateTime(2025, 12, 28, 10, 45, 30);
@@ -117,24 +135,36 @@ Console.WriteLine(tempDate.ToString("MMMM dd, yyyy"));
 | /         | Year, month , day separator, e.g. `{0:dd/MM/yyyy}`     | 8/4/2007                              |
 
 ---
-## Timezone Object
+## Get current Time Zone
 
 ```c
-// Get current Time Zone  
 string current = TimeZone.CurrentTimeZone.StandardName;  
 Console.WriteLine(current);  
-  
-// Get All Time Zones  
+```
+
+---
+## Get All Time Zones
+
+```c
 foreach (TimeZoneInfo z in TimeZoneInfo.GetSystemTimeZones())  
 {  
     Console.WriteLine(z.Id);  
 }
+```
 
+---
+## Convert Date to UTC
+
+```c
 //Convert any date from your time-zone to UTC
 DateTime timeUTC = TimeZone.CurrentTimeZone.ToUniversalTime(DateTime.Now);  
 Console.WriteLine(timeUTC);
+```
 
-// Zeit in spezifischer Zeitzone ermitteln
+---
+## Get Time in specific Time Zone
+
+```c
 TimeZoneInfo nzTimeZone = TimeZoneInfo.FindSystemTimeZoneById("New Zealand Standard Time");  
 DateTime nzTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, nzTimeZone);
 
@@ -142,8 +172,31 @@ Console.WriteLine($"Aktuelle Zeit in Neuseeland: {nzTime}");
 ```
 
 ---
-## DateTime with Different Culture
+## Get Current Culture Name
 
+```c
+string currentCulture = Thread.CurrentThread.CurrentCulture.DisplayName;
+```
+
+---
+## Get DateTime based on Culture
+
+```c
+using System.Globalization;
+DateTime currentTime = DateTime.Now;
+
+string dateInUSA = currentTime.ToString("D", new CultureInfo("en-US")); 
+string dateInHindi = currentTime.ToString("D", new CultureInfo("hi-IN"));
+string dateInJapan = currentTime.ToString("D", new CultureInfo("ja-JP"));
+```
+
+---
+## Convert Current DateTime to Different Culture
+
+```c
+DateTime originalResult = new DateTime(2025, 01, 09);
+string frenchTDate = originalResult.ToString("D", new CultureInfo("fr-FR"));
+```
 
 ## Related Links
 [DateTime In C#](https://www.csharp.com/article/datetime-in-c-sharp/)
