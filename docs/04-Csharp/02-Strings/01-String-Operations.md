@@ -139,3 +139,29 @@ string teilText1 = text[6..]; // "Welt"
 // Teilausschnitt von Index 0 bis 5
 string teilText2 = text[..5]; // "Hallo"
 ```
+
+## Quick-Reference: String Methoden
+
+| Method         | Code                                                  | Comments                                                                                              |
+| :------------- | :---------------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
+| Clone()        | firstName.Clone()                                     | Make clone of string                                                                                  |
+| CompareTo()    | firstName.CompareTo(lastname)                         | Compare two strings and returns integer value as output. It returns 0 for true and 1 for false        |
+| Contains       | firstName.Contains("Dav")                             | The Contains method checks whether specified character or string is exists or not in the string value |
+| EndsWith()     | firstName.EndsWith("n")                               | This EndsWith Method checks whether specified character is the last character of string or not        |
+| Equals()       | firstnName.Equals(lastname)                           | The Equals Method in C# compares two string and returns Boolean value as output                       |
+| GetHashCode()  | firstName.GetHashCode()                               | This method returns HashValue of specified string                                                     |
+| GetType()      | firstName.GetType()                                   | Returns the System.Type of current instance                                                           |
+| IndexOf()      | firstName.IndexOf("e")                                | Returns the index position of first occurrence of specified character                                 |
+| ToLower()      | firstName.ToLower()                                   | Converts String into lower case based on rules of the current culture                                 |
+| ToUpper()      | firstName.ToUper()                                    | Converts String into upper case based on rules of the current culture                                 |
+| Insert()       | firstName.Insert(0, "Hello")                          | Insert the string or character in the string at the specified position                                |
+| IsNormalized() | firstName.IsNormalized()                              | This method checks whether this string is in Unicode normalization form C                             |
+| LastIndexOf()  | firsName.LastIndexOf("e")                             | This method checks whether this string is in Unicode normalization form C                             |
+| Length         | firstName.Length                                      | It is a string property that returns length of string                                                 |
+| Remove()       | firstName.Remove(5)                                   | This method deletes all the characters from beginning to specified index position                     |
+| Replace()      | firstName.Replace('e','i')                            | This method replaces the character                                                                    |
+| Split()        | string[] split = firstname.Split(new char[] { 'e' }); | This method splits the string based on specified value                                                |
+| StartsWith()   | firstName.StartsWith("S")                             | It checks whether the first character of string is same as specified character                        |
+| Substring()    | firstName.Substring(2,5)                              | This method returns substring                                                                         |
+| ToCharArray()  | firstnName.ToCharArray()                              | Converts string into char array                                                                       |
+| Trim()         | firstnName.Trim()                                     | It removes extra whitespaces from beginning and ending of string                                      |
