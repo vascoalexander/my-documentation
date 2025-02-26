@@ -3,7 +3,7 @@ created: 2025-02-26, 17:09
 title: Exceptions
 description: ''
 sidebar_position: 1
-draft: true
+draft: false
 ---
 ## System Exception
 
