@@ -62,3 +62,16 @@ private static void WaitForKeyPress()
     Console.ReadKey();  
 }
 ```
+
+## string with Default Fallback
+
+```c
+string firstName = person?.FirstName ?? "Unknown";
+Console.WriteLine(firstName);
+```
+---
+## string.isNullOrEmpty
+
+```c
+string input = Console.ReadLine()!;
+char guess = !string.IsNullOrEmpty(input) ? input[0] : '_';
