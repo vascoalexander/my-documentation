@@ -6,34 +6,41 @@ sidebar_position: 3
 language: C#
 tags: []
 ---
-Ein Interface definiert einen Vertrag (Methoden, Eigenschaften etc.), den implementierende Klassen erfüllen müssen. Es ermöglicht lose Kopplung.
+Defines a "contract" that all the classes inheriting from should follow. An interface declares "what the class should have". An inheriting class defines "how it should do it".
+**Benefit:** security + multiple inheritance + "plug and play"
 
 ```c
-public interface IBeweglich
+inferface IPrey
 {
-    void Bewege();
+	void Flee();
 }
-
-public class Auto : IBeweglich
+interface IPredator
 {
-    public void Bewege()
-    {
-        Console.WriteLine("Das Auto fährt.");
-    }
+	void Hunt();
 }
-
-public class Fahrrad : IBeweglich
+class Rabbit : IPrey
 {
-    public void Bewege()
-    {
-        Console.WriteLine("Das Fahrrad rollt.");
-    }
+	public void Flee()
+	{
+		Console.WriteLine("The Rabbit flees!");
+	}
 }
-
-// Anwendung:
-IBeweglich fahrzeug = new Auto();
-fahrzeug.Bewege();  // Ausgabe: Das Auto fährt.
-
-fahrzeug = new Fahrrad();
-fahrzeug.Bewege();  // Ausgabe: Das Fahrrad rollt.
+class Hawk : IPredator
+{
+	public void Hunt()
+	{
+		Console.WriteLine("The Hawk is searching for food!");
+	}
+}
+class Fish : IPrey, IPredator
+{
+	public void Flee()
+	{
+		Console.WriteLine("The Fish flees!");
+	}
+	public void Hunt()
+	{
+		Console.WriteLine("The Fish searches for smaller food!");
+	}
+}
 ```
