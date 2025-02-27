@@ -189,6 +189,37 @@ static int[] MergeArray(int[] array1, int[] array2)
     return arrayMerged;
 }
 ```
+---
+
+## Array of Objects
+
+```c
+Car[] garage = new Car[3];
+
+Car car1 = new Car("Volvo");
+Car car2 = new Car("Ford");
+Car car3 = new Car("Opel");
+
+garage[0] = car1;
+garage[1] = car2;
+garage[2] = car3;
+
+Console.WriteLine(garage[1].model);
+// output Ford
+```
+---
+
+## Array of Anonymous Objects
+
+```c
+Car[] garage = { new Car("Volvo"), new Car("Ford"), new Car("Opel") };
+
+foreach (Car car in garage)
+{
+	Console.Write($"{car.model} ");
+}
+// output: Volvo Ford Opel 
+```
 
 ## Related Links
 [**Microsoft Docs - Array Class**](https://learn.microsoft.com/en-us/dotnet/api/system.array?view=net-9.0)  

@@ -96,4 +96,35 @@ namen.Clear();
 Console.WriteLine($"Anzahl der Elemente nach Clear: {namen.Count}");
 ```
 
+---
+## List of Objects
+
+```c
+var players = new List<Player>();
+
+var player1 = new Player("Chad");
+var player2 = new Player("Steve");
+var player3 = new Player("Karen");
+
+players.Add(player1);
+players.Add(player2);
+players.Add(player3);
+
+foreach (Player player in players)
+{
+	Console.WriteLine(player.username);
+}
+```
+
+---
+## List of Anonymous Objects
+
+```c
+var players = new List<Player>();
+
+players.Add(new Player("Chad"));
+players.Add(new Player("Steve"));
+players.Add(new Player("Karen"));
+```
+
 ## Related Links

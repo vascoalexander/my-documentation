@@ -207,3 +207,39 @@ class Beispiel
     }
 }
 ```
+---
+
+## Method Overriding
+Provides a new version of a method inherited from a parent class. Inherited method must be: virutal, abstract or already overriden.
+
+```c
+class Animal
+{
+	public virtual void Speak()
+	{
+		Console.WriteLine("The animal goes *brrr*")
+	}
+}
+class Dog : Animal 
+{
+	public override void Speak()
+	{
+		Console.WriteLine("The dog goes *wooff*")
+	}
+}
+```
+
+---
+## String Representation with ToString
+
+```c
+public override string ToString()
+{
+	return "Hello my name is " + this.name + " and I am " + this.age + " years old.";
+}
+
+// Aufruf in Main
+var aPerson = new Person("Horst", 45);
+Console.WriteLine(aPerson);
+// output: Hello my name is Horst and I am 45 years old.
+```
