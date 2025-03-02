@@ -83,6 +83,24 @@ var person = new Person();
 person.SetName("Max");
 Console.WriteLine(person.GetName()); // Ausgabe: Max
 ```
+---
+
+## Getter & Setter (Lambda Schreibweise)
+
+```c
+public class Person
+{
+	private string _name;
+	private int _age;
+
+	public void GetAge() => _age;
+	public void SetAge(int age) => this.age = age >= 0 && age <= 150 ? age : -1;
+
+	public void GetName => _name;
+	public void SetName(string name) => this.name = name.IsNullOrEmpty ?
+		name : "Invalid name";
+}
+```
 
 ---
 ## Properties (ausführliche Schreibweise)
@@ -235,11 +253,42 @@ class Dog : Animal
 ```c
 public override string ToString()
 {
-	return "Hello my name is " + this.name + " and I am " + this.age + " years old.";
+	return "Hello my name is " + this.name + " and I am " + this.age 
+        + " years old.";
 }
 
 // Aufruf in Main
 var aPerson = new Person("Horst", 45);
 Console.WriteLine(aPerson);
 // output: Hello my name is Horst and I am 45 years old.
+```
+---
+
+## Override Equals
+
+```c
+class Person
+{
+	public string Name { get; set; }
+	public int Age { get; set; }
+
+	public override bool Equals(object obj)
+	{
+		if (obj is Person)
+		{
+			Person person = obj as Person;
+			return Name.Equals(person.Name) && Age == person.Age;
+		}
+		return false;
+	}
+}
+stativ void Main()
+{
+	Person person = new Person { "Harry", 25 };
+	Person test = new Person { "Harry", 25 };
+	if (person.Equals(test))
+		Console.WriteLine("Same");
+	else
+		Console.WriteLine("Not the same");
+}
 ```
