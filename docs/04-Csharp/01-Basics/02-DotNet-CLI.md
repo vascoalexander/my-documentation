@@ -28,6 +28,20 @@ dotnet sln MeineLoesung.sln add MeinProjekt/MeinProjekt.csproj
 cd ProjektFolder
 dotnet add reference ../MyLibrary/MyLibrary.csproj
 ```
+
+### Arbeiten mit Klassenbibliotheken
+
+```bash
+# Erstelle eine gemeinsame Bibliothek
+dotnet new classlib -n MyLibrary
+# Füge es zur Solution hinzu
+dotnet sln add MyLibrary/MyLibrary.csproj
+# Referenziere die Bibliothek
+dotnet add <Projektordner> reference MyLibrary/MyLibrary.csproj
+# Klasse in dem Projekt verwenden
+using SharedLibrary;
+```
+
 ### Abhängigkeiten verwalten
 
 ```bash

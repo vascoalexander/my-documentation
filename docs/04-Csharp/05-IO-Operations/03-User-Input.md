@@ -51,6 +51,31 @@ static int MenuChoice()
     return choice;  
 }
 ```
+---
+
+## TryParse (Loop)
+
+```c
+Console.Write("Enter a number: ");
+string input = Console.ReadLine()!;  
+bool isNumber = int.TryParse(input, out int result);
+
+if (isNumber)  
+    Console.WriteLine("The number is: " + input);
+else
+	Console.WriteLine("Thats not a number, IDIOT!");
+```
+
+```c
+string input = "";  
+do  
+{  
+	Console.Write("Enter a number: ");  
+	input = Console.ReadLine()!;
+} while (!int.TryParse(input, out int number));  
+
+Console.WriteLine("The number is: " + input);  
+```
 
 ---
 ## WaitForKeyPress
@@ -62,16 +87,21 @@ private static void WaitForKeyPress()
     Console.ReadKey();  
 }
 ```
+---
 
-## string with Default Fallback
+## String with Default Fallback
 
 ```c
+// person class mit feld FirstName vorausgesetzt
 string firstName = person?.FirstName ?? "Unknown";
 Console.WriteLine(firstName);
 ```
+
 ---
 ## string.isNullOrEmpty
 
 ```c
 string input = Console.ReadLine()!;
 char guess = !string.IsNullOrEmpty(input) ? input[0] : '_';
+// outputs first char of input or _ if input is null
+```

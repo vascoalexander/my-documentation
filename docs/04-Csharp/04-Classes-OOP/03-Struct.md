@@ -3,7 +3,7 @@ created: 2025-02-23, 11:33
 title: "Struct"
 description: ""
 language: C#
-sidebar_position: 2
+sidebar_position: 3
 tags: []
 ---
 Ein struct ist ein Werttyp in C#, der ähnlich wie eine Klasse (class) funktioniert, aber in vielen Fällen effizienter ist.

@@ -2,7 +2,7 @@
 created: 2025-02-23, 11:33
 title: Classes & Objects
 description: ""
-sidebar_position: 1
+sidebar_position: 2
 language: C#
 tags:
   - Konstruktor

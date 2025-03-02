@@ -2,7 +2,7 @@
 created: 2025-02-23, 11:33
 title: "Interfaces"
 description: ""
-sidebar_position: 3
+sidebar_position: 4
 language: C#
 tags: []
 ---
