@@ -9,7 +9,8 @@ draft: false
 
 ```c
 Person person = null; 
-string name = person?.Name; Console.WriteLine(name); 
+string name = person?.Name; 
+Console.WriteLine(name); 
 // Ausgabe: nichts (name ist null, keine Exception)
 ```
 

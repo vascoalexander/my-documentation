@@ -76,13 +76,27 @@ Console.WriteLine(position); // Ausgabe: Andere
 zusätzliche Bedingungen mit `when` hinzufügen
 
 ```c
-int zahl = 5;
-string beschreibung = zahl switch
+Console.Write("Enter a number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+
+switch (number)
 {
-  var n when n > 0 && n < 10 => "Einstellige positive Zahl",
-  var n when n >= 10 && n < 100 => "Zweistellige positive Zahl",
-  _ => "Andere Zahl"
+    case var x when x < 0:
+        Console.WriteLine("Less than 0");
+        break;
+    case var x when x >= 0 && x <= 3:
+        Console.WriteLine("Between 0 and 3");
+        break;
+    case var x when x > 3:
+        Console.WriteLine("Higher than 3");
+        break;
 };
 
-Console.WriteLine(beschreibung); // Ausgabe: Einstellige positive Zahl
+string message = number switch
+{
+    var x when x < 0 => "Less than 0",
+    var x when x >= 0 && x <= 3 => "Between 0 and 3",
+    var x when x > 3 => "Higher than 3",
+};
+Console.WriteLine(message);
 ```

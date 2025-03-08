@@ -116,6 +116,19 @@ static int CountOccurrences(int[,] array, int target)
 }
 ```
 
+## Looping over Jagged Array
+
+```c
+for (int i = 0; i <= array.Length - 1; i++)
+{
+    for (int j = 0; j <= array[i].Length - 1; j++)
+    {
+        Console.Write($"{array[i][j]} ");
+    }
+    Console.WriteLine();
+}
+```
+
 ---
 ## Print 2D Array to console
 

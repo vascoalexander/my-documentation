@@ -4,6 +4,11 @@ description: '""'
 sidebar_position: 2
 draft: false
 ---
+## **Data Types**
+
+![Data Types](./img/data-types.png)
+*Data Types in C#*
+
 ## **Value Types**
 
 - Direkt auf dem **Stack** gespeichert (schnell)
