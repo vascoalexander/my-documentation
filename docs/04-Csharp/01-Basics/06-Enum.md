@@ -196,5 +196,139 @@ public bool HatZugriff(BenutzerRolle rolle, string ressource)
 }
 ```
 
+## Enums und Flags
+
+```c
+namespace Enums;
+
+[Flags] 
+public enum Month
+{               // In Binary
+    Jan = 1,    // 000000000001
+    Feb = 2,    // 000000000010
+    Mar = 4,    // 000000000100
+    Apr = 8,    // 000000001000
+    May = 16,   // 000000010000
+    Jun = 32,   // 000000100000
+    Jul = 64,   // 000001000000
+    Aug = 128,  // 000010000000
+    Sep = 256,  // 000100000000
+    Oct = 512,  // 001000000000
+    Nov = 1024, // 010000000000
+    Dec = 2048  // 100000000000
+}
+
+public enum ReportType
+{
+    Sum,
+    Average,
+    Min,
+    Max
+}
+class Program
+{
+    static void Main()
+    {
+        decimal[] data = new decimal[12];
+        PopulateMonthlyExpenditureData(data);
+
+        Month months = Month.Apr | Month.Aug;
+        // bitwise OR => 10001000 => flags für April und August gesetzt = 136 als int
+        
+        decimal[] reportData = GetReportData(months, data);
+
+        OutputReport(ReportType.Sum, months, reportData);
+        OutputReport(ReportType.Average, months, reportData);
+        OutputReport(ReportType.Min, months, reportData);
+        OutputReport(ReportType.Max, months, reportData);
+        
+        Console.ReadKey();
+    }
+    
+    public static void OutputReport(ReportType reportType, Month includedMonths, decimal[] reportData)
+    {
+        switch (reportType)
+        {
+            case ReportType.Sum:
+                Console.WriteLine($"Total expenditure for months, {includedMonths} is {reportData.Sum()}");
+                break;
+            case ReportType.Average:
+                Console.WriteLine($"Average expenditure for months, {includedMonths} is {reportData.Average()}");
+                break;
+            case ReportType.Min:
+                Console.WriteLine($"Min expenditure for months, {includedMonths} is {reportData.Min()}");
+                break;
+            case ReportType.Max:
+                Console.WriteLine($"Max expenditure for months, {includedMonths} is {reportData.Max()}");
+                break;
+            default:
+                throw new Exception("Invalid report type!");
+        }
+    }
+
+    public static decimal[] GetReportData(Month months, decimal[] data)
+    {
+        int count = 0;
+        int testMonthInclusion = 0;
+
+        int reportDataLength = CountBits((int)months);
+
+        decimal[] reportData = new decimal[reportDataLength];
+
+        int index = 0;
+
+        foreach (var item in Enum.GetValues(typeof(Month)))
+        {
+            testMonthInclusion = (int)months & (int)item;
+
+            if (testMonthInclusion > 0)
+            {
+                index = (int)Math.Round(Math.Log((int)item, 2));
+
+                reportData[count] = data[index];
+
+                count++;
+            }
+        }
+
+        return reportData;
+    }
+    public static int CountBits(int value)
+    {
+        // Brian Kernighans's Algorithm
+        // Counts the number of set bits
+        
+        int count = 0;
+
+        while (value != 0)
+        {
+            count++;
+            value &= value - 1;
+            // 10001000 & (136)
+            // 10000111   (135)
+            // 10000000   (128)
+        }
+
+        return count;
+    }
+
+    public static void PopulateMonthlyExpenditureData(decimal[] data)
+    {
+        data[0] = 5000;
+        data[1] = 3000.50m;
+        data[2] = 4000.30m;
+        data[3] = 2000;
+        data[4] = 3500;
+        data[5] = 4000.20m;
+        data[6] = 1000.50m;
+        data[7] = 500;
+        data[8] = 600;
+        data[9] = 6000;
+        data[10] = 3000;
+        data[11] = 10000;
+    }
+}
+```
+
 ## Related Links
 [**Microsoft Docs - Enumeration Types**](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum)  

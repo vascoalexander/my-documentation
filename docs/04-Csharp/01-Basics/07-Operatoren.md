@@ -3,9 +3,9 @@ title: 'Operatoren'
 description: ""
 sidebar_position: 7
 ---
-**Uniary Operator**: one Operand `index++`
-**Binary Operator**: two Operands `a = a + 1`
-**Ternary Operator**: three Operands `string c = (bool) ? "b is true" : "b is false"`
+**Uniary Operator**: one Operand `index++`  
+**Binary Operator**: two Operands `a = a + 1`  
+**Ternary Operator**: three Operands `string c = (bool) ? "b is true" : "b is false"`  
 
 ## Arithmetic Operators
 ```c
