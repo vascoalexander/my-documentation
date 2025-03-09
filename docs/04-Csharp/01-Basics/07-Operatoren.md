@@ -90,6 +90,36 @@ myInteger = 5;
 myInteger >>= 1; // right shift (0b101 >> 1 = 0b10 = 2)
 ```
 ---
+
+## Miscellaneous Operators
+
+| Operator        | Description                                                 |
+| :-------------- | :---------------------------------------------------------- |
+| x.y             | Member access                                               |
+| f(x)            | Method and delegate invocation                              |
+| `a[x]`            | Array and indexer access                                    |
+| `new T(...){...}` | Object creation with initializer                            |
+| `new {...}`       | Anonymous object initializer                                |
+| `new T[...]`      | Array creation                                              |
+| typeof(T)       | Obtain System.Type object for T                             |
+| checked(x)      | Evaluate expression in checked context                      |
+| unchecked(x)    | Evaluate expression in unchecked context                    |
+| default (T)     | Obtain default value of type T                              |
+| delegate        | Anonymous function                                          |
+| (T x) => y      | Anonymous function (lambda expression)                      |
+| x ? y : z       | Conditional. Evalutes to y if x is true, z if x is false    |
+| x ?? y          | Null coalscing. Evaluates to y if x is null, to x otherwise |
+| x is T          | Return true if x is a T, false otherwise                    |
+| x as T          | Return x typed as T, or null if x is not a T                |
+| -x              | Negation                                                    |
+| +x              | Identity                                                    |
+| ~x              | Bitwise negation                                            |
+| ++x             | Pre-increment                                               |
+| x++             | Post-increment                                              |
+| (T)x            | Explicitly convert x to type T                              |
+
+---
+
 ## Operator Precedents
 ```c
 /*
