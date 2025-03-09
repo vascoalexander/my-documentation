@@ -2,7 +2,7 @@
 created: 2025-02-23, 11:33
 title: "Delegates"
 description: ""
-sidebar_position: 5
+sidebar_position: 6
 language: C#
 tags: []
 ---

@@ -35,6 +35,21 @@ int x = anotherJaggedArray[2][1];
 Console.WriteLine(x); // Outputs => 42
 ```
 ---
+
+## Looping over Jagged Array
+
+```c
+for (int i = 0; i <= array.Length - 1; i++)
+{
+    for (int j = 0; j <= array[i].Length - 1; j++)
+    {
+        Console.Write($"{array[i][j]} ");
+    }
+    Console.WriteLine();
+}
+```
+
+---
 ## LINQ Array Methods
 The Array class implements the IEnumerable interface, so you can LINQ extension methods such as Max(), Min(), Sum(), Average() and many others.
 
@@ -113,19 +128,6 @@ static int CountOccurrences(int[,] array, int target)
             count++;  
     }    
     return count;  
-}
-```
-
-## Looping over Jagged Array
-
-```c
-for (int i = 0; i <= array.Length - 1; i++)
-{
-    for (int j = 0; j <= array[i].Length - 1; j++)
-    {
-        Console.Write($"{array[i][j]} ");
-    }
-    Console.WriteLine();
 }
 ```
 
