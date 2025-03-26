@@ -64,3 +64,6 @@ table {
   display: block;
   margin: 0 auto;
 }
+.img-max img {
+  min-width: 100%;
+}
