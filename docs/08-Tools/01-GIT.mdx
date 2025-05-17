@@ -7,6 +7,48 @@ title: "GIT"
 [Git Visualization](https://git-school.github.io/visualizing-git/)  
 [Generate gitignore file online](https://www.toptal.com/developers/gitignore)   
 
+### Installation & Konfiguration
+
+```bash
+# ===============================
+# Script: git_setup.sh
+# Beschreibung: Konfiguriert Git (Name, E-Mail), erzeugt SSH-Key und fügt ihn dem SSH-Agent hinzu.
+# ===============================
+
+# 1. Git global konfigurieren
+read -p "Gib deinen Git-Benutzernamen ein: " GIT_USER
+read -p "Gib deine Git-E-Mail ein: " GIT_EMAIL
+
+git config --global user.name "$GIT_USER"
+git config --global user.email "$GIT_EMAIL"
+
+echo "Current Git config:"
+git config --global --list
+
+# 2. SSH-Key erzeugen
+KEY_PATH="$HOME/.ssh/id_ed25519"
+if [ -f "$KEY_PATH" ]; then
+  echo "SSH-Key bereits vorhanden unter $KEY_PATH"
+else
+  ssh-keygen -t ed25519 -C "$GIT_EMAIL" -f "$KEY_PATH" -N ""
+  echo "SSH-Key wurde unter $KEY_PATH erzeugt."
+fi
+
+# 3. SSH-Agent starten und Key laden
+eval "$(ssh-agent -s)"
+ssh-add "$KEY_PATH"
+
+# 4. Public Key anzeigen
+echo "
+-------- Kopiere diesen Public Key und füge ihn bei GitHub/GitLab hinzu: --------"
+cat "$KEY_PATH.pub"
+echo "----------------------------------------------------------------------------"
+
+echo "Git-Setup abgeschlossen."
+```
+
+### Command Quicklist
+
 | Command                                          | Short Description                                                                                         |
 | :----------------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
 | **git init**                                     | Initialize repository                                                                                     |
