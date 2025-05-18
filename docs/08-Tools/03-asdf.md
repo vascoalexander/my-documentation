@@ -1,4 +1,8 @@
-### Installation
+## Install & Config Script
+
+```bash
+git clone https://gist.github.com/f3805baa2bfcf4acd052e28a8d370a92.git
+```
 
 ```bash
 # ===============================
@@ -45,7 +49,8 @@ dotnet --version
 echo "asdf setup abgeschlossen."
 ```
 
-### Command Quicklist
+## Command Quicklist
+Mit asdf kannst du mehrere Sprach‑/Tool‑Versionen unkompliziert managen. Die Beispiele beziehen sich auf eine Bash‑ oder Zsh‑Umgebung.
 
 ```bash
 # asdf Cheat Sheet
