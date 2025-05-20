@@ -149,6 +149,11 @@ poetry run pre-commit install
 ```
 
 ---
+## mise mit nodejs und yarn
+
+- Die package.json ist die absolute Wahrheit und definiert die Parameter und Abhängigkeiten für das Projekt
+- Mise stellt die node version bereit (mise.toml), node stellt über corepack die yarn version (package.json) bereit
+- ggfs muss corepack einmalig aktiviert werden `corepack enable`
 
 ## ⚙ Wichtige Befehle
 
