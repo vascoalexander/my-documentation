@@ -33,41 +33,14 @@ Linting, uvm. beim Commit durchführen kann.
 
 ## ⚡ Installation & Setup
 
-### 1. Rust installieren (für alternative mise-Installation)
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
-
-Nach der Installation ggf. in die Shell-Konfigurationsdatei 
-(`~/.zshrc` oder `~/.bashrc`) einfügen:
-
-```bash
-source "$HOME/.cargo/env"
-```
-
-Dann prüfen:
-
-```bash
-rustc --version
-cargo --version
-```
-
-### 2. mise installieren
-
-**Variante A: via Shell Script**
+### 1. mise installieren
 
 ```bash
 curl https://mise.run | sh
 ```
 
-**Variante B: via Cargo** (nach Rust-Installation)
-
-```bash
-cargo install mise
-```
-
-Dann in der Shell-Konfigurationsdatei aktivieren:
+Dann in der Shell-Konfigurationsdatei aktivieren:  
+**Info:** mise activate setzt die tools / runtime Pfade auf $PATH
 
 `~/.bashrc`
 ```bash
@@ -76,32 +49,63 @@ if command -v mise &> /dev/null; then
   eval "$(mise activate bash)"
 fi
 ```
-`~/.zshrc`
-```bash
-# mise aktivieren (Runtime-Manager)
-eval "$(mise activate zsh)"
+(mise activate zsh in der zshrc)  
+
+**Beachte**: $PATH Variablen die nach der Aktivierung von Mise gesetzt werden
+überschreiben den von mise gesetzten Pfad ggfs.!
 
 # mise Completion für Zsh
+Für die autocompletion in der z-shell benötigten wir das tool usage:
+```bash
+mise install usage
+mise set --global usage
+```
+In der zshrc am Ende nach `source $ZSH/oh-my-zsh.sh`
+```bash
+autoload -Uz compinit
+compinit
 autoload -U +X bashcompinit && bashcompinit
 eval "$(mise completion zsh)"
 ```
 
-Shell neustarten oder `source ~/.zshrc` / `source ~/.bashrc`
+Shell neustarten oder `source ~/.zshrc` / `source ~/.bashrc` oder `zsh -l`
 
-### 3. Python und Poetry über mise installieren
+### 2. Python und Poetry über mise installieren
 
 ```bash
-mise install python@3.12.3
-mise install poetry@2.1.3
-mise use -g python@3.12.3
-mise use -g poetry@2.1.3
+mise install python@<python-version>
+mise install poetry@<poetry-version>
+mise use --global python@<python-version>
+mise use --global poetry@<poetry-version>
+```
+Hinweis: Anstelle der versionsnummer `latest` setzen 
+um die aktuelleste stabile version zu nutzen.
+
+mise use --global setzt die tools / runtimes auf required in der globalen
+configuration. Wenn mise aktiviert wird, werden die pfade von den mit mise installierten
+runtimes in $PATH übernommen. Diese global gesetzten Pfade können durch lokale in der
+`mise.toml` oder `tool-versions` Datei gesetzte Pfade überschrieben werden.
+
+### 3. Projekt initialisieren
+Erstellen einer mise.toml falls die Python version von der global gesetzten
+abweicht oder andere configs nötig sind.  
+
+Für bestehendes Projekt, dann die pyproject.toml anpassen (s.u.).
+```bash
+poetry init
 ```
 
-### 4. Projekt initialisieren
-
+Für ein neues Projekt.
 ```bash
-mkdir my-project && cd my-project
-poetry init  # oder poetry new my-project
+poetry new my-project
+```
+
+Operating mode setzen
+Default ist true -> wenn das projekt als Paket genutzt werden soll und ggfs
+veröffentlicht.
+```toml
+[tool.poetry]
+package-mode = false
 ```
 
 ### 5. Abhängigkeiten verwalten
@@ -110,6 +114,7 @@ poetry init  # oder poetry new my-project
 poetry add pillow pypdf2 ttkbootstrap
 poetry add --group dev ruff
 ```
+Wenn die Abhängigkeiten gesetzt sind mit `poetry install` installieren.
 
 ### 6. pre-commit einrichten
 
@@ -152,6 +157,11 @@ poetry run pre-commit install
 * `mise install <tool>@<version>` – Installiert ein Tool in bestimmter Version
 * `mise use -g <tool>@<version>` – Setzt globale Version
 * `mise set <tool>@<version>` – Setzt Projekt-spezifische Version (generiert `.tool-versions`)
+* `mise doctor` – Diagnose
+* `mise cache clear` - Cache säubern (zb bei build prozessen ggfs wichtig)
+* `mise run` - Run tasks
+* `mise which` - Shows the path that a tool's bin points to.
+* `mise ls` - List installed and active tool versions
 
 ### Poetry
 
