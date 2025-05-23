@@ -52,6 +52,14 @@ CREATE USER 'deinuser'@'localhost' IDENTIFIED BY 'deinpasswort';
 GRANT ALL PRIVILEGES ON *.* TO 'deinuser'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
+To list all users on a MariaDB instance, you can use the following SQL query:
+```sql
+SELECT User, Host FROM mysql.user;
+```
+Remove a user
+```sql
+DROP USER 'username'@'host';
+```
 
 ---
 
@@ -83,5 +91,13 @@ sudo apt --fix-broken install
     * **Username**: der angelegte Benutzer (z. B. `deinuser`)
     * Passwort speichern (optional)
 4. Teste die Verbindung
+
+---
+
+## 🔍 Optional: DBeaver als Alternative
+
+**DBeaver** ist eine beliebte Open-Source-Alternative zu MySQL Workbench, die MariaDB nativ unterstützt:
+
+[https://dbeaver.io/download/](https://dbeaver.io/download/)
 
 ---
