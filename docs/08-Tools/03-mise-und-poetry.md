@@ -184,15 +184,6 @@ poetry run pre-commit install
 
 ---
 
-## 🔄 Empfehlung für PyCharm
-
-Beim Einrichten des Interpreters in PyCharm:
-
-* Nicht "existing interpreter" wählen
-* Stattdessen: "New environment" → Typ: Poetry → automatisch wird die `pyproject.toml` erkannt und verwendet
-
----
-
 ## 📄 Hinweis zu `requirements.txt`
 
 Poetry verwendet `pyproject.toml` und `poetry.lock`. Ein Export ist optional:
