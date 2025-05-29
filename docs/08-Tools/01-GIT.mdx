@@ -1,14 +1,12 @@
 ---
 draft: false
 title: "GIT"
+toc_max_heading_level: 3
 ---
 [GitHub Documentation](https://docs.github.com/en)  
 [GitHub Skills](https://skills.github.com/ )  
 [Git Visualization](https://git-school.github.io/visualizing-git/)  
 [Generate gitignore file online](https://www.toptal.com/developers/gitignore)   
-
-
-## Basics
 
 ### Command Quicklist
 
@@ -94,7 +92,8 @@ git checkout -- .        # revert working directory to last commit
 
 ## Common Operations
 
-### Undoing local changes (before Staging)
+### Undo local changes 
+(before Staging)
 
 ```
 git checkout file-with-unwanted-changes.txt
@@ -102,7 +101,8 @@ git checkout file-with-unwanted-changes.txt
 
 Checks out to the repository version of the file.
 
-### Undoing staged changes (before commiting)
+### Undo staged changes 
+(before commiting)
 
 ```
 git reset HEAD staged-file-with-unwanted-changes.txt
@@ -110,7 +110,7 @@ git reset HEAD staged-file-with-unwanted-changes.txt
 
 Removes the file from the Staging Area. Changes in the file are still there (in the working directory), but now unstaged. To remove the changes checkout the file (see above).
 
-### Undoing committed changes
+### Undo committed changes
 
 ```
 git revert HEAD
@@ -118,7 +118,7 @@ git revert HEAD
 
 Reverts the last commit (does not delete the last commit).
 
-### Removing commits from a Branch
+### Removing commits
 
 ```
 git reset --hard hashOfCommit
@@ -131,11 +131,12 @@ If a deleted commit has been tagged before it will show up when log is used with
 git tag -d tag-to-remove
 ```
 
-### Amend (add) to the previous commit
+### Amend (add) to commit
 
 ```
 git commit --amend -m "Add this commit to the last made commit"
 ```
+Adds the new changes to the previous commit.
 
 ### Move (and stage) Files
 
@@ -145,7 +146,7 @@ git mv source destination
 
 Same as mv command, but the result is added to the staging area directly.
 
-### Add a local branch that tracks a remote branch.
+### Add and track a branch
 
 ```
 git branch --track greet origin/greet
@@ -177,6 +178,23 @@ git remote -v                        # verify new remote repository url
 git fetch origin                     # sync local repository to new remote
 ```
 
+### Adding empty directories
+
+Create a placeholder file named .gitkeep in the empty directory. 
+The **.gitkeep** file has no special meaning to Git, but it’s a widely-accepted convention that signals the intention to keep the directory in the repository.
+
+```bash
+echo "" .gitkeep                                    # create .gitkeep file
+git add .gitkeep                                    # stage the file
+git commit -m "add empty directory with .gitkeep"   # commit the changes
+```
+
+### Remove a directory
+
+```bash
+git rm -r <directory> # removes a dir from git repository recursively
+```
+
 ## Rebase, Reset, Merge
 
 ### git reset --soft
@@ -195,6 +213,7 @@ This command moves the HEAD pointer one commit back. Changes made in the latest 
 </div>
 
 ### git reset --hard
+### git reset --hard
 
 The git reset --hard option can be thought of as a nuclear option. 
 It moves the HEAD pointer to the specified commit, updates the staging area to match this commit, 
@@ -210,6 +229,7 @@ git reset --hard origin/master
 git clean -fd # remove untracked files
 ```
 
+### git rebase
 ### git rebase
 
 Rebasing effectively saves the changes in your current branch, temporarily “removes” the commits you’ve made on your branch, 
@@ -246,6 +266,7 @@ git rebase --abort
 ```
 
 ### git merge
+### git merge
 
 Once your feature is ready and tested, you’ll want to merge it back into the main project. 
 First, switch back to the branch you want to merge your changes into. Assuming you want to merge your changes to main branch:
@@ -274,25 +295,6 @@ Don’t use rebase …
 2. When the _exact_ history of the commit branch is important (since rebase rewrites the commit history).
 
 Given the above guidelines, I tend to use rebase for short-lived, local branches and merge for branches in the public repository.
-
-## Misc Operations
-
-### Adding empty directories
-
-Create a placeholder file named .gitkeep in the empty directory. 
-The **.gitkeep** file has no special meaning to Git, but it’s a widely-accepted convention that signals the intention to keep the directory in the repository.
-
-```bash
-echo "" .gitkeep                                    # create .gitkeep file
-git add .gitkeep                                    # stage the file
-git commit -m "add empty directory with .gitkeep"   # commit the changes
-```
-
-### Remove a directory
-
-```bash
-git rm -r <directory> # removes a dir from git repository recursively
-```
 
 ## .gitignore FILE
 **Gecached Dateien aus gitignore entfernen:**
