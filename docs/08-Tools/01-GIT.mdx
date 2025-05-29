@@ -8,7 +8,7 @@ toc_max_heading_level: 3
 [Git Visualization](https://git-school.github.io/visualizing-git/)  
 [Generate gitignore file online](https://www.toptal.com/developers/gitignore)   
 
-### Command Quicklist
+## Command Quicklist
 
 | Command                                          | Short Description                                                                                         |
 | :----------------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
@@ -54,7 +54,7 @@ SSH: git@github.com:username/my-repository.git
 HTTPS: https://github.com/username/my-repository.git
 ```
 
-### The Staging Area
+## The Staging Area
 
 1. **Working Directory**: The working directory is where you make edits and create new files. It represents the current state of your project.
 2. **Staging Area**: Once you've made changes in your working directory that you wish to save, you first add these changes to the staging area. This area captures a snapshot of the modifications and prepares them for committing.
@@ -213,7 +213,6 @@ This command moves the HEAD pointer one commit back. Changes made in the latest 
 </div>
 
 ### git reset --hard
-### git reset --hard
 
 The git reset --hard option can be thought of as a nuclear option. 
 It moves the HEAD pointer to the specified commit, updates the staging area to match this commit, 
@@ -229,7 +228,6 @@ git reset --hard origin/master
 git clean -fd # remove untracked files
 ```
 
-### git rebase
 ### git rebase
 
 Rebasing effectively saves the changes in your current branch, temporarily “removes” the commits you’ve made on your branch, 
@@ -266,7 +264,6 @@ git rebase --abort
 ```
 
 ### git merge
-### git merge
 
 Once your feature is ready and tested, you’ll want to merge it back into the main project. 
 First, switch back to the branch you want to merge your changes into. Assuming you want to merge your changes to main branch:
@@ -287,7 +284,7 @@ After merging your changes locally, push them to the remote repository to make t
 git push origin master
 ```
 
-### When to Rebase, When to Merge?
+#### When to Rebase, When to Merge?
 
 Don’t use rebase …
 
