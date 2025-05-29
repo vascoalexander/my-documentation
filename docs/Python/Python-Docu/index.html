@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Python/Python-Docu" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Python Documentation | myDevNotes</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://github.com/my-documentation/img/logo.png"><meta data-rh="true" name="twitter:image" content="https://github.com/my-documentation/img/logo.png"><meta data-rh="true" property="og:url" content="https://github.com/my-documentation/docs/Python/Python-Docu"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Python Documentation | myDevNotes"><link data-rh="true" rel="icon" href="/my-documentation/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://github.com/my-documentation/docs/Python/Python-Docu"><link data-rh="true" rel="alternate" href="https://github.com/my-documentation/docs/Python/Python-Docu" hreflang="en"><link data-rh="true" rel="alternate" href="https://github.com/my-documentation/docs/Python/Python-Docu" hreflang="x-default"><link rel="stylesheet" href="/my-documentation/assets/css/styles.5a4598bd.css">
+<script src="/my-documentation/assets/js/runtime~main.4398d5e6.js" defer="defer"></script>
+<script src="/my-documentation/assets/js/main.0b2e8f02.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/my-documentation/"><div class="navbar__logo"><img src="/my-documentation/img/logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/my-documentation/img/logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">DevNotes</b></a><a class="navbar__item navbar__link" href="/my-documentation/docs/category/it-mathe">Grundlagen</a><a class="navbar__item navbar__link" href="/my-documentation/docs/DSA/Big-O-Notation">DSA</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/my-documentation/docs/Python/Python-Quickref">Python</a><a class="navbar__item navbar__link" href="/my-documentation/docs/category/basics">C#</a><a class="navbar__item navbar__link" href="/my-documentation/docs/Web/Rest-Architektur">Web</a><a class="navbar__item navbar__link" href="/my-documentation/docs/category/grundlagen">DB</a><a class="navbar__item navbar__link" href="/my-documentation/docs/category/dateisystem">Linux</a><a class="navbar__item navbar__link" href="/my-documentation/docs/Tools/GIT">Tools</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/vascoalexander/my-documentation" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/my-documentation/docs/Python/Python-Quickref">Quick-Reference</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/my-documentation/docs/Python/Python-Docu">Python Documentation</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/my-documentation/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Python Documentation</span><meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Python 3 Dokumentation</h1></header>
+<p><em>(stable release)</em><br>
+<a href="https://docs.python.org/3/index.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/3/index.html</a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="python-setup-and-usage"><a href="https://docs.python.org/dev/using/index.html" target="_blank" rel="noopener noreferrer"><strong>Python Setup and Usage</strong></a><a href="#python-setup-and-usage" class="hash-link" aria-label="Direct link to python-setup-and-usage" title="Direct link to python-setup-and-usage">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="pep-8---style-guide-for-python-code"><a href="https://peps.python.org/pep-0008/" target="_blank" rel="noopener noreferrer"><strong>PEP 8 - Style Guide for Python Code</strong></a><a href="#pep-8---style-guide-for-python-code" class="hash-link" aria-label="Direct link to pep-8---style-guide-for-python-code" title="Direct link to pep-8---style-guide-for-python-code">​</a></h4>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="python-modules--packaging"><strong>Python Modules / Packaging</strong><a href="#python-modules--packaging" class="hash-link" aria-label="Direct link to python-modules--packaging" title="Direct link to python-modules--packaging">​</a></h2>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="python-packaging-user-guide"><a href="https://packaging.python.org/en/latest/" target="_blank" rel="noopener noreferrer">Python Packaging User Guide</a><a href="#python-packaging-user-guide" class="hash-link" aria-label="Direct link to python-packaging-user-guide" title="Direct link to python-packaging-user-guide">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="python-module-index"><a href="https://docs.python.org/3/py-modindex.html" target="_blank" rel="noopener noreferrer">Python Module Index</a><a href="#python-module-index" class="hash-link" aria-label="Direct link to python-module-index" title="Direct link to python-module-index">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="python-package-index"><a href="https://pypi.org/" target="_blank" rel="noopener noreferrer">Python Package Index</a><a href="#python-package-index" class="hash-link" aria-label="Direct link to python-package-index" title="Direct link to python-package-index">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="pip-python-package-installer"><a href="https://pypi.org/project/pip/" target="_blank" rel="noopener noreferrer">PIP (Python Package Installer)</a><a href="#pip-python-package-installer" class="hash-link" aria-label="Direct link to pip-python-package-installer" title="Direct link to pip-python-package-installer">​</a></h4>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="python-language-reference"><strong>Python Language Reference</strong><a href="#python-language-reference" class="hash-link" aria-label="Direct link to python-language-reference" title="Direct link to python-language-reference">​</a></h2>
+<ul>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="1-introduction"><a href="https://docs.python.org/3/reference/introduction.html" target="_blank" rel="noopener noreferrer">1. Introduction</a><a href="#1-introduction" class="hash-link" aria-label="Direct link to 1-introduction" title="Direct link to 1-introduction">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/reference/introduction.html#alternate-implementations" target="_blank" rel="noopener noreferrer">1.1. Alternate Implementations</a></li>
+<li><a href="https://docs.python.org/3/reference/introduction.html#notation" target="_blank" rel="noopener noreferrer">1.2. Notation</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="2-lexical-analysis"><a href="https://docs.python.org/3/reference/lexical_analysis.html" target="_blank" rel="noopener noreferrer">2. Lexical analysis</a><a href="#2-lexical-analysis" class="hash-link" aria-label="Direct link to 2-lexical-analysis" title="Direct link to 2-lexical-analysis">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/reference/lexical_analysis.html#line-structure" target="_blank" rel="noopener noreferrer">2.1. Line structure</a></li>
+<li><a href="https://docs.python.org/3/reference/lexical_analysis.html#other-tokens" target="_blank" rel="noopener noreferrer">2.2. Other tokens</a></li>
+<li><a href="https://docs.python.org/3/reference/lexical_analysis.html#identifiers" target="_blank" rel="noopener noreferrer">2.3. Identifiers and keywords</a></li>
+<li><a href="https://docs.python.org/3/reference/lexical_analysis.html#literals" target="_blank" rel="noopener noreferrer">2.4. Literals</a></li>
+<li><a href="https://docs.python.org/3/reference/lexical_analysis.html#operators" target="_blank" rel="noopener noreferrer">2.5. Operators</a></li>
+<li><a href="https://docs.python.org/3/reference/lexical_analysis.html#delimiters" target="_blank" rel="noopener noreferrer">2.6. Delimiters</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="3-data-model"><a href="https://docs.python.org/3/reference/datamodel.html" target="_blank" rel="noopener noreferrer">3. Data model</a><a href="#3-data-model" class="hash-link" aria-label="Direct link to 3-data-model" title="Direct link to 3-data-model">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/reference/datamodel.html#objects-values-and-types" target="_blank" rel="noopener noreferrer">3.1. Objects, values and types</a></li>
+<li><a href="https://docs.python.org/3/reference/datamodel.html#the-standard-type-hierarchy" target="_blank" rel="noopener noreferrer">3.2. The standard type hierarchy</a></li>
+<li><a href="https://docs.python.org/3/reference/datamodel.html#special-method-names" target="_blank" rel="noopener noreferrer">3.3. Special method names</a></li>
+<li><a href="https://docs.python.org/3/reference/datamodel.html#coroutines" target="_blank" rel="noopener noreferrer">3.4. Coroutines</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="4-execution-model"><a href="https://docs.python.org/3/reference/executionmodel.html" target="_blank" rel="noopener noreferrer">4. Execution model</a><a href="#4-execution-model" class="hash-link" aria-label="Direct link to 4-execution-model" title="Direct link to 4-execution-model">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/reference/executionmodel.html#structure-of-a-program" target="_blank" rel="noopener noreferrer">4.1. Structure of a program</a></li>
+<li><a href="https://docs.python.org/3/reference/executionmodel.html#naming-and-binding" target="_blank" rel="noopener noreferrer">4.2. Naming and binding</a></li>
+<li><a href="https://docs.python.org/3/reference/executionmodel.html#exceptions" target="_blank" rel="noopener noreferrer">4.3. Exceptions</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="5-the-import-system"><a href="https://docs.python.org/3/reference/import.html" target="_blank" rel="noopener noreferrer">5. The import system</a><a href="#5-the-import-system" class="hash-link" aria-label="Direct link to 5-the-import-system" title="Direct link to 5-the-import-system">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/reference/import.html#importlib" target="_blank" rel="noopener noreferrer">5.1. <code>importlib</code></a></li>
+<li><a href="https://docs.python.org/3/reference/import.html#packages" target="_blank" rel="noopener noreferrer">5.2. Packages</a></li>
+<li><a href="https://docs.python.org/3/reference/import.html#searching" target="_blank" rel="noopener noreferrer">5.3. Searching</a></li>
+<li><a href="https://docs.python.org/3/reference/import.html#loading" target="_blank" rel="noopener noreferrer">5.4. Loading</a></li>
+<li><a href="https://docs.python.org/3/reference/import.html#the-path-based-finder" target="_blank" rel="noopener noreferrer">5.5. The Path Based Finder</a></li>
+<li><a href="https://docs.python.org/3/reference/import.html#replacing-the-standard-import-system" target="_blank" rel="noopener noreferrer">5.6. Replacing the standard import system</a></li>
+<li><a href="https://docs.python.org/3/reference/import.html#package-relative-imports" target="_blank" rel="noopener noreferrer">5.7. Package Relative Imports</a></li>
+<li><a href="https://docs.python.org/3/reference/import.html#special-considerations-for-main" target="_blank" rel="noopener noreferrer">5.8. Special considerations for <strong>main</strong></a></li>
+<li><a href="https://docs.python.org/3/reference/import.html#references" target="_blank" rel="noopener noreferrer">5.9. References</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="6-expressions"><a href="https://docs.python.org/3/reference/expressions.html" target="_blank" rel="noopener noreferrer">6. Expressions</a><a href="#6-expressions" class="hash-link" aria-label="Direct link to 6-expressions" title="Direct link to 6-expressions">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/reference/expressions.html#arithmetic-conversions" target="_blank" rel="noopener noreferrer">6.1. Arithmetic conversions</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#atoms" target="_blank" rel="noopener noreferrer">6.2. Atoms</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#primaries" target="_blank" rel="noopener noreferrer">6.3. Primaries</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#await-expression" target="_blank" rel="noopener noreferrer">6.4. Await expression</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#the-power-operator" target="_blank" rel="noopener noreferrer">6.5. The power operator</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#unary-arithmetic-and-bitwise-operations" target="_blank" rel="noopener noreferrer">6.6. Unary arithmetic and bitwise operations</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#binary-arithmetic-operations" target="_blank" rel="noopener noreferrer">6.7. Binary arithmetic operations</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#shifting-operations" target="_blank" rel="noopener noreferrer">6.8. Shifting operations</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#binary-bitwise-operations" target="_blank" rel="noopener noreferrer">6.9. Binary bitwise operations</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#comparisons" target="_blank" rel="noopener noreferrer">6.10. Comparisons</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#boolean-operations" target="_blank" rel="noopener noreferrer">6.11. Boolean operations</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#assignment-expressions" target="_blank" rel="noopener noreferrer">6.12. Assignment expressions</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#conditional-expressions" target="_blank" rel="noopener noreferrer">6.13. Conditional expressions</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#lambda" target="_blank" rel="noopener noreferrer">6.14. Lambdas</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#expression-lists" target="_blank" rel="noopener noreferrer">6.15. Expression lists</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#evaluation-order" target="_blank" rel="noopener noreferrer">6.16. Evaluation order</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#operator-precedence" target="_blank" rel="noopener noreferrer">6.17. Operator precedence</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="7-simple-statements"><a href="https://docs.python.org/3/reference/simple_stmts.html" target="_blank" rel="noopener noreferrer">7. Simple statements</a><a href="#7-simple-statements" class="hash-link" aria-label="Direct link to 7-simple-statements" title="Direct link to 7-simple-statements">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/reference/simple_stmts.html#expression-statements" target="_blank" rel="noopener noreferrer">7.1. Expression statements</a></li>
+<li><a href="https://docs.python.org/3/reference/simple_stmts.html#assignment-statements" target="_blank" rel="noopener noreferrer">7.2. Assignment statements</a></li>
+<li><a href="https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement" target="_blank" rel="noopener noreferrer">7.3. The <code>assert</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/simple_stmts.html#the-pass-statement" target="_blank" rel="noopener noreferrer">7.4. The <code>pass</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/simple_stmts.html#the-del-statement" target="_blank" rel="noopener noreferrer">7.5. The <code>del</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/simple_stmts.html#the-return-statement" target="_blank" rel="noopener noreferrer">7.6. The <code>return</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/simple_stmts.html#the-yield-statement" target="_blank" rel="noopener noreferrer">7.7. The <code>yield</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/simple_stmts.html#the-raise-statement" target="_blank" rel="noopener noreferrer">7.8. The <code>raise</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/simple_stmts.html#the-break-statement" target="_blank" rel="noopener noreferrer">7.9. The <code>break</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/simple_stmts.html#the-continue-statement" target="_blank" rel="noopener noreferrer">7.10. The <code>continue</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/simple_stmts.html#the-import-statement" target="_blank" rel="noopener noreferrer">7.11. The <code>import</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/simple_stmts.html#the-global-statement" target="_blank" rel="noopener noreferrer">7.12. The <code>global</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/simple_stmts.html#the-nonlocal-statement" target="_blank" rel="noopener noreferrer">7.13. The <code>nonlocal</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/simple_stmts.html#the-type-statement" target="_blank" rel="noopener noreferrer">7.14. The <code>type</code> statement</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="8-compound-statements"><a href="https://docs.python.org/3/reference/compound_stmts.html" target="_blank" rel="noopener noreferrer">8. Compound statements</a><a href="#8-compound-statements" class="hash-link" aria-label="Direct link to 8-compound-statements" title="Direct link to 8-compound-statements">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/reference/compound_stmts.html#the-if-statement" target="_blank" rel="noopener noreferrer">8.1. The <code>if</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/compound_stmts.html#the-while-statement" target="_blank" rel="noopener noreferrer">8.2. The <code>while</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/compound_stmts.html#the-for-statement" target="_blank" rel="noopener noreferrer">8.3. The <code>for</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/compound_stmts.html#the-try-statement" target="_blank" rel="noopener noreferrer">8.4. The <code>try</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/compound_stmts.html#the-with-statement" target="_blank" rel="noopener noreferrer">8.5. The <code>with</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/compound_stmts.html#the-match-statement" target="_blank" rel="noopener noreferrer">8.6. The <code>match</code> statement</a></li>
+<li><a href="https://docs.python.org/3/reference/compound_stmts.html#function-definitions" target="_blank" rel="noopener noreferrer">8.7. Function definitions</a></li>
+<li><a href="https://docs.python.org/3/reference/compound_stmts.html#class-definitions" target="_blank" rel="noopener noreferrer">8.8. Class definitions</a></li>
+<li><a href="https://docs.python.org/3/reference/compound_stmts.html#coroutines" target="_blank" rel="noopener noreferrer">8.9. Coroutines</a></li>
+<li><a href="https://docs.python.org/3/reference/compound_stmts.html#type-parameter-lists" target="_blank" rel="noopener noreferrer">8.10. Type parameter lists</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="9-top-level-components"><a href="https://docs.python.org/3/reference/toplevel_components.html" target="_blank" rel="noopener noreferrer">9. Top-level components</a><a href="#9-top-level-components" class="hash-link" aria-label="Direct link to 9-top-level-components" title="Direct link to 9-top-level-components">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/reference/toplevel_components.html#complete-python-programs" target="_blank" rel="noopener noreferrer">9.1. Complete Python programs</a></li>
+<li><a href="https://docs.python.org/3/reference/toplevel_components.html#file-input" target="_blank" rel="noopener noreferrer">9.2. File input</a></li>
+<li><a href="https://docs.python.org/3/reference/toplevel_components.html#interactive-input" target="_blank" rel="noopener noreferrer">9.3. Interactive input</a></li>
+<li><a href="https://docs.python.org/3/reference/toplevel_components.html#expression-input" target="_blank" rel="noopener noreferrer">9.4. Expression input</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="10-full-grammar-specification"><a href="https://docs.python.org/3/reference/grammar.html" target="_blank" rel="noopener noreferrer">10. Full Grammar specification</a><a href="#10-full-grammar-specification" class="hash-link" aria-label="Direct link to 10-full-grammar-specification" title="Direct link to 10-full-grammar-specification">​</a></h4>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="python-library-reference"><strong>Python Library Reference</strong><a href="#python-library-reference" class="hash-link" aria-label="Direct link to python-library-reference" title="Direct link to python-library-reference">​</a></h2>
+<ul>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="introduction"><a href="https://docs.python.org/3/library/intro.html" target="_blank" rel="noopener noreferrer">Introduction</a><a href="#introduction" class="hash-link" aria-label="Direct link to introduction" title="Direct link to introduction">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/intro.html#notes-on-availability" target="_blank" rel="noopener noreferrer">Notes on availability</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="built-in-functions"><a href="https://docs.python.org/3/library/functions.html" target="_blank" rel="noopener noreferrer">Built-in Functions</a><a href="#built-in-functions" class="hash-link" aria-label="Direct link to built-in-functions" title="Direct link to built-in-functions">​</a></h4>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="built-in-constants"><a href="https://docs.python.org/3/library/constants.html" target="_blank" rel="noopener noreferrer">Built-in Constants</a><a href="#built-in-constants" class="hash-link" aria-label="Direct link to built-in-constants" title="Direct link to built-in-constants">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/constants.html#constants-added-by-the-site-module" target="_blank" rel="noopener noreferrer">Constants added by the <code>site</code> module</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="built-in-types"><a href="https://docs.python.org/3/library/stdtypes.html" target="_blank" rel="noopener noreferrer">Built-in Types</a><a href="#built-in-types" class="hash-link" aria-label="Direct link to built-in-types" title="Direct link to built-in-types">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#truth-value-testing" target="_blank" rel="noopener noreferrer">Truth Value Testing</a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not" target="_blank" rel="noopener noreferrer">Boolean Operations — <code>and</code>, <code>or</code>, <code>not</code></a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#comparisons" target="_blank" rel="noopener noreferrer">Comparisons</a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex" target="_blank" rel="noopener noreferrer">Numeric Types — <code>int</code>, <code>float</code>, <code>complex</code></a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#boolean-type-bool" target="_blank" rel="noopener noreferrer">Boolean Type - <code>bool</code></a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#iterator-types" target="_blank" rel="noopener noreferrer">Iterator Types</a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range" target="_blank" rel="noopener noreferrer">Sequence Types — <code>list</code>, <code>tuple</code>, <code>range</code></a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str" target="_blank" rel="noopener noreferrer">Text Sequence Type — <code>str</code></a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#binary-sequence-types-bytes-bytearray-memoryview" target="_blank" rel="noopener noreferrer">Binary Sequence Types — <code>bytes</code>, <code>bytearray</code>, <code>memoryview</code></a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset" target="_blank" rel="noopener noreferrer">Set Types — <code>set</code>, <code>frozenset</code></a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict" target="_blank" rel="noopener noreferrer">Mapping Types — <code>dict</code></a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#context-manager-types" target="_blank" rel="noopener noreferrer">Context Manager Types</a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#type-annotation-types-generic-alias-union" target="_blank" rel="noopener noreferrer">Type Annotation Types — Generic Alias, Union</a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#other-built-in-types" target="_blank" rel="noopener noreferrer">Other Built-in Types</a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#special-attributes" target="_blank" rel="noopener noreferrer">Special Attributes</a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#integer-string-conversion-length-limitation" target="_blank" rel="noopener noreferrer">Integer string conversion length limitation</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="built-in-exceptions"><a href="https://docs.python.org/3/library/exceptions.html" target="_blank" rel="noopener noreferrer">Built-in Exceptions</a><a href="#built-in-exceptions" class="hash-link" aria-label="Direct link to built-in-exceptions" title="Direct link to built-in-exceptions">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/exceptions.html#exception-context" target="_blank" rel="noopener noreferrer">Exception context</a></li>
+<li><a href="https://docs.python.org/3/library/exceptions.html#inheriting-from-built-in-exceptions" target="_blank" rel="noopener noreferrer">Inheriting from built-in exceptions</a></li>
+<li><a href="https://docs.python.org/3/library/exceptions.html#base-classes" target="_blank" rel="noopener noreferrer">Base classes</a></li>
+<li><a href="https://docs.python.org/3/library/exceptions.html#concrete-exceptions" target="_blank" rel="noopener noreferrer">Concrete exceptions</a></li>
+<li><a href="https://docs.python.org/3/library/exceptions.html#warnings" target="_blank" rel="noopener noreferrer">Warnings</a></li>
+<li><a href="https://docs.python.org/3/library/exceptions.html#exception-groups" target="_blank" rel="noopener noreferrer">Exception groups</a></li>
+<li><a href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy" target="_blank" rel="noopener noreferrer">Exception hierarchy</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="text-processing-services"><a href="https://docs.python.org/3/library/text.html" target="_blank" rel="noopener noreferrer">Text Processing Services</a><a href="#text-processing-services" class="hash-link" aria-label="Direct link to text-processing-services" title="Direct link to text-processing-services">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/string.html" target="_blank" rel="noopener noreferrer"><code>string</code> — Common string operations</a></li>
+<li><a href="https://docs.python.org/3/library/re.html" target="_blank" rel="noopener noreferrer"><code>re</code> — Regular expression operations</a></li>
+<li><a href="https://docs.python.org/3/library/difflib.html" target="_blank" rel="noopener noreferrer"><code>difflib</code> — Helpers for computing deltas</a></li>
+<li><a href="https://docs.python.org/3/library/textwrap.html" target="_blank" rel="noopener noreferrer"><code>textwrap</code> — Text wrapping and filling</a></li>
+<li><a href="https://docs.python.org/3/library/unicodedata.html" target="_blank" rel="noopener noreferrer"><code>unicodedata</code> — Unicode Database</a></li>
+<li><a href="https://docs.python.org/3/library/stringprep.html" target="_blank" rel="noopener noreferrer"><code>stringprep</code> — Internet String Preparation</a></li>
+<li><a href="https://docs.python.org/3/library/readline.html" target="_blank" rel="noopener noreferrer"><code>readline</code> — GNU readline interface</a></li>
+<li><a href="https://docs.python.org/3/library/rlcompleter.html" target="_blank" rel="noopener noreferrer"><code>rlcompleter</code> — Completion function for GNU readline</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="binary-data-services"><a href="https://docs.python.org/3/library/binary.html" target="_blank" rel="noopener noreferrer">Binary Data Services</a><a href="#binary-data-services" class="hash-link" aria-label="Direct link to binary-data-services" title="Direct link to binary-data-services">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/struct.html" target="_blank" rel="noopener noreferrer"><code>struct</code> — Interpret bytes as packed binary data</a></li>
+<li><a href="https://docs.python.org/3/library/codecs.html" target="_blank" rel="noopener noreferrer"><code>codecs</code> — Codec registry and base classes</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="data-types"><a href="https://docs.python.org/3/library/datatypes.html" target="_blank" rel="noopener noreferrer">Data Types</a><a href="#data-types" class="hash-link" aria-label="Direct link to data-types" title="Direct link to data-types">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/datetime.html" target="_blank" rel="noopener noreferrer"><code>datetime</code> — Basic date and time types</a></li>
+<li><a href="https://docs.python.org/3/library/zoneinfo.html" target="_blank" rel="noopener noreferrer"><code>zoneinfo</code> — IANA time zone support</a></li>
+<li><a href="https://docs.python.org/3/library/calendar.html" target="_blank" rel="noopener noreferrer"><code>calendar</code> — General calendar-related functions</a></li>
+<li><a href="https://docs.python.org/3/library/collections.html" target="_blank" rel="noopener noreferrer"><code>collections</code> — Container datatypes</a></li>
+<li><a href="https://docs.python.org/3/library/collections.abc.html" target="_blank" rel="noopener noreferrer"><code>collections.abc</code> — Abstract Base Classes for Containers</a></li>
+<li><a href="https://docs.python.org/3/library/heapq.html" target="_blank" rel="noopener noreferrer"><code>heapq</code> — Heap queue algorithm</a></li>
+<li><a href="https://docs.python.org/3/library/bisect.html" target="_blank" rel="noopener noreferrer"><code>bisect</code> — Array bisection algorithm</a></li>
+<li><a href="https://docs.python.org/3/library/array.html" target="_blank" rel="noopener noreferrer"><code>array</code> — Efficient arrays of numeric values</a></li>
+<li><a href="https://docs.python.org/3/library/weakref.html" target="_blank" rel="noopener noreferrer"><code>weakref</code> — Weak references</a></li>
+<li><a href="https://docs.python.org/3/library/types.html" target="_blank" rel="noopener noreferrer"><code>types</code> — Dynamic type creation and names for built-in types</a></li>
+<li><a href="https://docs.python.org/3/library/copy.html" target="_blank" rel="noopener noreferrer"><code>copy</code> — Shallow and deep copy operations</a></li>
+<li><a href="https://docs.python.org/3/library/pprint.html" target="_blank" rel="noopener noreferrer"><code>pprint</code> — Data pretty printer</a></li>
+<li><a href="https://docs.python.org/3/library/reprlib.html" target="_blank" rel="noopener noreferrer"><code>reprlib</code> — Alternate <code>repr()</code> implementation</a></li>
+<li><a href="https://docs.python.org/3/library/enum.html" target="_blank" rel="noopener noreferrer"><code>enum</code> — Support for enumerations</a></li>
+<li><a href="https://docs.python.org/3/library/graphlib.html" target="_blank" rel="noopener noreferrer"><code>graphlib</code> — Functionality to operate with graph-like structures</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="numeric-and-mathematical-modules"><a href="https://docs.python.org/3/library/numeric.html" target="_blank" rel="noopener noreferrer">Numeric and Mathematical Modules</a><a href="#numeric-and-mathematical-modules" class="hash-link" aria-label="Direct link to numeric-and-mathematical-modules" title="Direct link to numeric-and-mathematical-modules">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/numbers.html" target="_blank" rel="noopener noreferrer"><code>numbers</code> — Numeric abstract base classes</a></li>
+<li><a href="https://docs.python.org/3/library/math.html" target="_blank" rel="noopener noreferrer"><code>math</code> — Mathematical functions</a></li>
+<li><a href="https://docs.python.org/3/library/cmath.html" target="_blank" rel="noopener noreferrer"><code>cmath</code> — Mathematical functions for complex numbers</a></li>
+<li><a href="https://docs.python.org/3/library/decimal.html" target="_blank" rel="noopener noreferrer"><code>decimal</code> — Decimal fixed-point and floating-point arithmetic</a></li>
+<li><a href="https://docs.python.org/3/library/fractions.html" target="_blank" rel="noopener noreferrer"><code>fractions</code> — Rational numbers</a></li>
+<li><a href="https://docs.python.org/3/library/random.html" target="_blank" rel="noopener noreferrer"><code>random</code> — Generate pseudo-random numbers</a></li>
+<li><a href="https://docs.python.org/3/library/statistics.html" target="_blank" rel="noopener noreferrer"><code>statistics</code> — Mathematical statistics functions</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="functional-programming-modules"><a href="https://docs.python.org/3/library/functional.html" target="_blank" rel="noopener noreferrer">Functional Programming Modules</a><a href="#functional-programming-modules" class="hash-link" aria-label="Direct link to functional-programming-modules" title="Direct link to functional-programming-modules">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/itertools.html" target="_blank" rel="noopener noreferrer"><code>itertools</code> — Functions creating iterators for efficient looping</a></li>
+<li><a href="https://docs.python.org/3/library/functools.html" target="_blank" rel="noopener noreferrer"><code>functools</code> — Higher-order functions and operations on callable objects</a></li>
+<li><a href="https://docs.python.org/3/library/operator.html" target="_blank" rel="noopener noreferrer"><code>operator</code> — Standard operators as functions</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="file-and-directory-access"><a href="https://docs.python.org/3/library/filesys.html" target="_blank" rel="noopener noreferrer">File and Directory Access</a><a href="#file-and-directory-access" class="hash-link" aria-label="Direct link to file-and-directory-access" title="Direct link to file-and-directory-access">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/pathlib.html" target="_blank" rel="noopener noreferrer"><code>pathlib</code> — Object-oriented filesystem paths</a></li>
+<li><a href="https://docs.python.org/3/library/os.path.html" target="_blank" rel="noopener noreferrer"><code>os.path</code> — Common pathname manipulations</a></li>
+<li><a href="https://docs.python.org/3/library/stat.html" target="_blank" rel="noopener noreferrer"><code>stat</code> — Interpreting <code>stat()</code> results</a></li>
+<li><a href="https://docs.python.org/3/library/filecmp.html" target="_blank" rel="noopener noreferrer"><code>filecmp</code> — File and Directory Comparisons</a></li>
+<li><a href="https://docs.python.org/3/library/tempfile.html" target="_blank" rel="noopener noreferrer"><code>tempfile</code> — Generate temporary files and directories</a></li>
+<li><a href="https://docs.python.org/3/library/glob.html" target="_blank" rel="noopener noreferrer"><code>glob</code> — Unix style pathname pattern expansion</a></li>
+<li><a href="https://docs.python.org/3/library/fnmatch.html" target="_blank" rel="noopener noreferrer"><code>fnmatch</code> — Unix filename pattern matching</a></li>
+<li><a href="https://docs.python.org/3/library/linecache.html" target="_blank" rel="noopener noreferrer"><code>linecache</code> — Random access to text lines</a></li>
+<li><a href="https://docs.python.org/3/library/shutil.html" target="_blank" rel="noopener noreferrer"><code>shutil</code> — High-level file operations</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="data-persistence"><a href="https://docs.python.org/3/library/persistence.html" target="_blank" rel="noopener noreferrer">Data Persistence</a><a href="#data-persistence" class="hash-link" aria-label="Direct link to data-persistence" title="Direct link to data-persistence">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/pickle.html" target="_blank" rel="noopener noreferrer"><code>pickle</code> — Python object serialization</a></li>
+<li><a href="https://docs.python.org/3/library/copyreg.html" target="_blank" rel="noopener noreferrer"><code>copyreg</code> — Register <code>pickle</code> support functions</a></li>
+<li><a href="https://docs.python.org/3/library/shelve.html" target="_blank" rel="noopener noreferrer"><code>shelve</code> — Python object persistence</a></li>
+<li><a href="https://docs.python.org/3/library/marshal.html" target="_blank" rel="noopener noreferrer"><code>marshal</code> — Internal Python object serialization</a></li>
+<li><a href="https://docs.python.org/3/library/dbm.html" target="_blank" rel="noopener noreferrer"><code>dbm</code> — Interfaces to Unix “databases”</a></li>
+<li><a href="https://docs.python.org/3/library/sqlite3.html" target="_blank" rel="noopener noreferrer"><code>sqlite3</code> — DB-API 2.0 interface for SQLite databases</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="data-compression-and-archiving"><a href="https://docs.python.org/3/library/archiving.html" target="_blank" rel="noopener noreferrer">Data Compression and Archiving</a><a href="#data-compression-and-archiving" class="hash-link" aria-label="Direct link to data-compression-and-archiving" title="Direct link to data-compression-and-archiving">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/zlib.html" target="_blank" rel="noopener noreferrer"><code>zlib</code> — Compression compatible with <strong>gzip</strong></a></li>
+<li><a href="https://docs.python.org/3/library/gzip.html" target="_blank" rel="noopener noreferrer"><code>gzip</code> — Support for <strong>gzip</strong> files</a></li>
+<li><a href="https://docs.python.org/3/library/bz2.html" target="_blank" rel="noopener noreferrer"><code>bz2</code> — Support for <strong>bzip2</strong> compression</a></li>
+<li><a href="https://docs.python.org/3/library/lzma.html" target="_blank" rel="noopener noreferrer"><code>lzma</code> — Compression using the LZMA algorithm</a></li>
+<li><a href="https://docs.python.org/3/library/zipfile.html" target="_blank" rel="noopener noreferrer"><code>zipfile</code> — Work with ZIP archives</a></li>
+<li><a href="https://docs.python.org/3/library/tarfile.html" target="_blank" rel="noopener noreferrer"><code>tarfile</code> — Read and write tar archive files</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="file-formats"><a href="https://docs.python.org/3/library/fileformats.html" target="_blank" rel="noopener noreferrer">File Formats</a><a href="#file-formats" class="hash-link" aria-label="Direct link to file-formats" title="Direct link to file-formats">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/csv.html" target="_blank" rel="noopener noreferrer"><code>csv</code> — CSV File Reading and Writing</a></li>
+<li><a href="https://docs.python.org/3/library/configparser.html" target="_blank" rel="noopener noreferrer"><code>configparser</code> — Configuration file parser</a></li>
+<li><a href="https://docs.python.org/3/library/tomllib.html" target="_blank" rel="noopener noreferrer"><code>tomllib</code> — Parse TOML files</a></li>
+<li><a href="https://docs.python.org/3/library/netrc.html" target="_blank" rel="noopener noreferrer"><code>netrc</code> — netrc file processing</a></li>
+<li><a href="https://docs.python.org/3/library/plistlib.html" target="_blank" rel="noopener noreferrer"><code>plistlib</code> — Generate and parse Apple <code>.plist</code> files</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="cryptographic-services"><a href="https://docs.python.org/3/library/crypto.html" target="_blank" rel="noopener noreferrer">Cryptographic Services</a><a href="#cryptographic-services" class="hash-link" aria-label="Direct link to cryptographic-services" title="Direct link to cryptographic-services">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/hashlib.html" target="_blank" rel="noopener noreferrer"><code>hashlib</code> — Secure hashes and message digests</a></li>
+<li><a href="https://docs.python.org/3/library/hmac.html" target="_blank" rel="noopener noreferrer"><code>hmac</code> — Keyed-Hashing for Message Authentication</a></li>
+<li><a href="https://docs.python.org/3/library/secrets.html" target="_blank" rel="noopener noreferrer"><code>secrets</code> — Generate secure random numbers for managing secrets</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="generic-operating-system-services"><a href="https://docs.python.org/3/library/allos.html" target="_blank" rel="noopener noreferrer">Generic Operating System Services</a><a href="#generic-operating-system-services" class="hash-link" aria-label="Direct link to generic-operating-system-services" title="Direct link to generic-operating-system-services">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/os.html" target="_blank" rel="noopener noreferrer"><code>os</code> — Miscellaneous operating system interfaces</a></li>
+<li><a href="https://docs.python.org/3/library/io.html" target="_blank" rel="noopener noreferrer"><code>io</code> — Core tools for working with streams</a></li>
+<li><a href="https://docs.python.org/3/library/time.html" target="_blank" rel="noopener noreferrer"><code>time</code> — Time access and conversions</a></li>
+<li><a href="https://docs.python.org/3/library/logging.html" target="_blank" rel="noopener noreferrer"><code>logging</code> — Logging facility for Python</a></li>
+<li><a href="https://docs.python.org/3/library/logging.config.html" target="_blank" rel="noopener noreferrer"><code>logging.config</code> — Logging configuration</a></li>
+<li><a href="https://docs.python.org/3/library/logging.handlers.html" target="_blank" rel="noopener noreferrer"><code>logging.handlers</code> — Logging handlers</a></li>
+<li><a href="https://docs.python.org/3/library/platform.html" target="_blank" rel="noopener noreferrer"><code>platform</code> — Access to underlying platform’s identifying data</a></li>
+<li><a href="https://docs.python.org/3/library/errno.html" target="_blank" rel="noopener noreferrer"><code>errno</code> — Standard errno system symbols</a></li>
+<li><a href="https://docs.python.org/3/library/ctypes.html" target="_blank" rel="noopener noreferrer"><code>ctypes</code> — A foreign function library for Python</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="command-line-interface-libraries"><a href="https://docs.python.org/3/library/cmdlinelibs.html" target="_blank" rel="noopener noreferrer">Command Line Interface Libraries</a><a href="#command-line-interface-libraries" class="hash-link" aria-label="Direct link to command-line-interface-libraries" title="Direct link to command-line-interface-libraries">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/argparse.html" target="_blank" rel="noopener noreferrer"><code>argparse</code> — Parser for command-line options, arguments and subcommands</a></li>
+<li><a href="https://docs.python.org/3/library/optparse.html" target="_blank" rel="noopener noreferrer"><code>optparse</code> — Parser for command line options</a></li>
+<li><a href="https://docs.python.org/3/library/getpass.html" target="_blank" rel="noopener noreferrer"><code>getpass</code> — Portable password input</a></li>
+<li><a href="https://docs.python.org/3/library/fileinput.html" target="_blank" rel="noopener noreferrer"><code>fileinput</code> — Iterate over lines from multiple input streams</a></li>
+<li><a href="https://docs.python.org/3/library/curses.html" target="_blank" rel="noopener noreferrer"><code>curses</code> — Terminal handling for character-cell displays</a></li>
+<li><a href="https://docs.python.org/3/library/curses.html#module-curses.textpad" target="_blank" rel="noopener noreferrer"><code>curses.textpad</code> — Text input widget for curses programs</a></li>
+<li><a href="https://docs.python.org/3/library/curses.ascii.html" target="_blank" rel="noopener noreferrer"><code>curses.ascii</code> — Utilities for ASCII characters</a></li>
+<li><a href="https://docs.python.org/3/library/curses.panel.html" target="_blank" rel="noopener noreferrer"><code>curses.panel</code> — A panel stack extension for curses</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="concurrent-execution"><a href="https://docs.python.org/3/library/concurrency.html" target="_blank" rel="noopener noreferrer">Concurrent Execution</a><a href="#concurrent-execution" class="hash-link" aria-label="Direct link to concurrent-execution" title="Direct link to concurrent-execution">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/threading.html" target="_blank" rel="noopener noreferrer"><code>threading</code> — Thread-based parallelism</a></li>
+<li><a href="https://docs.python.org/3/library/multiprocessing.html" target="_blank" rel="noopener noreferrer"><code>multiprocessing</code> — Process-based parallelism</a></li>
+<li><a href="https://docs.python.org/3/library/multiprocessing.shared_memory.html" target="_blank" rel="noopener noreferrer"><code>multiprocessing.shared_memory</code> — Shared memory for direct access across processes</a></li>
+<li><a href="https://docs.python.org/3/library/concurrent.html" target="_blank" rel="noopener noreferrer">The <code>concurrent</code> package</a></li>
+<li><a href="https://docs.python.org/3/library/concurrent.futures.html" target="_blank" rel="noopener noreferrer"><code>concurrent.futures</code> — Launching parallel tasks</a></li>
+<li><a href="https://docs.python.org/3/library/subprocess.html" target="_blank" rel="noopener noreferrer"><code>subprocess</code> — Subprocess management</a></li>
+<li><a href="https://docs.python.org/3/library/sched.html" target="_blank" rel="noopener noreferrer"><code>sched</code> — Event scheduler</a></li>
+<li><a href="https://docs.python.org/3/library/queue.html" target="_blank" rel="noopener noreferrer"><code>queue</code> — A synchronized queue class</a></li>
+<li><a href="https://docs.python.org/3/library/contextvars.html" target="_blank" rel="noopener noreferrer"><code>contextvars</code> — Context Variables</a></li>
+<li><a href="https://docs.python.org/3/library/_thread.html" target="_blank" rel="noopener noreferrer"><code>_thread</code> — Low-level threading API</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="networking-and-interprocess-communication"><a href="https://docs.python.org/3/library/ipc.html" target="_blank" rel="noopener noreferrer">Networking and Interprocess Communication</a><a href="#networking-and-interprocess-communication" class="hash-link" aria-label="Direct link to networking-and-interprocess-communication" title="Direct link to networking-and-interprocess-communication">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/asyncio.html" target="_blank" rel="noopener noreferrer"><code>asyncio</code> — Asynchronous I/O</a></li>
+<li><a href="https://docs.python.org/3/library/socket.html" target="_blank" rel="noopener noreferrer"><code>socket</code> — Low-level networking interface</a></li>
+<li><a href="https://docs.python.org/3/library/ssl.html" target="_blank" rel="noopener noreferrer"><code>ssl</code> — TLS/SSL wrapper for socket objects</a></li>
+<li><a href="https://docs.python.org/3/library/select.html" target="_blank" rel="noopener noreferrer"><code>select</code> — Waiting for I/O completion</a></li>
+<li><a href="https://docs.python.org/3/library/selectors.html" target="_blank" rel="noopener noreferrer"><code>selectors</code> — High-level I/O multiplexing</a></li>
+<li><a href="https://docs.python.org/3/library/signal.html" target="_blank" rel="noopener noreferrer"><code>signal</code> — Set handlers for asynchronous events</a></li>
+<li><a href="https://docs.python.org/3/library/mmap.html" target="_blank" rel="noopener noreferrer"><code>mmap</code> — Memory-mapped file support</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="internet-data-handling"><a href="https://docs.python.org/3/library/netdata.html" target="_blank" rel="noopener noreferrer">Internet Data Handling</a><a href="#internet-data-handling" class="hash-link" aria-label="Direct link to internet-data-handling" title="Direct link to internet-data-handling">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/email.html" target="_blank" rel="noopener noreferrer"><code>email</code> — An email and MIME handling package</a></li>
+<li><a href="https://docs.python.org/3/library/json.html" target="_blank" rel="noopener noreferrer"><code>json</code> — JSON encoder and decoder</a></li>
+<li><a href="https://docs.python.org/3/library/mailbox.html" target="_blank" rel="noopener noreferrer"><code>mailbox</code> — Manipulate mailboxes in various formats</a></li>
+<li><a href="https://docs.python.org/3/library/mimetypes.html" target="_blank" rel="noopener noreferrer"><code>mimetypes</code> — Map filenames to MIME types</a></li>
+<li><a href="https://docs.python.org/3/library/base64.html" target="_blank" rel="noopener noreferrer"><code>base64</code> — Base16, Base32, Base64, Base85 Data Encodings</a></li>
+<li><a href="https://docs.python.org/3/library/binascii.html" target="_blank" rel="noopener noreferrer"><code>binascii</code> — Convert between binary and ASCII</a></li>
+<li><a href="https://docs.python.org/3/library/quopri.html" target="_blank" rel="noopener noreferrer"><code>quopri</code> — Encode and decode MIME quoted-printable data</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="structured-markup-processing-tools"><a href="https://docs.python.org/3/library/markup.html" target="_blank" rel="noopener noreferrer">Structured Markup Processing Tools</a><a href="#structured-markup-processing-tools" class="hash-link" aria-label="Direct link to structured-markup-processing-tools" title="Direct link to structured-markup-processing-tools">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/html.html" target="_blank" rel="noopener noreferrer"><code>html</code> — HyperText Markup Language support</a></li>
+<li><a href="https://docs.python.org/3/library/html.parser.html" target="_blank" rel="noopener noreferrer"><code>html.parser</code> — Simple HTML and XHTML parser</a></li>
+<li><a href="https://docs.python.org/3/library/html.entities.html" target="_blank" rel="noopener noreferrer"><code>html.entities</code> — Definitions of HTML general entities</a></li>
+<li><a href="https://docs.python.org/3/library/xml.html" target="_blank" rel="noopener noreferrer">XML Processing Modules</a></li>
+<li><a href="https://docs.python.org/3/library/xml.etree.elementtree.html" target="_blank" rel="noopener noreferrer"><code>xml.etree.ElementTree</code> — The ElementTree XML API</a></li>
+<li><a href="https://docs.python.org/3/library/xml.dom.html" target="_blank" rel="noopener noreferrer"><code>xml.dom</code> — The Document Object Model API</a></li>
+<li><a href="https://docs.python.org/3/library/xml.dom.minidom.html" target="_blank" rel="noopener noreferrer"><code>xml.dom.minidom</code> — Minimal DOM implementation</a></li>
+<li><a href="https://docs.python.org/3/library/xml.dom.pulldom.html" target="_blank" rel="noopener noreferrer"><code>xml.dom.pulldom</code> — Support for building partial DOM trees</a></li>
+<li><a href="https://docs.python.org/3/library/xml.sax.html" target="_blank" rel="noopener noreferrer"><code>xml.sax</code> — Support for SAX2 parsers</a></li>
+<li><a href="https://docs.python.org/3/library/xml.sax.handler.html" target="_blank" rel="noopener noreferrer"><code>xml.sax.handler</code> — Base classes for SAX handlers</a></li>
+<li><a href="https://docs.python.org/3/library/xml.sax.utils.html" target="_blank" rel="noopener noreferrer"><code>xml.sax.saxutils</code> — SAX Utilities</a></li>
+<li><a href="https://docs.python.org/3/library/xml.sax.reader.html" target="_blank" rel="noopener noreferrer"><code>xml.sax.xmlreader</code> — Interface for XML parsers</a></li>
+<li><a href="https://docs.python.org/3/library/pyexpat.html" target="_blank" rel="noopener noreferrer"><code>xml.parsers.expat</code> — Fast XML parsing using Expat</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="internet-protocols-and-support"><a href="https://docs.python.org/3/library/internet.html" target="_blank" rel="noopener noreferrer">Internet Protocols and Support</a><a href="#internet-protocols-and-support" class="hash-link" aria-label="Direct link to internet-protocols-and-support" title="Direct link to internet-protocols-and-support">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/webbrowser.html" target="_blank" rel="noopener noreferrer"><code>webbrowser</code> — Convenient web-browser controller</a></li>
+<li><a href="https://docs.python.org/3/library/wsgiref.html" target="_blank" rel="noopener noreferrer"><code>wsgiref</code> — WSGI Utilities and Reference Implementation</a></li>
+<li><a href="https://docs.python.org/3/library/urllib.html" target="_blank" rel="noopener noreferrer"><code>urllib</code> — URL handling modules</a></li>
+<li><a href="https://docs.python.org/3/library/urllib.request.html" target="_blank" rel="noopener noreferrer"><code>urllib.request</code> — Extensible library for opening URLs</a></li>
+<li><a href="https://docs.python.org/3/library/urllib.request.html#module-urllib.response" target="_blank" rel="noopener noreferrer"><code>urllib.response</code> — Response classes used by urllib</a></li>
+<li><a href="https://docs.python.org/3/library/urllib.parse.html" target="_blank" rel="noopener noreferrer"><code>urllib.parse</code> — Parse URLs into components</a></li>
+<li><a href="https://docs.python.org/3/library/urllib.error.html" target="_blank" rel="noopener noreferrer"><code>urllib.error</code> — Exception classes raised by urllib.request</a></li>
+<li><a href="https://docs.python.org/3/library/urllib.robotparser.html" target="_blank" rel="noopener noreferrer"><code>urllib.robotparser</code> — Parser for robots.txt</a></li>
+<li><a href="https://docs.python.org/3/library/http.html" target="_blank" rel="noopener noreferrer"><code>http</code> — HTTP modules</a></li>
+<li><a href="https://docs.python.org/3/library/http.client.html" target="_blank" rel="noopener noreferrer"><code>http.client</code> — HTTP protocol client</a></li>
+<li><a href="https://docs.python.org/3/library/ftplib.html" target="_blank" rel="noopener noreferrer"><code>ftplib</code> — FTP protocol client</a></li>
+<li><a href="https://docs.python.org/3/library/poplib.html" target="_blank" rel="noopener noreferrer"><code>poplib</code> — POP3 protocol client</a></li>
+<li><a href="https://docs.python.org/3/library/imaplib.html" target="_blank" rel="noopener noreferrer"><code>imaplib</code> — IMAP4 protocol client</a></li>
+<li><a href="https://docs.python.org/3/library/smtplib.html" target="_blank" rel="noopener noreferrer"><code>smtplib</code> — SMTP protocol client</a></li>
+<li><a href="https://docs.python.org/3/library/uuid.html" target="_blank" rel="noopener noreferrer"><code>uuid</code> — UUID objects according to <strong>RFC 4122</strong></a></li>
+<li><a href="https://docs.python.org/3/library/socketserver.html" target="_blank" rel="noopener noreferrer"><code>socketserver</code> — A framework for network servers</a></li>
+<li><a href="https://docs.python.org/3/library/http.server.html" target="_blank" rel="noopener noreferrer"><code>http.server</code> — HTTP servers</a></li>
+<li><a href="https://docs.python.org/3/library/http.cookies.html" target="_blank" rel="noopener noreferrer"><code>http.cookies</code> — HTTP state management</a></li>
+<li><a href="https://docs.python.org/3/library/http.cookiejar.html" target="_blank" rel="noopener noreferrer"><code>http.cookiejar</code> — Cookie handling for HTTP clients</a></li>
+<li><a href="https://docs.python.org/3/library/xmlrpc.html" target="_blank" rel="noopener noreferrer"><code>xmlrpc</code> — XMLRPC server and client modules</a></li>
+<li><a href="https://docs.python.org/3/library/xmlrpc.client.html" target="_blank" rel="noopener noreferrer"><code>xmlrpc.client</code> — XML-RPC client access</a></li>
+<li><a href="https://docs.python.org/3/library/xmlrpc.server.html" target="_blank" rel="noopener noreferrer"><code>xmlrpc.server</code> — Basic XML-RPC servers</a></li>
+<li><a href="https://docs.python.org/3/library/ipaddress.html" target="_blank" rel="noopener noreferrer"><code>ipaddress</code> — IPv4/IPv6 manipulation library</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="multimedia-services"><a href="https://docs.python.org/3/library/mm.html" target="_blank" rel="noopener noreferrer">Multimedia Services</a><a href="#multimedia-services" class="hash-link" aria-label="Direct link to multimedia-services" title="Direct link to multimedia-services">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/wave.html" target="_blank" rel="noopener noreferrer"><code>wave</code> — Read and write WAV files</a></li>
+<li><a href="https://docs.python.org/3/library/colorsys.html" target="_blank" rel="noopener noreferrer"><code>colorsys</code> — Conversions between color systems</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="internationalization"><a href="https://docs.python.org/3/library/i18n.html" target="_blank" rel="noopener noreferrer">Internationalization</a><a href="#internationalization" class="hash-link" aria-label="Direct link to internationalization" title="Direct link to internationalization">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/gettext.html" target="_blank" rel="noopener noreferrer"><code>gettext</code> — Multilingual internationalization services</a></li>
+<li><a href="https://docs.python.org/3/library/locale.html" target="_blank" rel="noopener noreferrer"><code>locale</code> — Internationalization services</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="program-frameworks"><a href="https://docs.python.org/3/library/frameworks.html" target="_blank" rel="noopener noreferrer">Program Frameworks</a><a href="#program-frameworks" class="hash-link" aria-label="Direct link to program-frameworks" title="Direct link to program-frameworks">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/turtle.html" target="_blank" rel="noopener noreferrer"><code>turtle</code> — Turtle graphics</a></li>
+<li><a href="https://docs.python.org/3/library/cmd.html" target="_blank" rel="noopener noreferrer"><code>cmd</code> — Support for line-oriented command interpreters</a></li>
+<li><a href="https://docs.python.org/3/library/shlex.html" target="_blank" rel="noopener noreferrer"><code>shlex</code> — Simple lexical analysis</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="graphical-user-interfaces-with-tk"><a href="https://docs.python.org/3/library/tk.html" target="_blank" rel="noopener noreferrer">Graphical User Interfaces with Tk</a><a href="#graphical-user-interfaces-with-tk" class="hash-link" aria-label="Direct link to graphical-user-interfaces-with-tk" title="Direct link to graphical-user-interfaces-with-tk">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/tkinter.html" target="_blank" rel="noopener noreferrer"><code>tkinter</code> — Python interface to Tcl/Tk</a></li>
+<li><a href="https://docs.python.org/3/library/tkinter.colorchooser.html" target="_blank" rel="noopener noreferrer"><code>tkinter.colorchooser</code> — Color choosing dialog</a></li>
+<li><a href="https://docs.python.org/3/library/tkinter.font.html" target="_blank" rel="noopener noreferrer"><code>tkinter.font</code> — Tkinter font wrapper</a></li>
+<li><a href="https://docs.python.org/3/library/dialog.html" target="_blank" rel="noopener noreferrer">Tkinter Dialogs</a></li>
+<li><a href="https://docs.python.org/3/library/tkinter.messagebox.html" target="_blank" rel="noopener noreferrer"><code>tkinter.messagebox</code> — Tkinter message prompts</a></li>
+<li><a href="https://docs.python.org/3/library/tkinter.scrolledtext.html" target="_blank" rel="noopener noreferrer"><code>tkinter.scrolledtext</code> — Scrolled Text Widget</a></li>
+<li><a href="https://docs.python.org/3/library/tkinter.dnd.html" target="_blank" rel="noopener noreferrer"><code>tkinter.dnd</code> — Drag and drop support</a></li>
+<li><a href="https://docs.python.org/3/library/tkinter.ttk.html" target="_blank" rel="noopener noreferrer"><code>tkinter.ttk</code> — Tk themed widgets</a></li>
+<li><a href="https://docs.python.org/3/library/idle.html" target="_blank" rel="noopener noreferrer">IDLE</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="development-tools"><a href="https://docs.python.org/3/library/development.html" target="_blank" rel="noopener noreferrer">Development Tools</a><a href="#development-tools" class="hash-link" aria-label="Direct link to development-tools" title="Direct link to development-tools">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/typing.html" target="_blank" rel="noopener noreferrer"><code>typing</code> — Support for type hints</a></li>
+<li><a href="https://docs.python.org/3/library/pydoc.html" target="_blank" rel="noopener noreferrer"><code>pydoc</code> — Documentation generator and online help system</a></li>
+<li><a href="https://docs.python.org/3/library/devmode.html" target="_blank" rel="noopener noreferrer">Python Development Mode</a></li>
+<li><a href="https://docs.python.org/3/library/doctest.html" target="_blank" rel="noopener noreferrer"><code>doctest</code> — Test interactive Python examples</a></li>
+<li><a href="https://docs.python.org/3/library/unittest.html" target="_blank" rel="noopener noreferrer"><code>unittest</code> — Unit testing framework</a></li>
+<li><a href="https://docs.python.org/3/library/unittest.mock.html" target="_blank" rel="noopener noreferrer"><code>unittest.mock</code> — mock object library</a></li>
+<li><a href="https://docs.python.org/3/library/unittest.mock-examples.html" target="_blank" rel="noopener noreferrer"><code>unittest.mock</code> — getting started</a></li>
+<li><a href="https://docs.python.org/3/library/test.html" target="_blank" rel="noopener noreferrer"><code>test</code> — Regression tests package for Python</a></li>
+<li><a href="https://docs.python.org/3/library/test.html#module-test.support" target="_blank" rel="noopener noreferrer"><code>test.support</code> — Utilities for the Python test suite</a></li>
+<li><a href="https://docs.python.org/3/library/test.html#module-test.support.socket_helper" target="_blank" rel="noopener noreferrer"><code>test.support.socket_helper</code> — Utilities for socket tests</a></li>
+<li><a href="https://docs.python.org/3/library/test.html#module-test.support.script_helper" target="_blank" rel="noopener noreferrer"><code>test.support.script_helper</code> — Utilities for the Python execution tests</a></li>
+<li><a href="https://docs.python.org/3/library/test.html#module-test.support.bytecode_helper" target="_blank" rel="noopener noreferrer"><code>test.support.bytecode_helper</code> — Support tools for testing correct bytecode generation</a></li>
+<li><a href="https://docs.python.org/3/library/test.html#module-test.support.threading_helper" target="_blank" rel="noopener noreferrer"><code>test.support.threading_helper</code> — Utilities for threading tests</a></li>
+<li><a href="https://docs.python.org/3/library/test.html#module-test.support.os_helper" target="_blank" rel="noopener noreferrer"><code>test.support.os_helper</code> — Utilities for os tests</a></li>
+<li><a href="https://docs.python.org/3/library/test.html#module-test.support.import_helper" target="_blank" rel="noopener noreferrer"><code>test.support.import_helper</code> — Utilities for import tests</a></li>
+<li><a href="https://docs.python.org/3/library/test.html#module-test.support.warnings_helper" target="_blank" rel="noopener noreferrer"><code>test.support.warnings_helper</code> — Utilities for warnings tests</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="debugging-and-profiling"><a href="https://docs.python.org/3/library/debug.html" target="_blank" rel="noopener noreferrer">Debugging and Profiling</a><a href="#debugging-and-profiling" class="hash-link" aria-label="Direct link to debugging-and-profiling" title="Direct link to debugging-and-profiling">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/audit_events.html" target="_blank" rel="noopener noreferrer">Audit events table</a></li>
+<li><a href="https://docs.python.org/3/library/bdb.html" target="_blank" rel="noopener noreferrer"><code>bdb</code> — Debugger framework</a></li>
+<li><a href="https://docs.python.org/3/library/faulthandler.html" target="_blank" rel="noopener noreferrer"><code>faulthandler</code> — Dump the Python traceback</a></li>
+<li><a href="https://docs.python.org/3/library/pdb.html" target="_blank" rel="noopener noreferrer"><code>pdb</code> — The Python Debugger</a></li>
+<li><a href="https://docs.python.org/3/library/profile.html" target="_blank" rel="noopener noreferrer">The Python Profilers</a></li>
+<li><a href="https://docs.python.org/3/library/timeit.html" target="_blank" rel="noopener noreferrer"><code>timeit</code> — Measure execution time of small code snippets</a></li>
+<li><a href="https://docs.python.org/3/library/trace.html" target="_blank" rel="noopener noreferrer"><code>trace</code> — Trace or track Python statement execution</a></li>
+<li><a href="https://docs.python.org/3/library/tracemalloc.html" target="_blank" rel="noopener noreferrer"><code>tracemalloc</code> — Trace memory allocations</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="software-packaging-and-distribution"><a href="https://docs.python.org/3/library/distribution.html" target="_blank" rel="noopener noreferrer">Software Packaging and Distribution</a><a href="#software-packaging-and-distribution" class="hash-link" aria-label="Direct link to software-packaging-and-distribution" title="Direct link to software-packaging-and-distribution">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/ensurepip.html" target="_blank" rel="noopener noreferrer"><code>ensurepip</code> — Bootstrapping the <code>pip</code> installer</a></li>
+<li><a href="https://docs.python.org/3/library/venv.html" target="_blank" rel="noopener noreferrer"><code>venv</code> — Creation of virtual environments</a></li>
+<li><a href="https://docs.python.org/3/library/zipapp.html" target="_blank" rel="noopener noreferrer"><code>zipapp</code> — Manage executable Python zip archives</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="python-runtime-services"><a href="https://docs.python.org/3/library/python.html" target="_blank" rel="noopener noreferrer">Python Runtime Services</a><a href="#python-runtime-services" class="hash-link" aria-label="Direct link to python-runtime-services" title="Direct link to python-runtime-services">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/sys.html" target="_blank" rel="noopener noreferrer"><code>sys</code> — System-specific parameters and functions</a></li>
+<li><a href="https://docs.python.org/3/library/sys.monitoring.html" target="_blank" rel="noopener noreferrer"><code>sys.monitoring</code> — Execution event monitoring</a></li>
+<li><a href="https://docs.python.org/3/library/sysconfig.html" target="_blank" rel="noopener noreferrer"><code>sysconfig</code> — Provide access to Python’s configuration information</a></li>
+<li><a href="https://docs.python.org/3/library/builtins.html" target="_blank" rel="noopener noreferrer"><code>builtins</code> — Built-in objects</a></li>
+<li><a href="https://docs.python.org/3/library/__main__.html" target="_blank" rel="noopener noreferrer"><code>__main__</code> — Top-level code environment</a></li>
+<li><a href="https://docs.python.org/3/library/warnings.html" target="_blank" rel="noopener noreferrer"><code>warnings</code> — Warning control</a></li>
+<li><a href="https://docs.python.org/3/library/dataclasses.html" target="_blank" rel="noopener noreferrer"><code>dataclasses</code> — Data Classes</a></li>
+<li><a href="https://docs.python.org/3/library/contextlib.html" target="_blank" rel="noopener noreferrer"><code>contextlib</code> — Utilities for <code>with</code>-statement contexts</a></li>
+<li><a href="https://docs.python.org/3/library/abc.html" target="_blank" rel="noopener noreferrer"><code>abc</code> — Abstract Base Classes</a></li>
+<li><a href="https://docs.python.org/3/library/atexit.html" target="_blank" rel="noopener noreferrer"><code>atexit</code> — Exit handlers</a></li>
+<li><a href="https://docs.python.org/3/library/traceback.html" target="_blank" rel="noopener noreferrer"><code>traceback</code> — Print or retrieve a stack traceback</a></li>
+<li><a href="https://docs.python.org/3/library/__future__.html" target="_blank" rel="noopener noreferrer"><code>__future__</code> — Future statement definitions</a></li>
+<li><a href="https://docs.python.org/3/library/gc.html" target="_blank" rel="noopener noreferrer"><code>gc</code> — Garbage Collector interface</a></li>
+<li><a href="https://docs.python.org/3/library/inspect.html" target="_blank" rel="noopener noreferrer"><code>inspect</code> — Inspect live objects</a></li>
+<li><a href="https://docs.python.org/3/library/site.html" target="_blank" rel="noopener noreferrer"><code>site</code> — Site-specific configuration hook</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="custom-python-interpreters"><a href="https://docs.python.org/3/library/custominterp.html" target="_blank" rel="noopener noreferrer">Custom Python Interpreters</a><a href="#custom-python-interpreters" class="hash-link" aria-label="Direct link to custom-python-interpreters" title="Direct link to custom-python-interpreters">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/code.html" target="_blank" rel="noopener noreferrer"><code>code</code> — Interpreter base classes</a></li>
+<li><a href="https://docs.python.org/3/library/codeop.html" target="_blank" rel="noopener noreferrer"><code>codeop</code> — Compile Python code</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="importing-modules"><a href="https://docs.python.org/3/library/modules.html" target="_blank" rel="noopener noreferrer">Importing Modules</a><a href="#importing-modules" class="hash-link" aria-label="Direct link to importing-modules" title="Direct link to importing-modules">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/zipimport.html" target="_blank" rel="noopener noreferrer"><code>zipimport</code> — Import modules from Zip archives</a></li>
+<li><a href="https://docs.python.org/3/library/pkgutil.html" target="_blank" rel="noopener noreferrer"><code>pkgutil</code> — Package extension utility</a></li>
+<li><a href="https://docs.python.org/3/library/modulefinder.html" target="_blank" rel="noopener noreferrer"><code>modulefinder</code> — Find modules used by a script</a></li>
+<li><a href="https://docs.python.org/3/library/runpy.html" target="_blank" rel="noopener noreferrer"><code>runpy</code> — Locating and executing Python modules</a></li>
+<li><a href="https://docs.python.org/3/library/importlib.html" target="_blank" rel="noopener noreferrer"><code>importlib</code> — The implementation of <code>import</code></a></li>
+<li><a href="https://docs.python.org/3/library/importlib.resources.html" target="_blank" rel="noopener noreferrer"><code>importlib.resources</code> – Package resource reading, opening and access</a></li>
+<li><a href="https://docs.python.org/3/library/importlib.resources.abc.html" target="_blank" rel="noopener noreferrer"><code>importlib.resources.abc</code> – Abstract base classes for resources</a></li>
+<li><a href="https://docs.python.org/3/library/importlib.metadata.html" target="_blank" rel="noopener noreferrer"><code>importlib.metadata</code> – Accessing package metadata</a></li>
+<li><a href="https://docs.python.org/3/library/sys_path_init.html" target="_blank" rel="noopener noreferrer">The initialization of the <code>sys.path</code> module search path</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="python-language-services"><a href="https://docs.python.org/3/library/language.html" target="_blank" rel="noopener noreferrer">Python Language Services</a><a href="#python-language-services" class="hash-link" aria-label="Direct link to python-language-services" title="Direct link to python-language-services">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/ast.html" target="_blank" rel="noopener noreferrer"><code>ast</code> — Abstract Syntax Trees</a></li>
+<li><a href="https://docs.python.org/3/library/symtable.html" target="_blank" rel="noopener noreferrer"><code>symtable</code> — Access to the compiler’s symbol tables</a></li>
+<li><a href="https://docs.python.org/3/library/token.html" target="_blank" rel="noopener noreferrer"><code>token</code> — Constants used with Python parse trees</a></li>
+<li><a href="https://docs.python.org/3/library/keyword.html" target="_blank" rel="noopener noreferrer"><code>keyword</code> — Testing for Python keywords</a></li>
+<li><a href="https://docs.python.org/3/library/tokenize.html" target="_blank" rel="noopener noreferrer"><code>tokenize</code> — Tokenizer for Python source</a></li>
+<li><a href="https://docs.python.org/3/library/tabnanny.html" target="_blank" rel="noopener noreferrer"><code>tabnanny</code> — Detection of ambiguous indentation</a></li>
+<li><a href="https://docs.python.org/3/library/pyclbr.html" target="_blank" rel="noopener noreferrer"><code>pyclbr</code> — Python module browser support</a></li>
+<li><a href="https://docs.python.org/3/library/py_compile.html" target="_blank" rel="noopener noreferrer"><code>py_compile</code> — Compile Python source files</a></li>
+<li><a href="https://docs.python.org/3/library/compileall.html" target="_blank" rel="noopener noreferrer"><code>compileall</code> — Byte-compile Python libraries</a></li>
+<li><a href="https://docs.python.org/3/library/dis.html" target="_blank" rel="noopener noreferrer"><code>dis</code> — Disassembler for Python bytecode</a></li>
+<li><a href="https://docs.python.org/3/library/pickletools.html" target="_blank" rel="noopener noreferrer"><code>pickletools</code> — Tools for pickle developers</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="ms-windows-specific-services"><a href="https://docs.python.org/3/library/windows.html" target="_blank" rel="noopener noreferrer">MS Windows Specific Services</a><a href="#ms-windows-specific-services" class="hash-link" aria-label="Direct link to ms-windows-specific-services" title="Direct link to ms-windows-specific-services">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/msvcrt.html" target="_blank" rel="noopener noreferrer"><code>msvcrt</code> — Useful routines from the MS VC++ runtime</a></li>
+<li><a href="https://docs.python.org/3/library/winreg.html" target="_blank" rel="noopener noreferrer"><code>winreg</code> — Windows registry access</a></li>
+<li><a href="https://docs.python.org/3/library/winsound.html" target="_blank" rel="noopener noreferrer"><code>winsound</code>   — Sound-playing interface for Windows</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="unix-specific-services"><a href="https://docs.python.org/3/library/unix.html" target="_blank" rel="noopener noreferrer">Unix Specific Services</a><a href="#unix-specific-services" class="hash-link" aria-label="Direct link to unix-specific-services" title="Direct link to unix-specific-services">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/posix.html" target="_blank" rel="noopener noreferrer"><code>posix</code> — The most common POSIX system calls</a></li>
+<li><a href="https://docs.python.org/3/library/pwd.html" target="_blank" rel="noopener noreferrer"><code>pwd</code> — The password database</a></li>
+<li><a href="https://docs.python.org/3/library/grp.html" target="_blank" rel="noopener noreferrer"><code>grp</code> — The group database</a></li>
+<li><a href="https://docs.python.org/3/library/termios.html" target="_blank" rel="noopener noreferrer"><code>termios</code> — POSIX style tty control</a></li>
+<li><a href="https://docs.python.org/3/library/tty.html" target="_blank" rel="noopener noreferrer"><code>tty</code> — Terminal control functions</a></li>
+<li><a href="https://docs.python.org/3/library/pty.html" target="_blank" rel="noopener noreferrer"><code>pty</code> — Pseudo-terminal utilities</a></li>
+<li><a href="https://docs.python.org/3/library/fcntl.html" target="_blank" rel="noopener noreferrer"><code>fcntl</code> — The <code>fcntl</code> and <code>ioctl</code> system calls</a></li>
+<li><a href="https://docs.python.org/3/library/resource.html" target="_blank" rel="noopener noreferrer"><code>resource</code> — Resource usage information</a></li>
+<li><a href="https://docs.python.org/3/library/syslog.html" target="_blank" rel="noopener noreferrer"><code>syslog</code> — Unix syslog library routines</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="modules-command-line-interface-cli"><a href="https://docs.python.org/3/library/cmdline.html" target="_blank" rel="noopener noreferrer">Modules command-line interface (CLI)</a><a href="#modules-command-line-interface-cli" class="hash-link" aria-label="Direct link to modules-command-line-interface-cli" title="Direct link to modules-command-line-interface-cli">​</a></h4>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="superseded-modules"><a href="https://docs.python.org/3/library/superseded.html" target="_blank" rel="noopener noreferrer">Superseded Modules</a><a href="#superseded-modules" class="hash-link" aria-label="Direct link to superseded-modules" title="Direct link to superseded-modules">​</a></h4>
+<ul>
+<li><a href="https://docs.python.org/3/library/getopt.html" target="_blank" rel="noopener noreferrer"><code>getopt</code> — C-style parser for command line options</a></li>
+</ul>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="removed-modules"><a href="https://docs.python.org/3/library/removed.html" target="_blank" rel="noopener noreferrer">Removed Modules</a><a href="#removed-modules" class="hash-link" aria-label="Direct link to removed-modules" title="Direct link to removed-modules">​</a></h4>
+</li>
+<li>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="security-considerations"><a href="https://docs.python.org/3/library/security_warnings.html" target="_blank" rel="noopener noreferrer">Security Considerations</a><a href="#security-considerations" class="hash-link" aria-label="Direct link to security-considerations" title="Direct link to security-considerations">​</a></h4>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/vascoalexander/my-documentation/tree/main/docs/03-Python/02-Python-Docu.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/my-documentation/docs/Python/Python-Quickref"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Quick-Reference</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#python-setup-and-usage" class="table-of-contents__link toc-highlight"><strong>Python Setup and Usage</strong></a></li><li><a href="#pep-8---style-guide-for-python-code" class="table-of-contents__link toc-highlight"><strong>PEP 8 - Style Guide for Python Code</strong></a></li><li><a href="#python-modules--packaging" class="table-of-contents__link toc-highlight"><strong>Python Modules / Packaging</strong></a><ul><li><a href="#python-packaging-user-guide" class="table-of-contents__link toc-highlight">Python Packaging User Guide</a></li><li><a href="#python-module-index" class="table-of-contents__link toc-highlight">Python Module Index</a></li><li><a href="#python-package-index" class="table-of-contents__link toc-highlight">Python Package Index</a></li><li><a href="#pip-python-package-installer" class="table-of-contents__link toc-highlight">PIP (Python Package Installer)</a></li></ul></li><li><a href="#python-language-reference" class="table-of-contents__link toc-highlight"><strong>Python Language Reference</strong></a><ul><li><a href="#1-introduction" class="table-of-contents__link toc-highlight">1. Introduction</a></li><li><a href="#2-lexical-analysis" class="table-of-contents__link toc-highlight">2. Lexical analysis</a></li><li><a href="#3-data-model" class="table-of-contents__link toc-highlight">3. Data model</a></li><li><a href="#4-execution-model" class="table-of-contents__link toc-highlight">4. Execution model</a></li><li><a href="#5-the-import-system" class="table-of-contents__link toc-highlight">5. The import system</a></li><li><a href="#6-expressions" class="table-of-contents__link toc-highlight">6. Expressions</a></li><li><a href="#7-simple-statements" class="table-of-contents__link toc-highlight">7. Simple statements</a></li><li><a href="#8-compound-statements" class="table-of-contents__link toc-highlight">8. Compound statements</a></li><li><a href="#9-top-level-components" class="table-of-contents__link toc-highlight">9. Top-level components</a></li><li><a href="#10-full-grammar-specification" class="table-of-contents__link toc-highlight">10. Full Grammar specification</a></li></ul></li><li><a href="#python-library-reference" class="table-of-contents__link toc-highlight"><strong>Python Library Reference</strong></a><ul><li><a href="#introduction" class="table-of-contents__link toc-highlight">Introduction</a></li><li><a href="#built-in-functions" class="table-of-contents__link toc-highlight">Built-in Functions</a></li><li><a href="#built-in-constants" class="table-of-contents__link toc-highlight">Built-in Constants</a></li><li><a href="#built-in-types" class="table-of-contents__link toc-highlight">Built-in Types</a></li><li><a href="#built-in-exceptions" class="table-of-contents__link toc-highlight">Built-in Exceptions</a></li><li><a href="#text-processing-services" class="table-of-contents__link toc-highlight">Text Processing Services</a></li><li><a href="#binary-data-services" class="table-of-contents__link toc-highlight">Binary Data Services</a></li><li><a href="#data-types" class="table-of-contents__link toc-highlight">Data Types</a></li><li><a href="#numeric-and-mathematical-modules" class="table-of-contents__link toc-highlight">Numeric and Mathematical Modules</a></li><li><a href="#functional-programming-modules" class="table-of-contents__link toc-highlight">Functional Programming Modules</a></li><li><a href="#file-and-directory-access" class="table-of-contents__link toc-highlight">File and Directory Access</a></li><li><a href="#data-persistence" class="table-of-contents__link toc-highlight">Data Persistence</a></li><li><a href="#data-compression-and-archiving" class="table-of-contents__link toc-highlight">Data Compression and Archiving</a></li><li><a href="#file-formats" class="table-of-contents__link toc-highlight">File Formats</a></li><li><a href="#cryptographic-services" class="table-of-contents__link toc-highlight">Cryptographic Services</a></li><li><a href="#generic-operating-system-services" class="table-of-contents__link toc-highlight">Generic Operating System Services</a></li><li><a href="#command-line-interface-libraries" class="table-of-contents__link toc-highlight">Command Line Interface Libraries</a></li><li><a href="#concurrent-execution" class="table-of-contents__link toc-highlight">Concurrent Execution</a></li><li><a href="#networking-and-interprocess-communication" class="table-of-contents__link toc-highlight">Networking and Interprocess Communication</a></li><li><a href="#internet-data-handling" class="table-of-contents__link toc-highlight">Internet Data Handling</a></li><li><a href="#structured-markup-processing-tools" class="table-of-contents__link toc-highlight">Structured Markup Processing Tools</a></li><li><a href="#internet-protocols-and-support" class="table-of-contents__link toc-highlight">Internet Protocols and Support</a></li><li><a href="#multimedia-services" class="table-of-contents__link toc-highlight">Multimedia Services</a></li><li><a href="#internationalization" class="table-of-contents__link toc-highlight">Internationalization</a></li><li><a href="#program-frameworks" class="table-of-contents__link toc-highlight">Program Frameworks</a></li><li><a href="#graphical-user-interfaces-with-tk" class="table-of-contents__link toc-highlight">Graphical User Interfaces with Tk</a></li><li><a href="#development-tools" class="table-of-contents__link toc-highlight">Development Tools</a></li><li><a href="#debugging-and-profiling" class="table-of-contents__link toc-highlight">Debugging and Profiling</a></li><li><a href="#software-packaging-and-distribution" class="table-of-contents__link toc-highlight">Software Packaging and Distribution</a></li><li><a href="#python-runtime-services" class="table-of-contents__link toc-highlight">Python Runtime Services</a></li><li><a href="#custom-python-interpreters" class="table-of-contents__link toc-highlight">Custom Python Interpreters</a></li><li><a href="#importing-modules" class="table-of-contents__link toc-highlight">Importing Modules</a></li><li><a href="#python-language-services" class="table-of-contents__link toc-highlight">Python Language Services</a></li><li><a href="#ms-windows-specific-services" class="table-of-contents__link toc-highlight">MS Windows Specific Services</a></li><li><a href="#unix-specific-services" class="table-of-contents__link toc-highlight">Unix Specific Services</a></li><li><a href="#modules-command-line-interface-cli" class="table-of-contents__link toc-highlight">Modules command-line interface (CLI)</a></li><li><a href="#superseded-modules" class="table-of-contents__link toc-highlight">Superseded Modules</a></li><li><a href="#removed-modules" class="table-of-contents__link toc-highlight">Removed Modules</a></li><li><a href="#security-considerations" class="table-of-contents__link toc-highlight">Security Considerations</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/my-documentation/docs/category/it-mathe">Grundlagen</a></li><li class="footer__item"><a class="footer__link-item" href="/my-documentation/docs/DSA/Big-O-Notation">DSA</a></li><li class="footer__item"><a class="footer__link-item" href="/my-documentation/docs/Python/Python-Quickref">Python</a></li><li class="footer__item"><a class="footer__link-item" href="/my-documentation/docs/category/basics">C#</a></li></ul></div><div class="col footer__col"><div class="footer__title">more...</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/my-documentation/docs/Web/Rest-Architektur">WebDev</a></li><li class="footer__item"><a class="footer__link-item" href="/my-documentation/docs/category/grundlagen">Datenbanken</a></li><li class="footer__item"><a class="footer__link-item" href="/my-documentation/docs/Linux/Package-Management">Linux</a></li><li class="footer__item"><a class="footer__link-item" href="/my-documentation/docs/Tools/GIT">Tools</a></li></ul></div><div class="col footer__col"><div class="footer__title">My Sites</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/vascoalexander" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/in/vasco-alexander-basque-a9179383/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.vascobasque.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Portfolio<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Vasco Alexander Basque - Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
