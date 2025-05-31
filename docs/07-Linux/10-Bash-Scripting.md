@@ -1,9 +1,323 @@
 ---
-title: "Bash Reference"
+title: "Bash Scripting"
+toc_max_heading_level: 4
 ---
 [Bash Cheat Sheet & Quick Reference](https://quickref.me/bash)
 
-**From Learn X in Y minutes:**
+### Built-In Variables
+
+| Special Variable | Description                                          |
+| ---------------- | ---------------------------------------------------- |
+| $0               | The name of the bash script.                         |
+| $1, $2...$n      | The bash script arguments.                           |
+| $$               | The process id of the current shell.                 |
+| $#               | The total number of arguments passed to the script.  |
+| $@               | The value of all the arguments passed to the script. |
+| $?               | The exit status of the last executed command.        |
+| $!               | The process id of the last executed command.         |
+| $$               | Process id of Shell                                  |
+| $*               | All arguments                                        |
+| $@               | All arguments, starting from first                   |
+### Brace Expansion
+
+```bash
+{a, b}.js # => a.js b.js
+{1..5} # => 1 2 3 4 5
+{1..3,7..8} #=> 1 2 3 7 8 9
+```
+### Redirection
+
+```bash
+python hello.py > output.txt   # stdout to (file)
+python hello.py >> output.txt  # stdout to (file), append
+python hello.py 2> error.log   # stderr to (file)
+python hello.py 2>&1           # stderr to stdout
+python hello.py 2>/dev/null    # stderr to (null)
+python hello.py &>/dev/null    # stdout and stderr to (null)
+python hello.py < foo.txt      # feed foo.txt to stdin for python
+```
+
+### Strings / Bash Expansions
+
+#### Replace
+|                   |                     |
+| ----------------- | ------------------- |
+| `${FOO%suffix}`   | Remove suffix       |
+| `${FOO#prefix}`   | Remove prefix       |
+| `${FOO%%suffix}`  | Remove long suffix  |
+| `${FOO##prefix}`  | Remove long prefix  |
+| `${FOO/from/to}`  | Replace first match |
+| `${FOO//from/to}` | Replace all         |
+| `${FOO/%from/to}` | Replace suffix      |
+| `${FOO/#from/to}` | Replace prefix      |
+#### Substitution
+```bash
+STR="/path/to/foo.cpp"
+echo ${STR%.cpp}    # /path/to/foo
+echo ${STR%.cpp}.o  # /path/to/foo.o
+echo ${STR%/*}      # /path/to
+
+echo ${STR##*.}     # cpp (extension)
+echo ${STR##*/}     # foo.cpp (basepath)
+
+echo ${STR#*/}      # path/to/foo.cpp
+echo ${STR##*/}     # foo.cpp
+
+echo ${STR/foo/bar} # /path/to/bar.cpp
+```
+#### Slicing
+```bash
+name="John"
+echo ${name}           # => John
+echo ${name:0:2}       # => Jo
+echo ${name::2}        # => Jo
+echo ${name::-1}       # => Joh
+echo ${name:(-1)}      # => n
+echo ${name:(-2)}      # => hn
+echo ${name:(-2):2}    # => hn
+
+length=2
+echo ${name:0:length}  # => Jo
+```
+#### Transform
+```bash
+STR="HELLO WORLD!"
+echo ${STR,}   # => hELLO WORLD!
+echo ${STR,,}  # => hello world!
+
+STR="hello world!"
+echo ${STR^}   # => Hello world!
+echo ${STR^^}  # => HELLO WORLD!
+
+ARR=(hello World)
+echo "${ARR[@],}" # => hello world
+echo "${ARR[@]^}" # => Hello World
+```
+#### Base Path / Dir Path
+
+```bash
+SRC="/path/to/foo.cpp"
+
+BASEPATH=${SRC##*/} 
+echo $BASEPATH # => "foo.cpp"
+
+DIRPATH=${SRC%$BASEPATH}
+echo $DIRPATH # => "/path/to/"
+```
+#### heredoc
+```bash
+cat <<END 
+hello world!!
+heredocs a easier to read
+especially if multiple lines 
+are needed
+END
+```
+### Flow Control
+
+#### if else
+```bash
+if [ $(whoami) = 'root' ]; then 
+	echo "You are root" 
+else 
+	echo "You are not root" 
+fi
+```
+#### case
+```bash
+case "variable" in 
+	"pattern1" ) 
+		Command … ;; 
+	"pattern2" ) 
+		Command … ;; 
+	"pattern2" ) 
+		Command … ;; 
+esac
+```
+#### for-loops
+```bash
+for ((initialize ; condition ; increment)); do 
+	[COMMANDS] 
+done
+
+for ((i = 0 ; i < 10 ; i++)); do 
+	echo "Hello Friend" 
+done
+```
+#### for-loops with Range/List
+```bash
+for item in [LIST]; do 
+	[COMMANDS] 
+done
+
+for i in {1..10}; do 
+	echo "Hello Friend" 
+done
+
+for i in /var/*; do 
+	echo $i 
+done
+# outputs all files and dirs under /var
+```
+#### while loops
+```bash
+while [ condition ]; do 
+	[COMMANDS] 
+done
+
+read -p "Geben Sie den Namen Ihres Projekts ein (z.B. my_awesome_project): " PROJECT_NAME
+while [[ -z "$PROJECT_NAME" ]]; do
+    echo -e "${YELLOW}Projektname darf nicht leer sein!${NC}"
+    read -p "Geben Sie den Namen Ihres Projekts ein: " PROJECT_NAME
+done
+```
+#### until loops
+```bash
+until [ condition ]; do 
+	[COMMANDS] 
+Done
+
+num=1 until [ $num -gt 10 ]; do 
+	echo $(($num * 3)) num=$(($num+1)) 
+done
+```
+#### break / continue
+Sometimes you may want to exit a loop prematurely or skip a loop iteration. To do this, you can use the break (exit loop) and continue (skip iteration) statements.
+
+#### execute function if an error occurs
+```bash
+set -e
+
+cleanup() {
+    echo -e "${RED}Ein Fehler ist aufgetreten. Räume auf...${NC}"
+    # Check if files/directories exist before attempting to remove them
+    [ -d "src" ] && rm -rf src
+    [ -f ".env" ] && rm -f .env
+    [ -f ".tool-versions" ] && rm -f .tool-versions
+}
+
+trap 'cleanup' ERR
+```
+
+### Test conditions
+
+| Condition              | Equivalent                            |
+| ---------------------- | ------------------------------------- |
+| `$a -lt $b`            | `$a < $b`                             |
+| `$a -gt $b`            | `$a > $b`                             |
+| `$a -le $b`            | `$a <= $b`                            |
+| `$a -ge $b`            | `$a >= $b`                            |
+| `$a -eq $b`            | `$a is equal to $b`                   |
+| `$a -ne $b`            | `$a is not equal to $b`               |
+| `-e $FILE`             | `$FILE exists`                        |
+| `-d $FILE`             | `$FILE exists and is a directory.`    |
+| `-f $FILE`             | `$FILE exists and is a regular file.` |
+| `-L $FILE`             | `$FILE exists and is a soft link.`    |
+| `$STRING1 = $STRING2`  | `$STRING1 is equal to $STRING2`       |
+| `$STRING1 != $STRING2` | `$STRING1 is not equal to $STRING2`   |
+| `-z $STRING1`          | `$STRING1 is empty`                   |
+
+
+#### string is empty
+```bash
+if [[ -z "$string" ]]; then 
+	echo "String is empty" 
+elif [[ -n "$string" ]]; then 
+	echo "String is not empty" 
+else echo "This never happens" 
+fi
+```
+
+#### file exists
+```bash
+if [[ -e "file.txt" ]]; then
+    echo "file exists"
+fi
+```
+
+see also
+```bash
+man test
+```
+
+### Functions
+
+```bash
+get_name() { 
+	echo "John" 
+} 
+
+echo "You are $(get_name)"
+```
+### Logical Conditions
+
+```bash
+dotnet --version || { echo "No Version of dotnet found!"; false }
+```
+
+Hier ist das `false` nötig um Exit code 1 weiterzugeben falls dotnet --version nicht erfolgreich war.
+### Farbcodes
+
+```bash
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+```
+
+### Automation Examples
+
+#### Run a crontab every day at midnight
+```bash
+vasco@Linux-Mint:~$ crontab -e 
+0 0 * * * /home/vasco/bin/backup.sh
+```
+
+#### Backup Script
+```bash
+#!/bin/bash 
+backup_dirs=("/etc" "/home" "/boot") 
+dest_dir="/backup" 
+dest_server="server1" 
+backup_date=$(date +%b-%d-%y) 
+
+echo "Starting backup of: ${backup_dirs[@]}" 
+
+for i in "${backup_dirs[@]}"; do 
+	sudo tar -Pczf /tmp/$i-$backup_date.tar.gz $i 
+	if [ $? -eq 0 ]; then 
+		echo "$i backup succeeded." 
+	else 
+		echo "$i backup failed." 
+	fi 
+	scp /tmp/$i-$backup_date.tar.gz $dest_server:$dest_dir 
+	if [ $? -eq 0 ]; then 
+		echo "$i transfer succeeded." 
+	else 
+		echo "$i transfer failed." 
+	fi 
+done 
+
+sudo rm /tmp/*.gz
+echo "Backup is done."
+```
+
+#### Monitoring Disk Space
+```bash
+#!/bin/bash 
+filesystems=("/" "/apps" "/database") 
+
+for i in ${filesystems[@]}; do 
+	usage=$(df -h $i | tail -n 1 | awk '{print $5}' | cut -d % -f1) 
+	if [ $usage -ge 90 ]; then 
+		alert="Running out of space on $i, Usage is: $usage%" 
+		echo "Sending out a disk space alert email." 
+		echo $alert | mail -s "$i is $usage% full" your_email 
+	fi 
+done
+```
+
+### Another Bash Reference
 [learnxinyminutes repository](https://github.com/adambard/learnxinyminutes-docs/tree/master)
 
 ```shell
