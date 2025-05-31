@@ -13,7 +13,7 @@ tags:
 ---
 ## DateTime(year, month, day)
 
-```c
+```csharp
 DateTime date1 = new DateTime(2025, 12, 25); Console.WriteLine(date1.ToString()); 
 // Ausgabe: 12/25/2025 12:00:00 AM 
 ```
@@ -21,7 +21,7 @@ DateTime date1 = new DateTime(2025, 12, 25); Console.WriteLine(date1.ToString())
 ---
 ## DateTime(year, month, day, hour, minute, second)
 
-```c
+```csharp
 DateTime date2 = new DateTime(2022, 12, 25, 10, 30, 50); Console.WriteLine(date1.ToString());
 // Ausgabe: 12/25/2022 10:30:00 AM }
 ```
@@ -29,7 +29,7 @@ DateTime date2 = new DateTime(2022, 12, 25, 10, 30, 50); Console.WriteLine(date1
 ---
 ## Creating TimeSpan object
 
-```c
+```csharp
 var duration = new TimeSpan(30, 0, 0, 0); // one month(as 30 days)  
 DateTime newDate1 = DateTime.Now.Add(duration);  
 Console.WriteLine(newDate1);
@@ -38,7 +38,7 @@ Console.WriteLine(newDate1);
 ---
 ## AddYears (Months, Days, Hours, Minutes, Seconds)
 
-```c
+```csharp
 DateTime today = DateTime.Now;
 DateTime newDate2 = today.AddDays(3);
 Console.WriteLine(newDate2);
@@ -47,7 +47,7 @@ Console.WriteLine(newDate2);
 ---
 ## DateTime Parse
 
-```c
+```csharp
 string dateString = "Wed Dec 30, 2015";  
 DateTime dateTime12 = DateTime.Parse(dateString); // 12/30/2015 12:00:00 AM  
 ```
@@ -55,7 +55,7 @@ DateTime dateTime12 = DateTime.Parse(dateString); // 12/30/2015 12:00:00 AM
 ---
 ## Date Difference
 
-```c 
+```csharp 
 var date1 = new DateTime(2025, 3, 10, 2, 15, 10);  
 var date2 = new DateTime(2025, 7, 15, 6, 30, 20);  
 var date3 = new DateTime(2025, 12, 28, 10, 45, 30);
@@ -69,7 +69,7 @@ DateTime date5 = date2 - diff1;
 ---
 ## DateTime Properties
 
-```c
+```csharp
 DateTime myDate = new DateTime(2025, 12, 25, 10, 30, 45);  
 int year = myDate.Year;              // 2015  
 int month = myDate.Month;            // 12  
@@ -83,7 +83,7 @@ int second = myDate.Second;          // 45
 ## DayOfWeek
 It specifies day of the week like Sunday, Monday etc. It is an enum which starts from Sunday to Saturday. If you cast the weekofday value to integer then it starts from Zero (0) for Sunday to Six (6) for Saturday.
 
-```c
+```csharp
 DateTime myDate = new DateTime(2025, 12, 25, 10, 30, 45);
 int weekDay = (int)myDate.DayOfWeek; // 4 (numeric value of weekday)
 string weekDay2 = myDate.DayOfWeek.ToString(); // name of day (Thursday)
@@ -96,7 +96,7 @@ bool isEqual = dt.DayOfWeek == DayOfWeek.Friday); // True
 ---
 ## DateTime Formatting
 
-```c
+```csharp
 DateTime tempDate = new DateTime(2025, 2, 24);
 Console.WriteLine(tempDate.ToString("MMMM dd, yyyy"));
 ```
@@ -137,7 +137,7 @@ Console.WriteLine(tempDate.ToString("MMMM dd, yyyy"));
 ---
 ## Get current Time Zone
 
-```c
+```csharp
 string current = TimeZone.CurrentTimeZone.StandardName;  
 Console.WriteLine(current);  
 ```
@@ -145,7 +145,7 @@ Console.WriteLine(current);
 ---
 ## Get All Time Zones
 
-```c
+```csharp
 foreach (TimeZoneInfo z in TimeZoneInfo.GetSystemTimeZones())  
 {  
     Console.WriteLine(z.Id);  
@@ -155,7 +155,7 @@ foreach (TimeZoneInfo z in TimeZoneInfo.GetSystemTimeZones())
 ---
 ## Convert Date to UTC
 
-```c
+```csharp
 //Convert any date from your time-zone to UTC
 DateTime timeUTC = TimeZone.CurrentTimeZone.ToUniversalTime(DateTime.Now);  
 Console.WriteLine(timeUTC);
@@ -164,7 +164,7 @@ Console.WriteLine(timeUTC);
 ---
 ## Get Time in specific Time Zone
 
-```c
+```csharp
 TimeZoneInfo nzTimeZone = TimeZoneInfo.FindSystemTimeZoneById("New Zealand Standard Time");  
 DateTime nzTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, nzTimeZone);
 
@@ -174,14 +174,14 @@ Console.WriteLine($"Aktuelle Zeit in Neuseeland: {nzTime}");
 ---
 ## Get Current Culture Name
 
-```c
+```csharp
 string currentCulture = Thread.CurrentThread.CurrentCulture.DisplayName;
 ```
 
 ---
 ## Get DateTime based on Culture
 
-```c
+```csharp
 using System.Globalization;
 DateTime currentTime = DateTime.Now;
 
@@ -193,7 +193,7 @@ string dateInJapan = currentTime.ToString("D", new CultureInfo("ja-JP"));
 ---
 ## Convert Current DateTime to Different Culture
 
-```c
+```csharp
 DateTime originalResult = new DateTime(2025, 01, 09);
 string frenchTDate = originalResult.ToString("D", new CultureInfo("fr-FR"));
 ```

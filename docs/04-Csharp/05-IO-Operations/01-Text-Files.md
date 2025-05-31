@@ -12,7 +12,7 @@ tags:
 ---
 
 ### Create Temp File
-```c
+```csharp
 static string CreateTempFile()  
 {  
     string newtempfile = System.IO.Path.GetTempFileName();
@@ -22,7 +22,7 @@ static string CreateTempFile()
 ---
 ### ReadAllText()
 
-```c
+```csharp
 string filePath = "beispiel.txt";
 try
 {
@@ -38,7 +38,7 @@ catch (Exception ex)
 ---
 ### Using + Streamreader
 
-```c
+```csharp
 // besser geeignet als File.ReadAllText() bei großen dateien
 using (var streamReader = new StreamReader(@"C:\file.txt"))
 {
@@ -49,7 +49,7 @@ using (var streamReader = new StreamReader(@"C:\file.txt"))
 ---
 ### Write to new File
 
-```c
+```csharp
 static void Main()
 {
 	string filePath = "neue_datei.txt";

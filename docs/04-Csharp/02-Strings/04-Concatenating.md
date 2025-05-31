@@ -10,7 +10,7 @@ draft: false
 To concatenate string variables, you can use the **+** or **+=** operators, **string interpolation** or **the String.Format, String.Concat, String.Join** or **StringBuilder.Append** methods.
 
 
-```c
+```csharp
 string fullName = firstName + " " + lastName; 
 // + operator
 string fullName = string.Format("{0} {1}", firstName, lastName); 
@@ -22,7 +22,7 @@ string fullName = $"My name is {firstName} and my last name is {lastName}.";
 
 ## String Concat
 
-```c
+```csharp
 string[] words = { "The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog." };
 string unreadablePhrase = string.Concat(words);
 Console.WriteLine(unreadablePhrase); 
@@ -32,7 +32,7 @@ Console.WriteLine(unreadablePhrase);
 
 ## String Join
 
-```c
+```csharp
 string[] words = { "The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog." };
 string readablePhrase = string.Join(" ", words);
 Console.WriteLine(readablePhrase); 
@@ -41,7 +41,7 @@ Console.WriteLine(readablePhrase);
 
 ## Combine Strings in a Loop
 
-```c
+```csharp
 var sb = new System.Text.StringBuilder();
 for (int i = 0; i < 20; i++)
 {

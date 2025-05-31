@@ -40,7 +40,7 @@ _Hinweis:_ Die Ausgabe kann je nach Kultur- bzw. Ländereinstellungen variieren 
 
 ---
 
-```c
+```csharp
 DateTime date = new DateTime(2025, 2, 24, 15, 09, 26);
 Console.WriteLine($"{date:d}");
 // 24.02.2025

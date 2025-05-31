@@ -9,7 +9,7 @@ tags:
 ---
 ### with throw
 
-```c
+```csharp
 string currentColor = farbe;
 Console.WriteLine(
 (currentColor == "Rot") ? "Anhalten" :
@@ -22,7 +22,7 @@ throw new InvalidOperationException("Ungültige Farbe")));
 ---
 ### with ReadLine
 
-```c
+```csharp
 static void PwAbfrage()
 {
   Console.Write("Eingabe PW: ");
@@ -37,7 +37,7 @@ static void PwAbfrage()
 
 ### with formatted String
 
-```c
+```csharp
 int num = 5;
 Console.WriteLine("Die Zahl ist {0} als 10", (num < 10) ? "kleiner" : "größer");
 ```

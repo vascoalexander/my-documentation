@@ -10,7 +10,7 @@ tags:
 ---
 ## Console Abfrage
 
-```c
+```csharp
 static void PwAbfrage()
 {
 	Console.Write("Eingabe PW: ");
@@ -24,7 +24,7 @@ static void PwAbfrage()
 
 ## Console Menu
 
-```c
+```csharp
 static void Menu()  
 {  
     Console.WriteLine("Option wählen:");  
@@ -38,7 +38,7 @@ static void Menu()
 ---
 ## Menu Choice
 
-```c
+```csharp
 static int MenuChoice()  
 {  
     var choice = 0;  
@@ -55,7 +55,7 @@ static int MenuChoice()
 
 ## TryParse (Loop)
 
-```c
+```csharp
 Console.Write("Enter a number: ");
 string input = Console.ReadLine()!;  
 bool isNumber = int.TryParse(input, out int result);
@@ -66,7 +66,7 @@ else
 	Console.WriteLine("Thats not a number, IDIOT!");
 ```
 
-```c
+```csharp
 string input = "";  
 do  
 {  
@@ -80,7 +80,7 @@ Console.WriteLine("The number is: " + input);
 ---
 ## WaitForKeyPress
 
-```c
+```csharp
 private static void WaitForKeyPress()  
 {  
     Console.WriteLine("Any key to continue...");  
@@ -91,7 +91,7 @@ private static void WaitForKeyPress()
 
 ## String with Default Fallback
 
-```c
+```csharp
 // person class mit feld FirstName vorausgesetzt
 string firstName = person?.FirstName ?? "Unknown";
 Console.WriteLine(firstName);
@@ -100,7 +100,7 @@ Console.WriteLine(firstName);
 ---
 ## string.isNullOrEmpty
 
-```c
+```csharp
 string input = Console.ReadLine()!;
 char guess = !string.IsNullOrEmpty(input) ? input[0] : '_';
 // outputs first char of input or _ if input is null

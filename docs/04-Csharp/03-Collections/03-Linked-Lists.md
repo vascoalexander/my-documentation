@@ -21,7 +21,7 @@ entfernt werden können.
 
 ## Add Items
 
-```c
+```csharp
 var linkedList = new LinkedList<string>();
 
 linkedList.AddFirst("Clara");     // Element am Anfang hinzufügen
@@ -30,7 +30,7 @@ linkedList.AddLast("Anna");       // Element am Ende hinzufügen
 
 ## Knoten mit bestimmten Wert suchen
 
-```c
+```csharp
 LinkedListNode<string> nodeBernd = linkedList.Find("Bernd");
 if (nodeBernd != null)
 {
@@ -44,7 +44,7 @@ if (nodeBernd != null)
 
 ## Elemente entfernen
 
-```c
+```csharp
 // Entfernen eines Elements per Wert
 linkedList.Remove("Clara");
 
@@ -55,13 +55,13 @@ linkedList.RemoveLast();
 
 ## Anzahl der Elemente
 
-```c
+```csharp
 Console.WriteLine($"\nAnzahl der Elemente: {linkedList.Count}");
 ```
 
 ## Iteration mittels Knotenreferenz
 
-```c
+```csharp
 Console.WriteLine("\nIteration mit LinkedListNode<T>:");
 for (LinkedListNode<string> node = linkedList.First; node != null; node = node.Next)
 {

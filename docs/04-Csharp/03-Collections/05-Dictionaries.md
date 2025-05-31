@@ -19,7 +19,7 @@ The C# generic collection `Dictionary<K, V>` class requires all key/value pairs 
 
 ### Dictionary Initialization
 
-```c
+```csharp
 var capitals = new Dictionary<string, string>
 {
     ["USA"] = "Washington, D.C.",
@@ -31,7 +31,7 @@ var capitals = new Dictionary<string, string>
 ### Dictionary aus Tuplen
 bei einem named tuple wird Item1 oder Item2 entsprechend durch die Name ersetzt
 
-```c
+```csharp
 Dictionary<string, (string, string)> meinDict = new()
 {
 	{"key1", ("wert1", "wert2")},
@@ -41,7 +41,7 @@ string elementOfDict = meinDict["key1"].Item1;
 Console.WriteLine(elementOfDict);
 ```
 ---
-```c
+```csharp
 using System;
 using System.Collections.Generic;
 

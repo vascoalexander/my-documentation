@@ -8,7 +8,7 @@ draft: false
 ## Named Parameters
 Namentliche Parameter Zuweisung beim Function-Call. Die Reihenfolge der Parameter spielt in dem Fall keine Rolle mehr.
 
-```c
+```csharp
 static void Main()
 {
 	string nameInput = "MyName";
@@ -26,7 +26,7 @@ static void PrintDetails(string name, int age, string address)
 
 ## Out Parameters
 
-```c
+```csharp
 static void Main()
 {
 	var shoppingList = new List<string> {"Coffee", "Milk"};
@@ -53,7 +53,7 @@ static bool FindInList(string s, List<string> list, out int index)
 ---
 ## Ref Parameters
 Assigns a Parameter by its Reference (reference to the location in memory)
-```c
+```csharp
 string name = "John";
 Console.Write("Enter your new name: ");
 string newName = Console.ReadLine();
@@ -79,7 +79,7 @@ static bool ChangeName(ref string name, string newName)
 Generics are not specific to a particular data type. Add `<T>` to: classes, methods, fields, etc.
 Allows for code reusability for different data types.
 
-```c
+```csharp
 int[] intArray = { 1, 2, 3 };
 double[] doubleArray = { 1.0, 2.0, 3.0 };
 string[] stringArray = { "1", "2", "3" };
@@ -101,7 +101,7 @@ public static void DisplayElements<T>(T[] array)
 ## Generischer Rückgabewert
 Bei generischen Methoden definierst du einen Typparameter in der Methodensignatur. So kann der Aufrufer den Typ bestimmen, der zurückgegeben werden soll.
 
-```c
+```csharp
 public T GetValue<T>(object input) 
 { 
 	(T)Convert.ChangeType(input, typeof(T)); 
@@ -116,7 +116,7 @@ string text = GetValue<string>(456); // text hat den Typ string
 ## Dynamischer Rückgabewert
 Mit dem Schlüsselwort `dynamic` wird der Rückgabetyp zur Laufzeit bestimmt, und der Compiler führt keine statische Typprüfung durch. **Flexibel, Weniger Typsicherheit.**
 
-```c
+```csharp
 public dynamic GetDynamicValue(object input)
 {
     // Hier wird input einfach als dynamic zurückgegeben.

@@ -7,18 +7,18 @@ draft: false
 ---
 ### Ganzzahlige Datentypen
 
-```c
+```csharp
 byte myUnsignedByte = 8; // Size: 8 bits | Range: 0 to 255
 sbyte mySignedByte = -8; // Size: 8 bits | Range: -128 to +127
 ```
 
-```c
+```csharp
 ushort myUnsignedShort = 16; // Size: 16 bits | Range: 0 to 65535
 uint myUnsignedInt = 32; // Size: 32 bits | Range: 0 to 2^32-1
 ulong myUnsignedLong = 64; // Size: 64 bits | Range: 0 to 2^64-1
 ```
 
-```c
+```csharp
 short mySignedShort = 16; // Size: 16 bits | Range: -32768 to +32767
 int mySignedInt = 32; // Size: 32 bits | Range: -2^31 to +2^31-1
 long mySignedLong = -64; // Size: 64 bits | Range: -2^63 to +2^63-1
@@ -26,7 +26,7 @@ long mySignedLong = -64; // Size: 64 bits | Range: -2^63 to +2^63-1
 
 ### Gleitkommazahlen
 
-```c title="Floating-Point Types"
+```csharp title="Floating-Point Types"
 float myFloat = 3.14F; // Size: 32 bits | Range: 7 digits of precision
 double myDouble = 3.14D; // Size: 64 bits | Range: 15-16 digits of precision
 decimal myDecimal = 3.14M; // Size: 128 bits | Range: 28-29 digits of precision

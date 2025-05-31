@@ -23,7 +23,7 @@ for example, is zero for all numeric types and null for all reference types.
 
 ## Jagged Array Deklaration
 
-```c
+```csharp
 int[][] anotherJaggedArray = new int[][]
 {  
 	new int[] {1,8,2,7,9},  
@@ -38,7 +38,7 @@ Console.WriteLine(x); // Outputs => 42
 
 ## Looping over Jagged Array
 
-```c
+```csharp
 for (int i = 0; i <= array.Length - 1; i++)
 {
     for (int j = 0; j <= array[i].Length - 1; j++)
@@ -53,7 +53,7 @@ for (int i = 0; i <= array.Length - 1; i++)
 ## LINQ Array Methods
 The Array class implements the IEnumerable interface, so you can LINQ extension methods such as Max(), Min(), Sum(), Average() and many others.
 
-```c
+```csharp
 public static void Main(string[] args)
 {
 	int[] integersArray = new int[5]{80, 20, 35, 18, 9};
@@ -68,7 +68,7 @@ public static void Main(string[] args)
 ---
 ## Sort, Reverse or Search (with ForEach())
 
-```c
+```csharp
 int[] integersArray = {20, 9, 16, 50, 3};
 
 // SORT
@@ -89,7 +89,7 @@ Console.WriteLine(Array.BinarySearch(integersArray, 9));
 - **Index**: Mit `^` kannst Du vom Ende her indexieren (z. B. `^1` für das letzte Element).
 - **Range**: Mit `..` definierst Du einen Bereich. Dabei ist das Ende exklusiv.
 
-```c
+```csharp
 int[] zahlen = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
 // Teilausschnitt von Index 2 bis 4 (5 ist exklusive)
@@ -108,7 +108,7 @@ int[] slice3 = zahlen[^3..]; // Enthält {7, 8, 9}
 ---
 ## Duplikate entfernen
 
-```c
+```csharp
 Console.Write("Wörter eingeben: ");  
 string[] text = Console.ReadLine().Split(" ");
 
@@ -118,7 +118,7 @@ string[] textOhneDuplikate = text.Distinct().ToArray();
 ---
 ## Vorkommen zählen
 
-```c
+```csharp
 static int CountOccurrences(int[,] array, int target)  
 {  
     int count = 0;  
@@ -134,7 +134,7 @@ static int CountOccurrences(int[,] array, int target)
 ---
 ## Print 2D Array to console
 
-```c
+```csharp
 static void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
@@ -149,7 +149,7 @@ static void PrintArray(int[,] array)
 ---
 ## Fill 2D Array with Random Numbers
 
-```c
+```csharp
 static void FillArray(int[,] array, int rows, int cols)
 {
     Random rnd = new Random();
@@ -162,7 +162,7 @@ static void FillArray(int[,] array, int rows, int cols)
 ---
 ## Merge Arrays
 
-```c
+```csharp
 // Array copy: copies a range from a source array to a destination array with
 // optional start and end indices
 static int[] MergeArray(int[] array1, int[] array2)
@@ -175,7 +175,7 @@ static int[] MergeArray(int[] array1, int[] array2)
 }
 ```
 
-```c
+```csharp
 // lange variante ohne Array.Copy
 // Arrays müssen vorsortiert sein
 static int[] MergeArray(int[] array1, int[] array2)
@@ -208,7 +208,7 @@ static int[] MergeArray(int[] array1, int[] array2)
 
 ## Array of Objects
 
-```c
+```csharp
 Car[] garage = new Car[3];
 
 Car car1 = new Car("Volvo");
@@ -226,7 +226,7 @@ Console.WriteLine(garage[1].model);
 
 ## Array of Anonymous Objects
 
-```c
+```csharp
 Car[] garage = { new Car("Volvo"), new Car("Ford"), new Car("Opel") };
 
 foreach (Car car in garage)

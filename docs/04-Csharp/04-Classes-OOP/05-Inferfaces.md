@@ -9,7 +9,7 @@ tags: []
 Defines a "contract" that all the classes inheriting from should follow. An interface declares "what the class should have". An inheriting class defines "how it should do it".
 **Benefit:** security + multiple inheritance + "plug and play"
 
-```c
+```csharp
 inferface IPrey
 {
 	void Flee();

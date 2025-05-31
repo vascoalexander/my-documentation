@@ -10,7 +10,7 @@ draft: false
 ---
 ## String.Format
 
-```c
+```csharp
 // {index der variablen die eingesetzt wird:FORMAT}
 // C - Currency; U - Universal full date/time
 String.Format("{index[,alignment][:formatString]}", object);
@@ -26,7 +26,7 @@ Console.WriteLine(fooFs)
 ---
 ## Interpolated String Formatting
 
-```c
+```csharp
 var DateTime thisDate = DateTime.Now;
 Console.WriteLine("{0:C} {1:U}", 150, thisDate);
 ```
@@ -34,7 +34,7 @@ Console.WriteLine("{0:C} {1:U}", 150, thisDate);
 ---
 ## StringBuilder.AppendFormat()
 
-```c
+```csharp
 using System.Text;
 
 decimal num = 34.53567325m; 
@@ -45,14 +45,14 @@ builder.AppendFormat("Format Decimal: {0:n2}", num);
 ---
 ## String Interpolation
 
-```c
+```csharp
 var DateTime thisDate = DateTime.Now;
 Console.WriteLine($"{150:C} {thisDate:U}");
 ```
 
 ---
 ## Format a Table structure
-```c
+```csharp
 string headers = $"{"First Name", -20}{"Last Name", -20}{"Value", -20}{"Time", -20}";
 string line	= $"{"Luiz", -20}{"Parente", -20}{20, -20:C}{DateTime.Now, -20:d}";
 

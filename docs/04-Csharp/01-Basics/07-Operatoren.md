@@ -10,7 +10,7 @@ sidebar_position: 7
 ---
 
 ## Arithmetic Operators
-```c
+```csharp
 float myFloat = 0;
 
 myFloat = 3 + 2; // Addition       => 5
@@ -28,7 +28,7 @@ myFloat = 3 / (float) 2; // 1.5
 ```
 ---
 ## Combined Assignment Operators
-```c
+```csharp
 float myFloat = 0;
 
 myFloat += 2; // myNumber = myNumber + 2
@@ -39,7 +39,7 @@ myFloat %= 2; // myNumber = myNumber % 2
 ```
 ---
 ## Comparison Operators
-```c
+```csharp
 Console.WriteLine($"3 == 2? {3 == 2}"); // => false
 Console.WriteLine($"3 != 2? {3 != 2}"); // => true
 Console.WriteLine($"3 > 2? {3 > 2}");   // => true
@@ -49,7 +49,7 @@ Console.WriteLine($"2 >= 2? {2 >= 2}"); // => true
 ```
 ---
 ## Logical Operators
-```c
+```csharp
 bool myBool;
 
 myBool = (true && false); // Logical AND => (false)
@@ -60,7 +60,7 @@ Console.WriteLine(myBool);
 ```
 ---
 ## Bitwise Operators
-```c
+```csharp
 int myInteger;
 
 // The bitwise operators can manipulate individual bits inside an integer.
@@ -121,7 +121,7 @@ myInteger >>= 1; // right shift (0b101 >> 1 = 0b10 = 2)
 ---
 
 ## Operator Precedents
-```c
+```csharp
 /*
 
 - parentheses ()

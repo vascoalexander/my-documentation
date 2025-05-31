@@ -18,7 +18,7 @@ Ein struct ist ein Werttyp in C#, der ähnlich wie eine Klasse (class) funktioni
 
 ## 2D Koordinaten
 
-```c
+```csharp
 // Punkt speichert zwei Werte direkt im Stack → schneller als eine Klasse.
 // Strukturen sind perfekt für einfache Datencontainer.
 
@@ -51,7 +51,7 @@ class Program
 ---
 ## Farbe (mit Auto-Properties)
 
-```c
+```csharp
 // Farbe ist ein idealer Kandidat für struct, da es nur Daten speichert.
 // Auto-Properties ({ get; }) machen es unveränderlich (immutable), was in vielen Szenarien nützlich ist.
 

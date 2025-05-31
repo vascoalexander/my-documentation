@@ -211,6 +211,7 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Vasco Alexander Basque - Built with Docusaurus.`,
       },
       prism: {
+        additionalLanguages: ['bash', 'csharp'],
         theme: prismThemes.github,
         darkTheme: prismThemes.palenight,
       },

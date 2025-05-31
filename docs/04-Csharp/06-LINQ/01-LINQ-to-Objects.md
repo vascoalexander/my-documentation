@@ -8,7 +8,7 @@ tags: []
 ---
 ## Enumerable Range
 
-```c
+```csharp
 foreach (var number in Enumerable.Range(1, 10))
 {
 	 Console.WriteLine(number);
@@ -17,7 +17,7 @@ foreach (var number in Enumerable.Range(1, 10))
 ---
 ## Filter Array
 
-```c
+```csharp
 var scores = new int[] { 90, 100, 82, 89, 92 };
 
 var highScores = from score in scores

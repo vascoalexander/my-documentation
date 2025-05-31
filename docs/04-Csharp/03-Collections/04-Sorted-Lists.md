@@ -12,7 +12,7 @@ Duplicate keys are not permitted, which ensures that every key/value pair is uni
 
 ## Elemente hinzufügen
 
-```c
+```csharp
 var sortedList = new SortedList<string, int>();
 
 // Hinzufügen von Schlüssel-Wert-Paaren
@@ -26,7 +26,7 @@ Console.WriteLine($"Anna ist {sortedList["Anna"]} Jahre alt.");
 ---
 ## Iteration mit KeyValuePair
 
-```c
+```csharp
 Console.WriteLine("\nSortedList Einträge:");
 foreach (KeyValuePair<string, int> pair in sortedList)
 {
@@ -36,13 +36,13 @@ foreach (KeyValuePair<string, int> pair in sortedList)
 
 ---
 ## Remove Element
-```c
+```csharp
 sortedList.Remove("Bernd");
 ```
 
 ---
 ## ContainsKey
-```c
+```csharp
 if (sortedList.ContainsKey("Clara"))
 {
 	Console.WriteLine("\nClara ist in der SortedList vorhanden.");
@@ -51,13 +51,13 @@ if (sortedList.ContainsKey("Clara"))
 
 ---
 ## Wert aktualisieren
-```c
+```csharp
 sortedList["Anna"] = 26;
 ```
 
 ---
 ## Keys, Values
-```c
+```csharp
 IList<string> keys = sortedList.Keys;
 IList<int> values = sortedList.Values;
 
@@ -76,13 +76,13 @@ foreach (var value in values)
 
 ---
 ## SortedList Count
-```c
+```csharp
 Console.WriteLine($"\nAnzahl der Elemente: {sortedList.Count}");
 ```
 
 ---
 ## Clear SortedList
-```c
+```csharp
 sortedList.Clear();
 Console.WriteLine($"\nAnzahl der Elemente nach Clear: {sortedList.Count}");
 ```

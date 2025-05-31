@@ -6,7 +6,7 @@ toc_max_heading_level: 4
 ---
 ## if-Statements
 
-```c title="if...else if...else"
+```csharp title="if...else if...else"
 int time = 22;
 
 if (time < 10)
@@ -23,7 +23,7 @@ else
 }
 ```
 
-```c title="Ternary Operators"
+```csharp title="Ternary Operators"
 // A simple if/else can be written as follows
 // <condition> ? <true> : <false>
 int toCompare = 17;
@@ -31,7 +31,7 @@ string isTrue = toCompare == 17 ? "True" : "False";
 ```
 ## switch case
 
-```c
+```csharp
 // A switch works with the byte, short, char, and int data types.
 // It also works with enumerated types (discussed in Enum Types),
 // the String class, and a few special classes that wrap
@@ -65,7 +65,7 @@ switch (month)
 
 ## while, do...while
 
-```c title="While loop"
+```csharp title="While loop"
 int fooWhile = 0;
 
 while (fooWhile < 100)
@@ -75,7 +75,7 @@ while (fooWhile < 100)
 }
 ```
 
-```c title="Do...While loop"
+```csharp title="Do...While loop"
 // Do While Loop
 int fooDoWhile = 0;
 
@@ -98,14 +98,14 @@ do
 ```
 ## for-loop
 
-```c title="For loop"
+```csharp title="For loop"
 for (int i = 0; i < 10; i++)
 {
    Console.WriteLine($"value of i: {i}");
 }
 ```
 
-```c title="Nested loops"
+```csharp title="Nested loops"
 for (int i = 0; i < 10; i++)
 {
    for (int j = 0; j < 10; j++) 
@@ -116,7 +116,7 @@ for (int i = 0; i < 10; i++)
 ```
 ## foreach-loop
 
-```c title="Foreach, in"
+```csharp title="Foreach, in"
 ArrayList numbers = new ArrayList();
 numbers.Add(1);
 numbers.Add(2);
@@ -131,7 +131,7 @@ foreach (int number in numbers)
 ```
 ## return Statement
 
-```c
+```csharp
 static int Add(int a, int b)
 {
     return a + b;
@@ -150,7 +150,7 @@ Das yield-Schlüsselwort in C# wird in Iteratoren verwendet und ermöglicht die 
 1. **yield return** – Gibt einen einzelnen Wert zurück und pausiert die Methode, bis der nächste Wert angefordert wird.
 2. **yield break**  – Beendet die Iteration vorzeitig.
 
-```c 
+```csharp 
 static IEnumerable<int> Range(int from, int to)
 {
     for (int i = from; i < to; i++)
@@ -173,7 +173,7 @@ yield ist besonders nützlich für große Datenmengen, Streaming-Verarbeitung un
 
 ## checked / unchecked
 
-```c
+```csharp
 static void Main(string[] args)
 {
     int i = int.MaxValue;
@@ -200,7 +200,7 @@ wann ein Thread den Zugriff auf einen kritischen Abschnitt des Codes erlangen ka
 Solange das lock-Objekt von einem Thread verwendet wird, kann kein andere Thread der dasselbe lock-Objekt nutzt fortfahren, sondern
 muss warten bis das Objekt wieder freigegben wurde.
 
-```c title="Beispiel"
+```csharp title="Beispiel"
 class Counter
 {
     private int _count = 0;
@@ -226,7 +226,7 @@ und sie nach Gebrauch **automatisch freizugeben**, sobald sie nicht mehr benöti
 
 `using` stellt sicher, dass Ressourcen nach ihrer Verwendung automatisch freigegeben werden, ohne dass man explizit eine Dispose()-Methode aufrufen musst.
 
-```c
+```csharp
 using (StreamReader reader = new StreamReader("datei.txt"))
 {
     string line = reader.ReadLine();
@@ -240,7 +240,7 @@ um den Code leserlicher zu machen und die Notwendigkeit zu vermeiden, lange Name
 
 ## Exception Handling
 
-```c
+```csharp
 static double Divide(double x, double y)
 {
     if (y == 0)

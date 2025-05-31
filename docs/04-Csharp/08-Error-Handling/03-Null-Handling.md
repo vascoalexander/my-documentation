@@ -7,7 +7,7 @@ draft: false
 ---
 ## Einfacher Eigenschaften Zugriff mit Null-Konditionaloperator
 
-```c
+```csharp
 Person person = null; 
 string name = person?.Name; 
 Console.WriteLine(name); 
@@ -18,7 +18,7 @@ Console.WriteLine(name);
 ## Verschachtelter Zugriff mit Null-Konditionaloperator
 Da `Wohnort` null ist, führt `person?.Wohnort?.Stadt` nicht zu einer Exception, sondern gibt null zurück.
 
-```c
+```csharp
 class Adresse {
     public string Stadt { get; set; }
 }
@@ -37,7 +37,7 @@ Console.WriteLine(stadt); // Ausgabe: nichts (stadt ist null)
 - Prüft ob `obj` nicht null ist.
 - Castet `obj` gleichzeitig in die Variable `participant` – praktisch, wenn man anschließend mit dem Objekt arbeiten will.
 
-```c
+```csharp
 if (obj is { } thing)
 {
 	// do something with thing
@@ -48,7 +48,7 @@ if (obj is { } thing)
 ## Methodenzugriff mit Null-Prüfung
 Hier verhindert der ?. Operator, dass versucht wird, die Methode `Addiere` aufzurufen, wenn `rechner` null ist.
 
-```c
+```csharp
 class Rechner {
     public int? Addiere(int a, int b) => a + b;
 }
@@ -62,7 +62,7 @@ Console.WriteLine(ergebnis); // Ausgabe: nichts (ergebnis ist null)
 ## Sicherer Zugriff auf Array
 Der Zugriff auf das erste Element wird nur durchgeführt, wenn namen nicht null ist. Da namen null ist, wird der gesamte Ausdruck zu null.
 
-```c
+```csharp
 string[] namen = null;
 int? laenge = namen?[0]?.Length;
 Console.WriteLine(laenge); 
@@ -74,7 +74,7 @@ Console.WriteLine(laenge);
 ## Obj-Zugriff mit Default Fallback
 Zuerst wird mit dem Null-Konditionaloperator geprüft, ob `person` (und damit `person.Name`) null ist. Falls ja, liefert der Ausdruck null und der ??-Operator (Null-Koaleszensoperator) liefert den Fallback-Wert "Unbekannt".
 
-```c
+```csharp
 Person person = null; 
 string name = person?.Name ?? "Unbekannt"; 
 Console.WriteLine(name);
@@ -83,6 +83,6 @@ Console.WriteLine(name);
 ---
 ## Array mit Null zu Liste ohne Null (LinQ)
 
-```c
+```csharp
 var listeOhneNull = arrayMitNull.Where(a => a != null).ToList();
 ```

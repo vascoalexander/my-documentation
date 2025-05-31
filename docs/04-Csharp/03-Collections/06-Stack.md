@@ -16,7 +16,7 @@ The C# generic collection `Stack<T>` class requires all elements to be of the sa
 
 ## Add (push) to Stack
 
-```c
+```csharp
 var stack = new Stack<int>();
 
 // Hinzufügen von Elementen (Push)
@@ -28,14 +28,14 @@ stack.Push(30);
 ---
 ## Anzahl Elemente im Stack
 
-```c
+```csharp
 Console.WriteLine($"Anzahl der Elemente: {stack.Count}");
 ```
 
 ---
 ## Zugriff auf Elemente (peek, pop)
 
-```c
+```csharp
 // Zugriff auf das oberste Element ohne es zu entfernen (Peek)
 Console.WriteLine($"Oberstes Element (Peek): {stack.Peek()}");
 
@@ -46,7 +46,7 @@ Console.WriteLine($"Entferntes Element (Pop): {stack.Pop()}");
 ---
 ### TryPeek und TryPop
 
-```c
+```csharp
 if (stack.TryPeek(out int topElement))
 {
 	Console.WriteLine($"\nOberstes Element (TryPeek): {topElement}");
@@ -61,7 +61,7 @@ if (stack.TryPop(out int poppedElement))
 ---
 ## Stack leeren
 
-```c
+```csharp
 stack.Clear();
 Console.WriteLine($"\nAnzahl der Elemente nach Clear: {stack.Count}");
 ```

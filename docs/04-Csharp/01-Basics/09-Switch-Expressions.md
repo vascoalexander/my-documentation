@@ -12,7 +12,7 @@ tags:
 ---
 ### Switch Expression  
 
-```c
+```csharp
 string currentColor = Console.ReadLine();
 string action = currentColor switch
 
@@ -31,7 +31,7 @@ Console.WriteLine(action);
 
 Eigenschaften von Objekten direkt im `case`-Ausdruck überprüfen  
 
-```c
+```csharp
 public class Punkt
 {
   public int X { get; set; }
@@ -56,7 +56,7 @@ Console.WriteLine(beschreibung); // Ausgabe: Punkt (1, 2)
 
 mehrere Werte gleichzeitig in einem Tupel überprüfen
 
-```c
+```csharp
 (int x, int y) = (1, 2);
 string position = (x, y) switch
 {
@@ -75,7 +75,7 @@ Console.WriteLine(position); // Ausgabe: Andere
 
 zusätzliche Bedingungen mit `when` hinzufügen
 
-```c
+```csharp
 Console.Write("Enter a number: ");
 int number = Convert.ToInt32(Console.ReadLine());
 

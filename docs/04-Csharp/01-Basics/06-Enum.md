@@ -12,7 +12,7 @@ tags:
 Enums in C# sind eine Gruppe zusammengehöriger Konstanten.
 
 ## Enum.GetName()
-```c
+```csharp
 public enum Color {
     RED = 1,
     GREEN = 2,
@@ -25,7 +25,7 @@ Console.WriteLine(name); // Ausgabe: GREEN
 ---
 ## Cast zu numerischen Typen
 In C# sind Enums im Grunde genommen benannte numerische Konstanten.
-```c
+```csharp
 enum Wochentage { Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag }
 
 Wochentage heute = Wochentage.Dienstag;
@@ -33,20 +33,20 @@ int tagesnummer = (int)heute; // tagesnummer ist 1
 ```
 ---
 ## Numerische Typen zu Enums
-```c
+```csharp
 Wochentage tag = (Wochentage)2; // tag ist Wochentage.Mittwoch
 ```
 ---
 ## Enum.Parse
 C# bietet die `Enum.Parse()`- und `Enum.TryParse()`-Methoden, um Strings in Enum-Werte zu konvertieren.
 
-```c
+```csharp
 Wochentage tag = (Wochentage)Enum.Parse(typeof(Wochentage), "Freitag");
 ```
 ---
 ## Iterieren über ein enum
 Die `Enum.GetValues()`-Methode gibt ein Array mit den Werten der konstanten Elemente eines angegebenen Enumerationstyps zurück.
-```c
+```csharp
 enum Wochentage { Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag }
 
 Array wochentage = Enum.GetValues(typeof(Wochentage));
@@ -57,7 +57,7 @@ foreach (Wochentage tag in wochentage)
 ```
 ---
 ## Enum mit Extensionklasse
-```c
+```csharp
 public enum Color
 {
     Red,
@@ -91,7 +91,7 @@ Console.WriteLine(description); // Ausgabe: This is green
 ---
 ## Enum mit switch case
 
-```c
+```csharp
 enum MenuOptionen  
 {  
 	NeueDatei,  
@@ -138,7 +138,7 @@ static MenuOptionen GetMenuChoice()
 }
 ```
 ---
-```c
+```csharp
 public enum VerbindungsStatus
 {
 	Getrennt,
@@ -169,7 +169,7 @@ public void VerbindungsStatusVerarbeiten(VerbindungsStatus status)
 }
 ```
 ---
-```c
+```csharp
 public enum BenutzerRolle
 {
 	Administrator,
@@ -198,7 +198,7 @@ public bool HatZugriff(BenutzerRolle rolle, string ressource)
 
 ## Enums und Flags
 
-```c
+```csharp
 namespace Enums;
 
 [Flags] 

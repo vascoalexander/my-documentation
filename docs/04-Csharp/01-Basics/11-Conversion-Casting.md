@@ -9,7 +9,7 @@ tags: []
 
 ## Type Conversion
 
-```c
+```csharp
 Convert.ToBoolean(x);    // Converts a type to a Boolean value
 Convert.ToByte(x);       // Converts a type to a byte
 Convert.ToChar(x);       // Converts a type to a single Unicode character
@@ -35,7 +35,7 @@ Eine Umwandlung, die automatisch erfolgt, weil sie sicher ist (d. h. es geht k
 > **converting a smaller type to a larger type size**  
 > char -> int -> long -> float -> double
 
-```c
+```csharp
 int zahl = 42;
 double d = zahl;  
 // int -> double: implizite Umwandlung (widening conversion)
@@ -48,7 +48,7 @@ Dies ist oft erforderlich, wenn Daten verloren gehen können oder die Konvertier
 > **converting a larger type to a smaller size type:**  
 > double -> float -> long -> int -> char
 
-```c
+```csharp
 double pi = 3.14159;
 int ganzZahl = (int)pi;  
 // double -> int: explizite Umwandlung, Nachkommabereich geht verloren
@@ -59,7 +59,7 @@ int ganzZahl = (int)pi;
 ### `is` Operator
 Prüft, ob ein Objekt zu einem bestimmten Typ kompatibel ist.
 
-```c
+```csharp
 if (obj is string)
 {
     Console.WriteLine("obj ist ein String.");
@@ -69,7 +69,7 @@ if (obj is string)
 ### `as` Operator
 Versucht, ein Objekt in einen bestimmten Typ zu konvertieren, und gibt dabei null zurück, falls die Konvertierung nicht möglich ist.
 
-```c
+```csharp
 SomeType x = y as SomeType;
 if (x != null)
 {

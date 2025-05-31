@@ -8,7 +8,7 @@ tags: []
 ---
 Ein Delegate ist ein typisierter Verweis auf eine oder mehrere Methoden. Er ermöglicht es, Methoden als Objekte zu behandeln.
 
-```c
+```csharp
 // Delegate-Definition:
 public delegate int Operation(int a, int b);
 

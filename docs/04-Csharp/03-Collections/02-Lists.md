@@ -14,7 +14,7 @@ collection `List<T>` class requires all elements be of the same type T.
 
 ## Add Items
 
-```c
+```csharp
 var namen = new List<string>();
 // Hinzufügen von Elementen
 namen.Add("Anna");
@@ -26,7 +26,7 @@ namen.Insert(1, "Dieter");
 ---
 ## List Contains
 
-```c
+```csharp
 bool enthältClara = namen.Contains("Clara");
 Console.WriteLine($"Enthält Clara? {enthältClara}");
 ```
@@ -34,7 +34,7 @@ Console.WriteLine($"Enthält Clara? {enthältClara}");
 ---
 ## List Remove, RemoveAt
 
-```c
+```csharp
 // per Wert
 namen.Remove("Bernd");
 // per Index
@@ -44,7 +44,7 @@ namen.RemoveAt(0);
 ---
 ## Liste Sortieren
 
-```c
+```csharp
 namen.Sort();
 Console.WriteLine("Sortierte Liste:");
 namen.ForEach(Console.WriteLine);
@@ -53,7 +53,7 @@ namen.ForEach(Console.WriteLine);
 ---
 ## List Reverse
 
-```c
+```csharp
 namen.Reverse();
 Console.WriteLine("Umgekehrte Liste:");
 namen.ForEach(Console.WriteLine);
@@ -62,7 +62,7 @@ namen.ForEach(Console.WriteLine);
 ---
 ## Ein Element suchen (erster Treffer)
 
-```c
+```csharp
 string nameMitC = namen.Find(name => name.StartsWith("C"));
 Console.WriteLine($"Erster Name, der mit 'C' beginnt: {nameMitC}");
 ```
@@ -70,7 +70,7 @@ Console.WriteLine($"Erster Name, der mit 'C' beginnt: {nameMitC}");
 ---
 ## Suchen Aller Elemente die ...
 
-```c
+```csharp
 List<string> langeNamen = namen.FindAll(name => name.Length > 4);
 Console.WriteLine("Namen mit mehr als 4 Zeichen:");
 langeNamen.ForEach(Console.WriteLine);
@@ -79,7 +79,7 @@ langeNamen.ForEach(Console.WriteLine);
 ---
 ## List to Array
 
-```c
+```csharp
 string[] namenArray = namen.ToArray();
 Console.WriteLine("Array-Ausgabe:");
 foreach (var n in namenArray)
@@ -91,7 +91,7 @@ foreach (var n in namenArray)
 ---
 ## Liste leeren
 
-```c
+```csharp
 namen.Clear();
 Console.WriteLine($"Anzahl der Elemente nach Clear: {namen.Count}");
 ```
@@ -99,7 +99,7 @@ Console.WriteLine($"Anzahl der Elemente nach Clear: {namen.Count}");
 ---
 ## List of Objects
 
-```c
+```csharp
 var players = new List<Player>();
 
 var player1 = new Player("Chad");
@@ -119,7 +119,7 @@ foreach (Player player in players)
 ---
 ## List of Anonymous Objects
 
-```c
+```csharp
 var players = new List<Player>();
 
 players.Add(new Player("Chad"));

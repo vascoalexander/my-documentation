@@ -15,7 +15,7 @@ The C# generic collection `Queue<T>` class requires that all elements be of the 
 
 ## Elemente hinzufügen
 
-```c
+```csharp
 Queue<int> queue = new Queue<int>();
 
 // Hinzufügen von Elementen (Enqueue)
@@ -27,14 +27,14 @@ queue.Enqueue(30);
 ---
 ## Anzahl von Elementen
 
-```c
+```csharp
 Console.WriteLine($"Anzahl der Elemente: {queue.Count}");
 ```
 
 ---
 ## Zugriff mit Peek
 
-```c
+```csharp
 // Zugriff auf das vorderste Element ohne es zu entfernen (Peek)
 Console.WriteLine($"Vorderstes Element (Peek): {queue.Peek()}");
 ```
@@ -42,7 +42,7 @@ Console.WriteLine($"Vorderstes Element (Peek): {queue.Peek()}");
 ---
 ## Element entfernen mit Dequeue
 
-```c
+```csharp
 // Entfernen des vordersten Elements (Dequeue)
 Console.WriteLine($"Entferntes Element (Dequeue): {queue.Dequeue()}");
 ```
@@ -50,7 +50,7 @@ Console.WriteLine($"Entferntes Element (Dequeue): {queue.Dequeue()}");
 ---
 ## TryPeek und TryDequeue
 
-```c
+```csharp
 if (queue.TryPeek(out int frontElement))
 {
 	Console.WriteLine($"\nVorderstes Element (TryPeek): {frontElement}");
@@ -65,7 +65,7 @@ if (queue.TryDequeue(out int dequeuedElement))
 ---
 ## Queue leeren
 
-```c
+```csharp
 queue.Clear();
 Console.WriteLine($"\nAnzahl der Elemente nach Clear: {queue.Count}");
 ```

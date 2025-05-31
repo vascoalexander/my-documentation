@@ -10,7 +10,7 @@ Available in C# 7.0 and later, the tuples feature provides concise syntax to gro
 
 ### Deklaration und Initialisierung
 
-```c
+```csharp
 (double, int) t1 = (4.5, 3);
 Console.WriteLine($"Tuple with elements {t1.Item1} and {t1.Item2}.");
 
@@ -21,7 +21,7 @@ Console.WriteLine($"First Number: {t2.num1}\nSecond Number: {t2.num2}");
 ---
 ### List with named Tuples
 
-```c
+```csharp
 var list = new List<(int num, string name)>();
 list.Add((1, "str1"));
 list.Add((3, "str2"));

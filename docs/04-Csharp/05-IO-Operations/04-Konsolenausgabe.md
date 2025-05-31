@@ -7,7 +7,7 @@ draft: false
 ---
 ## Farbiger Text
 
-```c
+```csharp
 public static void PrintColor(string text, ConsoleColor color, bool newline = true)  
 {  
     Console.ForegroundColor = color;  
@@ -29,7 +29,7 @@ public static string FormatColor(string text, ConsoleColor color)
 
 ## Bold / Italic Text
 
-```c
+```csharp
 public static string FormatItalic(string text)  
 {  
     return "\u001b[3m" + text + "\u001b[0m";  

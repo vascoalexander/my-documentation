@@ -14,7 +14,7 @@ draft: false
 
 ## Defining and Initialising strings
 
-```c
+```csharp
 string string1;
 string string2 = null;
 string string3 = String.Empty;
@@ -31,7 +31,7 @@ string string9 = new string(charArray);
 ## Char from String
 You can access each character of the string with an indexer
 
-```c
+```csharp
 char charFromString = fooString[1]; // => 'e'
 // Strings are immutable: you can't do fooString[1] = 'X';
 ```
@@ -39,7 +39,7 @@ char charFromString = fooString[1]; // => 'e'
 ---
 ## String to Char-Array
 
-```c
+```csharp
 string text = "Hallo";
 char[] charArray = text.ToCharArray();
 
@@ -53,7 +53,7 @@ foreach (char c in charArray)
 ---
 ## String to Char-Array mit LINQ
 
-```c
+```csharp
 string text = "Hallo";
 char[] charArray = text.Select(c => c).ToArray();  // Alternativ mit LINQ
 
@@ -63,7 +63,7 @@ Console.WriteLine(new string(charArray)); // Ausgabe: Hallo
 ---
 ## StringBuilder AppendLine
 
-```c
+```csharp
 StringBuilder sb = new StringBuilder();
 sb.Append("Hello ");
 sb.AppendLine("World!");
@@ -75,7 +75,7 @@ Console.WriteLine(sb);
 ## Verbatim String
 You can use the @ symbol before a string literal to escape all characters in the string
 
-```c
+```csharp
 string path = "C:\\Users\\User\\Desktop";
 string verbatimPath = @"C:\Users\User\Desktop";
 Console.WriteLine(path == verbatimPath);  // => true
@@ -88,7 +88,7 @@ on a new line! ""Wow!"", the masses cried";
 ---
 ## String IndexOf
 
-```c
+```csharp
 string myText = "some text";
 Console.WriteLine(myText.IndexOf('t')); // Outputs => 5
 ```
@@ -96,7 +96,7 @@ Console.WriteLine(myText.IndexOf('t')); // Outputs => 5
 ---
 ## String Insert
 
-```c
+```csharp
 string myText = "some text";
 myText = myText.Insert(0, "This is ");
 Console.WriteLine(myText);
@@ -106,7 +106,7 @@ Console.WriteLine(myText);
 ---
 ## String Replace
 
-```c
+```csharp
 string myText = "This is some text"
 myText = myText.Replace("This is", "Here is");
 Console.WriteLine(myText);
@@ -115,7 +115,7 @@ Console.WriteLine(myText);
 
 ---
 ## String Contains
-```c
+```csharp
 string myText = "This is some text"
 if(myText.Contains("some"))
 	Console.WriteLine("found");
@@ -124,7 +124,7 @@ if(myText.Contains("some"))
 
 ---
 ## String Remove
-```c
+```csharp
 string myText = "This is some text"
 myText = myText.Remove(4);
 Console.WriteLine(myText);
@@ -134,7 +134,7 @@ Console.WriteLine(myText);
 ---
 ## String Substring
 
-```c
+```csharp
 string myText = "This is some text"
 myText = myText.Substring(2, 3);
 Console.WriteLine(myText);
@@ -147,7 +147,7 @@ Console.WriteLine(myText);
 - **Index**: Mit `^` kannst Du vom Ende her indexieren (z. B. `^1` für das letzte Element).
 - **Range**: Mit `..` definierst Du einen Bereich. Dabei ist das Ende exklusiv.
 
-```c
+```csharp
 string text = "Hallo Welt";
 
 // Teilausschnitt ab Index 6 bis zum Ende

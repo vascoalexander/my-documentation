@@ -8,7 +8,7 @@ draft: false
 We can use multiple Threads to perform, different Tasks of our Program at the same time.
 Current thread running is the "main" thread.
 
-```c
+```csharp
 using System.Threading;
 
 class Program

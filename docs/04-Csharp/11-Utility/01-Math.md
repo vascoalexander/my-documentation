@@ -8,7 +8,7 @@ tags: []
 ---
 ### Quersumme
 
-```c
+```csharp
 static int Checksum(int num)  
 {  
     int sum = 0;  
@@ -23,7 +23,7 @@ static int Checksum(int num)
 ---
 ### GGT
 
-```c
+```csharp
 static int GetGreatestCommonDivisor(int a, int b)
 {
     if (b == 0)
@@ -34,7 +34,7 @@ static int GetGreatestCommonDivisor(int a, int b)
 ---
 ### Gaußsche Summenformel
 
-```c
+```csharp
 static int GaussianSum(int n)
 {
 	result = (n * (n + 1)) / 2;
@@ -43,7 +43,7 @@ static int GaussianSum(int n)
 ---
 ### Fibonacci Zahlen
 
-```c
+```csharp
 static int Fibonacci(int n)
 {
 	if (n <= 0)
@@ -57,7 +57,7 @@ static int Fibonacci(int n)
 ---
 ### Faktorial-Berechnung
 
-```c
+```csharp
 static int Factorial(int n):
     if (n == 0)
         return 0;
@@ -69,7 +69,7 @@ static int Factorial(int n):
 ---
 ### Primzahl bestimmen
 
-```c
+```csharp
 static bool IsPrime(int number) 
 { 
 	if (number < 2) return false; 

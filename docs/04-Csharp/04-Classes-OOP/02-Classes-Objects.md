@@ -12,7 +12,7 @@ tags:
 ---
 ## Simple Class with Constructor
 
-```c
+```csharp
 public class Person 
 {
     public string Name {get, private set};
@@ -45,7 +45,7 @@ class Program
 ---
 ## Person Class with Full Name Property
 
-```c
+```csharp
 public class Person  
 {  
     public string FirstName { get; set; }  
@@ -59,7 +59,7 @@ public class Person
 ---
 ## Explizite Getter und Setter
 
-```c
+```csharp
 public class Person
 {
     private string name;
@@ -87,7 +87,7 @@ Console.WriteLine(person.GetName()); // Ausgabe: Max
 
 ## Getter & Setter (Lambda Schreibweise)
 
-```c
+```csharp
 public class Person
 {
 	private string _name;
@@ -106,7 +106,7 @@ public class Person
 ## Properties (ausführliche Schreibweise)
 Properties kapseln intern oft ein privates Feld (Backing Field) und bieten einen direkten Zugriff über eine kompakte Syntax.
 
-```c
+```csharp
 public class Person
 {
     private string _name;
@@ -127,7 +127,7 @@ Console.WriteLine(person.Name); // Ausgabe: Max
 ---
 ## Expression-bodied Properties
 
-```c
+```csharp
 public class Papier  
 {  
     private double _laenge;  
@@ -150,7 +150,7 @@ public class Papier
 ## Properties (Auto-Properties)
 Bei Auto-Properties übernimmt der Compiler die Erstellung eines versteckten Backing Fields
 
-```c
+```csharp
 public class Person 
 { 
 	public string Name { get; set; } 
@@ -163,7 +163,7 @@ var person = new Person { Name = "Max" }; Console.WriteLine(person.Name);
 ---
 ## Konstruktor mit Überladung
 
-```c
+```csharp
 // man kann mehrere Konstruktoren mit verschiedenen Parametern
 // definieren (Konstruktor Überladung)
 class Person {
@@ -197,7 +197,7 @@ class Program {
 ---
 ## Konstruktor Aufruf mit this
 
-```c
+```csharp
 class Beispiel
 {
     // Konstruktor ohne Parameter, der den anderen Konstruktor 
@@ -230,7 +230,7 @@ class Beispiel
 ## Method Overriding
 Provides a new version of a method inherited from a parent class. Inherited method must be: virutal, abstract or already overriden.
 
-```c
+```csharp
 class Animal
 {
 	public virtual void Speak()
@@ -250,7 +250,7 @@ class Dog : Animal
 ---
 ## String Representation with ToString
 
-```c
+```csharp
 public override string ToString()
 {
 	return "Hello my name is " + this.name + " and I am " + this.age 
@@ -266,7 +266,7 @@ Console.WriteLine(aPerson);
 
 ## Override Equals
 
-```c
+```csharp
 class Person
 {
 	public string Name { get; set; }

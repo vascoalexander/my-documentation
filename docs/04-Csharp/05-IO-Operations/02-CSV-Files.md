@@ -10,7 +10,7 @@ tags:
 ---
 ## CSV File to Dictionary
 
-```c
+```csharp
 static List<Dictionary<string, string>> ReadCsvFile(string filePath)
 {
 	var records = new List<Dictionary<string, string>>();
@@ -68,7 +68,7 @@ static void Main()
 ---
 ## Append to CSV File
 
-```c
+```csharp
 static void AppendCsvRow(string filePath, Dictionary<string, string> record, List<string> fieldOrder)
 {
 	try
