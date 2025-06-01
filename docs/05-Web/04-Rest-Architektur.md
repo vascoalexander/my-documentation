@@ -1,6 +1,5 @@
 ---
 description: ""
-sidebar_position: 1
 title: "REST-Architektur"
 ---
 Die REST-Architektur (**Representational State Transfer**) ist ein Architekturstil für verteilte Systeme, insbesondere für das Web. Sie wurde von Roy Fielding in seiner Dissertation im Jahr 2000 beschrieben und ist seitdem ein weit verbreiteter Ansatz für die Gestaltung von Netzwerkkommunikation, insbesondere für Web-APIs. 
