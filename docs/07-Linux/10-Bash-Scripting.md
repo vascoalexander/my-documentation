@@ -18,6 +18,17 @@ toc_max_heading_level: 4
 | $$               | Process id of Shell                                  |
 | $*               | All arguments                                        |
 | $@               | All arguments, starting from first                   |
+
+### Shell-Flags
+
+| Option            | Description                        |
+| ----------------- | ---------------------------------- |
+| set -e            | exit script when any command fails |
+| set -x            | run in debug mode                  |
+| set -u            | error when variable is undefined   |
+| set -o pipfail    | fail if pipline fails              |
+| set -euo pipefail | often used for robust scripts      |
+
 ### Brace Expansion
 
 ```bash
@@ -164,6 +175,11 @@ done
 while [ condition ]; do 
 	[COMMANDS] 
 done
+
+while read line
+do
+  echo $line
+done < input.txt
 
 read -p "Geben Sie den Namen Ihres Projekts ein (z.B. my_awesome_project): " PROJECT_NAME
 while [[ -z "$PROJECT_NAME" ]]; do
