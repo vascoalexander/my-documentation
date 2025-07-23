@@ -11,7 +11,7 @@ toc_max_heading_level: 3
 ## Command Quicklist
 
 | Command                                          | Short Description                                                                                         |
-| :----------------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
+|:-------------------------------------------------|:----------------------------------------------------------------------------------------------------------|
 | **git init**                                     | Initialize repository                                                                                     |
 | **git clone [repo_url]**                         | Clone repository                                                                                          |
 | **git status**                                   | View repository status                                                                                    |
@@ -44,15 +44,27 @@ toc_max_heading_level: 3
 | **git stash list**                               | gestashte Änderungen anzeigen                                                                             |
 | **git stash apply**                              | Anwendung des letzten Stashes                                                                             |
 | **git stash pop**                                | Anwendung des letzten Stashes und löschung aus der Liste                                                  |
-| **git stash apply `stash@{n}`**                    | wendet den n-ten Stash der Liste an                                                                       |
+| **git stash apply `stash@{n}`**                  | wendet den n-ten Stash der Liste an                                                                       |
 | **git stash clear**                              | leert die Liste                                                                                           |
-| **git stash branch neue-branch `stash@{n}`**       | Erstellt einen neuen Branch mit den gestashten Änderungen                                                 |
+| **git stash branch neue-branch `stash@{n}`**     | Erstellt einen neuen Branch mit den gestashten Änderungen                                                 |
 
 
 ```bash title="github repository URL's"
 SSH: git@github.com:username/my-repository.git
 HTTPS: https://github.com/username/my-repository.git
 ```
+## Grundlagen: Was ist Git?
+
+**Git** ist ein verteiltes Versionskontrollsystem. Es verfolgt Änderungen im Code, ermöglicht parallele Entwicklung und das Zusammenführen von Arbeit.
+
+**Zentrale Begriffe:**
+
+- **Repository (Repo):** Projektverzeichnis, das von Git verwaltet wird.
+- **Commit:** Ein Snapshot des Codes (inkl. Commit-Nachricht).
+- **Branch:** Eine unabhängige Entwicklungslinie.
+- **Remote:** Externes Repository (z.B. auf GitHub).
+- **Merge:** Zusammenführen von Branches.
+- **Pull Request (PR):** Anfrage zum Merge (GitHub UI).
 
 ## The Staging Area
 
@@ -92,85 +104,155 @@ git checkout -- .        # revert working directory to last commit
 
 ## Common Operations
 
-### Undo local changes 
-(before Staging)
-
-```
-git checkout file-with-unwanted-changes.txt
-```
-
-Checks out to the repository version of the file.
-
-### Undo staged changes 
-(before commiting)
-
-```
-git reset HEAD staged-file-with-unwanted-changes.txt
+### Projekt starten
+```bash
+# Repository klonen
+git clone https://github.com/benutzername/projekt.git
+cd projekt
 ```
 
-Removes the file from the Staging Area. Changes in the file are still there (in the working directory), but now unstaged. To remove the changes checkout the file (see above).
+### Feature-Branch starten
+```bash
+# Aktuelle Branches anzeigen
+git branch -a
 
-### Undo committed changes
-
-```
-git revert HEAD
-```
-
-Reverts the last commit (does not delete the last commit).
-
-### Removing commits
-
-```
-git reset --hard hashOfCommit
+# Neuen Branch erstellen und wechseln
+git checkout -b feature/kurze-beschreibung
 ```
 
-Use the hash or a tag to reset the head to. All commits up to this point will not be shown in the log.
-If a deleted commit has been tagged before it will show up when log is used with the --all argument. To delete it completely the tag has to be removed:
+> **Best Practice – Namenskonventionen:**
+> - `feature/login-form`
+> - `bugfix/falscher-pfad`
+> - `hotfix/deployment-error`
+> - `refactor/form-validation`
 
-```
-git tag -d tag-to-remove
-```
-
-### Amend (add) to commit
-
-```
-git commit --amend -m "Add this commit to the last made commit"
-```
-Adds the new changes to the previous commit.
-
-### Move (and stage) Files
-
-```
-git mv source destination
+### Änderungen tracken & committen
+```bash
+# Status prüfen (Welche Dateien wurden geändert?)
+git status
+# Änderungen zur Staging-Area hinzufügen
+git add DateiA.cs DateiB.cs
+# oder alle Änderungen
+git add .
+# Commit mit Nachricht
+git commit -m "Neue Login-Validierung implementiert"
 ```
 
-Same as mv command, but the result is added to the staging area directly.
+> **Best Practices für Commits:**
+> - Schreibe **prägnante, beschreibende Nachrichten** (im Imperativ).
+> - Feature, Bugfix, Refactoring, Hotfix, Doku
 
-### Add and track a branch
-
+### Branch pushen & PR erstellen
+```bash
+# Lokalen Branch auf Remote hochladen
+git push -u origin feature/kurze-beschreibung
 ```
-git branch --track greet origin/greet
-```
+> Danach GitHub öffnen und einen **Pull Request** gegen den Ziel-Branch erstellen, z.B. `develop`
 
-Creates and tracks the specified branch from origin on the remote repository.
-
-### git pull vs git fetch
-
-git fetch is used to download updates from a remote repository to your local repository without merging or modifying your local branches. 
-This command allows you to review the changes before integrating them into your local branch.
+### Remote-Änderungen holen
+(z.B. `develop` aktualisieren)
 
 ```bash
-git fetch <remote>
+# Ziel-Branch holen und lokal updaten
+git checkout develop
+git pull origin develop
 ```
 
-git pull is a combination of git fetch and git merge. It downloads changes and merges them into the current branch.
+### Feature-Branch aktuell halten
+(optional, z.B. vor Merge)
 
 ```bash
-git pull <remote> <branch>
+git checkout feature/kurze-beschreibung
+git merge develop
+# Bei Konflikten: manuell lösen, dann
+git add .
+git commit
 ```
+
+### Branches löschen
+```bash
+# Lokal löschen
+git branch -d feature/kurze-beschreibung
+# Remote löschen
+git push origin --delete feature/kurze-beschreibung
+```
+
+### Weitere Nützliche Befehle
+```bash
+# Zeige Historie
+git log --oneline --graph --all
+
+# Dateien vergleichen
+git diff            # unstaged Änderungen
+git diff --staged   # staged Änderungen
+
+# Änderungen rückgängig machen
+git restore datei       # unstaged Änderung verwerfen
+git reset HEAD datei    # aus staging entfernen
+```
+
+## Advanced Operations
+
+### Commit & Branch Manipulation
+
+- Letzten Commit behalten, aber z.b. nur die Änderungen hinzufügen.<br />
+`git commit --amend --no-edit`
+- Checks out to the repository version of the file. (before Staging)<br />
+`git checkout file-with-unwanted-changes.txt`
+- Macht den letzten Commit rückgängig, behält die Änderungen _gestaged_.<br />
+`git reset --soft HEAD~1`
+- Macht den letzten Commit rückgängig, behält Änderungen _unstaged_.<br />
+`git reset --mixed HEAD~1`
+- Letzten Commit rückgängig machen und Änderungen verwerfen.<br />
+`git reset --hard HEAD~1`
+- Einzelnen Commit aus anderem Branch übernehmen.<br />
+`git cherry-pick <commit>`
+- Creates and tracks the specified branch from origin on the remote repository.<br />
+`git branch --track greet origin/greet`
+- Neuen Branch erstellen und direkt darauf wechseln.<br />
+`git switch -c <neuer-branch>`
+- Wechselt zum vorherigen Branch zurück (super für schnelles Hin- und Herspringen).<br />
+`git switch -`
+
+### Historie & Diff
+
+- Kompakter, visualisierter Verlauf aller Branches.<br />
+`git log --oneline --graph --all`
+- Zeigt Änderungen (Patches) an einer bestimmten Datei im Verlauf.<br />
+`git log -p <file>`
+- Zeigt Änderungen, die für den nächsten Commit vorgemerkt sind.<br />
+`git diff --staged`
+- Unterschiede zwischen zwei Branches zeigen.<br />
+`git diff <branchA>..<branchB>`
+- Zeigt, wer welche Zeile zuletzt geändert hat.<br />
+`git blame <file>`
+
+### Cleanup & Fehlerkorrektur
+
+- Änderungen vorübergehend speichern (z.B. vor `git pull`).<br />
+`git stash`
+- Gestashte Änderungen wieder anwenden.<br />
+`git stash pop`
+- Nicht getrackte Dateien und Ordner entfernen (vorsichtig!).<br />
+`git clean -fd`
+- Verlauf aller HEAD-Änderungen — nützlich zum Wiederherstellen verlorener Commits.<br />
+`git reflog`
+- Prüft Repository auf verlorene Objekte (nützlich bei korrupten Repos).<br />
+`git fsck --lost-found`
+
+### Tagging
+- Create a tag locally<br />
+`git tag <tagname>`
+- Create annotated tag (recommended for releases)<br />
+`git tag -a <tagname> -m "Your message here"`
+- Push tag to remote<br />
+`git push origin <tagname>`
+- Delete Tag locally<br />
+`git tag -d <tagname>`
+- Delete Tag on remote<br />
+`git push origin --delete <tagname>`
 
 ### Change/Set remote URL
-
 ```bash
 git remote -v                        # verify current remote repository
 git remote set-url origin <new-url>  # set new url of origin
@@ -179,9 +261,8 @@ git fetch origin                     # sync local repository to new remote
 ```
 
 ### Adding empty directories
-
 Create a placeholder file named .gitkeep in the empty directory. 
-The **.gitkeep** file has no special meaning to Git, but it’s a widely-accepted convention that signals the intention to keep the directory in the repository.
+The**.gitkeep** file has no special meaning to Git, but it’s a widely-accepted convention that signals the intention to keep the directory in the repository.
 
 ```bash
 echo "" .gitkeep                                    # create .gitkeep file
@@ -190,7 +271,6 @@ git commit -m "add empty directory with .gitkeep"   # commit the changes
 ```
 
 ### Remove a directory
-
 ```bash
 git rm -r <directory> # removes a dir from git repository recursively
 ```
@@ -289,7 +369,7 @@ git push origin master
 Don’t use rebase …
 
 1. If the branch is public and shared with others. Rewriting publicly shared branches will tend to screw up other members of the team.
-2. When the _exact_ history of the commit branch is important (since rebase rewrites the commit history).
+2. When the_exact_history of the commit branch is important (since rebase rewrites the commit history).
 
 Given the above guidelines, I tend to use rebase for short-lived, local branches and merge for branches in the public repository.
 
