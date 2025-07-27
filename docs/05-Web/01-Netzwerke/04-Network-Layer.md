@@ -281,6 +281,36 @@ Je nach Betriebssystem kann ein Gerät anstelle der MAC-Adresse und des EUI-64-P
 6. Der Client konfiguriert seinen globalen Unicast selbst mit Präfix und seiner EUI-64-Kennung
 7. Der Client führt eine weitere DAD durch.
 
+## Network Address Translation (NAT)
+NAT (Network Address Translation) ist eine Technik, die in Computernetzwerken eingesetzt wird, um IP-Adressen in den IP-Headern von Datenpaketen umzuwandeln. Dies ermöglicht unter anderem die Wiederverwendung interner, nicht im Internet registrierter IP-Adressen und trägt zur Verbesserung der Netzwerksicherheit bei.
+
+**Adressumsetzung:** NAT verändert die Quell- oder Ziel-IP-Adressen von Datenpaketen, während sie durch einen Router oder eine Firewall weitergeleitet werden.
+
+### Varianten von NAT
+
+#### Static NAT
+Hier wird eine feste Zuordnung zwischen einer internen (privaten) IP-Adresse und einer externen (öffentlichen) IP-Adresse eingerichtet.
+
+#### Dynamic NAT
+Bei dynamischem NAT wird für jede ausgehende Verbindung aus einer internen IP-Adresse vorübergehend eine externe IP-Adresse aus einem vordefinierten Pool ausgewählt.
+
+#### PAT (Port Address Translation)
+Eine spezielle Form der dynamischen NAT, bei der mehrere interne IP-Adressen über eine einzige oder wenige öffentliche IP-Adressen verwaltet werden, wobei Unterscheidung über unterschiedliche Portnummern erfolgt.
+
+### Funktionsweise von NAT
+
+#### Ausgehende Kommunikation:
+
+- Ein internes Gerät sendet ein Paket mit seiner privaten IP-Adresse als Quelladresse.
+- Der NAT-Router übersetzt diese Adresse in eine öffentliche IP-Adresse (und ändert ggf. den Quellport bei PAT).
+- Antworten von externen Servern gelangen zurück an den NAT-Router, der die Zuordnung kennt und das Paket an das entsprechende interne Gerät weiterleitet.
+
+#### Eingehende Kommunikation:
+
+- Eingehende Pakete an die öffentliche IP-Adresse werden vom NAT-Router empfangen.
+- Bei statischer NAT kann das Paket sofort an das korrespondierende interne Gerät weitergeleitet werden.
+- Bei PAT wird anhand der Zielportnummer festgestellt, zu welchem internen Gerät das Paket gehört.
+
 ## Routing
 
 ### Statisches Routing

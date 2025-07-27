@@ -108,3 +108,28 @@ Wurde eine MAC-Adresse mithilfe von ARP ermittelt, so wird diese für einen even
 ### Neighbor Discovery Protocol
 
 Das Neighbor Discovery Protocol (NDP) ist ein zentrales Protokoll im **IPv6-Netzwerkstack** und ersetzt Funktionen, die in IPv4 vom ARP, ICMP, IGMP und teilweise DHCP übernommen wurden. Es arbeitet auf der **Netzwerkschicht (OSI-Schicht 3)** und verwendet **ICMPv6-Nachrichten**, um wichtige Aufgaben durchzuführen: die Erkennung von Nachbarknoten (Neighbor Discovery), die Adressauflösung (wie ARP in IPv4), die Erkennung von doppelten Adressen (Duplicate Address Detection) sowie das Erkennen von Routern und Präfixen im lokalen Netzwerk. NDP ermöglicht damit eine weitgehend **autonome Konfiguration** von IPv6-Hosts und spielt eine wichtige Rolle bei der **Autokonfiguration** (SLAAC).
+
+## WLAN
+
+Ein WLAN-Router wird üblicherweise als WLAN-Zugangsgerät für kleine Unternehmen oder Privathaushalte eingesetzt. Der WLAN-Router kündigt seine WLAN-Dienste durch das Senden von Beacons mit seiner SSID (Shared Service Set Identifier) an. Geräte erkennen die SSID drahtlos und versuchen, sich mit ihr zu verbinden und zu authentifizieren, um auf das lokale Netzwerk und das Internet zuzugreifen.
+
+### Autonome Access Points
+
+Dies sind eigenständige Geräte, die über eine Befehlszeilenschnittstelle oder eine grafische Benutzeroberfläche (GUI) konfiguriert werden. Autonome APs sind sinnvoll, wenn in einem Unternehmen nur wenige APs benötigt werden. Ein Heimrouter ist ein Beispiel für einen autonomen AP, da die gesamte AP-Konfiguration auf dem Gerät gespeichert ist. Steigen die Anforderungen an die WLAN-Anbindung, werden weitere APs benötigt. Jeder AP arbeitet unabhängig von anderen APs und erfordert manuelle Konfiguration und Verwaltung. Bei vielen APs wäre dies unübersichtlich.
+
+### Controller-basierte APs
+
+Diese Geräte erfordern keine Erstkonfiguration und werden oft als Lightweight APs (LAPs) bezeichnet. LAPs nutzen das Lightweight Access Point Protocol (LWAPP) zur Kommunikation mit einem WLAN-Controller (WLC). Controller-basierte APs sind nützlich, wenn viele APs im Netzwerk benötigt werden. Werden weitere APs hinzugefügt, wird jeder AP automatisch vom WLC konfiguriert und verwaltet.
+
+### CSMA/CA
+
+WLANs sind Halbduplex-Konfigurationen mit gemeinsam genutzten Medien. Halbduplex bedeutet, dass immer nur ein Client gleichzeitig senden oder empfangen kann. Bei gemeinsam genutzten Medien können alle drahtlosen Clients auf demselben Funkkanal senden und empfangen. Dies führt zu einem Problem, da ein drahtloser Client während des Sendens nicht hören kann und somit eine Kollision nicht erkannt werden kann.
+
+Um dieses Problem zu lösen, verwenden WLANs Carrier Sense Multiple Access mit Kollisionsvermeidung (CSMA/CA) als Methode, um zu bestimmen, wie und wann Daten im Netzwerk gesendet werden. Ein drahtloser Client führt folgende Aktionen aus:
+
+1. Er überwacht den Kanal, um zu prüfen, ob er frei ist, d. h., er erkennt, dass sich aktuell kein anderer Datenverkehr auf dem Kanal befindet. Der Kanal wird auch als Träger bezeichnet.
+2. Er sendet eine Sendeanforderung (RTS) an den AP, um dedizierten Zugriff auf das Netzwerk anzufordern.
+3. Er empfängt eine Sendefreigabe (CTS) vom AP, die den Sendezugriff gewährt.
+4. Empfängt der WLAN-Client keine CTS-Nachricht, wartet er eine zufällige Zeitspanne, bevor er den Prozess neu startet.
+5. Nach dem Empfang der CTS-Nachricht sendet er die Daten.
+6. Alle Übertragungen werden bestätigt. Erhält ein WLAN-Client keine Bestätigung, geht er von einer Kollision aus und startet den Prozess neu.
