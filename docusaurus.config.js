@@ -42,8 +42,7 @@ const config = {
   },
     // ...
   plugins:[
-    require.resolve('docusaurus-lunr-search'),
-    require.resolve('docusaurus-plugin-image-zoom')
+    require.resolve('docusaurus-lunr-search')
   ],
   
   themes: ['@docusaurus/theme-mermaid'],
