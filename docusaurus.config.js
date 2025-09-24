@@ -115,6 +115,12 @@ const config = {
           },
           {
             type: 'docSidebar',
+            sidebarId: 'cobolSidebar',
+            position: 'left',
+            label: 'COBOL',
+          },
+          {
+            type: 'docSidebar',
             sidebarId: 'webSidebar',
             position: 'left',
             label: 'Web',
@@ -165,6 +171,10 @@ const config = {
               {
                 label: 'C#',
                 href: '/docs/category/basics',
+              },
+              {
+                label: 'COBOL',
+                href: '/docs/COBOL/mainframe-basics',
               },
             ],
           },
