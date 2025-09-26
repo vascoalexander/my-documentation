@@ -82,4 +82,4 @@ Get-FileHash -Path C:\DateiName -Algorithm SHA256| Compare-Object -ReferenceObje
 **-ReferenceObject**
 Die Referenz Prüfsumme mit der das zu prüfende Objekt verglichen wird
 
-[resource](https://bitlc-my.sharepoint.com/:f:/g/personal/vasco_alexander_basque_bitlc_onmicrosoft_com/Evx7s1k8cAJLoT1jB6Vr8nMBbyv0DO6fPGjqdeVxdhAsCw?e=W0opBT)
+[resource](https://bitlc-my.sharepoint.com/:f:/g/personal/vasco_alexander_basque_bitlc_onmicrosoft_com/Evx7s1k8cAJLoT1jB6Vr8nMB_dvrWxhH5rPqwX4LQpLYJg?e=kgc1pz)
