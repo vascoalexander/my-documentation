@@ -1,16 +1,22 @@
 ---
 description: ""
-title: "Mainframe Basics"
+title: "Grundlagen"
 ---
-### Major Components
+## Überblick
 
 ![Mainframe](./img/mainframe.png)
+
+## Arbeiten auf dem Mainframe
+
+- **Batch Processing**: "Background Processing" / Scheduled Job Processing
+- **Time Sharing**: "Foreground Processing" / Direct Interactive Processing
 
 ### TSO (= Time Sharing Option)
 
 - **TSO** = interaktive Arbeitsumgebung unter z/OS.
 - Vergleichbar mit einer **Login-Shell** unter Linux, aber speziell für Mainframe-Benutzer konzipiert.
 - Macht den Mainframe **zeitgleich von mehreren Usern nutzbar** (Time Sharing).
+
 #### **Eigenschaften von TSO**
 
 **Multi-User-Fähigkeit**
@@ -25,44 +31,19 @@ title: "Mainframe Basics"
 - Typischerweise nutzt man TSO zusammen mit **ISPF (Interactive System Productivity Facility)**, einer Menü- und Editoroberfläche.
 - Reines TSO ohne ISPF ist sehr textlastig und eher „nackt“.
 
-**Interaktive und Batch-Verwendung**
-- Man kann TSO-Kommandos interaktiv absetzen.
-- Aber auch als **Batch-Job** laufen lassen (z. B. über `IKJEFT01`, das TSO Terminal Monitor Program).
 #### ISPF (= Interactive System Productivity Facility)
 - textbasierte Oberfläche auf IBM Mainframes
 - Navigation, Dateiverwaltung, Editieren von Datasets, Job Submission (JCL)
+
 #### ISHELL
 - Oberfläche für die Unix System Services (USS)
 - Erlaubt Zugriff auf das Unix Filesystem (HFS/zFS)
 - startet Shells (sh, bash, ksh)
 - Nutzung von Mainframe Resourcen im Unix Stil
-## System Security
 
-### Pervasive Encryption
-Durchgängige Verschlüsselung: egal ob Daten "at Rest" sind oder "in Flight" (= im Netzwerk)
+## Daten Organisation
 
-**Dataset Encryption**
-- Jedes Dataset kann verschlüsselt werden (z. B. Sequential, PDS/PDSE, VSAM).
-- z/OS verwaltet Schlüssel über den **ICSF (Integrated Cryptographic Service Facility)** und **RACF (Resource Access Control Facility)**.
-
-**Filesystem Encryption**
-- ZFS (z/OS File System) und HFS können verschlüsselt betrieben werden.
-
-**Transport Encryption**
-- TCP/IP-Kommunikation kann per AT-TLS automatisch verschlüsselt werden.
-
-**Hardware-Unterstützung**
-- Die IBM Z Prozessoren (ab z14) haben integrierte Kryptoprozessoren.
-- Dadurch ist Verschlüsselung **leistungsfähig und kostengünstig**, weil sie direkt in der Hardware läuft.
-### SAF (= System Authorization Facility)
-SAF is a built-in feature of the operating system and provides tools for managing the system security functions. Users don't interface directly with SAF. Instead, z/OS components, such as IBM CICS®, which stands for Customer Information Control System or Time Sharing Option (TSO), can be enabled to communicate with SAF through a security manager component. These security managers, such as RACF (Resource Access Control Facility), contain the security rules used by the z/OS components.
-
-### RACF
-RACF stores IDs and passwords of users allowed to access the system. It also stores the names of objects, such as data sets, files, programs and so on, along with information about which users are allowed to access the protected objects for either read only or read/write.
-
-An ID defined by RACF can be assigned to a person or process.  If a z/OS batch job or started task requests access to a protected resource, RACF will _allow_ or _deny_ access based upon the security rules defined by the RACF.  Access to protected objects frequently includes RACF multi-factor authentication, RACF digital certificates, and long complex RACF password strings.
-
-## Datasets
+### Datasets
 - vergleichbar mit Ordnern
 - enthält Member: jede Zeile in einem Member ist ein Record
 - hierarchische Namensgebung: userid.project.data
@@ -76,8 +57,6 @@ An ID defined by RACF can be assigned to a person or process.  If a z/OS batch 
     - Direkter Zugriff ist in der Regel nicht vorgesehen.
 
 - **Vergleich**: Entspricht am ehesten einer „einfachen Datei“ unter Linux/Windows (z. B. eine Textdatei).
-
----
 
 ### Partitioned Dataset (PDS / PDSE – Partitioned Dataset Extended)
 
@@ -147,7 +126,7 @@ SPACE=(CYL,(2,1))
 
 ---
 
-# ⚡ Praxistipps
+### ⚡ Praxistipps
 
 - **Für kleine Dateien** (z. B. Testausgabe): lieber `TRK` → spart Platz.
 - **Für größere Dateien** (z. B. Batch-Reports): `CYL` → weniger Verwaltungsoverhead.
@@ -157,3 +136,30 @@ SPACE=(CYL,(2,1))
 
 - **SPACE = „Wie viel Festplatte reserviere ich?“**
 - **DCB/BLKSIZE = „Wie groß sind die Pakete, in denen ich speichere?“**
+
+## Mainframe Security
+
+### Pervasive Encryption
+Durchgängige Verschlüsselung: egal ob Daten "at Rest" sind oder "in Flight" (= im Netzwerk)
+
+**Dataset Encryption**
+- Jedes Dataset kann verschlüsselt werden (z. B. Sequential, PDS/PDSE, VSAM).
+- z/OS verwaltet Schlüssel über den **ICSF (Integrated Cryptographic Service Facility)** und **RACF (Resource Access Control Facility)**.
+
+**Filesystem Encryption**
+- ZFS (z/OS File System) und HFS können verschlüsselt betrieben werden.
+
+**Transport Encryption**
+- TCP/IP-Kommunikation kann per AT-TLS automatisch verschlüsselt werden.
+
+**Hardware-Unterstützung**
+- Die IBM Z Prozessoren (ab z14) haben integrierte Kryptoprozessoren.
+- Dadurch ist Verschlüsselung **leistungsfähig und kostengünstig**, weil sie direkt in der Hardware läuft.
+
+### SAF (= System Authorization Facility)
+SAF is a built-in feature of the operating system and provides tools for managing the system security functions. Users don't interface directly with SAF. Instead, z/OS components, such as IBM CICS®, which stands for Customer Information Control System or Time Sharing Option (TSO), can be enabled to communicate with SAF through a security manager component. These security managers, such as RACF (Resource Access Control Facility), contain the security rules used by the z/OS components.
+
+### RACF
+RACF stores IDs and passwords of users allowed to access the system. It also stores the names of objects, such as data sets, files, programs and so on, along with information about which users are allowed to access the protected objects for either read only or read/write.
+
+An ID defined by RACF can be assigned to a person or process.  If a z/OS batch job or started task requests access to a protected resource, RACF will _allow_ or _deny_ access based upon the security rules defined by the RACF.  Access to protected objects frequently includes RACF multi-factor authentication, RACF digital certificates, and long complex RACF password strings.

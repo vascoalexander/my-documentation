@@ -174,7 +174,7 @@ const config = {
               },
               {
                 label: 'COBOL',
-                href: '/docs/COBOL/mainframe-basics',
+                href: '/docs/COBOL/Grundlagen',
               },
             ],
           },

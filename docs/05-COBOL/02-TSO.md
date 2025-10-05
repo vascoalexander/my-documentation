@@ -18,6 +18,3 @@
 | `SUBMIT`             | Reicht ein JCL-Job ein.                                | `SUBMIT 'MEINE.JCL(LIB)'`                                                 |
 | `STATUS`             | Zeigt den Status der aktuellen TSO-Session.            | `STATUS`                                                                  |
 | `LOGOFF`             | Beendet die TSO-Session.                               | `LOGOFF`                                                                  |
-
-### ISPF
-wip
